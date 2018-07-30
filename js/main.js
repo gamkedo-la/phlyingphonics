@@ -38,6 +38,7 @@
     canvasBottomEdge = canvas.height = window.innerHeight;
     canvasTopEdge = 0;
     canvasLeftEdge = 0;
+
 //gathers mouse coordinates for debugging potential debugging, used in canvasContext.fillText in drawEverything part of gameLoop
     canvas.onmousemove = (evt) => {
        mouseX = evt.pageX;
@@ -59,7 +60,7 @@
     drawEverything = () => {
         canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
         canvasContext.fillText("loading", canvas.width/2,canvas.height/2);
-        canvasContext.drawImage(tablePic, canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
+        canvasContext.drawImage(Images.getImage("table"), canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
         canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
         drawFlies();
     }
@@ -78,7 +79,7 @@
     }
 
 //needs to be called before launch of game so the visual part of the game loads all at once instead of images popping up one at a time
-    loadImages();
+    Images.loadImages();
 
 
 
