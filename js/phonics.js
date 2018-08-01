@@ -16,7 +16,25 @@ let initializeArrayOfPhonics = () => {
   }
 }
 
+let arrayOfFliesLetters = [];
+let arrayOfPossibleQuestions = [];
+let arrayOfFliesPhonics = [];
 //randomizes target phonic and sets audio tag source to that phonic
-let setTargetPhonic = () => {
-  phonic.src = arrayOfPossiblePhonics[randomPhonicIndex()];
+let initializeArraysOfQuestionsAndAnswers = () => {
+
+  for (let i = 0; i<arrayOfFlies.length; i++) {
+    arrayOfFliesLetters.push(arrayOfFlies[i].myLetter);
+  }
+
+  for (let i = 0; i<arrayOfFliesLetters.length; i++) {
+    arrayOfPossibleQuestions.push("audio/phonics/" + arrayOfFliesLetters[i] + ".mp3");
+  }
+  
+  for (let i = 0; i<arrayOfFlies.length; i++) {
+    arrayOfFliesPhonics.push(arrayOfFlies[i].myPhonic);
+  }
+}
+
+let setPhonicAudioTagSource = () => {
+  phonic.src = arrayOfPossibleQuestions[getRandomInt(0,arrayOfPossibleQuestions.length)];
 }

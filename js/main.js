@@ -71,8 +71,15 @@
 
     launchGame = () => {
       initializeArrayOfFlies();
+      //console.log(arrayOfFlies);
       initializeArrayOfPhonics();
-      setTargetPhonic();
+      //console.log(arrayOfPhonics);
+      initializeArraysOfQuestionsAndAnswers();
+      console.log(arrayOfPossibleQuestions);
+      setPhonicAudioTagSource();
+      //console.log(arrayOfFliesLetters, arrayOfPossibleQuestions, arrayOfFliesPhonics);
+
+      //setTargetPhonic();
       phonic.play();
       setInterval(gameLoop, 1000/30);
     }

@@ -14,7 +14,7 @@ let subtractLoadedImageAndLaunchGameIfAllAreImagesAreLoaded;
 
 loadImages = () => {
   imageList = [ //list of images to load with variable names and file paths
-    {variableName: tablePic, fileName: "table.jpg"},
+    {variableName: tablePic, fileName: "table.png"},
     {variableName: fly, fileName: "fly.png"},
     {variableName: greensplat, fileName: "greensplat.png"}
   ]

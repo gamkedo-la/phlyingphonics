@@ -69,7 +69,7 @@ handleFlyWallCollisions = () => {
 }
 
 function randomLetter() {
-  var chars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+  var chars = "abcdefghiklmnopqrstuvwxyz";
   var letter = chars.charAt( Math.floor(Math.random() * chars.length) );
   return letter;
 }
@@ -88,6 +88,7 @@ function flyClass() {
     this.leftEdge = this.x;
     this.myImage = fly;
     this.myLetter = randomLetter();
+    this.myPhonic = "file:///C:/Users/stebs/Desktop/gamkedo/phlyingphonics/audio/phonics/" + this.myLetter + ".mp3";
     this.draw = () => {
       canvasContext.drawImage(this.myImage, this.x, this.y, this.width,this.height);
       canvasContext.font = "30px Arial";
