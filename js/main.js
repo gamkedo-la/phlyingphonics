@@ -71,6 +71,7 @@
     }
 
     launchGame = () => {
+      //Images.loadImages();
       initializeArrayOfFlies();
       //console.log(arrayOfFlies);
       initializeArrayOfPhonics();
@@ -86,7 +87,7 @@
     }
 
 //needs to be called before launch of game so the visual part of the game loads all at once instead of images popping up one at a time
-    loadImages();
+  Images.loadImages();
 
 
 
