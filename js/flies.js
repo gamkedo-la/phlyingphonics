@@ -86,7 +86,7 @@ function flyClass() {
     this.rightEdge = this.x+this.width;
     this.bottomEdge = this.y+this.height;
     this.leftEdge = this.x;
-    this.myImage = fly;
+    this.myImage = Images.getImage("fly")
     this.myLetter = randomLetter();
     this.myPhonic = "file:///C:/Users/stebs/Desktop/gamkedo/phlyingphonics/audio/phonics/" + this.myLetter + ".mp3";
     this.draw = () => {

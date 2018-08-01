@@ -26,6 +26,23 @@
   }
 
   let launchGame;
+  launchGame = () => {
+
+    //Images.loadImages();
+    initializeArrayOfFlies();
+    console.log(arrayOfFlies[0].myImage);
+    //console.log(arrayOfFlies);
+    initializeArrayOfPhonics();
+    //console.log(arrayOfPhonics);
+    initializeArraysOfQuestionsAndAnswers();
+    console.log(arrayOfPossibleQuestions);
+    setPhonicAudioTagSource();
+    //console.log(arrayOfFliesLetters, arrayOfPossibleQuestions, arrayOfFliesPhonics);
+
+    //setTargetPhonic();
+    phonic.play();
+    setInterval(gameLoop, 1000/30);
+  }
 
 
 
@@ -38,6 +55,7 @@
     canvasBottomEdge = canvas.height = window.innerHeight;
     canvasTopEdge = 0;
     canvasLeftEdge = 0;
+
 
 //gathers mouse coordinates for debugging potential debugging, used in canvasContext.fillText in drawEverything part of gameLoop
     canvas.onmousemove = (evt) => {
@@ -69,25 +87,12 @@
       updateEverything();
       drawEverything();
     }
+    Images.loadImages();
 
-    launchGame = () => {
-      //Images.loadImages();
-      initializeArrayOfFlies();
-      //console.log(arrayOfFlies);
-      initializeArrayOfPhonics();
-      //console.log(arrayOfPhonics);
-      initializeArraysOfQuestionsAndAnswers();
-      console.log(arrayOfPossibleQuestions);
-      setPhonicAudioTagSource();
-      //console.log(arrayOfFliesLetters, arrayOfPossibleQuestions, arrayOfFliesPhonics);
 
-      //setTargetPhonic();
-      phonic.play();
-      setInterval(gameLoop, 1000/30);
-    }
 
 //needs to be called before launch of game so the visual part of the game loads all at once instead of images popping up one at a time
-  Images.loadImages();
+
 
 
 
