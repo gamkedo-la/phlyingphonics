@@ -68,9 +68,12 @@ handleFlyWallCollisions = () => {
   }
 }
 
+let arrayOfPossibleLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
 function randomLetter() {
-  var chars = "abcdefghiklmnopqrstuvwxyz";
-  var letter = chars.charAt( Math.floor(Math.random() * chars.length) );
+  let randomLetterIndex = getRandomInt(0,arrayOfPossibleLetters.length-1);
+  var letter = arrayOfPossibleLetters[randomLetterIndex];
+  arrayOfPossibleLetters.splice(randomLetterIndex,1);
   return letter;
 }
 

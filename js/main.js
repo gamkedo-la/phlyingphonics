@@ -30,12 +30,12 @@
 
     //Images.loadImages();
     initializeArrayOfFlies();
-    console.log(arrayOfFlies[0].myImage);
+    //console.log(arrayOfFlies[0].myImage);
     //console.log(arrayOfFlies);
     initializeArrayOfPhonics();
     //console.log(arrayOfPhonics);
-    initializeArraysOfQuestionsAndAnswers();
-    console.log(arrayOfPossibleQuestions);
+    initializeArrayOfPossibleQuestions();
+    //console.log(arrayOfPossibleQuestions);
     setPhonicAudioTagSource();
     //console.log(arrayOfFliesLetters, arrayOfPossibleQuestions, arrayOfFliesPhonics);
 
