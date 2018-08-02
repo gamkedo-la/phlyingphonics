@@ -13,7 +13,11 @@ function handleCanvasClick(evt) {
       arrayOfFlies[i].xSpeed = 0; //stops movement
       arrayOfFlies[i].ySpeed = 0;
       splat.play(); //plays splat audio tag
-
+      //console.log(i,arrayOfPossibleQuestions);
+      arrayOfPossibleQuestions.splice(i,1);
+      console.log(arrayOfPossibleQuestions);
+      setPhonicAudioTagSource();
+      phonic.play();
     }
   }
 //arrayOfFlies[i].myPhonic === phonic.src
