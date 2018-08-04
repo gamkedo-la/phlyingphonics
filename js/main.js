@@ -59,6 +59,13 @@
     canvasLeftEdge = 0;
     backgroundMusic.volume = 0.3;
     console.log(canvas.width,canvas.height);
+    let arrayOfBackgroundStrings = ["table", "tableWithFilter", "bowlOfFruit"];
+    let chosenBackground;
+    let chooseBackground = () => {
+      chosenBackground = arrayOfBackgroundStrings[getRandomInt(0,arrayOfBackgroundStrings.length-1)];
+      console.log(chosenBackground);
+    }
+    chooseBackground();
 
 
 //gathers mouse coordinates for debugging potential debugging, used in canvasContext.fillText in drawEverything part of gameLoop
@@ -85,7 +92,7 @@
     drawEverything = () => {
         canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
         canvasContext.fillText("loading", canvas.width/2,canvas.height/2);
-        canvasContext.drawImage(Images.getImage("tableWithFilter"), canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
+        canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
         canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
         drawSwattedFlies();
         drawFlies();
