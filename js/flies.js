@@ -79,10 +79,24 @@ updateFlyProperties = () => {
 handleFlyWallCollisions = () => {
   for (let i=0;i<arrayOfFlies.length;i++) {
     if (arrayOfFlies[i].topEdge<=canvasTopEdge || arrayOfFlies[i].bottomEdge>=canvasBottomEdge) {
-      arrayOfFlies[i].ySpeed*=-1;
+
+      if (arrayOfFlies[i].currentYDirection = "up") { //push back into play from top or bottom of canvas to avoid infinite delta situations
+        arrayOfFlies[i].y += 5;
+      }
+      if (arrayOfFlies[i].currentYDirection = "down") {
+        arrayOfFlies[i].y -= 5;
+      }
+      arrayOfFlies[i].ySpeed*=-1;//change directions
     }
     if (arrayOfFlies[i].rightEdge>=canvasRightEdge || arrayOfFlies[i].leftEdge<=canvasLeftEdge) {
-      arrayOfFlies[i].xSpeed*=-1;
+
+      if (arrayOfFlies[i].currentXDirection = "right") { //push back into play from right or left of canvas to avoid infinite delta situations
+        arrayOfFlies[i].x -= 5;
+      }
+      if (arrayOfFlies[i].currentXDirection = "left") {
+        arrayOfFlies[i].x += 5;
+      }
+      arrayOfFlies[i].xSpeed*=-1;//change directions
     }
   }
 }

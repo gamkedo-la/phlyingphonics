@@ -67,11 +67,13 @@
 
 //part of gameLoop
     updateEverything = () => {
-      moveFlies();
-      updateFlyProperties();
+
       handleFlyWallCollisions();
       handleFlyToFlyCollisions();
       handleFliesOffScreen();
+      
+      moveFlies();
+      updateFlyProperties();
     }
 
 //part of game loop, maybe have the splats disappear over with a setTimeout so the canvas doesn't get too cluttered when the game has lots of flies... or maybe
