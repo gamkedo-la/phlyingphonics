@@ -81,6 +81,7 @@
         canvasContext.fillText("loading", canvas.width/2,canvas.height/2);
         canvasContext.drawImage(Images.getImage("table"), canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
         canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
+        drawSwattedFlies();
         drawFlies();
     }
 

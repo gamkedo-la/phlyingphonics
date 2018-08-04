@@ -12,9 +12,13 @@ function handleCanvasClick(evt) {
       arrayOfFlies[i].myImage = Images.getImage("greensplat"); //changing source image
       arrayOfFlies[i].xSpeed = 0; //stops movement
       arrayOfFlies[i].ySpeed = 0;
+      arrayOfSwattedFlies.push(arrayOfFlies[i]);
+      console.log(arrayOfSwattedFlies);
+      arrayOfFlies.splice(i,1);
+
       phonic.pause();
       splat.play(); //plays splat audio tag
-      console.log(arrayOfPossibleQuestions[i],arrayOfFlies[i].myLetter);
+      //console.log(arrayOfPossibleQuestions[i],arrayOfFlies[i].myLetter);
       for (let i = 0; i<arrayOfPossibleQuestions.length; i++) {
         if (arrayOfPossibleQuestions[i] === phonic.src)
         arrayOfPossibleQuestions.splice(i,1);

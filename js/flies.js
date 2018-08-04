@@ -1,6 +1,7 @@
 let numberOfFlies; //flies to be used in game, should eventually be coordinated with student choices or training mode instead of just random
 let initializeArrayOfFlies;
 let arrayOfFlies = []; //flies to be used in game
+let arrayOfSwattedFlies = [];
 let drawFlies;
 let moveFlies;
 let handleFlyWallCollisions;
@@ -20,6 +21,12 @@ let randomDirection = () => { //helps randomize the gameplay so students can't r
 
 }
 
+drawSwattedFlies = () => {
+  for (let i = 0; i<arrayOfSwattedFlies.length; i++) {
+    arrayOfSwattedFlies[i].draw();
+  }
+}
+
 drawFlies = () => {
   for (let flyDrawingIteration = 0; flyDrawingIteration<numberOfFlies; flyDrawingIteration++) {
   //  canvasContext.drawImage(fly, arrayOfFlies[flyDrawingIteration].x, arrayOfFlies[flyDrawingIteration].y,
@@ -27,6 +34,8 @@ drawFlies = () => {
   arrayOfFlies[flyDrawingIteration].draw();
   }
 }
+
+
 
 //sets which flies are to be used at the start of the game, should probably be updated beyond just a random number between 1 and 26, should be based on student customization
 //or 'training mode'
