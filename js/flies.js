@@ -54,6 +54,16 @@ updateFlyProperties = () => {
     arrayOfFlies[i].rightEdge=arrayOfFlies[i].x+arrayOfFlies[i].width;
     arrayOfFlies[i].bottomEdge=arrayOfFlies[i].y+arrayOfFlies[i].height;
     arrayOfFlies[i].leftEdge=arrayOfFlies[i].x;
+    if (arrayOfFlies[i].xSpeed<0) {
+      arrayOfFlies[i].currentXDirection = "left";
+    } else{
+      arrayOfFlies[i].currentXDirection = "right";
+    }
+    if (arrayOfFlies[i].ySpeed<0) {
+      arrayOfFlies[i].currentYDirection = "up";
+    } else {
+      arrayOfFlies[i].currentYDirection = "down";
+    };
   }
 }
 
@@ -65,6 +75,17 @@ handleFlyWallCollisions = () => {
     if (arrayOfFlies[i].rightEdge>=canvasRightEdge || arrayOfFlies[i].leftEdge<=canvasLeftEdge) {
       arrayOfFlies[i].xSpeed*=-1;
     }
+  }
+}
+
+handleFliesOffScreen = () => {
+  for (let i=0;i<arrayOfFlies.length;i++) {
+    if (arrayOfFlies[i].topEdge<canvasTopEdge - 25 || arrayOfFlies.bottomEdge>canvasBottomEdge + 25 || arrayOfFlies.leftEdge<canvasLeftEdge - 25 ||
+        arrayOfFlies[i].rightEdge>canvasRightEdge + 25) {
+          arrayOfFlies[i].x = getRandomInt(canvasLeftEdge, canvasRightEdge - arrayOfFlies[i].width);
+          arrayOfFlies[i].y = getRandomInt(canvasTopEdge, canvasBottomEdge - arrayOfFlies[i].height);
+          console.log(arrayOfFlies[i].x, arrayOfFlies[i].y);
+        }
   }
 }
 
@@ -85,6 +106,8 @@ function flyClass() {
     this.y = getRandomInt(canvasTopEdge, canvasBottomEdge - this.height);
     this.xSpeed = 5*randomDirection();//randomizing gameplay so students have to pay attention and not rely on patterns too much
     this.ySpeed = 5*randomDirection();//randomizing gameplay so students have to pay attention and not rely on patterns too much
+    this.currentXDirection = checkCurrentFlyDirectionX();
+    this.currentYDirection = checkCurrentFlyDirectionY();
     this.topEdge = this.y;
     this.rightEdge = this.x+this.width;
     this.bottomEdge = this.y+this.height;
@@ -99,6 +122,23 @@ function flyClass() {
     }
 
 }
+
+checkCurrentFlyDirectionX = () => {
+  if (this.xSpeed<0) {
+    return "left"
+  } else {
+    return "right"
+  };
+}
+
+checkCurrentFlyDirectionY = () => {
+  if (this.ySpeed<0) {
+    return "up"
+  } else {
+    return "down"
+  };
+}
+
 
 handleFlyToFlyCollisions = () => {
   for (let progressiveFlyAnchor = 0; progressiveFlyAnchor<arrayOfFlies.length; progressiveFlyAnchor++) {
@@ -117,7 +157,15 @@ handleFlyToFlyCollisions = () => {
 
               arrayOfFlies[progressiveFlyAnchor].ySpeed*=-1;
               arrayOfFlies[remainingFliesInArray].ySpeed*=-1;
+              if (arrayOfFlies[progressiveFlyAnchor].currentYDirection = "up") {
+                arrayOfFlies[progressiveFlyAnchor].y += -5;
+                arrayOfFlies[remainingFliesInArray].y += 5;
+              } else {
+                arrayOfFlies[progressiveFlyAnchor].y += 5;
+                arrayOFlies[remainingFliesInArray].y += -5;
+              }
             }
+            //left/right collision
      if ( (arrayOfFlies[progressiveFlyAnchor].rightEdge>=arrayOfFlies[remainingFliesInArray].leftEdge &&
           arrayOfFlies[progressiveFlyAnchor].topEdge<=arrayOfFlies[remainingFliesInArray].bottomEdge &&
           arrayOfFlies[progressiveFlyAnchor].bottomEdge>=arrayOfFlies[remainingFliesInArray].topEdge &&
@@ -130,6 +178,13 @@ handleFlyToFlyCollisions = () => {
 
               arrayOfFlies[progressiveFlyAnchor].xSpeed*=-1;
               arrayOfFlies[remainingFliesInArray].xSpeed*=-1;
+              if (arrayOfFlies[progressiveFlyAnchor].currentXDirection = "right") {
+                arrayOfFlies[progressiveFlyAnchor].x += -5;
+                arrayOfFlies[remainingFliesInArray].x += 5;
+              } else {
+                arrayOfFlies[progressiveFlyAnchor].x += 5;
+                arrayOFlies[remainingFliesInArray].x += -5;
+              }
         }//end of left/right conditional
       }//end of inner part of nested for loop
     }//end of outer part of nested for loop

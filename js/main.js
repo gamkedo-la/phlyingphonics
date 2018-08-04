@@ -71,6 +71,7 @@
       updateFlyProperties();
       handleFlyWallCollisions();
       handleFlyToFlyCollisions();
+      handleFliesOffScreen();
     }
 
 //part of game loop, maybe have the splats disappear over with a setTimeout so the canvas doesn't get too cluttered when the game has lots of flies... or maybe
