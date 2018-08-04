@@ -80,8 +80,8 @@ handleFlyWallCollisions = () => {
 
 handleFliesOffScreen = () => {
   for (let i=0;i<arrayOfFlies.length;i++) {
-    if (arrayOfFlies[i].topEdge<canvasTopEdge - 25 || arrayOfFlies.bottomEdge>canvasBottomEdge + 25 || arrayOfFlies.leftEdge<canvasLeftEdge - 25 ||
-        arrayOfFlies[i].rightEdge>canvasRightEdge + 25) {
+    if (arrayOfFlies[i].topEdge<canvasTopEdge - 50 || arrayOfFlies[i].bottomEdge>canvasBottomEdge + 50 || arrayOfFlies[i].leftEdge<canvasLeftEdge - 50 ||
+        arrayOfFlies[i].rightEdge>canvasRightEdge + 50) {
           arrayOfFlies[i].x = getRandomInt(canvasLeftEdge, canvasRightEdge - arrayOfFlies[i].width);
           arrayOfFlies[i].y = getRandomInt(canvasTopEdge, canvasBottomEdge - arrayOfFlies[i].height);
           console.log(arrayOfFlies[i].x, arrayOfFlies[i].y);
