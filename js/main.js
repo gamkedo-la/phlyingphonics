@@ -58,6 +58,7 @@
     canvasTopEdge = 0;
     canvasLeftEdge = 0;
     backgroundMusic.volume = 0.3;
+    console.log(canvas.width,canvas.height);
 
 
 //gathers mouse coordinates for debugging potential debugging, used in canvasContext.fillText in drawEverything part of gameLoop
@@ -84,7 +85,7 @@
     drawEverything = () => {
         canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
         canvasContext.fillText("loading", canvas.width/2,canvas.height/2);
-        canvasContext.drawImage(Images.getImage("table"), canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
+        canvasContext.drawImage(Images.getImage("tableWithFilter"), canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
         canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
         drawSwattedFlies();
         drawFlies();

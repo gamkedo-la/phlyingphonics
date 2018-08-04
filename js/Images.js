@@ -70,6 +70,8 @@ var fileNames = [
     "images/table.png",
     "images/fly.png",
     "images/greensplat.png",
+    "images/tablePhoto.png",
+    "images/tableWithFilter.png"
 
 ];
 
