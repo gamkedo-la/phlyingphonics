@@ -19,6 +19,8 @@
 
   let gameLoop;
 
+  let backgroundMusic = document.getElementById("backgroundMusic");
+
 //randomizer function
   let getRandomInt;
   getRandomInt = (min, max) => {
@@ -55,6 +57,7 @@
     canvasBottomEdge = canvas.height = window.innerHeight;
     canvasTopEdge = 0;
     canvasLeftEdge = 0;
+    backgroundMusic.volume = 0.3;
 
 
 //gathers mouse coordinates for debugging potential debugging, used in canvasContext.fillText in drawEverything part of gameLoop
@@ -71,7 +74,7 @@
       handleFlyWallCollisions();
       handleFlyToFlyCollisions();
       handleFliesOffScreen();
-      
+
       moveFlies();
       updateFlyProperties();
     }
