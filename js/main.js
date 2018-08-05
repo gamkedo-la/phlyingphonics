@@ -18,7 +18,7 @@
   let drawEverything;
   let drawA;
   drawA = () => {
-    canvasContext.drawImage(Images.getImage("A"), testFly.x + testFly.width/3,testFly.y + testFly.height/3, 75,75);
+    canvasContext.drawImage(Images.getImage("A"), testFly.x + 80,testFly.y + 60, 50,50);
   }
 
   let gameLoop;

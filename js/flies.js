@@ -140,12 +140,13 @@ function flyClass() {
     this.rightEdge = this.x+this.width;
     this.bottomEdge = this.y+this.height;
     this.leftEdge = this.x;
-    this.myImage = Images.getImage("fly")
+    this.myImage = Images.getImage("fly_version_1")
     this.myLetter = randomLetter();
     this.myPhonic = "file:///C:/Users/stebs/Desktop/gamkedo/phlyingphonics/audio/phonics/" + this.myLetter + ".mp3";
     this.draw = () => {
       canvasContext.drawImage(this.myImage, this.x, this.y, this.width,this.height);
       canvasContext.font = "30px Arial";
+      canvasContext.fillStyle = "orange";
       canvasContext.fillText(this.myLetter, this.x + this.width/2,this.y + this.height/2);
     }
 
