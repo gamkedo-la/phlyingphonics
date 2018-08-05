@@ -2,9 +2,12 @@ let numberOfFlies; //flies to be used in game, should eventually be coordinated 
 let initializeArrayOfFlies;
 let arrayOfFlies = []; //flies to be used in game
 let arrayOfSwattedFlies = [];
+let testFly;
 let drawFlies;
 let moveFlies;
 let handleFlyWallCollisions;
+
+
 
 let flySpeedX = 5;
 let flySpeedY = 5;
@@ -20,6 +23,8 @@ let randomDirection = () => { //helps randomize the gameplay so students can't r
   }
 
 }
+
+
 
 drawSwattedFlies = () => {
   for (let i = 0; i<arrayOfSwattedFlies.length; i++) {
@@ -107,7 +112,7 @@ handleFliesOffScreen = () => {
         arrayOfFlies[i].rightEdge>canvasRightEdge + 50) {
           arrayOfFlies[i].x = getRandomInt(canvasLeftEdge, canvasRightEdge - arrayOfFlies[i].width);
           arrayOfFlies[i].y = getRandomInt(canvasTopEdge, canvasBottomEdge - arrayOfFlies[i].height);
-          console.log(arrayOfFlies[i].x, arrayOfFlies[i].y);
+          //console.log(arrayOfFlies[i].x, arrayOfFlies[i].y);
         }
   }
 }

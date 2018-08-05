@@ -72,7 +72,8 @@ var fileNames = [
     "images/greensplat.png",
     "images/tablePhoto.png",
     "images/tableWithFilter.png",
-    "images/bowlOfFruit.png"
+    "images/bowlOfFruit.png",
+    "images/capitalLetters/A.png"
 
 ];
 
