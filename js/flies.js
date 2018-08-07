@@ -117,12 +117,20 @@ handleFliesOffScreen = () => {
   }
 }
 
-let arrayOfPossibleLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+let arrayOfLowerCaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+let arrayOfCapitalLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-function randomLetter() {
+function randomLowerCaseLetter() {
   let randomLetterIndex = getRandomInt(0,arrayOfPossibleLetters.length-1);
-  var letter = arrayOfPossibleLetters[randomLetterIndex];
+  var letter = arrayOfLowerCaseLetters[randomLetterIndex];
   arrayOfPossibleLetters.splice(randomLetterIndex,1);
+  return letter;
+}
+
+function randomCapitalLetter() {
+  let randomLetterIndex = getRandomInt(0,arrayOfCapitalLetters.length-1);
+  var letter = arrayOfCapitalLetters[randomLetterIndex];
+  arrayOfCapitalLetters.splice(randomLetterIndex,1);
   return letter;
 }
 
@@ -141,13 +149,14 @@ function flyClass() {
     this.bottomEdge = this.y+this.height;
     this.leftEdge = this.x;
     this.myImage = Images.getImage("fly_version_1")
-    this.myLetter = randomLetter();
+    this.myLetter = randomCapitalLetter();//randomLowerCaseLetter();
     this.myPhonic = "file:///C:/Users/stebs/Desktop/gamkedo/phlyingphonics/audio/phonics/" + this.myLetter + ".mp3";
     this.draw = () => {
       canvasContext.drawImage(this.myImage, this.x, this.y, this.width,this.height);
-      canvasContext.font = "30px Arial";
-      canvasContext.fillStyle = "orange";
-      canvasContext.fillText(this.myLetter, this.x + this.width/2,this.y + this.height/2);
+      canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80,this.y + 60, 50,50);
+      //canvasContext.font = "30px Arial";
+      //canvasContext.fillStyle = "orange";
+      //canvasContext.fillText(this.myLetter, this.x + this.width/2,this.y + this.height/2);
     }
 
 }

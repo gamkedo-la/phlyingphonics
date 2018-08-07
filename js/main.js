@@ -36,8 +36,8 @@
 
     //Images.loadImages();
     initializeArrayOfFlies();
-    testFly = new flyClass();
-    console.log(testFly);
+    //testFly = new flyClass();
+    console.log(randomCapitalLetter());
     //console.log(arrayOfFlies[0].myImage);
     //console.log(arrayOfFlies);
     initializeArrayOfPhonics();
@@ -102,8 +102,8 @@
         canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
         canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
         //drawTestFlyWithCapitalLetter();
-        testFly.draw();
-        drawA();
+        //testFly.draw();
+      //  drawA();
         drawSwattedFlies();
         drawFlies();
     }
