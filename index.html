@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		canvas {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
 </head>
 
 <body>
 
+<<<<<<< HEAD
   <canvas id="gameCanvas"></canvas>
 	<audio id="backgroundMusic" src="audio/flightOfTheABCs.mp3" loop></audio>
 	<audio id="phonic" loop></audio> <!-- for playing associated target phonic of the fly that the student should swat -->
@@ -20,6 +34,23 @@
 <script src="js/input.js"></script>
 <script src="js/phonics.js"></script>
 <script src="js/Sounds.js"></script>
+
+	<canvas id="gameCanvas"></canvas>
+	<audio id="backgroundMusic" src="audio/flightOfTheABCs.mp3" autoplay loop></audio>
+	<audio id="phonic" loop></audio>
+	<!-- for playing associated target phonic of the fly that the student should swat -->
+	<audio id="splat" src="audio/splatsound.mp3"></audio>
+	<!-- to be played when a student swats the fly -->
+
+
+	<script src="js/main.js"></script>
+	<script src="js/screenshake.js"></script>
+	<script src="js/imageloading.js"></script>
+	<script src="js/Images.js"></script>
+	<script src="js/flies.js"></script>
+	<script src="js/input.js"></script>
+	<script src="js/phonics.js"></script>
+	<script src="js/Sounds.js"></script>
 
 </body>
 

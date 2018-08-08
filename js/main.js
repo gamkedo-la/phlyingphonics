@@ -1,31 +1,40 @@
 //canvas definitions
-  let canvas;
-  let canvasContext;
-  let canvasWidth;
-  let canvasHeight;
-  let canvasTopEdge;
-  let canvasRightEdge;
-  let canvasBottomEdge;
-  let canvasLeftEdge;
+let canvas;
+let canvasContext;
+let canvasWidth;
+let canvasHeight;
+let canvasTopEdge;
+let canvasRightEdge;
+let canvasBottomEdge;
+let canvasLeftEdge;
 
-//for drawing mouse coordinates on the screen for possible debugging help
-  let mouseX;
-  let mouseY;
+// set to false to turn off ss when you swat
+const USE_SCREENSHAKE = true;
+
+//used by the fly swatter
+let mouseX = 0;
+let mouseY = 0;
 
 //loop declarations
-  let updateEverything;
 
-  let drawEverything;
+let updateEverything;
+let drawEverything;
+let drawFlySwatter;
 
-  let gameLoop;
+// unused debug:
 
-  let backgroundMusic = document.getElementById("backgroundMusic");
+
+
+let gameLoop;
+
+let backgroundMusic = document.getElementById("backgroundMusic");
 
 //randomizer function
-  let getRandomInt;
-  getRandomInt = (min, max) => {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+let getRandomInt;
+getRandomInt = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 
   let launchGame;
   launchGame = () => {
@@ -50,63 +59,74 @@
     targetFly.myPhonic.loop = true;
     targetFly.myPhonic.play();
     setInterval(gameLoop, 1000/30);
+
+window.onload = () => {
+  //initialize canvas
+  canvas = document.getElementById("gameCanvas");
+  canvasContext = canvas.getContext("2d");
+  canvasRightEdge = canvas.width = window.innerWidth;
+  canvasBottomEdge = canvas.height = window.innerHeight;
+  canvasTopEdge = 0;
+  canvasLeftEdge = 0;
+  backgroundMusic.volume = 0.1;
+  //console.log(canvas.width,canvas.height);
+  let arrayOfBackgroundStrings = ["table", "tableWithFilter", "bowlOfFruit"];
+  let chosenBackground;
+  let chooseBackground = () => {
+    chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
+    //console.log(chosenBackground);
+
+  }
+  chooseBackground();
+
+
+
+  // gathers mouse coordinates for debugging potential debugging,
+  // used in canvasContext.fillText in drawEverything part of gameLoop
+  // used to move the fly swatter sprite
+  canvas.onmousemove = (evt) => {
+    mouseX = evt.pageX;
+    mouseY = evt.pageY;
   }
 
+  canvas.addEventListener("click", handleCanvasClick); //defined in Input.js, this function splats the flies
 
+  //part of gameLoop
+  updateEverything = () => {
 
+    handleFlyWallCollisions();
+    handleFlyToFlyCollisions();
+    handleFliesOffScreen();
+    moveFlies();
+    updateFlyProperties();
+    updateScreenshake();
 
-  window.onload = () => {
-//initialize canvas
-    canvas = document.getElementById("gameCanvas");
-    canvasContext = canvas.getContext("2d");
-    canvasRightEdge = canvas.width = window.innerWidth;
-    canvasBottomEdge = canvas.height = window.innerHeight;
-    canvasTopEdge = 0;
-    canvasLeftEdge = 0;
-    backgroundMusic.volume = 0.1;
-    //console.log(canvas.width,canvas.height);
-    let arrayOfBackgroundStrings = ["table", "tableWithFilter", "bowlOfFruit"];
-    let chosenBackground;
-    let chooseBackground = () => {
-      chosenBackground = arrayOfBackgroundStrings[getRandomInt(0,arrayOfBackgroundStrings.length-1)];
-      //console.log(chosenBackground);
-    }
-    chooseBackground();
+  }
 
+  drawFlySwatter = () => {
+    //console.log('fly swatter at: ' + mouseX + ',' + mouseY);
+    canvasContext.drawImage(Images.getImage("flySwatter"), mouseX - 50, mouseY - 50);
+  }
 
+  drawBitmapCenteredWithRotation = (useBitmap, atX, atY, withAng) => {
+    canvasContext.save();
+    canvasContext.translate(atX, atY);
+    canvasContext.rotate(withAng);
+    canvasContext.drawImage(useBitmap, -useBitmap.width / 2, -useBitmap.height / 2);
+    canvasContext.restore();
+  }
 
-//gathers mouse coordinates for debugging potential debugging, used in canvasContext.fillText in drawEverything part of gameLoop
-    /*canvas.onmousemove = (evt) => {
-       mouseX = evt.pageX;
-       mouseY = evt.pageY;
-    }*/
+  //part of game loop, maybe have the splats disappear over with a setTimeout so the canvas doesn't get too cluttered when the game has lots of flies... or maybe
+  //re-order the draw order so flies that are still alive are drawn on top of splats
+  drawEverything = () => {
 
-    canvas.addEventListener("click", handleCanvasClick); //defined in Input.js, this function splats the flies
-
-//part of gameLoop
-    updateEverything = () => {
-
-      handleFlyWallCollisions();
-      handleFlyToFlyCollisions();
-      handleFliesOffScreen();
-
-      moveFlies();
-      updateFlyProperties();
+    if (USE_SCREENSHAKE) {
+      canvasContext.save();
+      canvasContext.translate(screenshakeX, screenshakeY);
     }
 
-//part of game loop, maybe have the splats disappear over with a setTimeout so the canvas doesn't get too cluttered when the game has lots of flies... or maybe
-//re-order the draw order so flies that are still alive are drawn on top of splats
-    drawEverything = () => {
-        canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
-        canvasContext.fillText("loading", canvas.width/2,canvas.height/2);
-        canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
-        canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
-        //drawTestFlyWithCapitalLetter();
-        //testFly.draw();
-      //  drawA();
-        drawSwattedFlies();
-        drawFlies();
-    }
+    canvasContext.clearRect(canvasLeftEdge, canvasTopEdge, canvasRightEdge, canvasBottomEdge);
+
 
     gameLoop = () => {
       updateEverything();
@@ -118,11 +138,30 @@
     //console.log(Sounds.getSound("a"));
     //Sounds.getSound("a").play();
 
+    canvasContext.fillText("loading", canvas.width / 2, canvas.height / 2); // FIXME: only draw when actually loading
 
 
-//needs to be called before launch of game so the visual part of the game loads all at once instead of images popping up one at a time
+    // drawn a bit bigger than the screen to avoid white edges during screenshakes
+    canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
 
+    //canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
+    //drawTestFlyWithCapitalLetter();
+    //testFly.draw();
+    //  drawA();
+    drawSwattedFlies();
+    drawFlies();
+    drawFlySwatter();
 
+    if (USE_SCREENSHAKE) { canvasContext.restore(); }
+  }
 
+  gameLoop = () => {
+    updateEverything();
+    drawEverything();
+  }
+
+  Images.loadImages();
+
+  //needs to be called before launch of game so the visual part of the game loads all at once instead of images popping up one at a time
 
 }
