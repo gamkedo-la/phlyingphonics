@@ -183,7 +183,8 @@ function flyClass() {
   this.draw = () => {
 
     // draw the fly
-    if (ROTATE_FLIES) {
+    if (ROTATE_FLIES &&
+      (this.xSpeed != 0 || this.ySpeed != 0)) { // only wobble back and forth if moving (not when dead)
 
       var scale = this.width / this.myImage.width;
 
