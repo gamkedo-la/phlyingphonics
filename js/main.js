@@ -8,7 +8,10 @@ let canvasRightEdge;
 let canvasBottomEdge;
 let canvasLeftEdge;
 
-//for drawing mouse coordinates on the screen for possible debugging help
+// set to false to turn off ss when you swat
+const USE_SCREENSHAKE = true;
+
+//used by the fly swatter
 let mouseX = 0;
 let mouseY = 0;
 
@@ -16,6 +19,8 @@ let mouseY = 0;
 let updateEverything;
 let drawEverything;
 let drawFlySwatter;
+
+// unused debug:
 let drawA;
 drawA = () => {
   canvasContext.drawImage(Images.getImage("A"), testFly.x + 80, testFly.y + 60, 50, 50);
@@ -103,12 +108,22 @@ window.onload = () => {
     canvasContext.drawImage(Images.getImage("flySwatter"), mouseX - 50, mouseY - 50);
   }
 
+  drawBitmapCenteredWithRotation = (useBitmap, atX, atY, withAng) => {
+    canvasContext.save();
+    canvasContext.translate(atX, atY);
+    canvasContext.rotate(withAng);
+    canvasContext.drawImage(useBitmap, -useBitmap.width / 2, -useBitmap.height / 2);
+    canvasContext.restore();
+  }
+
   //part of game loop, maybe have the splats disappear over with a setTimeout so the canvas doesn't get too cluttered when the game has lots of flies... or maybe
   //re-order the draw order so flies that are still alive are drawn on top of splats
   drawEverything = () => {
 
-    canvasContext.save();
-    canvasContext.translate(screenshakeX, screenshakeY);
+    if (USE_SCREENSHAKE) {
+      canvasContext.save();
+      canvasContext.translate(screenshakeX, screenshakeY);
+    }
 
     canvasContext.clearRect(canvasLeftEdge, canvasTopEdge, canvasRightEdge, canvasBottomEdge);
 
@@ -125,20 +140,16 @@ window.onload = () => {
     drawFlies();
     drawFlySwatter();
 
-    canvasContext.restore();
+    if (USE_SCREENSHAKE) { canvasContext.restore(); }
   }
 
   gameLoop = () => {
     updateEverything();
     drawEverything();
   }
+
   Images.loadImages();
 
-
-
   //needs to be called before launch of game so the visual part of the game loads all at once instead of images popping up one at a time
-
-
-
 
 }
