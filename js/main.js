@@ -63,7 +63,7 @@
     canvasBottomEdge = canvas.height = window.innerHeight;
     canvasTopEdge = 0;
     canvasLeftEdge = 0;
-    backgroundMusic.volume = 0.3;
+    backgroundMusic.volume = 0.1;
     //console.log(canvas.width,canvas.height);
     let arrayOfBackgroundStrings = ["table", "tableWithFilter", "bowlOfFruit"];
     let chosenBackground;
@@ -76,10 +76,10 @@
 
 
 //gathers mouse coordinates for debugging potential debugging, used in canvasContext.fillText in drawEverything part of gameLoop
-    canvas.onmousemove = (evt) => {
+    /*canvas.onmousemove = (evt) => {
        mouseX = evt.pageX;
        mouseY = evt.pageY;
-    }
+    }*/
 
     canvas.addEventListener("click", handleCanvasClick); //defined in Input.js, this function splats the flies
 
