@@ -37,7 +37,7 @@
     //Images.loadImages();
     initializeArrayOfFlies();
     //testFly = new flyClass();
-    console.log(randomCapitalLetter());
+    //console.log(randomCapitalLetter());
     //console.log(arrayOfFlies[0].myImage);
     //console.log(arrayOfFlies);
     initializeArrayOfPhonics();
@@ -45,6 +45,7 @@
     initializeArrayOfPossibleQuestions();
     //console.log(arrayOfPossibleQuestions);
     setPhonicAudioTagSource();
+    console.log(phonic.src);
     //console.log(arrayOfFliesLetters, arrayOfPossibleQuestions, arrayOfFliesPhonics);
 
     //setTargetPhonic();

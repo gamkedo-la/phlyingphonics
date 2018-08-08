@@ -7,7 +7,7 @@ let initializeTargetPhonic = function() {arrayOfPhonics[randomPhonicIndex]; } //
 let arrayOfPhonics = ["audio/phonics/a.mp3", "audio/phonics/b.mp3", "audio/phonics/c.mp3", "audio/phonics/d.mp3", "audio/phonics/e.mp3", "audio/phonics/f.mp3",
 "audio/phonics/g.mp3", "audio/phonics/h.mp3","audio/phonics/i.mp3", "audio/phonics/j.mp3", "audio/phonics/k.mp3", "audio/phonics/l.mp3", "audio/phonics/m.mp3",
 "audio/phonics/n.mp3", "audio/phonics/o.mp3", "audio/phonics/p.mp3", "audio/phonics/q.mp3", "audio/phonics/r.mp3","audio/phonics/s.mp3", "audio/phonics/t.mp3",
-"audio/phonics/u.mp3", "audio/phonics/v.mp3", "audio/phonics/w.mp3", "audio/phonics/x.mp3", "audio/phonics/y.mp3", "audio/phonics/z.mp3", ];
+"audio/phonics/u.mp3", "audio/phonics/v.mp3", "audio/phonics/w.mp3", "audio/phonics/x.mp3", "audio/phonics/y.mp3", "audio/phonics/z.mp3"];
 
 // fills array of possible phonics, should be adapted for student customization, as in students should have an option for choosing which letters they want to practice
 let initializeArrayOfPhonics = () => {
@@ -26,5 +26,6 @@ let initializeArrayOfPossibleQuestions = () => {
 let setPhonicAudioTagSource = () => {
   let randomQuestionIndex = getRandomInt(0,arrayOfPossibleQuestions.length-1);
   //console.log(randomQuestionIndex,arrayOfPossibleQuestions);
+  console.log(arrayOfPossibleQuestions[randomQuestionIndex]);
   phonic.src = arrayOfPossibleQuestions[randomQuestionIndex];
 }
