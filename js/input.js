@@ -5,10 +5,11 @@ let splat = document.getElementById("splat"); //binding for referencing splat ta
 function handleCanvasClick(evt) {
   //console.log(evt.pageX,evt.pageY,phonic.src);
   //console.log(arrayOfPossibleQuestions, phonic.src);
+  //console.log(arrayOfPossibleQuestions, phonic.src);
   for (let i = 0; i<arrayOfFlies.length; i++) {
     if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 && //reasonable clicking coordinates
-        evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].myPhonic === targetPhonic) {
-          console.log(arrayOfFlies[i].myPhonic, phonic.src);
+        evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i] === targetFly) {
+          //console.log(arrayOfFlies[i].myPhonic, phonic.src);
       arrayOfFlies[i].myImage = greensplat; //changing source image
       arrayOfFlies[i].myImage = Images.getImage("greensplat"); //changing source image
       arrayOfFlies[i].xSpeed = 0; //stops movement
@@ -17,16 +18,17 @@ function handleCanvasClick(evt) {
 
       arrayOfFlies.splice(i,1);
 
-      phonic.pause();
+      targetFly.myPhonic.pause();
       splat.play(); //plays splat audio tag
       //console.log(arrayOfPossibleQuestions[i],arrayOfFlies[i].myLetter);
       for (let i = 0; i<arrayOfPossibleQuestions.length; i++) {
-        if (arrayOfPossibleQuestions[i] === targetPhonic)
+        if (arrayOfPossibleQuestions[i] === targetFly.myPhonic)
         arrayOfPossibleQuestions.splice(i,1);
       }
 
-      setPhonicAudioTagSource();
-      phonic.play();
+      assignTargetFly();
+      targetFly.myPhonic.loop = true;
+      targetFly.myPhonic.play();
     }
   }
 //arrayOfFlies[i].myPhonic === phonic.src

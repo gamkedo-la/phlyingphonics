@@ -30,5 +30,5 @@ let setPhonicAudioTagSource = () => {
   //console.log(arrayOfPossibleQuestions[randomQuestionIndex]);
   phonic.src = arrayOfPossibleQuestions[randomQuestionIndex];
   targetPhonic = arrayOfPossibleQuestions[randomQuestionIndex];
-  console.log(targetPhonic);
+  //console.log(targetPhonic);
 }

@@ -16,10 +16,6 @@
   let updateEverything;
 
   let drawEverything;
-  let drawA;
-  drawA = () => {
-    canvasContext.drawImage(Images.getImage("A"), testFly.x + 80,testFly.y + 60, 50,50);
-  }
 
   let gameLoop;
 
@@ -33,9 +29,11 @@
 
   let launchGame;
   launchGame = () => {
-
+    backgroundMusic.play();
     //Images.loadImages();
     initializeArrayOfFlies();
+    assignTargetFly();
+    console.log(arrayOfFlies[0].myPhonic);
     //testFly = new flyClass();
     //console.log(randomCapitalLetter());
     //console.log(arrayOfFlies[0].myImage);
@@ -45,11 +43,12 @@
     initializeArrayOfPossibleQuestions();
     //console.log(arrayOfPossibleQuestions);
     setPhonicAudioTagSource();
-    console.log(phonic.src);
+    //console.log(phonic.src);
     //console.log(arrayOfFliesLetters, arrayOfPossibleQuestions, arrayOfFliesPhonics);
 
     //setTargetPhonic();
-    phonic.play();
+    targetFly.myPhonic.loop = true;
+    targetFly.myPhonic.play();
     setInterval(gameLoop, 1000/30);
   }
 
@@ -113,7 +112,11 @@
       updateEverything();
       drawEverything();
     }
+    //console.log(arrayOfPossibleQuestions);
     Images.loadImages();
+    Sounds.loadSounds();
+    //console.log(Sounds.getSound("a"));
+    //Sounds.getSound("a").play();
 
 
 

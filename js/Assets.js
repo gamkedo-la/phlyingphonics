@@ -1,4 +1,3 @@
-
 // Similar to the Input module, this static Images module keeps loaded images in a dictionary, with the keys being what was entered in "imageFileNames"
 //without the directory names and file extensions.
 // Essentially, edit the imageFileNames array with all your image paths, then access them with Images.getImage(nameOnly)
@@ -38,7 +37,7 @@ function Images() {
             // (ie giving all placeholder images their .src)
             var splitArray = imageFileNames[i].split("/");
             var imgName = splitArray[splitArray.length - 1].split(".")[0];
-            //console.log(imageFileNames[i]);
+            console.log(imageFileNames[i]);
             imageDict[imgName].src = imageFileNames[i];
 
             //console.log("Added '" + imgName + "' with path: " + imageFileNames[i]); // uncomment for debug
@@ -104,54 +103,17 @@ var imageFileNames = [
 
 ];
 
-var soundFileNames = [
-  "audio/flightOfTheABCs.mp3",
-  "audio/splatsound.mp3",
-  "audio/phonics/a.mp3",
-  "audio/phonics/b.mp3",
-  "audio/phonics/c.mp3",
-  "audio/phonics/d.mp3",
-  "audio/phonics/e.mp3",
-  "audio/phonics/f.mp3",
-  "audio/phonics/g.mp3",
-  "audio/phonics/h.mp3",
-  "audio/phonics/i.mp3",
-  "audio/phonics/j.mp3",
-  "audio/phonics/k.mp3",
-  "audio/phonics/l.mp3",
-  "audio/phonics/m.mp3",
-  "audio/phonics/n.mp3",
-  "audio/phonics/o.mp3",
-  "audio/phonics/p.mp3",
-  "audio/phonics/q.mp3",
-  "audio/phonics/r.mp3",
-  "audio/phonics/s.mp3",
-  "audio/phonics/t.mp3",
-  "audio/phonics/u.mp3",
-  "audio/phonics/v.mp3",
-  "audio/phonics/w.mp3",
-  "audio/phonics/x.mp3",
-  "audio/phonics/y.mp3",
-  "audio/phonics/z.mp3"
-
-];
-
-
-var picsToLoad = imageFileNames.length
-//console.log(soundFileNames.length);
-var soundsToLoad = soundFileNames.length;
-var assetsToLoad = picsToLoad + soundsToLoad;
+var picsToLoad = imageFileNames.length;
 
 function countLoadedImagesAndLaunchIfReady() {
-    assetsToLoad--;
-    if (assetsToLoad == 0) {
+    picsToLoad--;
+    if (picsToLoad == 0) {
 
         launchGame();
 
     } else {
         // TODO render a progress bar
     }
-    console.log(assetsToLoad);
 }
 
 //Load images must be called in window.onload (Main.js)

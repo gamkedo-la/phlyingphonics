@@ -1,6 +1,11 @@
 let numberOfFlies; //flies to be used in game, should eventually be coordinated with student choices or training mode instead of just random
 let initializeArrayOfFlies;
 let arrayOfFlies = []; //flies to be used in game
+let targetFly;
+let assignTargetFly = () => {
+  let randomFlyIndex = getRandomInt(0, arrayOfFlies.length-1);
+  targetFly = arrayOfFlies[randomFlyIndex];
+}
 let arrayOfSwattedFlies = [];
 let testFly;
 let drawFlies;
@@ -119,11 +124,12 @@ handleFliesOffScreen = () => {
 
 let arrayOfLowerCaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 let arrayOfCapitalLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+let arrayOfPossibleLetters = new Array(arrayOfFlies.length);
 
 function randomLowerCaseLetter() {
-  let randomLetterIndex = getRandomInt(0,arrayOfPossibleLetters.length-1);
+  let randomLetterIndex = getRandomInt(0,arrayOfLowerCaseLetters.length-1);
   var letter = arrayOfLowerCaseLetters[randomLetterIndex];
-  arrayOfPossibleLetters.splice(randomLetterIndex,1);
+  arrayOfLowerCaseLetters.splice(randomLetterIndex,1);
   return letter;
 }
 
@@ -140,8 +146,8 @@ function flyClass() {
     this.height = 200;
     this.x = getRandomInt(canvasLeftEdge, canvasRightEdge - this.width);
     this.y = getRandomInt(canvasTopEdge, canvasBottomEdge - this.height);
-    this.xSpeed = 5*randomDirection();//randomizing gameplay so students have to pay attention and not rely on patterns too much
-    this.ySpeed = 5*randomDirection();//randomizing gameplay so students have to pay attention and not rely on patterns too much
+    this.xSpeed = 3*randomDirection();//randomizing gameplay so students have to pay attention and not rely on patterns too much
+    this.ySpeed = 3*randomDirection();//randomizing gameplay so students have to pay attention and not rely on patterns too much
     this.currentXDirection = checkCurrentFlyDirectionX();
     this.currentYDirection = checkCurrentFlyDirectionY();
     this.topEdge = this.y;
@@ -150,7 +156,7 @@ function flyClass() {
     this.leftEdge = this.x;
     this.myImage = Images.getImage("fly_version_1")
     this.myLetter = randomCapitalLetter();//randomLowerCaseLetter();
-    this.myPhonic = "audio/phonics/" + this.myLetter + ".mp3";
+    this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());
     this.draw = () => {
       canvasContext.drawImage(this.myImage, this.x, this.y, this.width,this.height);
       canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80,this.y + 60, 50,50);
