@@ -92,9 +92,10 @@ window.onload = () => {
     handleFlyWallCollisions();
     handleFlyToFlyCollisions();
     handleFliesOffScreen();
-
     moveFlies();
     updateFlyProperties();
+    updateScreenshake();
+
   }
 
   drawFlySwatter = () => {
