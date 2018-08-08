@@ -99,7 +99,8 @@ var fileNames = [
     "images/capitalLetters/X.png",
     "images/capitalLetters/Y.png",
     "images/capitalLetters/Z.png",
-    "images/fly_version_1.png"
+    "images/fly_version_1.png",
+    "images/flySwatter.png"
 
 ];
 
