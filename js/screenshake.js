@@ -1,13 +1,10 @@
-// globals that change over time
+// current offsets for the game camera
 var screenshakeX = 0;
 var screenshakeY = 0;
 
 var screen_shakes = 0; // frames of screenshake used as player feedback for when we take damage
-var screen_shake_pivot_x = 0;
-var screen_shake_pivot_y = 0;
-
-var MAX_SCREEN_SHAKES = 30;
-var MAX_SCREEN_SHAKE_SIZE_PX = 20;
+var MAX_SCREEN_SHAKES = 20;
+var MAX_SCREEN_SHAKE_SIZE_PX = 16;
 
 function screenShake(howmany) {
     //console.log('screenshake ' + howmany);
@@ -39,12 +36,3 @@ function updateScreenshake() {
         }
     }
 }
-
-function resetScreenShake() {
-    screen_shakes = 0; // frames of screenshake used as player feedback for when we take damage
-    screen_shake_pivot_x = 0;
-    screen_shake_pivot_y = 0;
-    screen_shake_me = document.getElementById('gameCanvas');
-}
-
-resetScreenShake(); // immediately init
