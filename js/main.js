@@ -106,9 +106,17 @@ window.onload = () => {
   //part of game loop, maybe have the splats disappear over with a setTimeout so the canvas doesn't get too cluttered when the game has lots of flies... or maybe
   //re-order the draw order so flies that are still alive are drawn on top of splats
   drawEverything = () => {
+
+    canvasContext.save();
+    canvasContext.translate(screenshakeX, screenshakeY);
+
     canvasContext.clearRect(canvasLeftEdge, canvasTopEdge, canvasRightEdge, canvasBottomEdge);
-    canvasContext.fillText("loading", canvas.width / 2, canvas.height / 2);
-    canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge, canvasTopEdge, canvasRightEdge, canvasBottomEdge);
+
+    canvasContext.fillText("loading", canvas.width / 2, canvas.height / 2); // FIXME: only draw when actually loading
+
+    // drawn a bit bigger than the screen to avoid white edges during screenshakes
+    canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
+
     //canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
     //drawTestFlyWithCapitalLetter();
     //testFly.draw();
@@ -116,6 +124,8 @@ window.onload = () => {
     drawSwattedFlies();
     drawFlies();
     drawFlySwatter();
+
+    canvasContext.restore();
   }
 
   gameLoop = () => {
