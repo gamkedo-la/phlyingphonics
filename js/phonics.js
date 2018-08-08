@@ -2,6 +2,7 @@ let randomPhonicIndex = function() {return getRandomInt(0, arrayOfPhonics.length
 let arrayOfPossiblePhonics = new Array(numberOfFlies); // needs to be set up in a way where the student can choose which phonics to train
 let phonic = document.getElementById("phonic"); //variable for audio tag
 let initializeTargetPhonic = function() {arrayOfPhonics[randomPhonicIndex]; } // picks first target phonic at start of game
+let targetPhonic;
 
 //file paths for phonics
 let arrayOfPhonics = ["audio/phonics/a.mp3", "audio/phonics/b.mp3", "audio/phonics/c.mp3", "audio/phonics/d.mp3", "audio/phonics/e.mp3", "audio/phonics/f.mp3",
@@ -26,6 +27,8 @@ let initializeArrayOfPossibleQuestions = () => {
 let setPhonicAudioTagSource = () => {
   let randomQuestionIndex = getRandomInt(0,arrayOfPossibleQuestions.length-1);
   //console.log(randomQuestionIndex,arrayOfPossibleQuestions);
-  console.log(arrayOfPossibleQuestions[randomQuestionIndex]);
+  //console.log(arrayOfPossibleQuestions[randomQuestionIndex]);
   phonic.src = arrayOfPossibleQuestions[randomQuestionIndex];
+  targetPhonic = arrayOfPossibleQuestions[randomQuestionIndex];
+  console.log(targetPhonic);
 }
