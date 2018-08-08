@@ -100,6 +100,7 @@ var fileNames = [
     "images/capitalLetters/Y.png",
     "images/capitalLetters/Z.png",
     "images/fly_version_1.png",
+    "images/fly_version_1b.png", // flap
     "images/flySwatter.png"
 
 ];

@@ -176,9 +176,11 @@ function flyClass() {
   this.rightEdge = this.x + this.width;
   this.bottomEdge = this.y + this.height;
   this.leftEdge = this.x;
-  this.myImage = Images.getImage("fly_version_1")
+  this.myImage = Images.getImage("fly_version_1");
+  this.myImageB = Images.getImage("fly_version_1b"); // flapping
   this.myLetter = randomCapitalLetter();//randomLowerCaseLetter();
   this.myPhonic = "audio/phonics/" + this.myLetter + ".mp3";
+  this.drawCount = 0;
 
   this.draw = () => {
 
@@ -200,7 +202,10 @@ function flyClass() {
       // this would rotate by the corner pivot
       // drawBitmapWithRotationScale(this.myImage, this.x, this.y, angle + wobble, scale);
 
-      drawBitmapCenteredWithRotationScale(this.myImage, this.x + this.width / 2, this.y + this.width / 2, angle + wobble, scale);
+      this.drawCount++;
+
+      drawBitmapCenteredWithRotationScale(this.drawCount % 2 ? this.myImage : this.myImageB,
+        this.x + this.width / 2, this.y + this.width / 2, angle + wobble, scale);
 
     }
     else { // always facing up
