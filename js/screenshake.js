@@ -17,7 +17,7 @@ function screenShake(howmany) {
 function updateScreenshake() {
     if (screen_shakes > 0) {
 
-        var shakesize = screen_shakes / 2;
+        var shakesize = screen_shakes * 1.5;
         if (shakesize > MAX_SCREEN_SHAKE_SIZE_PX)
             shakesize = MAX_SCREEN_SHAKE_SIZE_PX;
 

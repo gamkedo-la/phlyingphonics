@@ -108,14 +108,6 @@ window.onload = () => {
     canvasContext.drawImage(Images.getImage("flySwatter"), mouseX - 50, mouseY - 50);
   }
 
-  drawBitmapCenteredWithRotation = (useBitmap, atX, atY, withAng) => {
-    canvasContext.save();
-    canvasContext.translate(atX, atY);
-    canvasContext.rotate(withAng);
-    canvasContext.drawImage(useBitmap, -useBitmap.width / 2, -useBitmap.height / 2);
-    canvasContext.restore();
-  }
-
   //part of game loop, maybe have the splats disappear over with a setTimeout so the canvas doesn't get too cluttered when the game has lots of flies... or maybe
   //re-order the draw order so flies that are still alive are drawn on top of splats
   drawEverything = () => {
