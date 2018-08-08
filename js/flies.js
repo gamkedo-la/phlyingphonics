@@ -7,7 +7,7 @@ let drawFlies;
 let moveFlies;
 let handleFlyWallCollisions;
 
-
+const ROTATE_FLIES = true; // do the fly sprites rotate while flying?
 
 let flySpeedX = 5;
 let flySpeedY = 5;
@@ -137,6 +137,31 @@ function randomCapitalLetter() {
   return letter;
 }
 
+function drawBitmapCenteredWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
+  canvasContext.save();
+  canvasContext.translate(atX, atY);
+  canvasContext.rotate(withAng);
+  canvasContext.drawImage(useBitmap,
+    -useBitmap.width * withScale / 2,
+    -useBitmap.height * withScale / 2,
+    useBitmap.width * withScale,
+    useBitmap.height * withScale);
+  canvasContext.restore();
+}
+
+function drawBitmapWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
+  canvasContext.save();
+  canvasContext.translate(atX, atY);
+  canvasContext.rotate(withAng);
+  canvasContext.drawImage(useBitmap,
+    0,
+    0,
+    useBitmap.width * withScale,
+    useBitmap.height * withScale);
+  canvasContext.restore();
+}
+
+
 function flyClass() {
 
   this.width = 200;
@@ -154,9 +179,36 @@ function flyClass() {
   this.myImage = Images.getImage("fly_version_1")
   this.myLetter = randomCapitalLetter();//randomLowerCaseLetter();
   this.myPhonic = "audio/phonics/" + this.myLetter + ".mp3";
+
   this.draw = () => {
-    canvasContext.drawImage(this.myImage, this.x, this.y, this.width, this.height);
+
+    // draw the fly
+    if (ROTATE_FLIES) {
+
+      var scale = this.width / this.myImage.width;
+
+      //point in the direction we are moving
+      var angle = Math.atan2(this.ySpeed, this.xSpeed) - 90 * (180 / Math.PI); // degrees away from east
+
+      // look back and forth a little
+      var wobble = Math.sin(performance.now() / 500) * 0.5;
+
+      // centered at x,y? no in this game x,y is the top left corner of the sprite 
+      //drawBitmapCenteredWithRotationScale(this.myImage, this.x, this.y, angle + wobble, scale);
+
+      // this would rotate by the corner pivot
+      // drawBitmapWithRotationScale(this.myImage, this.x, this.y, angle + wobble, scale);
+
+      drawBitmapCenteredWithRotationScale(this.myImage, this.x + this.width / 2, this.y + this.width / 2, angle + wobble, scale);
+
+    }
+    else { // always facing up
+      canvasContext.drawImage(this.myImage, this.x, this.y, this.width, this.height);
+    }
+
+    // draw the letter
     canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
+
     //canvasContext.font = "30px Arial";
     //canvasContext.fillStyle = "orange";
     //canvasContext.fillText(this.myLetter, this.x + this.width/2,this.y + this.height/2);
