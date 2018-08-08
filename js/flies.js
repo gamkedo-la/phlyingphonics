@@ -150,7 +150,7 @@ function flyClass() {
     this.leftEdge = this.x;
     this.myImage = Images.getImage("fly_version_1")
     this.myLetter = randomCapitalLetter();//randomLowerCaseLetter();
-    this.myPhonic = "file:///C:/Users/stebs/Desktop/gamkedo/phlyingphonics/audio/phonics/" + this.myLetter + ".mp3";
+    this.myPhonic = "audio/phonics/" + this.myLetter + ".mp3";
     this.draw = () => {
       canvasContext.drawImage(this.myImage, this.x, this.y, this.width,this.height);
       canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80,this.y + 60, 50,50);
