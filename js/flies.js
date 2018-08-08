@@ -204,7 +204,7 @@ function flyClass() {
 
       this.drawCount++;
 
-      drawBitmapCenteredWithRotationScale(this.drawCount % 2 ? this.myImage : this.myImageB,
+      drawBitmapCenteredWithRotationScale(this.drawCount % 3 > 0 ? this.myImage : this.myImageB,
         this.x + this.width / 2, this.y + this.width / 2, angle + wobble, scale);
 
     }
