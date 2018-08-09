@@ -27,7 +27,7 @@ function Sounds() {
         var sound = document.createElement("AUDIO");
         soundDict[soundName] = sound; //the spot is being kept by a dummy sound; we will load it later
     }
-    
+
     Sounds.loadSounds = function () {
 
         for (var i = 0, len = soundFileNames.length; i < len; i++) {
@@ -75,7 +75,7 @@ function countLoadedSoundsAndLaunchIfReady() {
     } else {
         // TODO render a progress bar
     }
-    console.log(assetsToLoad);
+    //console.log(assetsToLoad);
 }
 
 //Load sounds must be called in window.onload (Main.js)

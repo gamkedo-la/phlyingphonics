@@ -1,6 +1,7 @@
 let numberOfFlies; //flies to be used in game, should eventually be coordinated with student choices or training mode instead of just random
 let initializeArrayOfFlies;
 let arrayOfFlies = []; //flies to be used in game
+
 let targetFly;
 let assignTargetFly = () => {
   let randomFlyIndex = getRandomInt(0, arrayOfFlies.length-1);
@@ -53,7 +54,7 @@ drawFlies = () => {
 //sets which flies are to be used at the start of the game, should probably be updated beyond just a random number between 1 and 26, should be based on student customization
 //or 'training mode'
 initializeArrayOfFlies = () => {
-  numberOfFlies = 10;//getRandomInt(1,26);
+  numberOfFlies = 5;//getRandomInt(1,26);
   arrayOfFlies = new Array(numberOfFlies);
   for (let i = 0; i < numberOfFlies; i++) {
     arrayOfFlies[i] = new flyClass();
@@ -126,14 +127,14 @@ handleFliesOffScreen = () => {
 }
 
 
-let arrayOfLowerCaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-let arrayOfCapitalLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
 let arrayOfPossibleLetters = new Array(arrayOfFlies.length);
 
 function randomLowerCaseLetter() {
   let randomLetterIndex = getRandomInt(0,arrayOfLowerCaseLetters.length-1);
   var letter = arrayOfLowerCaseLetters[randomLetterIndex];
   arrayOfLowerCaseLetters.splice(randomLetterIndex,1);
+}
 
 let arrayOfLowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let arrayOfCapitalLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];

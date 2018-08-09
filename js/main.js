@@ -59,6 +59,7 @@ getRandomInt = (min, max) => {
     targetFly.myPhonic.loop = true;
     targetFly.myPhonic.play();
     setInterval(gameLoop, 1000/30);
+  }
 
 window.onload = () => {
   //initialize canvas
@@ -119,17 +120,6 @@ window.onload = () => {
 
     canvasContext.clearRect(canvasLeftEdge, canvasTopEdge, canvasRightEdge, canvasBottomEdge);
 
-
-    gameLoop = () => {
-      updateEverything();
-      drawEverything();
-    }
-    //console.log(arrayOfPossibleQuestions);
-    Images.loadImages();
-    Sounds.loadSounds();
-    //console.log(Sounds.getSound("a"));
-    //Sounds.getSound("a").play();
-
     canvasContext.fillText("loading", canvas.width / 2, canvas.height / 2); // FIXME: only draw when actually loading
 
 
@@ -153,6 +143,7 @@ window.onload = () => {
   }
 
   Images.loadImages();
+  Sounds.loadSounds();
 
   //needs to be called before launch of game so the visual part of the game loads all at once instead of images popping up one at a time
 

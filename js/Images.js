@@ -153,7 +153,7 @@ function countLoadedImagesAndLaunchIfReady() {
     } else {
         // TODO render a progress bar
     }
-    console.log(assetsToLoad);
+    //console.log(assetsToLoad);
 }
 
 //Load images must be called in window.onload (Main.js)
