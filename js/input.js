@@ -14,8 +14,6 @@ function handleCanvasClick(evt) {
     if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 && //reasonable clicking coordinates
         evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i] === targetFly) {
           //console.log(arrayOfFlies[i].myPhonic, phonic.src);
-
-      arrayOfFlies[i].myImage = greensplat; //changing source image
       arrayOfFlies[i].myImage = Images.getImage("greensplat"); //changing source image
       arrayOfFlies[i].xSpeed = 0; //stops movement
       arrayOfFlies[i].ySpeed = 0;

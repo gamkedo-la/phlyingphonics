@@ -40,6 +40,7 @@ getRandomInt = (min, max) => {
   launchGame = () => {
     backgroundMusic.play();
     //Images.loadImages();
+    console.log(Images.getImage("greensplat"));
     initializeArrayOfFlies();
     assignTargetFly();
     console.log(arrayOfFlies[0].myPhonic);
