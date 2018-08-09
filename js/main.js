@@ -70,7 +70,7 @@ window.onload = () => {
   canvasBottomEdge = canvas.height = window.innerHeight;
   canvasTopEdge = 0;
   canvasLeftEdge = 0;
-  backgroundMusic.volume = 0.1;
+  backgroundMusic.volume = 0.25;
   //console.log(canvas.width,canvas.height);
   let arrayOfBackgroundStrings = ["table", "tableWithFilter", "bowlOfFruit"];
   let chosenBackground;
