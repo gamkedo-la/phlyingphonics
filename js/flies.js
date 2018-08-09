@@ -54,7 +54,7 @@ drawFlies = () => {
 //sets which flies are to be used at the start of the game, should probably be updated beyond just a random number between 1 and 26, should be based on student customization
 //or 'training mode'
 initializeArrayOfFlies = () => {
-  numberOfFlies = 11;//getRandomInt(1,26);
+  numberOfFlies = 7;//getRandomInt(1,26);
   arrayOfFlies = new Array(numberOfFlies);
   for (let i = 0; i < numberOfFlies; i++) {
     arrayOfFlies[i] = new flyClass();
@@ -178,6 +178,20 @@ function drawBitmapWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
   canvasContext.restore();
 }
 
+let arrayOfStartingFlyImages = ["fly_version_1", "cartoonFly"];
+let randomizeStartingFlyImage = () => {
+  let startingFlyImageIndex = getRandomInt(0, arrayOfStartingFlyImages.length - 1);
+  let startingFlyImage = arrayOfStartingFlyImages[startingFlyImageIndex];
+  return startingFlyImage;
+}
+let assignFlyImageB = () => {
+  console.log(this.myImage);
+  if (this.myImage === "fly_version_1") {
+    return "fly_version_1b"
+  } else {
+    return "cartoonFlyB"
+  }
+}
 
 function flyClass() {
 
@@ -194,8 +208,8 @@ function flyClass() {
   this.rightEdge = this.x + this.width;
   this.bottomEdge = this.y + this.height;
   this.leftEdge = this.x;
-  this.myImage = Images.getImage("fly_version_1");
-  this.myImageB = Images.getImage("fly_version_1b"); // flapping
+  this.myImage = Images.getImage(randomizeStartingFlyImage());
+  this.myImageB = undefined; // flapping
   this.myLetter = randomCapitalLetter();//randomLowerCaseLetter();
   this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());
   this.drawCount = 0;

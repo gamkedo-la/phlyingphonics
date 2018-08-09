@@ -39,24 +39,28 @@ getRandomInt = (min, max) => {
   let launchGame;
   launchGame = () => {
     backgroundMusic.play();
-    //Images.loadImages();
-    console.log(Images.getImage("greensplat"));
-    initializeArrayOfFlies();
-    assignTargetFly();
-    console.log(arrayOfFlies[0].myPhonic);
-    //testFly = new flyClass();
-    //console.log(randomCapitalLetter());
-    //console.log(arrayOfFlies[0].myImage);
-    //console.log(arrayOfFlies);
-    initializeArrayOfPhonics();
-    //console.log(arrayOfPhonics);
-    initializeArrayOfPossibleQuestions();
-    //console.log(arrayOfPossibleQuestions);
-    setPhonicAudioTagSource();
-    //console.log(phonic.src);
-    //console.log(arrayOfFliesLetters, arrayOfPossibleQuestions, arrayOfFliesPhonics);
 
-    //setTargetPhonic();
+
+    initializeArrayOfFlies();
+    for (let i = 0; i < arrayOfFlies.length; i++) {
+        if ( arrayOfFlies[i].myImage === Images.getImage("fly_version_1") ) {
+          arrayOfFlies[i].myImageB = Images.getImage("fly_version_1b");
+        } else if ( arrayOfFlies[i].myImage === Images.getImage("cartoonFly") ) {
+            arrayOfFlies[i].myImageB = Images.getImage("cartoonFlyB");
+          }
+          console.log(arrayOfFlies[i].myImage, arrayOfFlies[i].myImageB);
+        }
+
+
+    assignTargetFly();
+
+
+    initializeArrayOfPhonics();
+
+    initializeArrayOfPossibleQuestions();
+
+    setPhonicAudioTagSource();
+
     targetFly.myPhonic.loop = true;
     targetFly.myPhonic.play();
     setInterval(gameLoop, 1000/30);

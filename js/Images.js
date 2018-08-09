@@ -104,6 +104,7 @@ var imageFileNames = [
     "images/fly_version_1b.png", // flap
     "images/flySwatter.png",
     "images/cartoonFly.png",
+    "images/cartoonFlyB.png",
     "images/cartoonFly-spritesheett.png"
 
 ];
