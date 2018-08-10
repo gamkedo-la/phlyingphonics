@@ -3,13 +3,17 @@
 }
 
 .track {
+  float: left;
+  padding-left: 1em;
   display: inline;
-  clear: both;
 }
 
-.tracks:after {
+#consonanttrack:after {
   display: table;
-  clear: both;
+}
+
+.consonantsColumn {
+  display: inline;
 }
 
 .vowels {
@@ -19,9 +23,6 @@
 .consonants {
   display: block;
 }
-
-
-
 
 label {
   font: 12px;
