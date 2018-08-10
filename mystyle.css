@@ -2,14 +2,48 @@
   float: left;
 }
 
-#eo, #iu, #ai, #ae, #ou, #ei, #ao, #aeo, #eiu, #aeiou {
+.tracks {
+  float: left;
+  clear:both;
+}
+
+#voweltrack {
+  float: left;
+  padding-left: 2em;
+}
+
+#consonants {
+  float: left;
+  padding-left: 2em;
+}
+
+#vowelButton {
+  padding-right: 2em;
+}
+
+.vowels {
+  display: block;
   width: 2.5em;
   height: 2em;
-  float: right;
-  display: inline;
   margin-top: 1em;
 }
 
+#consonanttrack {
+  float: left;
+  display: block;
+}
+
+.consonantsColumn {
+  float: left;
+  padding-left: 1em;
+}
+
+.consonantsButton {
+  display: block;
+  width: 2em;
+  height: 1.5em;
+  margin-top: 1em;
+}
 
 
 
