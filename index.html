@@ -23,7 +23,7 @@
 <div class="wholescreen">
 
   <canvas id="gameCanvas"></canvas>
-	<div id="tracks"></div>
+	<div id="tracks">
 		<div id="voweltrack" class="track">
 			<button type="button" id="vowelButton">vowels</button>
 		  <input type="radio" id="eo" name="eo" value="eo" class="vowels">
@@ -46,51 +46,50 @@
 		  <label for="eiu">e i u</label>
 			<input type="radio" id="aeiou" name="aeiou" value="aeiou" class="vowels">
 		  <label for="aeiou">a e i o u</label>
-		</div>
+		</div> <!-- end of vowel track -->
 
-		<div id="consonanttrack">
+		<div id="consonanttrack" class="track">
 			<button type="button" id="consonants">consonants</button>
-			<div id="consonantsCol1" class="consonantsColumn">
-			<input type="radio" id="bd" name="bd" value="bd" class="consonantsButton">
-			<label for="bd">b d</label>
-			<input type="radio" id="cx" name="cx" value="cx" class="consonantsButton">
-			<label for="cx">c x</label>
-			<input type="radio" id="kx" name="kx" value="kx" class="consonantsButton">
-			<label for="kx">k x</label>
-			<input type="radio" id="fv" name="fv" value="fv" class="consonantsButton">
-			<label for="fv">f v</label>
-			<input type="radio" id="fth" name="fth" value="fth" class="consonantsButton">
-			<label for="fth">f th</label>
-			<input type="radio" id="gk" name="gk" value="gk" class="consonantsButton">
-			<label for="gk">g k</label>
-			<input type="radio" id="jg" name="jg" value="jg" class="consonantsButton">
-			</div>
+				<div id="consonantsCol1" class="consonantsColumn">
+				<input type="radio" id="bd" name="bd" value="bd" class="consonants">
+				<label for="bd">b d</label>
+				<input type="radio" id="cx" name="cx" value="cx" class="consonants">
+				<label for="cx">c x</label>
+				<input type="radio" id="kx" name="kx" value="kx" class="consonants">
+				<label for="kx">k x</label>
+				<input type="radio" id="fv" name="fv" value="fv" class="consonants">
+				<label for="fv">f v</label>
+				<input type="radio" id="fth" name="fth" value="fth" class="consonants">
+				<label for="fth">f th</label>
+				<input type="radio" id="gk" name="gk" value="gk" class="consonants">
+				<label for="gk">g k</label>
+				<input type="radio" id="jg" name="jg" value="jg" class="consonants">
+			</div> <!-- end of consonants column 1 -->
 			<div id="consonantsCol2" class="consonantsColumn">
-			<label for="jg">j g</label>
-			<input type="radio" id="ln" name="ln" value="ln" class="consonantsButton">
-			<label for="ln">l n</label>
-			<input type="radio" id="mn" name="mn" value="mn" class="consonantsButton">
-			<label for="mn">m n</label>
-			<input type="radio" id="pb" name="pb" value="pb" class="consonantsButton">
-			<label for="pb">p b</label>
-			<input type="radio" id="qw" name="qw" value="qw" class="consonantsButton">
-			<label for="qw">q w</label>
-			<input type="radio" id="rl" name="rl" value="rl" class="consonantsButton">
-			<label for="rl">r l</label>
-			<input type="radio" id="sz" name="sz" value="sz" class="consonantsButton">
-			<label for="sz">s z</label>
-			<input type="radio" id="dt" name="dt" value="dt" class="consonantsButton">
-			<label for="dt">d t</label>
-			<input type="radio" id="vw" name="vw" value="vw" class="consonantsButton">
-			<label for="vw">v w</label>
-			<input type="radio" id="7" name="7" value="7" class="consonantsButton">
-			<label for="7">7</label>
-			</div>
-		</div>
-	</div>
+				<label for="jg">j g</label>
+				<input type="radio" id="ln" name="ln" value="ln" class="consonants">
+				<label for="ln">l n</label>
+				<input type="radio" id="mn" name="mn" value="mn" class="consonants">
+				<label for="mn">m n</label>
+				<input type="radio" id="pb" name="pb" value="pb" class="consonants">
+				<label for="pb">p b</label>
+				<input type="radio" id="qw" name="qw" value="qw" class="consonants">
+				<label for="qw">q w</label>
+				<input type="radio" id="rl" name="rl" value="rl" class="consonants">
+				<label for="rl">r l</label>
+				<input type="radio" id="sz" name="sz" value="sz" class="consonants">
+				<label for="sz">s z</label>
+				<input type="radio" id="dt" name="dt" value="dt" class="consonants">
+				<label for="dt">d t</label>
+				<input type="radio" id="vw" name="vw" value="vw" class="consonants">
+				<label for="vw">v w</label>
+				<input type="radio" id="7" name="7" value="7" class="consonants">
+				<label for="7">7</label>
+			</div><!-- end of consonants column 2 -->
+		</div><!-- end of consonants track -->
+	</div><!-- end of tracks -->
 	<div class="clear"></div>
-
-</div>
+</div><!-- end of whole screen -->
 
 	<audio id="backgroundMusic" src="audio/flightOfTheABCs.mp3" loop></audio>
 	<audio id="phonic" loop></audio> <!-- for playing associated target phonic of the fly that the student should swat -->

@@ -2,48 +2,24 @@
   float: left;
 }
 
-.tracks {
-  float: left;
-  clear:both;
+.track {
+  display: inline;
+  clear: both;
 }
 
-#voweltrack {
-  float: left;
-  padding-left: 2em;
-}
-
-#consonants {
-  float: left;
-  padding-left: 2em;
-}
-
-#vowelButton {
-  padding-right: 2em;
+.tracks:after {
+  display: table;
+  clear: both;
 }
 
 .vowels {
   display: block;
-  width: 2.5em;
-  height: 2em;
-  margin-top: 1em;
 }
 
-#consonanttrack {
-  float: left;
+.consonants {
   display: block;
 }
 
-.consonantsColumn {
-  float: left;
-  padding-left: 1em;
-}
-
-.consonantsButton {
-  display: block;
-  width: 2em;
-  height: 1.5em;
-  margin-top: 1em;
-}
 
 
 
