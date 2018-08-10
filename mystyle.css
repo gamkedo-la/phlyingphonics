@@ -1,0 +1,18 @@
+#gameCanvas {
+  float: left;
+}
+
+#eo, #iu, #ai, #ae, #ou, #ei, #ao, #aeo, #eiu, #aeiou {
+  width: 2.5em;
+  height: 2em;
+  float: right;
+  display: inline;
+  margin-top: 1em;
+}
+
+
+
+
+label {
+  font: 12px;
+}

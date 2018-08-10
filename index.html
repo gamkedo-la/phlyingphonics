@@ -20,12 +20,40 @@
 
 <body>
 
+<div class="wholescreen">
 
   <canvas id="gameCanvas"></canvas>
+
+	<div id="voweltrack">
+	  <input type="radio" id="eo" name="eo" value="eo">
+	  <label for="eo">e o</label>
+	  <!-- <label for="amount2">2</label> -->
+	  <input type="radio" id="iu" name="iu" value="iu">
+	  <label for="iu">i u</label>
+	  <input type="radio" id="ai" name="ai" value="ai">
+	  <label for="ai">a i</label>
+	  <input type="radio" id="ae" name="ae" value="ae">
+	  <label for="ae">a e</label>
+	  <input type="radio" id="ou" name="ou" value="ou">
+	  <label for="ou">o u</label>
+	  <input type="radio" id="ei" name="ei" value="ei">
+	  <label for="ei">e i</label>
+	  <input type="radio" id="ao" name="ao" value="ao">
+	  <label for="ao">a o</label>
+	  <input type="radio" id="aeo" name="aeo" value="aeo">
+	  <label for="aeo">a e o</label>
+	  <input type="radio" id="eiu" name="eiu" value="eiu">
+	  <label for="eiu">e i u</label>
+		<input type="radio" id="aeiou" name="aeiou" value="aeiou">
+	  <label for="aeiou">a e i o u</label>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
 	<audio id="backgroundMusic" src="audio/flightOfTheABCs.mp3" loop></audio>
 	<audio id="phonic" loop></audio> <!-- for playing associated target phonic of the fly that the student should swat -->
 	<audio id="splat" src="audio/splatsound.mp3"></audio> <!-- to be played when a student swats the fly -->
-
 
 <script src="js/main.js"></script>
 <script src="js/Images.js"></script>
@@ -34,6 +62,8 @@
 <script src="js/phonics.js"></script>
 <script src="js/Sounds.js"></script>
 <script src="js/screenshake.js"></script>
+
+<link rel="stylesheet" type="text/css" href="mystyle.css">
 
 
 </body>
