@@ -9,7 +9,7 @@ function handleCanvasClick(evt) {
 
   for (let i = 0; i<arrayOfFlies.length; i++) {
     if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 && //reasonable clicking coordinates
-        evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i] === targetFly) {
+        evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {
           //console.log(arrayOfFlies[i].myPhonic, phonic.src);
           correctAnswers++;
       arrayOfFlies[i].myImage = Images.getImage("yellowgreensplat"); //changing source image
@@ -19,7 +19,7 @@ function handleCanvasClick(evt) {
 
       arrayOfFlies.splice(i, 1);
 
-      targetFly.myPhonic.pause();
+      arrayOfFlies[i].myPhonic.pause();
       splat.play(); //plays splat audio tag
       //console.log(arrayOfPossibleQuestions[i],arrayOfFlies[i].myLetter);
 
@@ -28,14 +28,14 @@ function handleCanvasClick(evt) {
         arrayOfPossibleQuestions.splice(i,1);
       }//makes sure not to repeat questions
 
-      assignTargetFly();
-      targetFly.myPhonic.loop = true;
-      targetFly.myPhonic.play();
+      assignTargetFies();
+      playPhonic();
     }/*end of correct answers*/ else {
 
     }//end of incorrect answers
   }//end of looping through flies
   numberOfAttempts++;
   overallAccuracy = Math.round( (correctAnswers/numberOfAttempts)*100 );
+  document.getElementById("accuracy").innerHTML = overallAccuracy + "%";
   console.log(numberOfAttempts, correctAnswers, overallAccuracy);
 }//end of canvas click

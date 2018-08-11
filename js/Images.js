@@ -218,3 +218,16 @@ function countLoadedImagesAndLaunchIfReady() {
 
 //Load images must be called in window.onload (Main.js)
 Images();
+
+let assignFlaps = () => {
+  for (let i = 0; i < arrayOfFlies.length; i++) {
+      if ( arrayOfFlies[i].myImage === Images.getImage("fly_version_1") ) {
+        arrayOfFlies[i].myImageB = Images.getImage("fly_version_1b");
+      } else if ( arrayOfFlies[i].myImage === Images.getImage("cartoonFly") ) {
+          arrayOfFlies[i].myImageB = Images.getImage("cartoonFlyB");
+        }
+        else if ( arrayOfFlies[i].myImage === Images.getImage("dragon_bee_v1") ) {
+          arrayOfFlies[i].myImageB = Images.getImage("dragon_bee_b");
+        }
+      }
+}

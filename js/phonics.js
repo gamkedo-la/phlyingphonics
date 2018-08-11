@@ -24,11 +24,11 @@ let initializeArrayOfPossibleQuestions = () => {
   }
 }
 
-let setPhonicAudioTagSource = () => {
-  let randomQuestionIndex = getRandomInt(0,arrayOfPossibleQuestions.length-1);
-  //console.log(randomQuestionIndex,arrayOfPossibleQuestions);
-  //console.log(arrayOfPossibleQuestions[randomQuestionIndex]);
-  phonic.src = arrayOfPossibleQuestions[randomQuestionIndex];
-  targetPhonic = arrayOfPossibleQuestions[randomQuestionIndex];
-  //console.log(targetPhonic);
+let assignTargetPhonic = () => {
+  targetPhonic = temporaryArrayOfQuestions[0].toLowerCase();
+}
+
+let playPhonic = () => {
+  Sounds.getSound(targetPhonic).loop = true;
+  Sounds.getSound(targetPhonic).play();
 }

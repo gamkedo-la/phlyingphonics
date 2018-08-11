@@ -3,9 +3,14 @@ let initializeArrayOfFlies;
 let arrayOfFlies = []; //flies to be used in game
 
 let targetFly;
-let assignTargetFly = () => {
-  let randomFlyIndex = getRandomInt(0, arrayOfFlies.length-1);
-  targetFly = arrayOfFlies[randomFlyIndex];
+let assignTargetFlies = () => {
+  for (let i = 0; i<arrayOfFlies.length; i++) {
+    if (arrayOfFlies[i].myLetterToCheck === targetPhonic) {
+      arrayOfFlies[i].target === true;
+    }// else {
+      //arrayOfFlies[i].target === false;
+    //}
+  }
 }
 let arrayOfSwattedFlies = [];
 let testFly;
@@ -54,7 +59,7 @@ drawFlies = () => {
 //sets which flies are to be used at the start of the game, should probably be updated beyond just a random number between 1 and 26, should be based on student customization
 //or 'training mode'
 initializeArrayOfFlies = () => {
-  numberOfFlies = 8;//getRandomInt(1,26);
+  numberOfFlies = 6;//getRandomInt(1,26);
   arrayOfFlies = new Array(numberOfFlies);
   for (let i = 0; i < numberOfFlies; i++) {
     arrayOfFlies[i] = new flyClass();
@@ -154,6 +159,8 @@ function randomCapitalLetter() {
   return letter;
 }
 
+
+
 function drawBitmapCenteredWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
   canvasContext.save();
   canvasContext.translate(atX, atY);
@@ -210,8 +217,10 @@ function flyClass() {
   this.leftEdge = this.x;
   this.myImage = Images.getImage(randomizeStartingFlyImage());
   this.myImageB = undefined; // flapping
-  this.myLetter = randomCapitalLetter();//randomLowerCaseLetter();
+  this.myLetter = randomLetterWithinSubset();//randomLowerCaseLetter();
+  this.myLetterToCheck = this.myLetter.toLowerCase();
   this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());
+  this.target = false;
   this.drawCount = 0;
 
   this.draw = () => {
