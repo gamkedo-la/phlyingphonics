@@ -79,7 +79,7 @@ window.onload = () => {
   canvasLeftEdge = 0;
   backgroundMusic.volume = 0.25;
   //console.log(canvas.width,canvas.height);
-  let arrayOfBackgroundStrings = ["table", "tableWithFilter", "bowlOfFruit", "purplecountertop"];
+  let arrayOfBackgroundStrings = ["table","purplecountertop"]; //"table", "tableWithFilter", "bowlOfFruit", 
   let chosenBackground;
   let chooseBackground = () => {
     chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
