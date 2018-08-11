@@ -105,7 +105,9 @@ var imageFileNames = [
     "images/flySwatter.png",
     "images/cartoonFly.png",
     "images/cartoonFlyB.png",
-    "images/cartoonFly-spritesheett.png"
+    "images/cartoonFly-spritesheett.png",
+    "images/dragon_bee_v1.png",
+    "images/dragon_bee_b.png"
 
 ];
 

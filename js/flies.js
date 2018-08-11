@@ -178,7 +178,7 @@ function drawBitmapWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
   canvasContext.restore();
 }
 
-let arrayOfStartingFlyImages = ["fly_version_1", "cartoonFly"];
+let arrayOfStartingFlyImages = ["cartoonFly","fly_version_1","dragon_bee_v1"];
 let randomizeStartingFlyImage = () => {
   let startingFlyImageIndex = getRandomInt(0, arrayOfStartingFlyImages.length - 1);
   let startingFlyImage = arrayOfStartingFlyImages[startingFlyImageIndex];

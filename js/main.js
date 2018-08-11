@@ -48,6 +48,9 @@ getRandomInt = (min, max) => {
         } else if ( arrayOfFlies[i].myImage === Images.getImage("cartoonFly") ) {
             arrayOfFlies[i].myImageB = Images.getImage("cartoonFlyB");
           }
+          else if ( arrayOfFlies[i].myImage === Images.getImage("dragon_bee_v1") ) {
+            arrayOfFlies[i].myImageB = Images.getImage("dragon_bee_b");
+          }
           console.log(arrayOfFlies[i].myImage, arrayOfFlies[i].myImageB);
         }
 
