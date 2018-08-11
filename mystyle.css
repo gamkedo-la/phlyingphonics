@@ -1,0 +1,29 @@
+#gameCanvas {
+  float: left;
+}
+
+.track {
+  float: left;
+  padding-left: 1em;
+  display: inline;
+}
+
+#consonanttrack:after {
+  display: table;
+}
+
+.consonantsColumn {
+  display: inline;
+}
+
+.vowels {
+  display: block;
+}
+
+.consonants {
+  display: block;
+}
+
+label {
+  font: 12px;
+}

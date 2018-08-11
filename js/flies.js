@@ -54,7 +54,7 @@ drawFlies = () => {
 //sets which flies are to be used at the start of the game, should probably be updated beyond just a random number between 1 and 26, should be based on student customization
 //or 'training mode'
 initializeArrayOfFlies = () => {
-  numberOfFlies = 7;//getRandomInt(1,26);
+  numberOfFlies = 5;//getRandomInt(1,26);
   arrayOfFlies = new Array(numberOfFlies);
   for (let i = 0; i < numberOfFlies; i++) {
     arrayOfFlies[i] = new flyClass();
