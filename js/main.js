@@ -35,7 +35,6 @@ getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
   let launchGame;
   launchGame = () => {
     backgroundMusic.play();
@@ -77,9 +76,9 @@ window.onload = () => {
   canvasBottomEdge = canvas.height = window.innerHeight*0.75;
   canvasTopEdge = 0;
   canvasLeftEdge = 0;
-  backgroundMusic.volume = 0.25;
+  backgroundMusic.volume = 0.1;
   //console.log(canvas.width,canvas.height);
-  let arrayOfBackgroundStrings = ["table","purplecountertop"]; //"table", "tableWithFilter", "bowlOfFruit", 
+  let arrayOfBackgroundStrings = ["table","purplecountertop"]; //"table", "tableWithFilter", "bowlOfFruit",
   let chosenBackground;
   let chooseBackground = () => {
     chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
