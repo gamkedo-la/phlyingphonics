@@ -6,12 +6,13 @@ let targetFly;
 let assignTargetFlies = () => {
   for (let i = 0; i<arrayOfFlies.length; i++) {
     if (arrayOfFlies[i].myLetterToCheck === targetPhonic) {
-      arrayOfFlies[i].target === true;
-    }// else {
-      //arrayOfFlies[i].target === false;
-    //}
+      arrayOfFlies[i].target = true;
+    } else {
+      arrayOfFlies[i].target = false;
+    }
   }
 }
+
 let arrayOfSwattedFlies = [];
 let testFly;
 let drawFlies;

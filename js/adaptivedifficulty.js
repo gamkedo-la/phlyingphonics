@@ -8,7 +8,7 @@ let temporaryArrayOfQuestions = new Array();
 
 function fillTemporaryArrayOfQuestions() {
   for (let i = 0; i<arrayOfFlies.length; i++) {
-    temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetter);
+    temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetter.toLowerCase());
   }
 }
 

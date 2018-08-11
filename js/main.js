@@ -35,33 +35,21 @@ getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-  let launchGame;
-  launchGame = () => {
+  let initialize = () => {
     backgroundMusic.play();
     initializeArrayOfFlies();
     assignFlaps();
     fillTemporaryArrayOfQuestions();
-    assignTargetPhonic();
-    assignTargetFlies();
-    playPhonic();
-
     console.log(temporaryArrayOfQuestions);
-
+    assignTargetPhonic();
     console.log(targetPhonic);
-    for (let i = 0; i<arrayOfFlies.length; i++) {
-      console.log(arrayOfFlies[i].myLetterToCheck, arrayOfFlies[i].myPhonic, arrayOfFlies[i].target);
-    }
-    //assignTargetFly();
+    playPhonic();
+    assignTargetFlies();
+  }
 
-
-    //initializeArrayOfPhonics();
-
-    //initializeArrayOfPossibleQuestions();
-
-    //setPhonicAudioTagSource();
-
-
-
+  let launchGame;
+  launchGame = () => {
+    initialize();
     setInterval(gameLoop, 1000/30);
   }
 
