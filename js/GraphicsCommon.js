@@ -1,3 +1,7 @@
+// GraphicsCommon.js is brought over from We Must Prepare
+// Same file with minor modifications as the GraphicsCommon.js in We Must Prepare
+// Contains commonly used functions to draw stuff to the canvas
+
 function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor) {
     canvasContext.fillStyle = fillColor;
     canvasContext.fillRect(topLeftX, topLeftY, boxWidth, boxHeight);
@@ -69,13 +73,13 @@ function colorTextCentered(text, textLineX, textLineY, color, fontInfo) {
 }
 
 function Sprite(imageIn, widthIn, heightIn) {
-    var image = imageIn;
-    var width = widthIn;
-    var height = heightIn;
+    let image = imageIn;
+    let width = widthIn;
+    let height = heightIn;
 
     //These save division operations when drawing to increase performance at the cost of memory
-    var halfWidth = width / 2;
-    var halfHeight = height / 2;
+    let halfWidth = width / 2;
+    let halfHeight = height / 2;
 
     this.draw = function (atX, atY) {
         canvasContext.drawImage(image, atX - halfWidth, atY - halfHeight);
@@ -100,13 +104,13 @@ function Sprite(imageIn, widthIn, heightIn) {
 }
 
 function SpriteSheet(sheetIn, colWidth, rowHeight) {
-    var sheet = sheetIn;
-    var width = colWidth;
-    var height = rowHeight;
+    let sheet = sheetIn;
+    let width = colWidth;
+    let height = rowHeight;
 
     //These save division operations when drawing to increase performance at the cost of memory
-    var halfWidth = width / 2;
-    var halfHeight = height / 2;
+    let halfWidth = width / 2;
+    let halfHeight = height / 2;
 
     this.draw = function (atX, atY, col, row) {
         canvasContext.drawImage(sheet,
@@ -139,13 +143,13 @@ function SpriteSheet(sheetIn, colWidth, rowHeight) {
 }
 
 function Animation(sheetIn, colWidth, rowHeight, sheetInFrames, animationInRowIndex, frameTickRate, looping) {
-    var spriteSheet = new SpriteSheet(sheetIn, colWidth, rowHeight);
-    var numberOfFrames = sheetInFrames;
-    var animationIndex = 0;
-    var tickCount = 0;
-    var ticksPerFrame = frameTickRate;
-    var loop = looping;
-    var rowIndex = animationInRowIndex;
+    let spriteSheet = new SpriteSheet(sheetIn, colWidth, rowHeight);
+    let numberOfFrames = sheetInFrames;
+    let animationIndex = 0;
+    let tickCount = 0;
+    let ticksPerFrame = frameTickRate;
+    let loop = looping;
+    let rowIndex = animationInRowIndex;
 
     this.draw = function (atX, atY) {
         spriteSheet.draw(atX, atY, animationIndex, rowIndex);
