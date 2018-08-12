@@ -2,7 +2,7 @@
 //without the directory names and file extensions.
 // Essentially, edit the imageFileNames array with all your image paths, then access them with Images.getImage(nameOnly)
 //
-// Example: viewtiful.jpg in imageFileNames ---> var viewtifulJoeImage = Images.getImage("viewtiful");
+// Example: viewtiful.jpg in imageFileNames ---> let viewtifulJoeImage = Images.getImage("viewtiful");
 //
 // ---> This implies string comparisons, ie don't pull and draw directly from the dict each frame.
 // Instead, give the reference to an object, for example player.sprite = Images.getImage("player"), then draw player.sprite
@@ -15,28 +15,28 @@
 
 function Images() {
     //console.log(imageFileNames);
-    var imageDict = [];
+    let imageDict = [];
     console.log("Initializing Images module.");
 
-    for (var i = 0, len = imageFileNames.length; i < len; i++) {
+    for (let i = 0, len = imageFileNames.length; i < len; i++) {
 
         // Cuts up the path to extract the image name, and adds it in the dict
-        var splitArray = imageFileNames[i].split("/");                           // images/table.png
-        var imgName = splitArray[splitArray.length - 1].split(".")[0];
+        let splitArray = imageFileNames[i].split("/");                           // images/table.png
+        let imgName = splitArray[splitArray.length - 1].split(".")[0];
 
-        var img = document.createElement("img");
+        let img = document.createElement("img");
         imageDict[imgName] = img; //the spot is being kept by a dummy image; we will load it later
 
     }
 
     Images.loadImages = function () {
 
-        for (var i = 0, len = imageFileNames.length; i < len; i++) {
+        for (let i = 0, len = imageFileNames.length; i < len; i++) {
 
             // We did this already above, but this time we are loading the images
             // (ie giving all placeholder images their .src)
-            var splitArray = imageFileNames[i].split("/");
-            var imgName = splitArray[splitArray.length - 1].split(".")[0];
+            let splitArray = imageFileNames[i].split("/");
+            let imgName = splitArray[splitArray.length - 1].split(".")[0];
             console.log(imageFileNames[i]);
             imageDict[imgName].src = imageFileNames[i];
 
@@ -51,7 +51,7 @@ function Images() {
     Images.getImage = function (name) {
 
         try {
-            var image = imageDict[name];
+            let image = imageDict[name];
             if (typeof image === "undefined") {
                 throw "Error: Did not find image with name '" + name + "'. Check that imageFileNames in Images module contains the correct file path!";
             }
@@ -65,7 +65,7 @@ function Images() {
 }
 
 //////////////    Your file names go here!    ////////////////
-var imageFileNames = [
+let imageFileNames = [
 
     "images/table.png",
     "images/fly.png",
@@ -103,7 +103,7 @@ var imageFileNames = [
 
 ];
 
-var picsToLoad = imageFileNames.length;
+let picsToLoad = imageFileNames.length;
 
 function countLoadedImagesAndLaunchIfReady() {
     picsToLoad--;

@@ -138,7 +138,7 @@ let arrayOfPossibleLetters = new Array(arrayOfFlies.length);
 
 function randomLowerCaseLetter() {
   let randomLetterIndex = getRandomInt(0,arrayOfLowerCaseLetters.length-1);
-  var letter = arrayOfLowerCaseLetters[randomLetterIndex];
+  let letter = arrayOfLowerCaseLetters[randomLetterIndex];
   arrayOfLowerCaseLetters.splice(randomLetterIndex,1);
 }
 
@@ -147,7 +147,7 @@ let arrayOfCapitalLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "
 
 function randomLowerCaseLetter() {
   let randomLetterIndex = getRandomInt(0, arrayOfPossibleLetters.length - 1);
-  var letter = arrayOfLowerCaseLetters[randomLetterIndex];
+  let letter = arrayOfLowerCaseLetters[randomLetterIndex];
   arrayOfLowerCaseLetters.splice(randomLetterIndex, 1);
 
   return letter;
@@ -155,7 +155,7 @@ function randomLowerCaseLetter() {
 
 function randomCapitalLetter() {
   let randomLetterIndex = getRandomInt(0, arrayOfCapitalLetters.length - 1);
-  var letter = arrayOfCapitalLetters[randomLetterIndex];
+  let letter = arrayOfCapitalLetters[randomLetterIndex];
   arrayOfCapitalLetters.splice(randomLetterIndex, 1);
   return letter;
 }
@@ -231,13 +231,13 @@ function flyClass() {
     if (ROTATE_FLIES &&
       (this.xSpeed != 0 || this.ySpeed != 0)) { // only wobble back and forth if moving (not when dead)
 
-      var scale = this.width / this.myImage.width;
+      let scale = this.width / this.myImage.width;
 
       //point in the direction we are moving
-      var angle = Math.atan2(this.ySpeed, this.xSpeed) - 90 * (180 / Math.PI); // degrees away from east
+      let angle = Math.atan2(this.ySpeed, this.xSpeed) - 90 * (180 / Math.PI); // degrees away from east
 
       // look back and forth a little
-      var wobble = Math.sin(performance.now() / 500) * 0.5;
+      let wobble = Math.sin(performance.now() / 500) * 0.5;
 
       // centered at x,y? no in this game x,y is the top left corner of the sprite
       //drawBitmapCenteredWithRotationScale(this.myImage, this.x, this.y, angle + wobble, scale);

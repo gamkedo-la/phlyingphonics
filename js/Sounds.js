@@ -2,7 +2,7 @@
 //without the directory names and file extensions.
 // Essentially, edit the soundFileNames array with all your sound paths, then access them with Sounds.getSound(nameOnly)
 //
-// Example: viewtiful.mp3 in soundFileNames ---> var viewtifulJoeSound = Sounds.getSound("viewtiful");
+// Example: viewtiful.mp3 in soundFileNames ---> let viewtifulJoeSound = Sounds.getSound("viewtiful");
 //
 // ---> This implies string comparisons, ie don't pull and draw directly from the dict each frame.
 // Instead, give the reference to an object, for example player.sound = Sounds.getSound("player"), then draw player.sound
@@ -14,28 +14,29 @@
 // Made by your friend Remy :) (based on the usual script from Chris)
 
 function Sounds() {
+    let sound;
+    let soundDict = [];
 
-    var soundDict = [];
     console.log("Initializing Sounds module.");
 
-    for (var i = 0, len = soundFileNames.length; i < len; i++) {
+    for (let i = 0, len = soundFileNames.length; i < len; i++) {
 
         // Cuts up the path to extract the sound name, and adds it in the dict
-        var splitArray = soundFileNames[i].split("/");
-        var soundName = splitArray[splitArray.length - 1].split(".")[0];
+        let splitArray = soundFileNames[i].split("/");
+        let soundName = splitArray[splitArray.length - 1].split(".")[0];
 
-        var sound = document.createElement("AUDIO");
+        sound = document.createElement("AUDIO");
         soundDict[soundName] = sound; //the spot is being kept by a dummy sound; we will load it later
     }
 
     Sounds.loadSounds = function () {
 
-        for (var i = 0, len = soundFileNames.length; i < len; i++) {
+        for (let i = 0, len = soundFileNames.length; i < len; i++) {
 
             // We did this already above, but this time we are loading the sounds
             // (ie giving all placeholder sounds their .src)
-            var splitArray = soundFileNames[i].split("/");
-            var soundName = splitArray[splitArray.length - 1].split(".")[0];
+            let splitArray = soundFileNames[i].split("/");
+            let soundName = splitArray[splitArray.length - 1].split(".")[0];
 
             soundDict[soundName].src = soundFileNames[i];
 
@@ -50,7 +51,7 @@ function Sounds() {
     Sounds.getSound = function (name) {
 
         try {
-            var sound = soundDict[name];
+            let sound = soundDict[name];
             if (typeof sound === "undefined") {
                 throw "Error: Did not find sound with name '" + name + "'. Check that soundFileNames in Sounds module contains the correct file path!";
             }

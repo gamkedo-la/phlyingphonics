@@ -1,10 +1,10 @@
 // current offsets for the game camera
-var screenshakeX = 0;
-var screenshakeY = 0;
+let screenshakeX = 0;
+let screenshakeY = 0;
 
-var screen_shakes = 0; // frames of screenshake used as player feedback for when we take damage
-var MAX_SCREEN_SHAKES = 20;
-var MAX_SCREEN_SHAKE_SIZE_PX = 16;
+let screen_shakes = 0; // frames of screenshake used as player feedback for when we take damage
+let MAX_SCREEN_SHAKES = 20;
+let MAX_SCREEN_SHAKE_SIZE_PX = 16;
 
 function screenShake(howmany) {
     //console.log('screenshake ' + howmany);
@@ -17,7 +17,7 @@ function screenShake(howmany) {
 function updateScreenshake() {
     if (screen_shakes > 0) {
 
-        var shakesize = screen_shakes * 1.5;
+        let shakesize = screen_shakes * 1.5;
         if (shakesize > MAX_SCREEN_SHAKE_SIZE_PX)
             shakesize = MAX_SCREEN_SHAKE_SIZE_PX;
 
