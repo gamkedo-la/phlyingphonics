@@ -10,7 +10,6 @@ function handleCanvasClick(evt) {
   for (let i = 0; i<arrayOfFlies.length; i++) {
     if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 && //reasonable clicking coordinates
         evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {
-
       correctAnswers++;
       arrayOfFlies[i].myImage = Images.getImage("yellowgreensplat"); //changing source image
       arrayOfFlies[i].xSpeed = 0; //stops movement
@@ -20,29 +19,33 @@ function handleCanvasClick(evt) {
       temporaryArrayOfQuestions.splice(0,1);
       Sounds.getSound(targetPhonic).pause();
       splat.play(); //plays splat audio tag
-      if (temporaryArrayOfQuestions.length === 0 && temporarySubset === ["E","O"]) {
-        arrayOfSwattedFlies = [];
-        temporarySubset = ["I","U"];
-        initializeArrayOfFlies();
-        assignFlaps();
-        fillTemporaryArrayOfQuestions();
+      //console.log(temporarySubset, temporaryArrayOfQuestions.length);
+      //if (temporaryArrayOfQuestions.length === 0 && temporarySubset === ["E","O"]) {
+        //arrayOfSwattedFlies = [];
+        //temporarySubset = ["I","U"];
+        //initializeArrayOfFlies();
+        //assignFlaps();
+        //fillTemporaryArrayOfQuestions();
+        if (temporarySubset === ["E","O"] && temporaryArrayOfQuestions.length === 0) {
+        console.log(arrayOfFlies[0].myLetter);
         console.log(temporaryArrayOfQuestions);
-        assignTargetPhonic();
-        console.log(targetPhonic);
-        playPhonic();
-        assignTargetFlies();
-      } else if (temporaryArrayOfQuestions.length === 0 && temporarySubset === ["I","U"]) {
-        arrayOfSwattedFlies = [];
-        temporarySubset = ["I","U"];
-        initializeArrayOfFlies();
-        assignFlaps();
-        fillTemporaryArrayOfQuestions();
-        console.log(temporaryArrayOfQuestions);
-        assignTargetPhonic();
-        console.log(targetPhonic);
-        playPhonic();
-        assignTargetFlies();
       }
+        //assignTargetPhonic();
+        //playPhonic();
+        //assignTargetFlies();
+      //}
+      /* else if (temporaryArrayOfQuestions.length === 0 && temporarySubset === ["I","U"]) {
+        arrayOfSwattedFlies = [];
+        temporarySubset = ["I","U"];
+        initializeArrayOfFlies();
+        assignFlaps();
+        fillTemporaryArrayOfQuestions();
+        console.log(temporaryArrayOfQuestions);
+        assignTargetPhonic();
+        console.log(targetPhonic);
+        playPhonic();
+        assignTargetFlies();
+      }*/
       assignTargetPhonic();
       assignTargetFlies();
       playPhonic();

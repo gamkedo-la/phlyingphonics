@@ -40,9 +40,7 @@ getRandomInt = (min, max) => {
     initializeArrayOfFlies();
     assignFlaps();
     fillTemporaryArrayOfQuestions();
-    console.log(temporaryArrayOfQuestions);
     assignTargetPhonic();
-    console.log(targetPhonic);
     playPhonic();
     assignTargetFlies();
   }
