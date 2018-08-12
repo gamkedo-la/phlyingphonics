@@ -17,3 +17,19 @@ function randomLetterWithinSubset () {
   let letter = temporarySubset[randomLetterIndex];
   return letter;
 }
+
+function checkForLevelReset(temporarySubset) {
+  if (temporarySubset === ["E","O"] && temporaryArrayOfQuestions.length === 0) {
+    arrayOfSwattedFlies = [];
+    temporarySubset = ["I","U"];
+    initializeArrayOfFlies();
+    assignFlaps();
+    fillTemporaryArrayOfQuestions();
+    console.log(temporaryArrayOfQuestions);
+  }
+}
+
+function calculateOverallAccuracy() {
+  overallAccuracy = Math.round( (correctAnswers/numberOfAttempts)*100 );
+  document.getElementById("accuracy").innerHTML = overallAccuracy + "%";
+}
