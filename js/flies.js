@@ -26,17 +26,13 @@ let flySpeedY = 5;
 
 
 let randomDirection = () => { //helps randomize the gameplay so students can't rely too heavily on visual patterns to beat the level, they actually have to pay attention
-
   let randomInt = getRandomInt(0, 1);
   if (randomInt < 0.5) {
     return 1;
   } else {
     return -1;
   }
-
 }
-
-
 
 drawSwattedFlies = () => {
   for (let i = 0; i < arrayOfSwattedFlies.length; i++) {
@@ -57,8 +53,7 @@ drawFlies = () => {
 
 
 
-//sets which flies are to be used at the start of the game, should probably be updated beyond just a random number between 1 and 26, should be based on student customization
-//or 'training mode'
+//sets which flies are to be used at the start of the game, after level completion, or after student customization
 initializeArrayOfFlies = () => {
   numberOfFlies = 6;//getRandomInt(1,26);
   arrayOfFlies = new Array(numberOfFlies);
@@ -142,14 +137,15 @@ function randomLowerCaseLetter() {
   arrayOfLowerCaseLetters.splice(randomLetterIndex,1);
 }
 
-let arrayOfLowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let arrayOfCapitalLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let arrayOfLowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+                               "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let arrayOfCapitalLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+                             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 function randomLowerCaseLetter() {
   let randomLetterIndex = getRandomInt(0, arrayOfPossibleLetters.length - 1);
   let letter = arrayOfLowerCaseLetters[randomLetterIndex];
   arrayOfLowerCaseLetters.splice(randomLetterIndex, 1);
-
   return letter;
 }
 
@@ -159,8 +155,6 @@ function randomCapitalLetter() {
   arrayOfCapitalLetters.splice(randomLetterIndex, 1);
   return letter;
 }
-
-
 
 function drawBitmapCenteredWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
   canvasContext.save();
@@ -202,7 +196,6 @@ let assignFlyImageB = () => {
 }
 
 function flyClass() {
-
 
   this.width = 200;
   this.height = 200;
@@ -257,12 +250,7 @@ function flyClass() {
 
     // draw the letter
     canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
-
-    //canvasContext.font = "30px Arial";
-    //canvasContext.fillStyle = "orange";
-    //canvasContext.fillText(this.myLetter, this.x + this.width/2,this.y + this.height/2);
   }
-
 
 }
 
@@ -291,7 +279,7 @@ handleFlyToFlyCollisions = () => {
       let fly1 = arrayOfFlies[progressiveFlyAnchor]
       let fly2 = arrayOfFlies[remainingFliesInArray]
       const { left, right, top, bottom } = detactCollisionDir(fly1, fly2)
-      
+
       if ((right || left) &&  !fly1.hasFlyCollisionWith.has(fly2)) {
         fly1.hasFlyCollisionWith.add(fly2)
         fly2.hasFlyCollisionWith.add(fly1)
@@ -300,7 +288,7 @@ handleFlyToFlyCollisions = () => {
         if (fly1.currentXDirection = "right") {
           fly1.x += -1;
           fly2.x += 5;
-        } 
+        }
         else {
           fly1.x += 5;
           fly2.x += -5;
@@ -314,7 +302,7 @@ handleFlyToFlyCollisions = () => {
         if (fly1.currentYDirection = "up") {
           fly1.y += -5;
           fly2.y += 5;
-        } 
+        }
         else {
           fly1.y += 5;
           fly2.y += -5;

@@ -1,4 +1,3 @@
-
 // Similar to the Input module, this static Images module keeps loaded images in a dictionary, with the keys being what was entered in "imageFileNames"
 //without the directory names and file extensions.
 // Essentially, edit the imageFileNames array with all your image paths, then access them with Images.getImage(nameOnly)

@@ -99,8 +99,8 @@ window.onload = () => {
     canvasContext.drawImage(Images.getImage("flySwatter"), mouseX - 50, mouseY - 50);
   }
 
-  //part of game loop, maybe have the splats disappear over with a setTimeout so the canvas doesn't get too cluttered when the game has lots of flies... or maybe
-  //re-order the draw order so flies that are still alive are drawn on top of splats
+  //part of game loop, maybe have the splats disappear over with a setTimeout
+  //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
 
     if (USE_SCREENSHAKE) {
