@@ -223,6 +223,7 @@ function flyClass() {
   this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());
   this.target = false;
   this.drawCount = 0;
+  this.hasFlyCollisionWith = new Set();
 
   this.draw = () => {
 
@@ -283,51 +284,83 @@ checkCurrentFlyDirectionY = () => {
 
 
 handleFlyToFlyCollisions = () => {
+
   for (let progressiveFlyAnchor = 0; progressiveFlyAnchor < arrayOfFlies.length; progressiveFlyAnchor++) {
     for (let remainingFliesInArray = progressiveFlyAnchor + 1; remainingFliesInArray < arrayOfFlies.length; remainingFliesInArray++) {
       if (progressiveFlyAnchor === remainingFliesInArray) { continue; }
-      //bottom/top collision
-      if ((arrayOfFlies[progressiveFlyAnchor].topEdge <= arrayOfFlies[remainingFliesInArray].bottomEdge && //these two lines dictate top/bottom collision
-        arrayOfFlies[progressiveFlyAnchor].bottomEdge >= arrayOfFlies[remainingFliesInArray].bottomEdge &&
-        arrayOfFlies[progressiveFlyAnchor].leftEdge <= arrayOfFlies[remainingFliesInArray].rightEdge &&
-        arrayOfFlies[progressiveFlyAnchor].rightEdge >= arrayOfFlies[remainingFliesInArray].leftEdge)
-        ||
-        (arrayOfFlies[progressiveFlyAnchor].bottomEdge >= arrayOfFlies[remainingFliesInArray].topEdge &&
-          arrayOfFlies[progressiveFlyAnchor].topEdge <= arrayOfFlies[remainingFliesInArray].topEdge &&
-          arrayOfFlies[progressiveFlyAnchor].leftEdge <= arrayOfFlies[remainingFliesInArray].rightEdge &&
-          arrayOfFlies[progressiveFlyAnchor].rightEdge >= arrayOfFlies[remainingFliesInArray].leftEge)) {
-
-        arrayOfFlies[progressiveFlyAnchor].ySpeed *= -1;
-        arrayOfFlies[remainingFliesInArray].ySpeed *= -1;
-        if (arrayOfFlies[progressiveFlyAnchor].currentYDirection = "up") {
-          arrayOfFlies[progressiveFlyAnchor].y += -5;
-          arrayOfFlies[remainingFliesInArray].y += 5;
-        } else {
-          arrayOfFlies[progressiveFlyAnchor].y += 5;
-          arrayOFlies[remainingFliesInArray].y += -5;
+      let fly1 = arrayOfFlies[progressiveFlyAnchor]
+      let fly2 = arrayOfFlies[remainingFliesInArray]
+      const { left, right, top, bottom } = detactCollisionDir(fly1, fly2)
+      
+      if ((right || left) &&  !fly1.hasFlyCollisionWith.has(fly2)) {
+        fly1.hasFlyCollisionWith.add(fly2)
+        fly2.hasFlyCollisionWith.add(fly1)
+        fly1.xSpeed *= -1;
+        fly2.xSpeed *= -1;
+        if (fly1.currentXDirection = "right") {
+          fly1.x += -1;
+          fly2.x += 5;
+        } 
+        else {
+          fly1.x += 5;
+          fly2.x += -5;
         }
+      } //end of left/right conditional
+      if ((top ||bottom) && !fly1.hasFlyCollisionWith.has(fly2)) {
+        fly1.hasFlyCollisionWith.add(fly2)
+        fly2.hasFlyCollisionWith.add(fly1)
+        fly1.ySpeed *= -1;
+        fly2.ySpeed *= -1;
+        if (fly1.currentYDirection = "up") {
+          fly1.y += -5;
+          fly2.y += 5;
+        } 
+        else {
+          fly1.y += 5;
+          fly2.y += -5;
+        }
+      } //end of top/bottom conditional
+
+      if(!top &!bottom && !right && !left) {
+        fly1.hasFlyCollisionWith.delete(fly2)
+        fly2.hasFlyCollisionWith.delete(fly1)
       }
-      //left/right collision
-      if ((arrayOfFlies[progressiveFlyAnchor].rightEdge >= arrayOfFlies[remainingFliesInArray].leftEdge &&
-        arrayOfFlies[progressiveFlyAnchor].topEdge <= arrayOfFlies[remainingFliesInArray].bottomEdge &&
-        arrayOfFlies[progressiveFlyAnchor].bottomEdge >= arrayOfFlies[remainingFliesInArray].topEdge &&
-        arrayOfFlies[progressiveFlyAnchor].leftEdge <= arrayOfFlies[remainingFliesInArray].leftEdge)
-        ||
-        (arrayOfFlies[progressiveFlyAnchor].leftEdge <= arrayOfFlies[remainingFliesInArray].rightEdge &&
-          arrayOfFlies[progressiveFlyAnchor].topEdge <= arrayOfFlies[remainingFliesInArray].bottomEdge &&
-          arrayOfFlies[progressiveFlyAnchor].bottomEdge >= arrayOfFlies[remainingFliesInArray].topEdge &&
-          arrayOfFlies[progressiveFlyAnchor].rightEdge >= arrayOfFlies[remainingFliesInArray].rightEdge)) {
 
-        arrayOfFlies[progressiveFlyAnchor].xSpeed *= -1;
-        arrayOfFlies[remainingFliesInArray].xSpeed *= -1;
-        if (arrayOfFlies[progressiveFlyAnchor].currentXDirection = "right") {
-          arrayOfFlies[progressiveFlyAnchor].x += -5;
-          arrayOfFlies[remainingFliesInArray].x += 5;
-        } else {
-          arrayOfFlies[progressiveFlyAnchor].x += 5;
-          arrayOFlies[remainingFliesInArray].x += -5;
-        }
-      }//end of left/right conditional
     }//end of inner part of nested for loop
   }//end of outer part of nested for loop
-}//end of fly to fly collision function
+}
+
+
+function detactCollisionDir(fly1,fly2) {
+
+  const res = { right:false, left:false, top:false, bottom:false };
+// detact horizontal collision
+  if( fly1.rightEdge >= fly2.leftEdge &&
+    fly1.topEdge <= fly2.bottomEdge &&
+    fly1.bottomEdge >= fly2.topEdge &&
+    fly1.leftEdge <= fly2.leftEdge) {
+      res.right = true;
+    }
+    else if (fly1.leftEdge <= fly2.rightEdge &&
+      fly1.topEdge <= fly2.bottomEdge &&
+      fly1.bottomEdge >= fly2.topEdge &&
+      fly1.rightEdge >= fly2.rightEdge) {
+
+        res.left = true;
+    }
+
+    // detact vertical collision
+    if (fly1.topEdge <= fly2.bottomEdge && //these two lines dictate top/bottom collision
+      fly1.bottomEdge >= fly2.bottomEdge &&
+      fly1.leftEdge <= fly2.rightEdge &&
+      fly1.rightEdge >= fly2.leftEdge) {
+        res.top = true;
+      }
+      else if (fly1.bottomEdge >= fly2.topEdge &&
+          fly1.topEdge <= fly2.topEdge &&
+          fly1.leftEdge <= fly2.rightEdge &&
+          fly1.rightEdge >= fly2.leftEge) {
+            res.bottom = true;
+          }
+  return res
+}
