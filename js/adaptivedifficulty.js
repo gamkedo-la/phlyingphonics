@@ -21,20 +21,59 @@ let vowelTrackLevels = [
 
 let consonantTrackLevelIndex = 0;
 let consonantTrackLevels = [
+  ["B","C"],
+  ["C","D"],
   ["B","D"],
+  ["B","C","D"],
   ["C","X"],
+  ["C","X","D"],
+  ["C","X","B","D"],
+  ["B","P",],
+  ["B","P","D"],
+  ["B","P","D","C","X"],
   ["K","X"],
+  ["B","P","D","K","X"],
   ["F","V"],
+  ["F","V","B"],
+  ["F","V","B","P"],
+  ["F","V","B","P","C"],
+  ["F","V","B","P","C","X"],
+  ["F","V","B","P","C","X","D"],
   ["G","K"],
   ["J","G"],
+  ["J","G","K"],
+  ["G","H"],
+  ["G","H","J"],
+  ["G","H","J","K"],
+  ["G","H","J","K","X"],
   ["L","N"],
+  ["L","N","G"],
+  ["L","N","G","K"],
+  ["L","N","G","K","J"],
   ["M","N"],
-  ["P","B"],
+  ["L","M","N"],
+  ["L","M","N","G","K"],
+  ["L","M","N","G","K","J"],
+  ["F","V","B","P","C","X","D","L","M","N","G","K","J"],
   ["Q","W"],
+  ["Q","W","R"],
   ["R","L"],
+  ["R","L","M"],
+  ["R","L","M","N"],
+  ["R","L","M","N","Q","W"],
   ["S","Z"],
   ["D","T"],
+  ["D","T","B"],
+  ["D","T","B","P"],
   ["V","W"],
+  ["V","W","F"],
+  ["X","Y"],
+  ["W","X","Y"],
+  ["V","W","Y"],
+  ["V","W","Y","F"],
+  ["R","L","M","N","Q","W","S","Z"],
+  ["V","W","F","D","T","B","P"],
+  ["C","G","H","J","K","X","Y"],
   ["B","C","D","F","G","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Y","Z"]
 ]
 
@@ -57,8 +96,8 @@ function checkForLevelResetOrAdvancement() {
   if (arrayOfFlies.length === 0 && overallAccuracy >= 80) {
     arrayOfSwattedFlies = [];
     chooseBackground();
-    /*consonantTrackLevelIndex++*/vowelTrackLevelIndex++;
-    temporarySubset = /*consonantTrackLevels[consonantTrackLevelIndex];*/vowelTrackLevels[vowelTrackLevelIndex];
+    consonantTrackLevelIndex++//vowelTrackLevelIndex++;
+    temporarySubset = consonantTrackLevels[consonantTrackLevelIndex];//vowelTrackLevels[vowelTrackLevelIndex];
     resetAccuracy();
     initializeArrayOfFlies();
     assignFlaps();
