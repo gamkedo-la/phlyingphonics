@@ -37,6 +37,7 @@ getRandomInt = (min, max) => {
 
   let initialize = () => {
     backgroundMusic.play();
+    temporarySubset = ["E","O"];
     initializeArrayOfFlies();
     assignFlaps();
     fillTemporaryArrayOfQuestions();
@@ -61,13 +62,6 @@ window.onload = () => {
   canvasLeftEdge = 0;
   backgroundMusic.volume = 0.1;
   //console.log(canvas.width,canvas.height);
-  let arrayOfBackgroundStrings = ["table","purplecountertop"]; //"table", "tableWithFilter", "bowlOfFruit",
-  let chosenBackground;
-  let chooseBackground = () => {
-    chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
-    //console.log(chosenBackground);
-
-  }
   chooseBackground();
 
 

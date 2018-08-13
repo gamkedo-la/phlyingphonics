@@ -3,7 +3,7 @@ let correctAnswers = 0;
 let incorrectAnswers = 0;
 let numberOfAttempts = 0;
 
-let temporarySubset = ["E","O"];
+let temporarySubset = [];
 let temporaryArrayOfQuestions = new Array();
 
 function fillTemporaryArrayOfQuestions() {
@@ -18,14 +18,14 @@ function randomLetterWithinSubset () {
   return letter;
 }
 
-function checkForLevelReset(temporarySubset) {
-  if (temporarySubset === ["E","O"] && temporaryArrayOfQuestions.length === 0) {
+function checkForLevelReset() {
+  if (arrayOfFlies.length === 0) {
+    chooseBackground();
     arrayOfSwattedFlies = [];
     temporarySubset = ["I","U"];
     initializeArrayOfFlies();
     assignFlaps();
     fillTemporaryArrayOfQuestions();
-    console.log(temporaryArrayOfQuestions);
   }
 }
 

@@ -232,3 +232,10 @@ let assignFlaps = () => {
         }
       }
 }
+
+let arrayOfBackgroundStrings = ["table","purplecountertop"]; //"table", "tableWithFilter", "bowlOfFruit",
+let chosenBackground;
+let chooseBackground = () => {
+  chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
+  //console.log(chosenBackground);
+}

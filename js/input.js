@@ -1,5 +1,4 @@
 let killFly = (i) => {
-  console.log(i);
   arrayOfFlies[i].myImage = Images.getImage("yellowgreensplat"); //changing source image
   arrayOfFlies[i].xSpeed = 0; //stops movement
   arrayOfFlies[i].ySpeed = 0;
@@ -21,6 +20,7 @@ function handleCanvasClick(evt) {
       temporaryArrayOfQuestions.splice(0,1);
       console.log(temporaryArrayOfQuestions.length, temporarySubset);
       checkForLevelReset(temporarySubset);//in adaptivedifficulty.js
+      console.log(temporarySubset);
       assignTargetPhonic();//in phonics.js
       assignTargetFlies();//in phonics.js
       playPhonic();//in phonics.js
