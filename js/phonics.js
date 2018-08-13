@@ -1,5 +1,5 @@
 let randomPhonicIndex = function() {return getRandomInt(0, arrayOfPhonics.length);} // randomizing target phonics for training purposes
-let arrayOfPossiblePhonics = new Array(numberOfFlies); // needs to be set up in a way where the student can choose which phonics to train
+let arrayOfPossiblePhonics = new Array(numberOfFliesAtStartOfLevel); // needs to be set up in a way where the student can choose which phonics to train
 let phonic = document.getElementById("phonic"); //variable for audio tag
 let initializeTargetPhonic = function() {arrayOfPhonics[randomPhonicIndex]; } // picks first target phonic at start of game
 let targetPhonic;
@@ -12,7 +12,7 @@ let arrayOfPhonics = ["audio/phonics/a.mp3", "audio/phonics/b.mp3", "audio/phoni
 
 // fills array of possible phonics, should be adapted for student customization, as in students should have an option for choosing which letters they want to practice
 let initializeArrayOfPhonics = () => {
-  for (let i = 0; i<numberOfFlies; i++) {
+  for (let i = 0; i<numberOfFliesAtStartOfLevel; i++) {
     arrayOfPossiblePhonics[i] = arrayOfPhonics[i];
   }
 }

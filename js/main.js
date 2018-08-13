@@ -37,7 +37,7 @@ getRandomInt = (min, max) => {
 
   let initialize = () => {
     backgroundMusic.play();
-    temporarySubset = vowelTrackLevels[vowelTrackLevelIndex];
+    temporarySubset = vowelTrackLevels[vowelTrackLevelIndex];//consonantTrackLevels[consonantTrackLevelIndex];
     initializeArrayOfFlies();
     assignFlaps();
     fillTemporaryArrayOfQuestions();

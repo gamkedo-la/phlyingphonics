@@ -1,4 +1,4 @@
-let numberOfFlies; //flies to be used in game, should eventually be coordinated with student choices or training mode instead of just random
+let numberOfFliesAtStartOfLevel; //flies to be used in game, should eventually be coordinated with student choices or training mode instead of just random
 let initializeArrayOfFlies;
 let arrayOfFlies = []; //flies to be used in game
 
@@ -41,7 +41,7 @@ drawSwattedFlies = () => {
 }
 
 drawFlies = () => {
-  for (let flyDrawingIteration = 0; flyDrawingIteration < numberOfFlies; flyDrawingIteration++) {
+  for (let flyDrawingIteration = 0; flyDrawingIteration < numberOfFliesAtStartOfLevel; flyDrawingIteration++) {
     //  canvasContext.drawImage(fly, arrayOfFlies[flyDrawingIteration].x, arrayOfFlies[flyDrawingIteration].y,
     //                          arrayOfFlies[flyDrawingIteration].width, arrayOfFlies[flyDrawingIteration].height);
 
@@ -55,9 +55,9 @@ drawFlies = () => {
 
 //sets which flies are to be used at the start of the game, after level completion, or after student customization
 initializeArrayOfFlies = () => {
-  numberOfFlies = 6;//getRandomInt(1,26);
-  arrayOfFlies = new Array(numberOfFlies);
-  for (let i = 0; i < numberOfFlies; i++) {
+  numberOfFliesAtStartOfLevel = 6;//getRandomInt(1,26);
+  arrayOfFlies = new Array(numberOfFliesAtStartOfLevel);
+  for (let i = 0; i < numberOfFliesAtStartOfLevel; i++) {
     arrayOfFlies[i] = new flyClass();
     arrayOfFlies[i].index = i;
   }
