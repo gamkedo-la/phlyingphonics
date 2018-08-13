@@ -37,7 +37,7 @@ getRandomInt = (min, max) => {
 
   let initialize = () => {
     backgroundMusic.play();
-    temporarySubset = ["E","O"];
+    temporarySubset = vowelTrackLevels[vowelTrackLevelIndex];
     initializeArrayOfFlies();
     assignFlaps();
     fillTemporaryArrayOfQuestions();
@@ -96,7 +96,7 @@ window.onload = () => {
   //part of game loop, maybe have the splats disappear over with a setTimeout
   //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
-
+    canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
     if (USE_SCREENSHAKE) {
       canvasContext.save();
       canvasContext.translate(screenshakeX, screenshakeY);

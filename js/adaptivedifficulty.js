@@ -2,6 +2,19 @@ let overallAccuracy = 0;
 let correctAnswers = 0;
 let incorrectAnswers = 0;
 let numberOfAttempts = 0;
+let vowelTrackLevelIndex = 0;
+let vowelTrackLevels = [
+   ["E","O"],
+   ["I","U"],
+   ["A","I"],
+   ["A","E"],
+   ["O","U"],
+   ["E","I"],
+   ["A","O"],
+   ["A","E","O"],
+   ["E","I","U"],
+   ["A","E","I","O","U"]
+];
 
 let temporarySubset = [];
 let temporaryArrayOfQuestions = new Array();
@@ -20,9 +33,10 @@ function randomLetterWithinSubset () {
 
 function checkForLevelReset() {
   if (arrayOfFlies.length === 0) {
-    chooseBackground();
     arrayOfSwattedFlies = [];
-    temporarySubset = ["I","U"];
+    chooseBackground();
+    vowelTrackLevelIndex++;
+    temporarySubset = vowelTrackLevels[vowelTrackLevelIndex];
     initializeArrayOfFlies();
     assignFlaps();
     fillTemporaryArrayOfQuestions();

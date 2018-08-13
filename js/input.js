@@ -19,7 +19,7 @@ function handleCanvasClick(evt) {
       killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection
       temporaryArrayOfQuestions.splice(0,1);
       console.log(temporaryArrayOfQuestions.length, temporarySubset);
-      checkForLevelReset(temporarySubset);//in adaptivedifficulty.js
+      checkForLevelReset();//in adaptivedifficulty.js
       console.log(temporarySubset);
       assignTargetPhonic();//in phonics.js
       assignTargetFlies();//in phonics.js
