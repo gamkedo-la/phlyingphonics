@@ -116,12 +116,17 @@ function checkForLevelResetOrAdvancement() {
 function calculateOverallAccuracy() {
   overallAccuracy = Math.round( (correctAnswers/numberOfAttempts)*100 );
   overallAccuracy = overallAccuracy ? overallAccuracy : 0;
-  document.getElementById("accuracy").innerHTML = overallAccuracy + "%";
+  accuracyDiv.innerHTML = overallAccuracy + "%";
 }
 
 function resetAccuracy() {
   overallAccuracy = 0;
   numberOfAttempts = 0;//offset the increase in handleCanvasClick from final attempt on a level
   correctAnswers = 0;
-  document.getElementById("accuracy").innerHTML = "";
+  accuracyDiv.innerHTML = "";
+}
+
+let resetTemporaryArrayOfQuestions = () => {
+  temporaryArrayOfQuestions = [];
+  fillTemporaryArrayOfQuestions();
 }

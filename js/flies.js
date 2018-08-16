@@ -34,6 +34,11 @@ let randomDirection = () => { //helps randomize the gameplay so students can't r
   }
 }
 
+let clearFlies = () => {
+  arrayOfFlies = [];
+  arrayOfSwattedFlies = [];
+}
+
 drawSwattedFlies = () => {
   for (let i = 0; i < arrayOfSwattedFlies.length; i++) {
     arrayOfSwattedFlies[i].draw();
