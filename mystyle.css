@@ -1,18 +1,12 @@
+.wholescreen {
+  display: inline;
+}
+
 #gameCanvas {
   float: left;
 }
 
-.track {
-  float: left;
-  padding-left: 1em;
-  display: inline;
-}
-
-#consonanttrack:after {
-  display: table;
-}
-
-.consonantsColumn {
+#tracks {
   display: inline;
 }
 
@@ -20,9 +14,7 @@
   display: block;
 }
 
-.consonants {
-  display: block;
-}
+
 
 label {
   font: 12px;
