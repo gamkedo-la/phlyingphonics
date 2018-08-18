@@ -2,6 +2,17 @@ p {
   float: left;
 }
 
+.trackColumn {
+  display: block;
+}
+
+.clearFloat {
+  clear: both;
+}
+
+.consonants {
+  margin-top: 1.4em;
+}
 
 label {
   font: 12px;
