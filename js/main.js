@@ -41,8 +41,8 @@ getRandomInt = (min, max) => {
     initializeArrayOfFlies();
     assignFlaps();
     fillTemporaryArrayOfQuestions();
-    assignTargetPhonic();
-    playPhonic();
+    assignTargetAudioWithPhonic();
+    playTargetAudio();
     assignTargetFlies();
   }
 

@@ -5,7 +5,7 @@ let arrayOfFlies = []; //flies to be used in game
 let targetFly;
 let assignTargetFlies = () => {
   for (let i = 0; i<arrayOfFlies.length; i++) {
-    if (arrayOfFlies[i].myLetterToCheck === targetPhonic) {
+    if ("big" + arrayOfFlies[i].myLetterToCheck === targetAudio) {
       arrayOfFlies[i].target = true;
     } else {
       arrayOfFlies[i].target = false;
@@ -217,7 +217,8 @@ function flyClass() {
   this.myImage = Images.getImage(randomizeStartingFlyImage());
   this.myImageB = undefined; // flapping
   this.myLetter = randomLetterWithinSubset();//randomLowerCaseLetter();
-  this.myLetterToCheck = this.myLetter.toLowerCase();
+  this.myLetterNameAudio = Sounds.getSound("big" + this.myLetter);
+  this.myLetterToCheck = this.myLetter;
   this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());
   this.target = false;
   this.drawCount = 0;

@@ -1,21 +1,41 @@
 let targetPhonic;
+let targetBigLetterName;
+let targetAudio;
 
-let assignTargetPhonic = () => {
-  targetPhonic = temporaryArrayOfQuestions[0].toLowerCase();
+let assignTargetAudioWithPhonic = () => {
+  targetAudio = temporaryArrayOfQuestions[0].toLowerCase();
 }
 
-let playPhonic = () => {
-  Sounds.getSound(targetPhonic).loop = true;
-  Sounds.getSound(targetPhonic).play();
+let assignTargetAudioWithBigLetter = () => {
+  targetAudio = "big" + temporaryArrayOfQuestions[0];
 }
 
-let stopPhonic = () => {
-  Sounds.getSound(targetPhonic).pause();
+let assignTargetBigLetterName = () => {
+  targetBigLetterName = "big" + temporaryArrayOfQuestions[0];
+}
+
+let playTargetAudio = () => {
+  Sounds.getSound(targetAudio).loop = true;
+  Sounds.getSound(targetAudio).play();
+}
+
+let stopTargetAudio = () => {
+  Sounds.getSound(targetAudio).pause();
 }
 
 let resetPhonicAudioAndTargetFlies = () => {
-  stopPhonic();
-  assignTargetPhonic();
+  stopTargetAudio();
+  assignTargetAudioWithPhonic();
+  console.log(temporaryArrayOfQuestions, targetAudio);
   assignTargetFlies();
-  playPhonic();
+  playTargetAudio();
+}
+
+let resetTargetBigLetterNameAndTargetFlies = () => {
+  stopTargetAudio();
+  assignTargetAudioWithBigLetter();
+  console.log(targetAudio);
+  assignTargetFlies();
+  
+  playTargetAudio();
 }
