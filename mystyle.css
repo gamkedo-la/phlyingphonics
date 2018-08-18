@@ -1,19 +1,6 @@
-.wholescreen {
-  display: inline;
-}
-
-#gameCanvas {
+p {
   float: left;
 }
-
-#tracks {
-  display: inline;
-}
-
-.vowels {
-  display: block;
-}
-
 
 
 label {

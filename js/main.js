@@ -57,7 +57,7 @@ window.onload = () => {
   canvas = document.getElementById("gameCanvas");
   canvasContext = canvas.getContext("2d");
   canvasRightEdge = canvas.width = window.innerWidth*0.8;
-  canvasBottomEdge = canvas.height = window.innerHeight*0.75;
+  canvasBottomEdge = canvas.height = window.innerHeight*0.65;
   canvasTopEdge = 0;
   canvasLeftEdge = 0;
   backgroundMusic.volume = 0.1;
