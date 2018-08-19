@@ -7,12 +7,14 @@ let temporarySubset = [];
 let temporaryArrayOfQuestions = new Array();
 
 function fillTemporaryArrayOfQuestions() {
-  if ( currentTrack === ("vowelPhonics" || "consonantPhonics") ) {
+  if ( currentTrack === vowelTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithPhonics();
-  } else if ( currentTrack === "bigLetters" ) {
+  } else if ( currentTrack === bigLettersTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithBigLetters();
-  } else if ( currentTrack === "smallLetters" ) {
+  } else if ( currentTrack === smallLettersTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithSmallLetters();
+  } else if ( currentTrack === consonantTrackLevels ) {
+    fillTemporaryArrayOfQuestionsWithPhonics();
   }
 }
 
@@ -44,8 +46,8 @@ function checkForLevelResetOrAdvancement() {
   if (arrayOfFlies.length === 0 && overallAccuracy >= 80) {
     arrayOfSwattedFlies = [];
     chooseBackground();
-    consonantTrackLevelIndex++//vowelTrackLevelIndex++;
-    temporarySubset = consonantTrackLevels[consonantTrackLevelIndex];//vowelTrackLevels[vowelTrackLevelIndex];
+    trackIndex++
+    temporarySubset = currentTrack[trackIndex];//vowelTrackLevels[vowelTrackLevelIndex];
     resetAccuracy();
     initializeArrayOfFlies();
     assignFlaps();
@@ -88,13 +90,13 @@ let resetTemporaryArrayOfQuestions = () => {
 
 let assignMyLetterToCheck = () => {
   for ( let i = 0; i < arrayOfFlies.length; i++ ) {
-    if ( currentTrack === "vowelPhonics") {
+    if ( currentTrack === vowelTrackLevels) {
       arrayOfFlies[i].myLetterToCheck = arrayOfFlies[i].myLetter.toLowerCase();
-     } else if ( currentTrack === "consonantPhonics" ) {
+    } else if ( currentTrack === consonantTrackLevels ) {
        arrayOfFlies[i].myLetterToCheck = arrayOfFlies[i].myLetter.toLowerCase();
-     } else if ( currentTrack === "bigLetters" ) {
+     } else if ( currentTrack === bigLettersTrackLevels ) {
        arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter;
-     } else if ( currentTrack === "smallLetters" ) {
+     } else if ( currentTrack === smallLettersTrackLevels ) {
        arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter;
      }
   }

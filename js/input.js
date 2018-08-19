@@ -34,14 +34,14 @@ function handleCanvasClick(evt) {
 let vowelButton = document.getElementById("vowelButton");
 let accuracyDiv = document.getElementById("accuracyDiv");
 vowelButton.onclick = function() {
-  currentTrack = "vowelPhonics";
+  currentTrack = vowelTrackLevels;
   temporarySubset = vowelTrackLevels[0];
   resetLevelFromUIClick();
 }
 
 let consonantButton = document.getElementById("consonantButton");
 consonantButton.onclick = function() {
-  currentTrack = "consonantPhonics";
+  currentTrack = consonantTrackLevels;
   temporarySubset = consonantTrackLevels[0];
   resetLevelFromUIClick();
 }
@@ -521,8 +521,9 @@ let resetLevelFromUIClick = () => {
 
 let bigLetters = document.getElementById("bigLetters");
 bigLetters.onclick = function() {
-  currentTrack = "bigLetters";
-  temporarySubset = bigLettersTrackLevels[0];
+  currentTrack = bigLettersTrackLevels;
+  trackIndex = 0;
+  temporarySubset = bigLettersTrackLevels[trackIndex];
   resetLevelFromUIClickWithBigLetters();
 }
 

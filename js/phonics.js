@@ -3,13 +3,13 @@ let targetBigLetterName;
 let targetAudio;
 
 let assignTargetAudio = () => {
-  if ( currentTrack === "bigLetters" ) {
+  if ( currentTrack === bigLettersTrackLevels ) {
     assignTargetAudioWithBigLetter();
-  } else if ( currentTrack === "smallLetters" ) {
+  } else if ( currentTrack === smallLettersTrackLevels ) {
     assignTargetAudioWithSmallLetter();
-  } else if ( currentTrack === ("vowelPhonics") ) {
+  } else if ( currentTrack === vowelTrackLevels ) {
     assignTargetAudioWithPhonic();
-  } else if ( currentTrack === ("consonantPhonics") ) {
+  } else if ( currentTrack === consonantTrackLevels ) {
     assignTargetAudioWithPhonic();
   }
 }

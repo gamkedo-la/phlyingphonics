@@ -5,13 +5,13 @@ let arrayOfFlies = []; //flies to be used in game
 let targetFly;
 let assignTargetFlies = () => {
   for (let i = 0; i < arrayOfFlies.length; i++) {
-    if ( currentTrack === ("vowelPhonics") ) {
+    if ( currentTrack === vowelTrackLevels ) {
       assignPhonicTargets(i);
-    } else if ( currentTrack === ("consonantPhonics") ) {
+    } else if ( currentTrack === consonantTrackLevels ) {
       assignPhonicTargets(i);
-    } else if ( currentTrack === ("bigLetters") ) {
+    } else if ( currentTrack === bigLettersTrackLevels ) {
       assignBigLetterTargets(i);
-    } else if ( currentTrack === ("smallLetters") ) {
+    } else if ( currentTrack === smallLettersTrackLevels ) {
       assignSmallLetterTargets(i);
     }
   }

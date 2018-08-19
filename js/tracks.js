@@ -1,4 +1,5 @@
 let currentTrack;
+let trackIndex = 0;
 
 let vowelTrackLevelIndex = 0;
 let vowelTrackLevels = [
