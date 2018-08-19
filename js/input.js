@@ -541,3 +541,26 @@ let resetLevelFromUIClickWithBigLetters = () => {
     console.log(arrayOfFlies[i].target, arrayOfFlies[i].myLetterToCheck, targetAudio);
   }
 }
+
+let smallLetters = document.getElementById("smallLetters");
+smallLetters.onclick = function() {
+  currentTrack = smallLettersTrackLevels;
+  trackIndex = 0;
+  temporarySubset = smallLettersTrackLevels[trackIndex];
+  resetLettersFromUIClickWithSmallLetters();
+}
+
+let resetLevelFromUIClickWithSmallLetters = () => {
+  console.log("hello, is it me you're looking for?");
+  chooseBackground();
+  clearFlies();//in flies.js
+  initializeArrayOfFlies();
+  assignFlaps();
+  assignMyLetterToCheck();
+  resetAccuracy();
+  resetTemporaryArrayOfQuestionsWithSmallLetters();//in adaptivedifficulty.js
+  resetTargetBigLetterNameAndTargetFlies();//in adaptivedifficulty.js
+  for (let i=0; i<arrayOfFlies.length;i++) {
+    console.log(arrayOfFlies[i].target, arrayOfFlies[i].myLetterToCheck, targetAudio);
+  }
+}

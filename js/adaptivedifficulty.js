@@ -83,6 +83,11 @@ let resetTemporaryArrayOfQuestionsWithBigLetters = () => {
   fillTemporaryArrayOfQuestionsWithBigLetters();
 }
 
+let resetTemporaryArrayOfQuestionsWithSmallLetters = () => {
+  temporaryArrayOfQuestions = [];
+  fillTemporaryArrayOfQuestionsWithSmallLetters();
+}
+
 let resetTemporaryArrayOfQuestions = () => {
   temporaryArrayOfQuestions = [];
   fillTemporaryArrayOfQuestions();

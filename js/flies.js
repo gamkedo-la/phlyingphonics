@@ -283,7 +283,11 @@ function flyClass() {
     }
 
     // draw the letter
-    canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
+    if (currentTrack === bigLettersTrackLevels) {
+    canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80,this.y + 60, 50,50);
+  } else if ( (currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) || (currentTrack === consonantTrackLevels) ){
+    canvasContext.drawImage(Images.getImage(this.myLetter.toLowerCase()), this.x + 80,this.y + 60, 50,50)
+  }
   }
 
 }
