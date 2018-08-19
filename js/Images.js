@@ -138,7 +138,8 @@ let imageFileNames = [
     "images/cartoonFlyB.png",
     "images/cartoonFly-spritesheett.png",
     "images/dragon_bee_v1.png",
-    "images/dragon_bee_b.png"
+    "images/dragon_bee_b.png",
+    "images/stringImage.png"
 
 ];
 
@@ -249,21 +250,22 @@ function countLoadedImagesAndLaunchIfReady() {
 Images();
 
 let assignFlaps = () => {
-  for (let i = 0; i < arrayOfFlies.length; i++) {
-      if ( arrayOfFlies[i].myImage === Images.getImage("fly_version_1") ) {
-        arrayOfFlies[i].myImageB = Images.getImage("fly_version_1b");
-      } else if ( arrayOfFlies[i].myImage === Images.getImage("cartoonFly") ) {
-          arrayOfFlies[i].myImageB = Images.getImage("cartoonFlyB");
+    for (let i = 0; i < arrayOfFlies.length; i++) {
+        if (arrayOfFlies[i].myImage === Images.getImage("fly_version_1")) {
+            arrayOfFlies[i].myImageB = Images.getImage("fly_version_1b");
+        } else if (arrayOfFlies[i].myImage === Images.getImage("cartoonFly")) {
+            arrayOfFlies[i].myImageB = Images.getImage("cartoonFlyB");
         }
-        else if ( arrayOfFlies[i].myImage === Images.getImage("dragon_bee_v1") ) {
-          arrayOfFlies[i].myImageB = Images.getImage("dragon_bee_b");
+        else if (arrayOfFlies[i].myImage === Images.getImage("dragon_bee_v1")) {
+            arrayOfFlies[i].myImageB = Images.getImage("dragon_bee_b");
         }
-      }
+    }
 }
 
-let arrayOfBackgroundStrings = ["table","purplecountertop","honeycomb", "BabyRoomBG"]; //"table", "tableWithFilter", "bowlOfFruit",
+let arrayOfBackgroundStrings = ["table", "purplecountertop", "honeycomb", "BabyRoomBG"]; //"table", "tableWithFilter", "bowlOfFruit",
 let chosenBackground;
 let chooseBackground = () => {
-  chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
-  //console.log(chosenBackground);
+    //chosenBackground = arrayOfBackgroundStrings[3]; return; // FIXME REMOVE this line is for debug only
+    chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
+    //console.log(chosenBackground);
 }

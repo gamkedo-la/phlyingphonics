@@ -5,28 +5,28 @@ let arrayOfFlies = []; //flies to be used in game
 let targetFly;
 let assignTargetFlies = () => {
   for (let i = 0; i < arrayOfFlies.length; i++) {
-    if ( currentTrack === vowelTrackLevels ) {
+    if (currentTrack === vowelTrackLevels) {
       assignPhonicTargets(i);
-    } else if ( currentTrack === consonantTrackLevels ) {
+    } else if (currentTrack === consonantTrackLevels) {
       assignPhonicTargets(i);
-    } else if ( currentTrack === bigLettersTrackLevels ) {
+    } else if (currentTrack === bigLettersTrackLevels) {
       assignBigLetterTargets(i);
-    } else if ( currentTrack === smallLettersTrackLevels ) {
+    } else if (currentTrack === smallLettersTrackLevels) {
       assignSmallLetterTargets(i);
     }
   }
 }
 
 let assignPhonicTargets = (i) => {
-    if ( arrayOfFlies[i].myLetterToCheck === targetAudio ) {
-      arrayOfFlies[i].target = true;
-    } else {
-      arrayOfFlies[i].target = false;
-    }
+  if (arrayOfFlies[i].myLetterToCheck === targetAudio) {
+    arrayOfFlies[i].target = true;
+  } else {
+    arrayOfFlies[i].target = false;
+  }
 }
 
 let assignBigLetterTargets = (i) => {
-  if ( arrayOfFlies[i].myLetterToCheck === targetAudio ) {
+  if (arrayOfFlies[i].myLetterToCheck === targetAudio) {
     arrayOfFlies[i].target = true;
   } else {
     arrayOfFlies[i].target = false;
@@ -164,15 +164,15 @@ handleFliesOffScreen = () => {
 let arrayOfPossibleLetters = new Array(arrayOfFlies.length);
 
 function randomLowerCaseLetter() {
-  let randomLetterIndex = getRandomInt(0,arrayOfLowerCaseLetters.length-1);
+  let randomLetterIndex = getRandomInt(0, arrayOfLowerCaseLetters.length - 1);
   let letter = arrayOfLowerCaseLetters[randomLetterIndex];
-  arrayOfLowerCaseLetters.splice(randomLetterIndex,1);
+  arrayOfLowerCaseLetters.splice(randomLetterIndex, 1);
 }
 
 let arrayOfLowerCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-                               "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 let arrayOfCapitalLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-                             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 function randomLowerCaseLetter() {
   let randomLetterIndex = getRandomInt(0, arrayOfPossibleLetters.length - 1);
@@ -212,7 +212,7 @@ function drawBitmapWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
   canvasContext.restore();
 }
 
-let arrayOfStartingFlyImages = ["cartoonFly","fly_version_1","dragon_bee_v1"];
+let arrayOfStartingFlyImages = ["cartoonFly", "fly_version_1", "dragon_bee_v1"];
 let randomizeStartingFlyImage = () => {
   let startingFlyImageIndex = getRandomInt(0, arrayOfStartingFlyImages.length - 1);
   let startingFlyImage = arrayOfStartingFlyImages[startingFlyImageIndex];
@@ -243,6 +243,7 @@ function flyClass() {
   this.bottomEdge = this.y + this.height;
   this.leftEdge = this.x;
   this.myImage = Images.getImage(randomizeStartingFlyImage());
+  this.stringImage = Images.getImage("stringImage");
   this.myImageB = undefined; // flapping
   this.myLetter = randomLetterWithinSubset();
   this.myLetterNameAudio = Sounds.getSound("big" + this.myLetter);
@@ -252,9 +253,14 @@ function flyClass() {
   this.drawCount = 0;
   this.hasFlyCollisionWith = new Set();
 
-  this.draw = () => {
+  this.draw = () => { // draw the fly!
 
-    // draw the fly
+    if (chosenBackground === "BabyRoomBG") { // do we want strings (for a baby mobile above the crib) BabyRoomBG
+      //console.log("BabyRoomBG detected: drawing a string!");
+      drawBitmapCenteredWithRotationScale(this.stringImage,
+        this.x + this.width / 2, this.y + (this.width / 2) - (this.stringImage.height / 2), 0, 1);
+    }
+
     if (ROTATE_FLIES &&
       (this.xSpeed != 0 || this.ySpeed != 0)) { // only wobble back and forth if moving (not when dead)
 
@@ -284,10 +290,10 @@ function flyClass() {
 
     // draw the letter
     if (currentTrack === bigLettersTrackLevels) {
-    canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80,this.y + 60, 50,50);
-  } else if ( (currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) || (currentTrack === consonantTrackLevels) ){
-    canvasContext.drawImage(Images.getImage(this.myLetter.toLowerCase()), this.x + 80,this.y + 60, 50,50)
-  }
+      canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
+    } else if ((currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) || (currentTrack === consonantTrackLevels)) {
+      canvasContext.drawImage(Images.getImage(this.myLetter.toLowerCase()), this.x + 80, this.y + 60, 50, 50)
+    }
   }
 
 }
@@ -318,7 +324,7 @@ handleFlyToFlyCollisions = () => {
       let fly2 = arrayOfFlies[remainingFliesInArray]
       const { left, right, top, bottom } = detactCollisionDir(fly1, fly2)
 
-      if ((right || left) &&  !fly1.hasFlyCollisionWith.has(fly2)) {
+      if ((right || left) && !fly1.hasFlyCollisionWith.has(fly2)) {
         fly1.hasFlyCollisionWith.add(fly2)
         fly2.hasFlyCollisionWith.add(fly1)
         fly1.xSpeed *= -1;
@@ -332,7 +338,7 @@ handleFlyToFlyCollisions = () => {
           fly2.x += -5;
         }
       } //end of left/right conditional
-      if ((top ||bottom) && !fly1.hasFlyCollisionWith.has(fly2)) {
+      if ((top || bottom) && !fly1.hasFlyCollisionWith.has(fly2)) {
         fly1.hasFlyCollisionWith.add(fly2)
         fly2.hasFlyCollisionWith.add(fly1)
         fly1.ySpeed *= -1;
@@ -347,7 +353,7 @@ handleFlyToFlyCollisions = () => {
         }
       } //end of top/bottom conditional
 
-      if(!top &!bottom && !right && !left) {
+      if (!top & !bottom && !right && !left) {
         fly1.hasFlyCollisionWith.delete(fly2)
         fly2.hasFlyCollisionWith.delete(fly1)
       }
@@ -357,36 +363,36 @@ handleFlyToFlyCollisions = () => {
 }
 
 
-function detactCollisionDir(fly1,fly2) {
+function detactCollisionDir(fly1, fly2) {
 
-  const res = { right:false, left:false, top:false, bottom:false };
-// detact horizontal collision
-  if( fly1.rightEdge >= fly2.leftEdge &&
+  const res = { right: false, left: false, top: false, bottom: false };
+  // detact horizontal collision
+  if (fly1.rightEdge >= fly2.leftEdge &&
     fly1.topEdge <= fly2.bottomEdge &&
     fly1.bottomEdge >= fly2.topEdge &&
     fly1.leftEdge <= fly2.leftEdge) {
-      res.right = true;
-    }
-    else if (fly1.leftEdge <= fly2.rightEdge &&
-      fly1.topEdge <= fly2.bottomEdge &&
-      fly1.bottomEdge >= fly2.topEdge &&
-      fly1.rightEdge >= fly2.rightEdge) {
+    res.right = true;
+  }
+  else if (fly1.leftEdge <= fly2.rightEdge &&
+    fly1.topEdge <= fly2.bottomEdge &&
+    fly1.bottomEdge >= fly2.topEdge &&
+    fly1.rightEdge >= fly2.rightEdge) {
 
-        res.left = true;
-    }
+    res.left = true;
+  }
 
-    // detact vertical collision
-    if (fly1.topEdge <= fly2.bottomEdge && //these two lines dictate top/bottom collision
-      fly1.bottomEdge >= fly2.bottomEdge &&
-      fly1.leftEdge <= fly2.rightEdge &&
-      fly1.rightEdge >= fly2.leftEdge) {
-        res.top = true;
-      }
-      else if (fly1.bottomEdge >= fly2.topEdge &&
-          fly1.topEdge <= fly2.topEdge &&
-          fly1.leftEdge <= fly2.rightEdge &&
-          fly1.rightEdge >= fly2.leftEge) {
-            res.bottom = true;
-          }
+  // detact vertical collision
+  if (fly1.topEdge <= fly2.bottomEdge && //these two lines dictate top/bottom collision
+    fly1.bottomEdge >= fly2.bottomEdge &&
+    fly1.leftEdge <= fly2.rightEdge &&
+    fly1.rightEdge >= fly2.leftEdge) {
+    res.top = true;
+  }
+  else if (fly1.bottomEdge >= fly2.topEdge &&
+    fly1.topEdge <= fly2.topEdge &&
+    fly1.leftEdge <= fly2.rightEdge &&
+    fly1.rightEdge >= fly2.leftEge) {
+    res.bottom = true;
+  }
   return res
 }
