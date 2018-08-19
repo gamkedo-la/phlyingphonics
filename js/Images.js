@@ -265,7 +265,7 @@ let assignFlaps = () => {
 let arrayOfBackgroundStrings = ["table", "purplecountertop", "honeycomb", "BabyRoomBG"]; //"table", "tableWithFilter", "bowlOfFruit",
 let chosenBackground;
 let chooseBackground = () => {
-    chosenBackground = arrayOfBackgroundStrings[3]; return; // FIXME REMOVE this line is for debug only
+    //chosenBackground = arrayOfBackgroundStrings[3]; return; // FIXME REMOVE this line is for debug only
     chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
     //console.log(chosenBackground);
 }
