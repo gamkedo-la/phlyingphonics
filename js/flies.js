@@ -4,12 +4,40 @@ let arrayOfFlies = []; //flies to be used in game
 
 let targetFly;
 let assignTargetFlies = () => {
-  for (let i = 0; i<arrayOfFlies.length; i++) {
-    if ("big" + arrayOfFlies[i].myLetterToCheck === targetAudio) {
+  for (let i = 0; i < arrayOfFlies.length; i++) {
+    if ( currentTrack === ("vowelPhonics") ) {
+      assignPhonicTargets(i);
+    } else if ( currentTrack === ("consonantPhonics") ) {
+      assignPhonicTargets(i);
+    } else if ( currentTrack === ("bigLetters") ) {
+      assignBigLetterTargets(i);
+    } else if ( currentTrack === ("smallLetters") ) {
+      assignSmallLetterTargets(i);
+    }
+  }
+}
+
+let assignPhonicTargets = (i) => {
+    if ( arrayOfFlies[i].myLetterToCheck === targetAudio ) {
       arrayOfFlies[i].target = true;
     } else {
       arrayOfFlies[i].target = false;
     }
+}
+
+let assignBigLetterTargets = (i) => {
+  if ( arrayOfFlies[i].myLetterToCheck === targetAudio ) {
+    arrayOfFlies[i].target = true;
+  } else {
+    arrayOfFlies[i].target = false;
+  }
+}
+
+let assignSmallLetterTargets = (i) => {
+  if ( "small" + arrayOfFlies[i].myLetterToCheck === targetAudio ) {
+    arrayOfFlies[i].target = true;
+  } else {
+    arrayOfFlies[i].target = false;
   }
 }
 
@@ -127,7 +155,6 @@ handleFliesOffScreen = () => {
       arrayOfFlies[i].rightEdge > canvasRightEdge + 50) {
       arrayOfFlies[i].x = getRandomInt(canvasLeftEdge, canvasRightEdge - arrayOfFlies[i].width);
       arrayOfFlies[i].y = getRandomInt(canvasTopEdge, canvasBottomEdge - arrayOfFlies[i].height);
-      //console.log(arrayOfFlies[i].x, arrayOfFlies[i].y);
     }
   }
 }
@@ -192,13 +219,14 @@ let randomizeStartingFlyImage = () => {
   return startingFlyImage;
 }
 let assignFlyImageB = () => {
-  console.log(this.myImage);
   if (this.myImage === "fly_version_1") {
     return "fly_version_1b"
   } else {
     return "cartoonFlyB"
   }
 }
+
+
 
 function flyClass() {
 
@@ -216,9 +244,9 @@ function flyClass() {
   this.leftEdge = this.x;
   this.myImage = Images.getImage(randomizeStartingFlyImage());
   this.myImageB = undefined; // flapping
-  this.myLetter = randomLetterWithinSubset();//randomLowerCaseLetter();
+  this.myLetter = randomLetterWithinSubset();
   this.myLetterNameAudio = Sounds.getSound("big" + this.myLetter);
-  this.myLetterToCheck = this.myLetter;
+  this.myLetterToCheck = undefined;
   this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());
   this.target = false;
   this.drawCount = 0;

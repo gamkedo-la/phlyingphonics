@@ -1,3 +1,5 @@
+let currentTrack;
+
 let vowelTrackLevelIndex = 0;
 let vowelTrackLevels = [
    ["E","O"],

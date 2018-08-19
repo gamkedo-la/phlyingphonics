@@ -37,13 +37,15 @@ getRandomInt = (min, max) => {
 
   let initialize = () => {
     backgroundMusic.play();
-    temporarySubset = /*vowelTrackLevels[vowelTrackLevelIndex];*/consonantTrackLevels[consonantTrackLevelIndex];
-    initializeArrayOfFlies();
-    assignFlaps();
-    fillTemporaryArrayOfQuestions();
-    assignTargetAudioWithPhonic();
+    currentTrack = "vowelPhonics";
+    temporarySubset = vowelTrackLevels[vowelTrackLevelIndex];//consonantTrackLevels[consonantTrackLevelIndex];
+    initializeArrayOfFlies();//in adaptivedifficulty.js
+    assignMyLetterToCheck();
+    assignFlaps();//in flies.js
+    fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
+    assignTargetAudio();
     playTargetAudio();
-    assignTargetFlies();
+    assignTargetFlies();//in flies.js
   }
 
   let launchGame;
@@ -61,7 +63,6 @@ window.onload = () => {
   canvasTopEdge = 0;
   canvasLeftEdge = 0;
   backgroundMusic.volume = 0.1;
-  //console.log(canvas.width,canvas.height);
   chooseBackground();
 
 

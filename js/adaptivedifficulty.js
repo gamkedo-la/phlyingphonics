@@ -7,6 +7,16 @@ let temporarySubset = [];
 let temporaryArrayOfQuestions = new Array();
 
 function fillTemporaryArrayOfQuestions() {
+  if ( currentTrack === ("vowelPhonics" || "consonantPhonics") ) {
+    fillTemporaryArrayOfQuestionsWithPhonics();
+  } else if ( currentTrack === "bigLetters" ) {
+    fillTemporaryArrayOfQuestionsWithBigLetters();
+  } else if ( currentTrack === "smallLetters" ) {
+    fillTemporaryArrayOfQuestionsWithSmallLetters();
+  }
+}
+
+function fillTemporaryArrayOfQuestionsWithPhonics() {
   for (let i = 0; i<arrayOfFlies.length; i++) {
     temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetter.toLowerCase());
   }
@@ -18,10 +28,16 @@ function fillTemporaryArrayOfQuestionsWithBigLetters() {
   }
 }
 
+function fillTemporaryArrayOfQuestionsWithSmallLetters() {
+  for (let i = 0; i<arrayOfFlies.length; i++) {
+    temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetter.toLowerCase());
+  }
+}
+
 function randomLetterWithinSubset () {
   let randomLetterIndex = getRandomInt(0, temporarySubset.length - 1);
   let letter = temporarySubset[randomLetterIndex];
-  return letter;
+  return letter
 }
 
 function checkForLevelResetOrAdvancement() {
@@ -33,6 +49,7 @@ function checkForLevelResetOrAdvancement() {
     resetAccuracy();
     initializeArrayOfFlies();
     assignFlaps();
+    assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
@@ -41,6 +58,7 @@ function checkForLevelResetOrAdvancement() {
     chooseBackground();
     initializeArrayOfFlies();
     assignFlaps();
+    assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
   }
 }
@@ -61,12 +79,23 @@ function resetAccuracy() {
 let resetTemporaryArrayOfQuestionsWithBigLetters = () => {
   temporaryArrayOfQuestions = [];
   fillTemporaryArrayOfQuestionsWithBigLetters();
-  for (let i = 0; i<arrayOfFlies.length; i++) {
-    console.log(arrayOfFlies[i].myLetter);
-  }
 }
 
 let resetTemporaryArrayOfQuestions = () => {
   temporaryArrayOfQuestions = [];
   fillTemporaryArrayOfQuestions();
+}
+
+let assignMyLetterToCheck = () => {
+  for ( let i = 0; i < arrayOfFlies.length; i++ ) {
+    if ( currentTrack === "vowelPhonics") {
+      arrayOfFlies[i].myLetterToCheck = arrayOfFlies[i].myLetter.toLowerCase();
+     } else if ( currentTrack === "consonantPhonics" ) {
+       arrayOfFlies[i].myLetterToCheck = arrayOfFlies[i].myLetter.toLowerCase();
+     } else if ( currentTrack === "bigLetters" ) {
+       arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter;
+     } else if ( currentTrack === "smallLetters" ) {
+       arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter;
+     }
+  }
 }
