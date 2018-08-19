@@ -102,7 +102,7 @@ let assignMyLetterToCheck = () => {
      } else if ( currentTrack === bigLettersTrackLevels ) {
        arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter;
      } else if ( currentTrack === smallLettersTrackLevels ) {
-       arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter;
+       arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter.toUpperCase();
      }
   }
 }

@@ -528,7 +528,6 @@ bigLetters.onclick = function() {
 }
 
 let resetLevelFromUIClickWithBigLetters = () => {
-  console.log("hello, is it me you're looking for?");
   chooseBackground();
   clearFlies();//in flies.js
   initializeArrayOfFlies();
@@ -537,9 +536,6 @@ let resetLevelFromUIClickWithBigLetters = () => {
   resetAccuracy();
   resetTemporaryArrayOfQuestionsWithBigLetters();//in adaptivedifficulty.js
   resetTargetBigLetterNameAndTargetFlies();//in adaptivedifficulty.js
-  for (let i=0; i<arrayOfFlies.length;i++) {
-    console.log(arrayOfFlies[i].target, arrayOfFlies[i].myLetterToCheck, targetAudio);
-  }
 }
 
 let smallLetters = document.getElementById("smallLetters");
@@ -547,20 +543,20 @@ smallLetters.onclick = function() {
   currentTrack = smallLettersTrackLevels;
   trackIndex = 0;
   temporarySubset = smallLettersTrackLevels[trackIndex];
-  resetLettersFromUIClickWithSmallLetters();
+  resetLevelFromUIClickWithSmallLetters();
 }
 
 let resetLevelFromUIClickWithSmallLetters = () => {
-  console.log("hello, is it me you're looking for?");
   chooseBackground();
   clearFlies();//in flies.js
   initializeArrayOfFlies();
   assignFlaps();
   assignMyLetterToCheck();
+  for (let i=0; i<arrayOfFlies.length; i++) {
+    console.log(arrayOfFlies[i].myLetterToCheck, arrayOfFlies[i].myLetter, arrayOfFlies[i].target);
+  }
   resetAccuracy();
   resetTemporaryArrayOfQuestionsWithSmallLetters();//in adaptivedifficulty.js
-  resetTargetBigLetterNameAndTargetFlies();//in adaptivedifficulty.js
-  for (let i=0; i<arrayOfFlies.length;i++) {
-    console.log(arrayOfFlies[i].target, arrayOfFlies[i].myLetterToCheck, targetAudio);
-  }
+  resetTargetSmallLetterNameAndTargetFlies();//in phonics.js
+  console.log(targetAudio);
 }

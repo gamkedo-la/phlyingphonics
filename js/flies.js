@@ -34,7 +34,7 @@ let assignBigLetterTargets = (i) => {
 }
 
 let assignSmallLetterTargets = (i) => {
-  if ( "small" + arrayOfFlies[i].myLetterToCheck === targetAudio ) {
+  if ( arrayOfFlies[i].myLetterToCheck === targetAudio ) {
     arrayOfFlies[i].target = true;
   } else {
     arrayOfFlies[i].target = false;

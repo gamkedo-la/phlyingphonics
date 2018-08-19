@@ -1,4 +1,3 @@
-let targetPhonic;
 let targetBigLetterName;
 let targetAudio;
 
@@ -23,7 +22,7 @@ let assignTargetAudioWithBigLetter = () => {
 }
 
 let assignTargetAudioWithSmallLetter = () => {
-  targetAudio = "small" + temporaryArrayOfQuestions[0];
+  targetAudio = "small" + temporaryArrayOfQuestions[0].toUpperCase();
 }
 
 let assignTargetBigLetterName = () => {
@@ -49,6 +48,14 @@ let resetPhonicAudioAndTargetFlies = () => {
 let resetTargetBigLetterNameAndTargetFlies = () => {
   stopTargetAudio();
   assignTargetAudioWithBigLetter();
+  assignMyLetterToCheck();
+  assignTargetFlies();
+  playTargetAudio();
+}
+
+let resetTargetSmallLetterNameAndTargetFlies = () => {
+  stopTargetAudio();
+  assignTargetAudioWithSmallLetter();
   assignMyLetterToCheck();
   assignTargetFlies();
   playTargetAudio();
