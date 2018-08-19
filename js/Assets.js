@@ -74,6 +74,7 @@ let imageFileNames = [
     "images/tableWithFilter.png",
     "images/bowlOfFruit.png",
     "images/honeycomb.png",
+    "images/BabyRoomBG.png",
     "images/capitalLetters/A.png",
     "images/capitalLetters/B.png",
     "images/capitalLetters/C.png",

@@ -77,6 +77,7 @@ let imageFileNames = [
     "images/tableWithFilter.png",
     "images/bowlOfFruit.png",
     "images/honeycomb.png",
+    "images/BabyRoomBG.png",
     "images/purplecountertop.png",
     "images/capitalLetters/A.png",
     "images/capitalLetters/B.png",
@@ -260,7 +261,7 @@ let assignFlaps = () => {
       }
 }
 
-let arrayOfBackgroundStrings = ["table","purplecountertop","honeycomb"]; //"table", "tableWithFilter", "bowlOfFruit",
+let arrayOfBackgroundStrings = ["table","purplecountertop","honeycomb", "BabyRoomBG"]; //"table", "tableWithFilter", "bowlOfFruit",
 let chosenBackground;
 let chooseBackground = () => {
   chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
