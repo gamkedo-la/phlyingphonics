@@ -138,91 +138,92 @@ let imageFileNames = [
     "images/cartoonFlyB.png",
     "images/cartoonFly-spritesheett.png",
     "images/dragon_bee_v1.png",
-    "images/dragon_bee_b.png"
+    "images/dragon_bee_b.png",
+    "images/stringImage.png"
 
 ];
 
 let soundFileNames = [
-  "audio/flightOfTheABCs.mp3",
-  "audio/splatsound.mp3",
-  "audio/phonics/a.mp3",
-  "audio/phonics/b.mp3",
-  "audio/phonics/c.mp3",
-  "audio/phonics/d.mp3",
-  "audio/phonics/e.mp3",
-  "audio/phonics/f.mp3",
-  "audio/phonics/g.mp3",
-  "audio/phonics/h.mp3",
-  "audio/phonics/i.mp3",
-  "audio/phonics/j.mp3",
-  "audio/phonics/k.mp3",
-  "audio/phonics/l.mp3",
-  "audio/phonics/m.mp3",
-  "audio/phonics/n.mp3",
-  "audio/phonics/o.mp3",
-  "audio/phonics/p.mp3",
-  "audio/phonics/q.mp3",
-  "audio/phonics/r.mp3",
-  "audio/phonics/s.mp3",
-  "audio/phonics/t.mp3",
-  "audio/phonics/u.mp3",
-  "audio/phonics/v.mp3",
-  "audio/phonics/w.mp3",
-  "audio/phonics/x.mp3",
-  "audio/phonics/y.mp3",
-  "audio/phonics/z.mp3",
-  "audio/letternames/bigA.mp3",
-  "audio/letternames/bigB.mp3",
-  "audio/letternames/bigC.mp3",
-  "audio/letternames/bigD.mp3",
-  "audio/letternames/bigE.mp3",
-  "audio/letternames/bigF.mp3",
-  "audio/letternames/bigG.mp3",
-  "audio/letternames/bigH.mp3",
-  "audio/letternames/bigI.mp3",
-  "audio/letternames/bigJ.mp3",
-  "audio/letternames/bigK.mp3",
-  "audio/letternames/bigL.mp3",
-  "audio/letternames/bigM.mp3",
-  "audio/letternames/bigN.mp3",
-  "audio/letternames/bigO.mp3",
-  "audio/letternames/bigP.mp3",
-  "audio/letternames/bigQ.mp3",
-  "audio/letternames/bigR.mp3",
-  "audio/letternames/bigS.mp3",
-  "audio/letternames/bigT.mp3",
-  "audio/letternames/bigU.mp3",
-  "audio/letternames/bigV.mp3",
-  "audio/letternames/bigW.mp3",
-  "audio/letternames/bigX.mp3",
-  "audio/letternames/bigY.mp3",
-  "audio/letternames/bigZ.mp3",
-  "audio/letternames/smalla.mp3",
-  "audio/letternames/smallb.mp3",
-  "audio/letternames/smallc.mp3",
-  "audio/letternames/smalld.mp3",
-  "audio/letternames/smalle.mp3",
-  "audio/letternames/smallf.mp3",
-  "audio/letternames/smallg.mp3",
-  "audio/letternames/smallh.mp3",
-  "audio/letternames/smalli.mp3",
-  "audio/letternames/smallj.mp3",
-  "audio/letternames/smallk.mp3",
-  "audio/letternames/smalll.mp3",
-  "audio/letternames/smallm.mp3",
-  "audio/letternames/smalln.mp3",
-  "audio/letternames/smallo.mp3",
-  "audio/letternames/smallp.mp3",
-  "audio/letternames/smallq.mp3",
-  "audio/letternames/smallr.mp3",
-  "audio/letternames/smalls.mp3",
-  "audio/letternames/smallt.mp3",
-  "audio/letternames/smallu.mp3",
-  "audio/letternames/smallv.mp3",
-  "audio/letternames/smallw.mp3",
-  "audio/letternames/smallx.mp3",
-  "audio/letternames/smally.mp3",
-  "audio/letternames/smallz.mp3"
+    "audio/flightOfTheABCs.mp3",
+    "audio/splatsound.mp3",
+    "audio/phonics/a.mp3",
+    "audio/phonics/b.mp3",
+    "audio/phonics/c.mp3",
+    "audio/phonics/d.mp3",
+    "audio/phonics/e.mp3",
+    "audio/phonics/f.mp3",
+    "audio/phonics/g.mp3",
+    "audio/phonics/h.mp3",
+    "audio/phonics/i.mp3",
+    "audio/phonics/j.mp3",
+    "audio/phonics/k.mp3",
+    "audio/phonics/l.mp3",
+    "audio/phonics/m.mp3",
+    "audio/phonics/n.mp3",
+    "audio/phonics/o.mp3",
+    "audio/phonics/p.mp3",
+    "audio/phonics/q.mp3",
+    "audio/phonics/r.mp3",
+    "audio/phonics/s.mp3",
+    "audio/phonics/t.mp3",
+    "audio/phonics/u.mp3",
+    "audio/phonics/v.mp3",
+    "audio/phonics/w.mp3",
+    "audio/phonics/x.mp3",
+    "audio/phonics/y.mp3",
+    "audio/phonics/z.mp3",
+    "audio/letternames/bigA.mp3",
+    "audio/letternames/bigB.mp3",
+    "audio/letternames/bigC.mp3",
+    "audio/letternames/bigD.mp3",
+    "audio/letternames/bigE.mp3",
+    "audio/letternames/bigF.mp3",
+    "audio/letternames/bigG.mp3",
+    "audio/letternames/bigH.mp3",
+    "audio/letternames/bigI.mp3",
+    "audio/letternames/bigJ.mp3",
+    "audio/letternames/bigK.mp3",
+    "audio/letternames/bigL.mp3",
+    "audio/letternames/bigM.mp3",
+    "audio/letternames/bigN.mp3",
+    "audio/letternames/bigO.mp3",
+    "audio/letternames/bigP.mp3",
+    "audio/letternames/bigQ.mp3",
+    "audio/letternames/bigR.mp3",
+    "audio/letternames/bigS.mp3",
+    "audio/letternames/bigT.mp3",
+    "audio/letternames/bigU.mp3",
+    "audio/letternames/bigV.mp3",
+    "audio/letternames/bigW.mp3",
+    "audio/letternames/bigX.mp3",
+    "audio/letternames/bigY.mp3",
+    "audio/letternames/bigZ.mp3",
+    "audio/letternames/smalla.mp3",
+    "audio/letternames/smallb.mp3",
+    "audio/letternames/smallc.mp3",
+    "audio/letternames/smalld.mp3",
+    "audio/letternames/smalle.mp3",
+    "audio/letternames/smallf.mp3",
+    "audio/letternames/smallg.mp3",
+    "audio/letternames/smallh.mp3",
+    "audio/letternames/smalli.mp3",
+    "audio/letternames/smallj.mp3",
+    "audio/letternames/smallk.mp3",
+    "audio/letternames/smalll.mp3",
+    "audio/letternames/smallm.mp3",
+    "audio/letternames/smalln.mp3",
+    "audio/letternames/smallo.mp3",
+    "audio/letternames/smallp.mp3",
+    "audio/letternames/smallq.mp3",
+    "audio/letternames/smallr.mp3",
+    "audio/letternames/smalls.mp3",
+    "audio/letternames/smallt.mp3",
+    "audio/letternames/smallu.mp3",
+    "audio/letternames/smallv.mp3",
+    "audio/letternames/smallw.mp3",
+    "audio/letternames/smallx.mp3",
+    "audio/letternames/smally.mp3",
+    "audio/letternames/smallz.mp3"
 
 
 ];
@@ -249,21 +250,22 @@ function countLoadedImagesAndLaunchIfReady() {
 Images();
 
 let assignFlaps = () => {
-  for (let i = 0; i < arrayOfFlies.length; i++) {
-      if ( arrayOfFlies[i].myImage === Images.getImage("fly_version_1") ) {
-        arrayOfFlies[i].myImageB = Images.getImage("fly_version_1b");
-      } else if ( arrayOfFlies[i].myImage === Images.getImage("cartoonFly") ) {
-          arrayOfFlies[i].myImageB = Images.getImage("cartoonFlyB");
+    for (let i = 0; i < arrayOfFlies.length; i++) {
+        if (arrayOfFlies[i].myImage === Images.getImage("fly_version_1")) {
+            arrayOfFlies[i].myImageB = Images.getImage("fly_version_1b");
+        } else if (arrayOfFlies[i].myImage === Images.getImage("cartoonFly")) {
+            arrayOfFlies[i].myImageB = Images.getImage("cartoonFlyB");
         }
-        else if ( arrayOfFlies[i].myImage === Images.getImage("dragon_bee_v1") ) {
-          arrayOfFlies[i].myImageB = Images.getImage("dragon_bee_b");
+        else if (arrayOfFlies[i].myImage === Images.getImage("dragon_bee_v1")) {
+            arrayOfFlies[i].myImageB = Images.getImage("dragon_bee_b");
         }
-      }
+    }
 }
 
-let arrayOfBackgroundStrings = ["table","purplecountertop","honeycomb", "BabyRoomBG"]; //"table", "tableWithFilter", "bowlOfFruit",
+let arrayOfBackgroundStrings = ["table", "purplecountertop", "honeycomb", "BabyRoomBG"]; //"table", "tableWithFilter", "bowlOfFruit",
 let chosenBackground;
 let chooseBackground = () => {
-  chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
-  //console.log(chosenBackground);
+    chosenBackground = arrayOfBackgroundStrings[3]; return; // FIXME REMOVE this line is for debug only
+    chosenBackground = arrayOfBackgroundStrings[getRandomInt(0, arrayOfBackgroundStrings.length - 1)];
+    //console.log(chosenBackground);
 }
