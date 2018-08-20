@@ -5,39 +5,11 @@ let arrayOfFlies = []; //flies to be used in game
 let targetFly;
 let assignTargetFlies = () => {
   for (let i = 0; i < arrayOfFlies.length; i++) {
-    if (currentTrack === vowelTrackLevels) {
-      assignPhonicTargets(i);
-    } else if (currentTrack === consonantTrackLevels) {
-      assignPhonicTargets(i);
-    } else if (currentTrack === bigLettersTrackLevels) {
-      assignBigLetterTargets(i);
-    } else if (currentTrack === smallLettersTrackLevels) {
-      assignSmallLetterTargets(i);
+    if (arrayOfFlies[i].myLetterToCheck === targetAudio) {
+      arrayOfFlies[i].target = true;
+    } else {
+      arrayOfFlies[i].target = false;
     }
-  }
-}
-
-let assignPhonicTargets = (i) => {
-  if (arrayOfFlies[i].myLetterToCheck === targetAudio) {
-    arrayOfFlies[i].target = true;
-  } else {
-    arrayOfFlies[i].target = false;
-  }
-}
-
-let assignBigLetterTargets = (i) => {
-  if (arrayOfFlies[i].myLetterToCheck === targetAudio) {
-    arrayOfFlies[i].target = true;
-  } else {
-    arrayOfFlies[i].target = false;
-  }
-}
-
-let assignSmallLetterTargets = (i) => {
-  if ( arrayOfFlies[i].myLetterToCheck === targetAudio ) {
-    arrayOfFlies[i].target = true;
-  } else {
-    arrayOfFlies[i].target = false;
   }
 }
 
@@ -245,7 +217,7 @@ function flyClass() {
   this.myImage = Images.getImage(randomizeStartingFlyImage());
   this.stringImage = Images.getImage("stringImage");
   this.myImageB = undefined; // flapping
-  this.myLetter = randomLetterWithinSubset();
+  this.myLetter = randomLetterWithinSubset();//in adaptivedifficulty.js
   this.myLetterNameAudio = Sounds.getSound("big" + this.myLetter);
   this.myLetterToCheck = undefined;
   this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());
@@ -289,7 +261,7 @@ function flyClass() {
     }
 
     // draw the letter
-    if (currentTrack === bigLettersTrackLevels) {
+    if ((currentTrack === bigLettersTrackLevels) || (currentTrack === mixedSizeLetterNameLevels)) {
       canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
     } else if ((currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) || (currentTrack === consonantTrackLevels)) {
       canvasContext.drawImage(Images.getImage(this.myLetter.toLowerCase()), this.x + 80, this.y + 60, 50, 50)

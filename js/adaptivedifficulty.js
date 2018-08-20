@@ -15,6 +15,8 @@ function fillTemporaryArrayOfQuestions() {
     fillTemporaryArrayOfQuestionsWithSmallLetters();
   } else if ( currentTrack === consonantTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithPhonics();
+  } else if ( currentTrack === mixedSizeLetterNameLevels ) {
+    fillTemporaryArrayOfQuestionsWithBigAndSmallLetters();
   }
 }
 
@@ -36,6 +38,12 @@ function fillTemporaryArrayOfQuestionsWithSmallLetters() {
   }
 }
 
+function fillTemporaryArrayOfQuestionsWithBigAndSmallLetters() {
+  for (let i = 0; i<arrayOfFlies.length; i++) {
+    temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetterToCheck);
+  }
+}
+
 function randomLetterWithinSubset () {
   let randomLetterIndex = getRandomInt(0, temporarySubset.length - 1);
   let letter = temporarySubset[randomLetterIndex];
@@ -46,7 +54,8 @@ function checkForLevelResetOrAdvancement() {
   if (arrayOfFlies.length === 0 && overallAccuracy >= 80) {
     arrayOfSwattedFlies = [];
     chooseBackground();
-    trackIndex++
+    trackIndex++;
+    console.log(trackIndex);
     temporarySubset = currentTrack[trackIndex];//vowelTrackLevels[vowelTrackLevelIndex];
     resetAccuracy();
     initializeArrayOfFlies();
@@ -88,6 +97,11 @@ let resetTemporaryArrayOfQuestionsWithSmallLetters = () => {
   fillTemporaryArrayOfQuestionsWithSmallLetters();
 }
 
+let resetTemporaryArrayOfQuestionsWithBigAndSmallLetters = () => {
+  temporaryArrayOfQuestions = [];
+  fillTemporaryArrayOfQuestionsWithBigAndSmallLetters();
+}
+
 let resetTemporaryArrayOfQuestions = () => {
   temporaryArrayOfQuestions = [];
   fillTemporaryArrayOfQuestions();
@@ -103,6 +117,12 @@ let assignMyLetterToCheck = () => {
        arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter;
      } else if ( currentTrack === smallLettersTrackLevels ) {
        arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter.toUpperCase();
+     } else if ( currentTrack === mixedSizeLetterNameLevels ) {
+       if ( arrayOfFlies[i].myLetter === arrayOfFlies[i].myLetter.toLowerCase() ) {
+         arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter.toUpperCase();
+       } else {
+         arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter.toUpperCase();
+       }
      }
   }
 }

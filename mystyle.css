@@ -33,6 +33,12 @@ p {
   right: 100px;
 }
 
+#bigAndSmallLetters {
+  position: absolute;
+  top: 45px;
+  right: 115px;
+}
+
 
 label {
   font: 12px;

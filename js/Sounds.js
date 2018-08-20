@@ -57,7 +57,7 @@ function Sounds() {
             }
         }
         catch (err) {
-            console.log(err);
+            //console.log(err);
         }
         return soundDict[name];
     }

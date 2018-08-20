@@ -10,6 +10,8 @@ let assignTargetAudio = () => {
     assignTargetAudioWithPhonic();
   } else if ( currentTrack === consonantTrackLevels ) {
     assignTargetAudioWithPhonic();
+  } else if ( currentTrack === mixedSizeLetterNameLevels ) {
+    assignTargetAudioWithBigOrSmallLetter();
   }
 }
 
@@ -23,6 +25,11 @@ let assignTargetAudioWithBigLetter = () => {
 
 let assignTargetAudioWithSmallLetter = () => {
   targetAudio = "small" + temporaryArrayOfQuestions[0].toUpperCase();
+}
+
+let assignTargetAudioWithBigOrSmallLetter = () => {
+  console.log(temporaryArrayOfQuestions);
+  targetAudio = temporaryArrayOfQuestions[0];
 }
 
 let assignTargetBigLetterName = () => {
@@ -56,6 +63,14 @@ let resetTargetBigLetterNameAndTargetFlies = () => {
 let resetTargetSmallLetterNameAndTargetFlies = () => {
   stopTargetAudio();
   assignTargetAudioWithSmallLetter();
+  assignMyLetterToCheck();
+  assignTargetFlies();
+  playTargetAudio();
+}
+
+let resetTargetBigOrSmallLetterNameAndTargetFlies = () => {
+  stopTargetAudio();
+  assignTargetAudioWithBigOrSmallLetter();
   assignMyLetterToCheck();
   assignTargetFlies();
   playTargetAudio();
