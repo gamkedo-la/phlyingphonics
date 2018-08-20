@@ -10,6 +10,11 @@ let killFly = (i) => {
 
 function handleCanvasClick(evt) {
 
+  if (isMenu) {
+    handleMenuInput(evt.pageX,evt.pageY);
+    return;
+  }
+
   numberOfAttempts++;
   screenShake(10);
   console.log(trackIndex);
