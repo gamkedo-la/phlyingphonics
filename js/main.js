@@ -122,6 +122,9 @@ window.onload = () => {
     //  drawA();
     drawSwattedFlies();
     drawFlies();
+    canvasContext.drawImage(Images.getImage("blackNorange"), 0,0, 100,100);
+    canvasContext.drawImage(Images.getImage("bluebutterfly1"), canvas.width - 200, 0, 100,100);
+    canvasContext.drawImage(Images.getImage("croppedpink1"), 0,canvas.height -200, 100,100);
     drawFlySwatter();
 
     if (USE_SCREENSHAKE) { canvasContext.restore(); }

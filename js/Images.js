@@ -71,6 +71,9 @@ let imageFileNames = [
 
     "images/table.png",
     "images/fly.png",
+    "images/butterflies/blackNorange.png",
+    "images/butterflies/bluebutterfly1.png",
+    "images/butterflies/croppedpink1.png",
     "images/greensplat.png",
     "images/yellowgreensplat.png",
     "images/tablePhoto.png",
