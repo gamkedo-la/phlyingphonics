@@ -7,14 +7,12 @@ let temporarySubset = [];
 let temporaryArrayOfQuestions = new Array();
 
 function fillTemporaryArrayOfQuestions() {
-  if ( currentTrack === vowelTrackLevels ) {
+  if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithPhonics();
   } else if ( currentTrack === bigLettersTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithBigLetters();
   } else if ( currentTrack === smallLettersTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithSmallLetters();
-  } else if ( currentTrack === consonantTrackLevels ) {
-    fillTemporaryArrayOfQuestionsWithPhonics();
   } else if ( currentTrack === mixedSizeLetterNameLevels ) {
     fillTemporaryArrayOfQuestionsWithBigAndSmallLetters();
   }
@@ -87,6 +85,11 @@ function resetAccuracy() {
   accuracyDiv.innerHTML = "";
 }
 
+let resetTemporaryArrayOfQuestions = () => {
+  temporaryArrayOfQuestions = [];
+  fillTemporaryArrayOfQuestions();
+}
+
 let resetTemporaryArrayOfQuestionsWithBigLetters = () => {
   temporaryArrayOfQuestions = [];
   fillTemporaryArrayOfQuestionsWithBigLetters();
@@ -102,18 +105,11 @@ let resetTemporaryArrayOfQuestionsWithBigAndSmallLetters = () => {
   fillTemporaryArrayOfQuestionsWithBigAndSmallLetters();
 }
 
-let resetTemporaryArrayOfQuestions = () => {
-  temporaryArrayOfQuestions = [];
-  fillTemporaryArrayOfQuestions();
-}
-
 let assignMyLetterToCheck = () => {
   for ( let i = 0; i < arrayOfFlies.length; i++ ) {
-    if ( currentTrack === vowelTrackLevels) {
+    if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
       arrayOfFlies[i].myLetterToCheck = arrayOfFlies[i].myLetter.toLowerCase();
-    } else if ( currentTrack === consonantTrackLevels ) {
-       arrayOfFlies[i].myLetterToCheck = arrayOfFlies[i].myLetter.toLowerCase();
-     } else if ( currentTrack === bigLettersTrackLevels ) {
+    } else if ( currentTrack === bigLettersTrackLevels ) {
        arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter;
      } else if ( currentTrack === smallLettersTrackLevels ) {
        arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter.toUpperCase();

@@ -16,15 +16,9 @@ let mouseX = 0;
 let mouseY = 0;
 
 //loop declarations
-
 let updateEverything;
 let drawEverything;
 let drawFlySwatter;
-
-// unused debug:
-
-
-
 let gameLoop;
 
 let backgroundMusic = document.getElementById("backgroundMusic");
@@ -35,24 +29,24 @@ getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-  let initialize = () => {
-    backgroundMusic.play();
-    currentTrack = vowelTrackLevels;
-    temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
-    initializeArrayOfFlies();//in adaptivedifficulty.js
-    assignMyLetterToCheck();
-    assignFlaps();//in flies.js
-    fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
-    assignTargetAudio();
-    playTargetAudio();
-    assignTargetFlies();//in flies.js
-  }
+let initialize = () => {
+  backgroundMusic.play();
+  currentTrack = vowelTrackLevels;
+  temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
+  initializeArrayOfFlies();//in adaptivedifficulty.js
+  assignMyLetterToCheck();
+  assignFlaps();//in flies.js
+  fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
+  assignTargetAudio();
+  playTargetAudio();
+  assignTargetFlies();//in flies.js
+}
 
-  let launchGame;
-  launchGame = () => {
-    initialize();
-    setInterval(gameLoop, 1000/30);
-  }
+let launchGame;
+launchGame = () => {
+  initialize();
+  setInterval(gameLoop, 1000/30);
+}
 
 window.onload = () => {
   //initialize canvas
@@ -64,8 +58,6 @@ window.onload = () => {
   canvasLeftEdge = 0;
   backgroundMusic.volume = 0.1;
   chooseBackground();
-
-
 
   // gathers mouse coordinates for debugging potential debugging,
   // used in canvasContext.fillText in drawEverything part of gameLoop
@@ -138,6 +130,5 @@ window.onload = () => {
   Images.loadImages();
   Sounds.loadSounds();
 
-  //needs to be called before launch of game so the visual part of the game loads all at once instead of images popping up one at a time
 
 }

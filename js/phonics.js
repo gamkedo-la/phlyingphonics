@@ -6,9 +6,7 @@ let assignTargetAudio = () => {
     assignTargetAudioWithBigLetter();
   } else if ( currentTrack === smallLettersTrackLevels ) {
     assignTargetAudioWithSmallLetter();
-  } else if ( currentTrack === vowelTrackLevels ) {
-    assignTargetAudioWithPhonic();
-  } else if ( currentTrack === consonantTrackLevels ) {
+  } else if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
     assignTargetAudioWithPhonic();
   } else if ( currentTrack === mixedSizeLetterNameLevels ) {
     assignTargetAudioWithBigOrSmallLetter();
