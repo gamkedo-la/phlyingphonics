@@ -7,7 +7,6 @@ function handleCanvasClick(evt) {
 
   numberOfAttempts++;
   screenShake(10);
-  console.log(trackIndex);
   console.log(currentTrack[trackIndex]);
 
 
