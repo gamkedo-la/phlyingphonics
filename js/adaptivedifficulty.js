@@ -53,7 +53,7 @@ function checkForLevelResetOrAdvancement() {
     arrayOfSwattedFlies = [];
     chooseBackground();
     trackIndex++;
-    console.log(trackIndex);
+    console.log(currentTrack, trackIndex);
     temporarySubset = currentTrack[trackIndex];//vowelTrackLevels[vowelTrackLevelIndex];
     resetAccuracy();
     initializeArrayOfFlies();
@@ -73,6 +73,7 @@ function checkForLevelResetOrAdvancement() {
 }
 
 function calculateOverallAccuracy() {
+  let previousAccuracy = overallAccuracy;
   overallAccuracy = Math.round( (correctAnswers/numberOfAttempts)*100 );
   overallAccuracy = overallAccuracy ? overallAccuracy : 0;
   accuracyDiv.innerHTML = overallAccuracy + "%";

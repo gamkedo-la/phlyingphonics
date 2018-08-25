@@ -262,8 +262,7 @@ function flyClass() {
 
     // draw the letter
     if ((currentTrack === bigLettersTrackLevels) || (currentTrack === mixedSizeLetterNameLevels)) {
-      if (this.myLetterToCheck === "bigO") {
-        console.log(this.myLetter);
+      if (this.myLetterToCheck === "bigO" || this.myLetterToCheck === "bigC") {
         canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 65, 65);
       } else {
       canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);

@@ -149,6 +149,8 @@ let imageFileNames = [
 let soundFileNames = [
   "audio/flightOfTheABCs.mp3",
   "audio/splatsound.mp3",
+  "audio/miss_woosh.mp3",
+  "audio/miss_woosh_2.mp3",
   "audio/phonics/a.mp3",
   "audio/phonics/b.mp3",
   "audio/phonics/c.mp3",
