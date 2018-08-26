@@ -52,10 +52,7 @@ window.onload = () => {
   //initialize canvas
   canvas = document.getElementById("gameCanvas");
   canvasContext = canvas.getContext("2d");
-  canvasRightEdge = canvas.width = window.innerWidth*0.8;
-  canvasBottomEdge = canvas.height = window.innerHeight*0.65;
-  canvasTopEdge = 0;
-  canvasLeftEdge = 0;
+  window.onresize();
   backgroundMusic.volume = 0.1;
   chooseBackground();
 
@@ -126,6 +123,11 @@ window.onload = () => {
 
   Images.loadImages();
   Sounds.loadSounds();
+}
 
-
+window.onresize = () => {
+  canvasRightEdge = canvas.width = window.innerWidth*0.8;
+  canvasBottomEdge = canvas.height = window.innerHeight*0.65;
+  canvasTopEdge = 0;
+  canvasLeftEdge = 0;
 }
