@@ -185,16 +185,29 @@ function drawBitmapWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
 }
 
 let arrayOfStartingFlyImages = ["cartoonFly", "fly_version_1", "dragon_bee_v1"];
-let randomizeStartingFlyImage = () => {
-  let startingFlyImageIndex = getRandomInt(0, arrayOfStartingFlyImages.length - 1);
-  let startingFlyImage = arrayOfStartingFlyImages[startingFlyImageIndex];
-  return startingFlyImage;
+let arrayOfStartingButterflyImages = ["blackNorange", "bluebutterfly1", "croppedpink1"];
+let randomizeStartingSpriteImage = () => {
+  let startingSprieImage;
+  if (chosenBackground === "tree2") {
+    startingSpriteImage = arrayOfStartingButterflyImages[getRandomInt(0, arrayOfStartingButterflyImages.length - 1)];
+    return startingSpriteImage;
+  } else if (chosenBackground === "honeycomb") {
+    startingSpriteImage = "dragon_bee_v1";
+    return startingSpriteImage;
+  } else {
+  startingSpriteImage = arrayOfStartingFlyImages[getRandomInt(0, arrayOfStartingFlyImages.length - 1)];
+  return startingSpriteImage;
+  }
 }
 let assignFlyImageB = () => {
   if (this.myImage === "fly_version_1") {
     return "fly_version_1b"
-  } else {
+  } else if (this.myImage === "cartoonFly") {
     return "cartoonFlyB"
+  } else if (this.myImage === "dragon_bee_v1" ) {
+    return "dragon_bee_b"
+  } else if (this.myImage === "blackNorange" || this.myImage === "bluebutterfly1" || this.myImage === "croppedpink1") {
+    return this.myImage;
   }
 }
 
@@ -214,7 +227,7 @@ function flyClass() {
   this.rightEdge = this.x + this.width;
   this.bottomEdge = this.y + this.height;
   this.leftEdge = this.x;
-  this.myImage = Images.getImage(randomizeStartingFlyImage());
+  this.myImage = Images.getImage(randomizeStartingSpriteImage());
   this.stringImage = Images.getImage("stringImage");
   this.myImageB = undefined; // flapping
   this.myLetter = randomLetterWithinSubset();//in adaptivedifficulty.js

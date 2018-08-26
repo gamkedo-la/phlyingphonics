@@ -81,6 +81,7 @@ let imageFileNames = [
     "images/bowlOfFruit.png",
     "images/honeycomb.png",
     "images/BabyRoomBG.png",
+    "images/tree2.png",
     "images/purplecountertop.png",
     "images/capitalLetters/A.png",
     "images/capitalLetters/B.png",
@@ -263,11 +264,13 @@ let assignFlaps = () => {
         }
         else if (arrayOfFlies[i].myImage === Images.getImage("dragon_bee_v1")) {
             arrayOfFlies[i].myImageB = Images.getImage("dragon_bee_b");
-        }
+        } else {
+            arrayOfFlies[i].myImageB = arrayOfFlies[i].myImage;
+          }
     }
 }
 
-let arrayOfBackgroundStrings = ["table", "purplecountertop", "honeycomb", "BabyRoomBG"]; //"table", "tableWithFilter", "bowlOfFruit",
+let arrayOfBackgroundStrings = ["table", "purplecountertop", "honeycomb", "BabyRoomBG", "tree2"]; //"table", "tableWithFilter", "bowlOfFruit",
 let chosenBackground;
 let chooseBackground = () => {
     //chosenBackground = arrayOfBackgroundStrings[3]; return; // FIXME REMOVE this line is for debug only
