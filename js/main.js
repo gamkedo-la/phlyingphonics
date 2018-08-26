@@ -83,7 +83,12 @@ window.onload = () => {
 
   drawFlySwatter = () => {
     //console.log('fly swatter at: ' + mouseX + ',' + mouseY);
-    canvasContext.drawImage(Images.getImage("flySwatter"), mouseX - 50, mouseY - 50);
+    
+    if (chosenBackground == 'BabyRoomBG') {
+      canvasContext.drawImage(Images.getImage("BabyHand"), mouseX - 50, mouseY - 50);
+    } else {
+      canvasContext.drawImage(Images.getImage("flySwatter"), mouseX - 50, mouseY - 50);
+    }
   }
 
   //part of game loop, maybe have the splats disappear over with a setTimeout

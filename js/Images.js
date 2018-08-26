@@ -138,9 +138,10 @@ let imageFileNames = [
     "images/fly_version_1.png",
     "images/fly_version_1b.png", // flap
     "images/flySwatter.png",
+    "images/BabyHand.png",
     "images/cartoonFly.png",
     "images/cartoonFlyB.png",
-    "images/cartoonFly-spritesheett.png",
+    "images/cartoonFly-spritesheet.png",
     "images/dragon_bee_v1.png",
     "images/dragon_bee_b.png",
     "images/stringImage.png"
