@@ -82,5 +82,6 @@ function countLoadedSoundsAndLaunchIfReady() {
 //Load sounds must be called in window.onload (Main.js)
 Sounds();
 
-let arrayOfMissedSounds = ["audio/miss_woosh.mp3","audio/miss_woosh_2.mp3"];
+let arrayOfMissedSounds = ["audio/miss_woosh.mp3","audio/miss_woosh_2.mp3","audio/VOX_Sofia_GoodTry.mp3","audio/VOX_Sofia_MmMm.mp3","audio/VOX_Sofia_UhOh01.mp3",
+							"audio/VOX_Sofia_UhOh02.mp3","audio/VOX_Sofia_UhUh.mp3"];
 missedSound.volume = 0.55;
