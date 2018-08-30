@@ -6,7 +6,7 @@ let numberOfAttempts = 0;
 let temporarySubset = [];
 let temporaryArrayOfQuestions = new Array();
 
-let arrayOfTargetsToPractice = [];
+
 
 function fillTemporaryArrayOfQuestions() {
   if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
@@ -128,14 +128,4 @@ let assignMyLetterToCheck = () => {
        }
      }
   }
-}
-
-function fillArrayOfTargetsToPractice() {
-  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
-    if (arrayOfPhonicResults[i].accuracy < 80) {
-      arrayOfTargetsToPractice.push(arrayOfPhonicResults[i].phonicString);
-      console.log(arrayOfTargetsToPractice);
-    }
-  }
-
 }
