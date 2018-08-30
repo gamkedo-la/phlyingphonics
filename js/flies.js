@@ -393,5 +393,11 @@ let killFly = (i) => {
   arrayOfSwattedFlies.push(arrayOfFlies[i]);
   arrayOfFlies.splice(i, 1);
   Sounds.getSound(targetAudio).pause();
-  splat.play(); //plays splat audio tag
-}
+  let randomCorrectSoundIndex = getRandomInt(0,arrayOfCorrectSounds.length - 1);
+  let correctSound = document.getElementById("correctSound");
+  correctSound.src = arrayOfCorrectSounds[randomCorrectSoundIndex];
+  correctSound.play();
+}  
+  
+  
+
