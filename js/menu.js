@@ -32,6 +32,7 @@ function handleMenuInput(mouseX,mouseY) {
         mouseY >= buttonList[i].y && mouseY <= buttonList[i].y + buttonHeight) {
           console.log(buttonList[i].label);
           buttonList[i].onClick();
+          alert("Phlying Phonics suggests you practice " + localStorage.getItem("targetsToPractice"));
         }
   }
 }

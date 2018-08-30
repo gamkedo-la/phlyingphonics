@@ -6,6 +6,8 @@ let numberOfAttempts = 0;
 let temporarySubset = [];
 let temporaryArrayOfQuestions = new Array();
 
+let arrayOfTargetsToPractice = [];
+
 function fillTemporaryArrayOfQuestions() {
   if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithPhonics();
@@ -60,6 +62,8 @@ function checkForLevelResetOrAdvancement() {
     assignFlaps();
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
+    fillArrayOfTargetsToPractice();
+    localStorage.setItem("targetsToPractice", arrayOfTargetsToPractice);
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     arrayOfSwattedFlies = [];
@@ -69,6 +73,8 @@ function checkForLevelResetOrAdvancement() {
     assignFlaps();
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
+    fillArrayOfTargetsToPractice();
+    localStorage.setItem("targetsToPractice", arrayOfTargetsToPractice);
   }
 }
 
@@ -122,4 +128,14 @@ let assignMyLetterToCheck = () => {
        }
      }
   }
+}
+
+function fillArrayOfTargetsToPractice() {
+  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+    if (arrayOfPhonicResults[i].accuracy < 80) {
+      arrayOfTargetsToPractice.push(arrayOfPhonicResults[i].phonicString);
+      console.log(arrayOfTargetsToPractice);
+    }
+  }
+
 }

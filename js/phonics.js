@@ -125,7 +125,7 @@ function phonicClass(phonicString){
   this.phonicString = phonicString;
   this.correctAnswers = 0;
   this.unCorrectAnswers = 0;
-  this.accuracy = 0;
+  this.accuracy = 100;
   this.numberOfAttempts = 0;
 
   this.calculateAccuracy = function() {
