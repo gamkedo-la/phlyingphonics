@@ -29,15 +29,14 @@ function handleCanvasClick(evt) {
 
   numberOfAttempts++;
   screenShake(10);
-  console.log(typeof targetAudio, typeof arrayOfPhonicResults[0].phonicString, arrayOfPhonicResults[4].phonicString, arrayOfPhonicResults[14].phonicString, targetAudio);
+  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+  console.log(arrayOfPhonicResults[i].phonicString);
+}
   let hits = 0;
 
   for (let i = 0; i<arrayOfFlies.length; i++) {
     if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
         evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {//checks for correct swat based on coordinates and target sound
-
-        //console.log(arrayOfPhonicResults);
-
       increaseIndividualPhonicAccuracy();
       correctAnswers++;
       hits++;

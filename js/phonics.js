@@ -55,8 +55,70 @@ let X = new phonicClass("X");
 let Y = new phonicClass("Y");
 let Z = new phonicClass("Z");
 
+let bigA = new phonicClass("bigA");
+let bigB = new phonicClass("bigB");
+let bigC = new phonicClass("bigC");
+let bigD = new phonicClass("bigD");
+let bigE = new phonicClass("bigE");
+let bigF = new phonicClass("bigF");
+let bigG = new phonicClass("bigG");
+let bigH = new phonicClass("bigH");
+let bigI = new phonicClass("bigI");
+let bigJ = new phonicClass("bigJ");
+let bigK = new phonicClass("bigK");
+let bigL = new phonicClass("bigL");
+let bigM = new phonicClass("bigM");
+let bigN = new phonicClass("bigN");
+let bigO = new phonicClass("bigO");
+let bigP = new phonicClass("bigP");
+let bigQ = new phonicClass("bigQ");
+let bigR = new phonicClass("bigR");
+let bigS = new phonicClass("bigS");
+let bigT = new phonicClass("bigT");
+let bigU = new phonicClass("bigU");
+let bigV = new phonicClass("bigV");
+let bigW = new phonicClass("bigW");
+let bigX = new phonicClass("bigX");
+let bigY = new phonicClass("bigY");
+let bigZ = new phonicClass("bigZ");
+
+let smallA = new phonicClass("smallA");
+let smallB = new phonicClass("smallB");
+let smallC = new phonicClass("smallC");
+let smallD = new phonicClass("smallD");
+let smallE = new phonicClass("smallE");
+let smallF = new phonicClass("smallF");
+let smallG = new phonicClass("smallG");
+let smallH = new phonicClass("smallH");
+let smallI = new phonicClass("smallI");
+let smallJ = new phonicClass("smallJ");
+let smallK = new phonicClass("smallK");
+let smallL = new phonicClass("smallL");
+let smallM = new phonicClass("smallM");
+let smallN = new phonicClass("smallN");
+let smallO = new phonicClass("smallO");
+let smallP = new phonicClass("smallP");
+let smallQ = new phonicClass("smallQ");
+let smallR = new phonicClass("smallR");
+let smallS = new phonicClass("smallS");
+let smallT = new phonicClass("smallT");
+let smallU = new phonicClass("smallU");
+let smallV = new phonicClass("smallV");
+let smallW = new phonicClass("smallW");
+let smallX = new phonicClass("smallX");
+let smallY = new phonicClass("smallY");
+let smallZ = new phonicClass("smallZ");
+
+
 let arrayOfPhonicResults = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,
-                            A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z];
+                            A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
+                            bigA,bigB,bigC,bigD,bigE,bigF,bigG,bigH,bigI,bigJ,
+                            bigK,bigL,bigM,bigN,bigO,bigP,bigQ,bigR,bigS,bigT,
+                            bigU,bigV,bigW,bigX,bigY,bigZ,
+                            smallA,smallB,smallC,smallD,smallE,smallF,smallG,
+                            smallH,smallI,smallJ,smallK,smallL,smallM,smallN,
+                            smallO,smallP,smallQ,smallR,smallS,smallT,smallU,
+                            smallV,smallW,smallX,smallY,smallZ];
 
 
 function phonicClass(phonicString){
