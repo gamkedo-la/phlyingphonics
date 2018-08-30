@@ -1,21 +1,21 @@
-function increaseIndividualPhonicAccuracy() {
+function increaseIndividualPhonicAccuracyAndAdjustPracticeFrequency() {
   for (let i = 0; i<arrayOfPhonicResults.length; i++) {
     if (targetAudio === arrayOfPhonicResults[i].phonicString) {
       arrayOfPhonicResults[i].correctAnswers++;
       arrayOfPhonicResults[i].numberOfAttempts++;
       arrayOfPhonicResults[i].calculateAccuracy();
-      console.log(arrayOfPhonicResults[i].correctAnswers, arrayOfPhonicResults[i].numberOfAttempts, arrayOfPhonicResults[i].accuracy);
+      arrayOfPhonicResults[i].adjustPracticeFrequency();
     }
   }
 }
 
-function decreaseIndividualPhonicAccuracy() {
+function decreaseIndividualPhonicAccuracyAndAdjustPracticeFrequency() {
   for (let i = 0; i<arrayOfPhonicResults.length; i++) {
     if (targetAudio === arrayOfPhonicResults[i].phonicString) {
       arrayOfPhonicResults[i].unCorrectAnswers++;
       arrayOfPhonicResults[i].numberOfAttempts++;
       arrayOfPhonicResults[i].calculateAccuracy();
-      console.log(arrayOfPhonicResults[i].correctAnswers, arrayOfPhonicResults[i].numberOfAttempts, arrayOfPhonicResults[i].accuracy);
+      arrayOfPhonicResults[i].adjustPracticeFrequency();
     }
   }
 }
@@ -27,17 +27,18 @@ function handleCanvasClick(evt) {
     return;
   }
 
+  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+    console.log(arrayOfPhonicResults[i].practiceFrequency);
+  }
   numberOfAttempts++;
   screenShake(10);
-  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
-  console.log(arrayOfPhonicResults[i].phonicString);
-}
+
   let hits = 0;
 
   for (let i = 0; i<arrayOfFlies.length; i++) {
     if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
         evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {//checks for correct swat based on coordinates and target sound
-      increaseIndividualPhonicAccuracy();
+      increaseIndividualPhonicAccuracyAndAdjustPracticeFrequency();
       correctAnswers++;
       hits++;
       calculateOverallAccuracy();
@@ -52,12 +53,13 @@ function handleCanvasClick(evt) {
     }//end of incorrect answers
   }//end of looping through flies
   if (hits === 0) {
-    decreaseIndividualPhonicAccuracy();
+    decreaseIndividualPhonicAccuracyAndAdjustPracticeFrequency();
     let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
     let missedSound = document.getElementById("missedSound");
     missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
     missedSound.play();
   }
+  localStorage.setItem("storedPhonicResults", arrayOfPhonicResults);
 }//end of canvas click
 
 let vowelButton = document.getElementById("vowelButton");

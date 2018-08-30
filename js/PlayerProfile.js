@@ -1,10 +1,16 @@
 let arrayOfTargetsToPractice = [];
+let previousPracticeDay = undefined;
+let currentPracticeDay = undefined;
+let storedPhonicResults = localStorage.getItem("storedPhonicResults");
 
 function fillArrayOfTargetsToPractice() {
-  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
-    if (arrayOfPhonicResults[i].accuracy < 80) {
+  arrayOfTargetsToPractice = [];
+  if (storedPhonicResults === null) {
+    return;
+  }
+  for (let i = 0; i<storedPhonicResults.length; i++) {
+    if (storedPhonicResults[i].practiceFrequency === Math.abs(currentPracticeDay - previousPracticeDay)) {
       arrayOfTargetsToPractice.push(arrayOfPhonicResults[i].phonicString);
-      console.log(arrayOfTargetsToPractice);
     }
   }
 }
@@ -14,6 +20,7 @@ function phonicClass(phonicString){
   this.correctAnswers = 0;
   this.unCorrectAnswers = 0;
   this.accuracy = 100;
+  this.practiceFrequency = 1;
   this.numberOfAttempts = 0;
 
   this.calculateAccuracy = function() {
@@ -21,7 +28,20 @@ function phonicClass(phonicString){
     this.accuracy = Math.round( (this.correctAnswers/this.numberOfAttempts)*100 );
     this.accuracy = this.accuracy ? this.accuracy : 0;
   }
-}
+
+  this.adjustPracticeFrequency = function() {
+    if (this.accuracy > 80) {
+      this.practiceFrequency = 4;
+    } else if (this.accuracy > 65 && this.accuracy <= 80) {
+        this.practiceFrequency = 3;
+      } else if (this.accuracy > 50 && this.accuracy <= 65) {
+        this.practiceFrequency = 2;
+      } else if (this.accuracy <= 50) {
+        this.practiceFrequency = 1;
+      }
+    }
+  }
+
 
 let a = new phonicClass("a");
 let b = new phonicClass("b");

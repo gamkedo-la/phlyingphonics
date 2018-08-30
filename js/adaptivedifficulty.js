@@ -62,8 +62,6 @@ function checkForLevelResetOrAdvancement() {
     assignFlaps();
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
-    fillArrayOfTargetsToPractice();
-    localStorage.setItem("targetsToPractice", arrayOfTargetsToPractice);
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     arrayOfSwattedFlies = [];
@@ -73,8 +71,6 @@ function checkForLevelResetOrAdvancement() {
     assignFlaps();
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
-    fillArrayOfTargetsToPractice();
-    localStorage.setItem("targetsToPractice", arrayOfTargetsToPractice);
   }
 }
 

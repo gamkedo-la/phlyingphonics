@@ -31,6 +31,12 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
+  previousPracticeDay = localStorage.getItem("currentDay");
+  let date = new Date();
+  currentPracticeDay = date.getDay();
+  localStorage.setItem("currentDay", currentPracticeDay);
+  fillArrayOfTargetsToPractice();
+  console.log(localStorage.getItem("currentDay"), currentPracticeDay, previousPracticeDay);
   currentTrack = vowelTrackLevels;
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
   initializeArrayOfFlies();//in adaptivedifficulty.js
@@ -80,7 +86,7 @@ window.onload = () => {
 
   drawFlySwatter = () => {
     //console.log('fly swatter at: ' + mouseX + ',' + mouseY);
-    
+
     if (chosenBackground == 'BabyRoomBG') {
       canvasContext.drawImage(Images.getImage("BabyHand"), mouseX - 50, mouseY - 50);
     } else {
