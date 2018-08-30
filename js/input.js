@@ -1,3 +1,25 @@
+function increaseIndividualPhonicAccuracy() {
+  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+    if (targetAudio === arrayOfPhonicResults[i].phonicString) {
+      arrayOfPhonicResults[i].correctAnswers++;
+      arrayOfPhonicResults[i].numberOfAttempts++;
+      arrayOfPhonicResults[i].calculateAccuracy();
+      console.log(arrayOfPhonicResults[i].correctAnswers, arrayOfPhonicResults[i].numberOfAttempts, arrayOfPhonicResults[i].accuracy);
+    }
+  }
+}
+
+function decreaseIndividualPhonicAccuracy() {
+  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+    if (targetAudio === arrayOfPhonicResults[i].phonicString) {
+      arrayOfPhonicResults[i].unCorrectAnswers++;
+      arrayOfPhonicResults[i].numberOfAttempts++;
+      arrayOfPhonicResults[i].calculateAccuracy();
+      console.log(arrayOfPhonicResults[i].correctAnswers, arrayOfPhonicResults[i].numberOfAttempts, arrayOfPhonicResults[i].accuracy);
+    }
+  }
+}
+
 function handleCanvasClick(evt) {
 
   if (isMenu) {
@@ -7,16 +29,20 @@ function handleCanvasClick(evt) {
 
   numberOfAttempts++;
   screenShake(10);
-  console.log(currentTrack[trackIndex]);
+  console.log(typeof targetAudio, typeof arrayOfPhonicResults[0].phonicString, arrayOfPhonicResults[4].phonicString, arrayOfPhonicResults[14].phonicString, targetAudio);
   let hits = 0;
 
   for (let i = 0; i<arrayOfFlies.length; i++) {
     if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
         evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {//checks for correct swat based on coordinates and target sound
+
+        //console.log(arrayOfPhonicResults);
+
+      increaseIndividualPhonicAccuracy();
       correctAnswers++;
       hits++;
       calculateOverallAccuracy();
-      killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection
+      killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
       temporaryArrayOfQuestions.splice(0,1);
       checkForLevelResetOrAdvancement();//in adaptivedifficulty.js
       assignTargetAudio();//in phonics.js
@@ -27,6 +53,7 @@ function handleCanvasClick(evt) {
     }//end of incorrect answers
   }//end of looping through flies
   if (hits === 0) {
+    decreaseIndividualPhonicAccuracy();
     let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
     let missedSound = document.getElementById("missedSound");
     missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
