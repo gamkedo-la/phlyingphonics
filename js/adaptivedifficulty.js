@@ -64,7 +64,6 @@ function checkForLevelResetOrAdvancement() {
     assignFlaps();
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
-    updateIndividualTargetsPreviousPracticeSessionNumbers();
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     arrayOfSwattedFlies = [];

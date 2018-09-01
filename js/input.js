@@ -33,10 +33,7 @@ function handleCanvasClick(evt) {
 //    console.log(arrayOfPhonicResults[i].practiceFrequency);
 //  }
 clickCount++;
-console.log("click count: " + clickCount);
-for (let i = 0; i<arrayOfPhonicResults.length; i++) {
-  console.log(arrayOfPhonicResults[i].previousSessionNumber);
-}
+
   numberOfAttempts++;
   screenShake(10);
 
@@ -65,6 +62,11 @@ for (let i = 0; i<arrayOfPhonicResults.length; i++) {
     let missedSound = document.getElementById("missedSound");
     missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
     missedSound.play();
+  }
+  updateIndividualTargetsPreviousPracticeSessionNumbers();
+  console.log("click count: " + clickCount);
+  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+    console.log(arrayOfPhonicResults[i].previousSessionNumber);
   }
   localStorage.setItem("storedPhonicResults", arrayOfPhonicResults);
 }//end of canvas click
