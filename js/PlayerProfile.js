@@ -15,11 +15,17 @@ function initializeCurrentPracticeSessionNumber() {
   console.log(currentPracticeSessionNumber);
 }
 
+function updateIndividualTargetsPreviousPracticeSessionNumbers() {
+  for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
+    for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
+      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex]) {
+        arrayOfPhonicResults[arrayOfPhonicResultsIndex].previousSessionNumber = currentPracticeSessionNumber;
+      }
+    }
+  }
+}
 
 let storedPhonicResults = localStorage.getItem("storedPhonicResults");
-
-
-
 
 previousPracticeDay = localStorage.getItem("currentDay");
 let date = new Date();
@@ -34,7 +40,7 @@ function fillArrayOfTargetsToPractice() {
     return;
   }
   for (let i = 0; i<storedPhonicResults.length; i++) {
-    if (storedPhonicResults[i].practiceFrequency === Math.abs(currentPracticeDay - previousPracticeDay)) {
+    if (storedPhonicResults[i].practiceFrequency === Math.abs(currentPracticeSessionNumber - storedPhonicResults[i].previousSessionNumber)) {
       arrayOfTargetsToPractice.push(arrayOfPhonicResults[i].phonicString);
     }
   }
@@ -45,8 +51,10 @@ function phonicClass(phonicString){
   this.correctAnswers = 0;
   this.unCorrectAnswers = 0;
   this.accuracy = 100;
-  this.practiceFrequency = 1;
   this.numberOfAttempts = 0;
+
+  this.practiceFrequency = 1;
+  this.previousSessionNumber = 1;
 
   this.calculateAccuracy = function() {
     let reviousAccuracy = this.accuracy;

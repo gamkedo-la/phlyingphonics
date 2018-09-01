@@ -31,10 +31,10 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
-
   initializeCurrentPracticeSessionNumber();
   currentTrack = vowelTrackLevels;
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
+  updateIndividualTargetsPreviousPracticeSessionNumbers();
   initializeArrayOfFlies();//in adaptivedifficulty.js
   assignMyLetterToCheck();
   assignFlaps();//in flies.js

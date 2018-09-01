@@ -62,6 +62,10 @@ function checkForLevelResetOrAdvancement() {
     assignFlaps();
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
+    updateIndividualTargetsPreviousPracticeSessionNumbers();
+    for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+      console.log(arrayOfPhonicResults[i].previousSessionNumber);
+    }
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     arrayOfSwattedFlies = [];
