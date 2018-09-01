@@ -31,12 +31,8 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
-  previousPracticeDay = localStorage.getItem("currentDay");
-  let date = new Date();
-  currentPracticeDay = date.getDay();
-  localStorage.setItem("currentDay", currentPracticeDay);
-  fillArrayOfTargetsToPractice();
-  console.log(localStorage.getItem("currentDay"), currentPracticeDay, previousPracticeDay);
+
+  initializeCurrentPracticeSessionNumber();
   currentTrack = vowelTrackLevels;
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
   initializeArrayOfFlies();//in adaptivedifficulty.js

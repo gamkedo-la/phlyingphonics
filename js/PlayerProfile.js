@@ -1,7 +1,32 @@
 let arrayOfTargetsToPractice = [];
 let previousPracticeDay = undefined;
 let currentPracticeDay = undefined;
+let currentPracticeSessionNumber;
+
+function initializeCurrentPracticeSessionNumber() {
+  if (localStorage.getItem("currentPracticeSessionNumber") === null) {
+    localStorage.setItem("currentPracticeSessionNumber", 1);
+    currentPracticeSessionNumber = localStorage.getItem("currentPracticeSessionNumber");
+  } else {
+    currentPracticeSessionNumber = localStorage.getItem("currentPracticeSessionNumber");
+    currentPracticeSessionNumber++;
+    localStorage.setItem("currentPracticeSessionNumber", currentPracticeSessionNumber);
+  }
+  console.log(currentPracticeSessionNumber);
+}
+
+
 let storedPhonicResults = localStorage.getItem("storedPhonicResults");
+
+
+
+
+previousPracticeDay = localStorage.getItem("currentDay");
+let date = new Date();
+currentPracticeDay = date.getDay();
+localStorage.setItem("currentDay", currentPracticeDay);
+fillArrayOfTargetsToPractice();
+
 
 function fillArrayOfTargetsToPractice() {
   arrayOfTargetsToPractice = [];
