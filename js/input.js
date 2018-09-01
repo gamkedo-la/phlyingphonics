@@ -20,6 +20,8 @@ function decreaseIndividualPhonicAccuracyAndAdjustPracticeFrequency() {
   }
 }
 
+let clickCount = 0;
+
 function handleCanvasClick(evt) {
 
   if (isMenu) {
@@ -27,9 +29,14 @@ function handleCanvasClick(evt) {
     return;
   }
 
-  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
-    console.log(arrayOfPhonicResults[i].practiceFrequency);
-  }
+  //for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+//    console.log(arrayOfPhonicResults[i].practiceFrequency);
+//  }
+clickCount++;
+console.log("click count: " + clickCount);
+for (let i = 0; i<arrayOfPhonicResults.length; i++) {
+  console.log(arrayOfPhonicResults[i].previousSessionNumber);
+}
   numberOfAttempts++;
   screenShake(10);
 

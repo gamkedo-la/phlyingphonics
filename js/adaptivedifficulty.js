@@ -50,7 +50,6 @@ function randomLetterWithinSubset () {
   if (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels) {
     letter = letter.charAt(6);
   }
-  console.log(letter);
   return letter
 }
 
@@ -66,9 +65,6 @@ function checkForLevelResetOrAdvancement() {
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
     updateIndividualTargetsPreviousPracticeSessionNumbers();
-    for (let i = 0; i<arrayOfPhonicResults.length; i++) {
-      console.log(arrayOfPhonicResults[i].previousSessionNumber);
-    }
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     arrayOfSwattedFlies = [];

@@ -16,10 +16,9 @@ function initializeCurrentPracticeSessionNumber() {
 }
 
 function updateIndividualTargetsPreviousPracticeSessionNumbers() {
-  console.log(temporarySubset);
   for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
     for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
-      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex]) {
+      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
         arrayOfPhonicResults[arrayOfPhonicResultsIndex].previousSessionNumber = currentPracticeSessionNumber;
       }
     }

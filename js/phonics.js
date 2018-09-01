@@ -35,7 +35,6 @@ let assignTargetBigLetterName = () => {
 }
 
 let playTargetAudio = () => {
-  console.log(targetAudio);
   Sounds.getSound(targetAudio).loop = true;
   Sounds.getSound(targetAudio).play();
 }
