@@ -15,7 +15,7 @@ let assignTargetAudio = () => {
 }
 
 let assignTargetAudioWithPhonic = () => {
-  targetAudio = temporaryArrayOfQuestions[0].toLowerCase();
+  targetAudio = "phonic" + temporaryArrayOfQuestions[0].toLowerCase();
 }
 
 let assignTargetAudioWithBigLetter = () => {
@@ -35,6 +35,7 @@ let assignTargetBigLetterName = () => {
 }
 
 let playTargetAudio = () => {
+  console.log(targetAudio);
   Sounds.getSound(targetAudio).loop = true;
   Sounds.getSound(targetAudio).play();
 }

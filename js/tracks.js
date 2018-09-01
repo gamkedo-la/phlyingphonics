@@ -3,76 +3,77 @@ let trackIndex = 0;
 
 let vowelTrackLevelIndex = 0;
 let vowelTrackLevels = [
-   ["E","O"],
-   ["I","U"],
-   ["E","O","I"],
-   ["A","I"],
-   ["A","E"],
-   ["A","E","I"],
-   ["O","U"],
-   ["A","O"],
-   ["A","O","U"],
-   ["A","O","U","I"],
-   ["A","E","I","O"],
-   ["A","E","I","O","U"]
+   ["phonice","phonico"],
+   ["phonici","phonicu"],
+   ["phonice","phonico","phonici"],
+   ["phonica","phonici"],
+   ["phonica","phonice"],
+   ["phonica","phonice","phonici"],
+   ["phonico","phonicu"],
+   ["phonica","phonico"],
+   ["phonica","phonico","phonicu"],
+   ["phonica","phonico","phonicu","phonici"],
+   ["phonica","phonice","phonici","phonico"],
+   ["phonica","phonice","phonici","phonico","phonicu"]
 ];
 
 let consonantTrackLevelIndex = 0;
 let consonantTrackLevels = [
-  ["B","C"],//section 1
-  ["C","D"],
-  ["B","D"],
-  ["B","C","D"],
-  ["C","X"],
-  ["C","X","D"],
-  ["C","X","B","D"],
-  ["B","P",],
-  ["B","P","D"],
-  ["B","P","D","C","X"],
-  ["K","X"],
-  ["B","P","D","K","X"],
-  ["F","V"],//section 2
-  ["F","V","B"],
-  ["F","V","B","P"],
-  ["F","V","B","P","C"],
-  ["F","V","B","P","C","X"],
-  ["F","V","B","P","C","X","D"],
-  ["G","K"],//section 3
-  ["J","G"],
-  ["J","G","K"],
-  ["G","H"],
-  ["G","H","J"],
-  ["G","H","J","K"],
-  ["G","H","J","K","X"],
-  ["L","N"],//section 4
-  ["L","N","G"],
-  ["L","N","G","K"],
-  ["L","N","G","K","J"],
-  ["M","N"],
-  ["L","M","N"],
-  ["L","M","N","G","K"],
-  ["L","M","N","G","K","J"],
-  ["F","V","B","P","C","X","D","L","M","N","G","K","J"],
-  ["Q","W"],//section 5
-  ["Q","W","R"],
-  ["R","L"],
-  ["R","L","M"],
-  ["R","L","M","N"],
-  ["R","L","M","N","Q","W"],
-  ["S","Z"],//section 6
-  ["D","T"],
-  ["D","T","B"],
-  ["D","T","B","P"],
-  ["V","W"],
-  ["V","W","F"],
-  ["X","Y"],
-  ["W","X","Y"],
-  ["V","W","Y"],
-  ["V","W","Y","F"],
-  ["R","L","M","N","Q","W","S","Z"],//section 7
-  ["V","W","F","D","T","B","P"],
-  ["C","G","H","J","K","X","Y"],
-  ["B","C","D","F","G","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Y","Z"]
+  ["phonicb","phonicc"],//section 1
+  ["phonicc","phonicd"],
+  ["phonicb","phonicd"],
+  ["phonicb","phonicc","phonicd"],
+  ["phonicc","phonicx"],
+  ["phonicc","phonicx","phonicd"],
+  ["phonicc","phonicx","phonicb","phonicd"],
+  ["phonicb","phonicp",],
+  ["phonicb","phonicp","phonicd"],
+  ["phonicb","phonicp","phonicd","phonicc","phonicx"],
+  ["phonick","phonicx"],
+  ["phonicb","phonicp","phonicd","phonick","phonicx"],
+  ["phonicf","phonicv"],//section 2
+  ["phonicf","phonicv","phonicb"],
+  ["phonicf","phonicv","phonicb","phonicp"],
+  ["phonicf","phonicv","phonicb","phonicp","phonicc"],
+  ["phonicf","phonicv","phonicb","phonicp","phonicc","phonicx"],
+  ["phonicf","phonicv","phonicb","phonicp","phonicc","phonicx","phonicd"],
+  ["phonicg","phonick"],//section 3
+  ["phonicj","phonicg"],
+  ["phonicj","phonicg","phonick"],
+  ["phonicg","phonich"],
+  ["phonicg","phonich","phonicj"],
+  ["phonicg","phonich","phonicj","phonick"],
+  ["phonicg","phonich","phonicj","phonick","phonicx"],
+  ["phonicl","phonicn"],//section 4
+  ["phonicl","phonicn","phonicg"],
+  ["phonicl","phonicn","phonicg","phonick"],
+  ["phonicl","phonicn","phonicg","phonick","phonicj"],
+  ["phonicm","phonicn"],
+  ["phonicl","phonicm","phonicn"],
+  ["phonicl","phonicm","phonicn","phonicg","phonick"],
+  ["phonicl","phonicm","phonicn","phonicg","phonick","phonicj"],
+  ["phonicf","phonicv","phonicb","phonicp","phonicc","phonicx","phonicd","phonicl","phonicm","phonicn","phonicg","phonick","phonicj"],
+  ["phonicq","phonicw"],//section 5
+  ["phonicq","phonicw","phonicr"],
+  ["phonicr","phonicl"],
+  ["phonicr","phonicl","phonicm"],
+  ["phonicr","phonicl","phonicm","phonicn"],
+  ["phonicr","phonicl","phonicm","phonicn","phonicq","phonicw"],
+  ["phonics","phonicz"],//section 6
+  ["phonicd","phonict"],
+  ["phonicd","phonict","phonicb"],
+  ["phonicd","phonict","phonicb","phonicp"],
+  ["phonicv","phonicw"],
+  ["phonicv","phonicw","phonicf"],
+  ["phonicx","phonicy"],
+  ["phonicw","phonicx","phonicy"],
+  ["phonicv","phonicw","phonicy"],
+  ["phonicv","phonicw","phonicy","phonicf"],
+  ["phonicr","phonicl","phonicm","phonicn","phonicq","phonicw","phonics","phonicz"],//section 7
+  ["phonicv","phonicw","phonicf","phonicd","phonict","phonicb","phonicp"],
+  ["phonicc","phonicg","phonich","phonicj","phonick","phonicx","phonicy"],
+  ["phonicb","phonicc","phonicd","phonicf","phonicg","phonich","phonicj","phonick","phonicl","phonicm","phonicn","phonicp","phonicq",
+  "phonicr","phonics","phonict","phonicv","phonicw","phonicx","phonicy","phonicz"]
 ]
 
 let bigLettersTrackLevels = [

@@ -16,6 +16,7 @@ function initializeCurrentPracticeSessionNumber() {
 }
 
 function updateIndividualTargetsPreviousPracticeSessionNumbers() {
+  console.log(temporarySubset);
   for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
     for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
       if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex]) {
@@ -76,32 +77,32 @@ function phonicClass(phonicString){
   }
 
 
-let a = new phonicClass("a");
-let b = new phonicClass("b");
-let c = new phonicClass("c");
-let d = new phonicClass("d");
-let e = new phonicClass("e");
-let f = new phonicClass("f");
-let g = new phonicClass("g");
-let h = new phonicClass("h");
-let i = new phonicClass("i");
-let j = new phonicClass("j");
-let k = new phonicClass("k");
-let l = new phonicClass("l");
-let m = new phonicClass("m");
-let n = new phonicClass("n");
-let o = new phonicClass("o");
-let p = new phonicClass("p");
-let q = new phonicClass("q");
-let r = new phonicClass("r");
-let s = new phonicClass("s");
-let t = new phonicClass("t");
-let u = new phonicClass("u");
-let v = new phonicClass("v");
-let w = new phonicClass("w");
-let x = new phonicClass("x");
-let y = new phonicClass("y");
-let z = new phonicClass("z");
+let a = new phonicClass("phonica");
+let b = new phonicClass("phonicb");
+let c = new phonicClass("phonicc");
+let d = new phonicClass("phonicd");
+let e = new phonicClass("phonice");
+let f = new phonicClass("phonicf");
+let g = new phonicClass("phonicg");
+let h = new phonicClass("phonich");
+let i = new phonicClass("phonici");
+let j = new phonicClass("phonicj");
+let k = new phonicClass("phonick");
+let l = new phonicClass("phonicl");
+let m = new phonicClass("phonicm");
+let n = new phonicClass("phonicn");
+let o = new phonicClass("phonico");
+let p = new phonicClass("phonicp");
+let q = new phonicClass("phonicq");
+let r = new phonicClass("phonicr");
+let s = new phonicClass("phonics");
+let t = new phonicClass("phonict");
+let u = new phonicClass("phonicu");
+let v = new phonicClass("phonicv");
+let w = new phonicClass("phonicw");
+let x = new phonicClass("phonicx");
+let y = new phonicClass("phonicy");
+let z = new phonicClass("phonicz");
 
 let A = new phonicClass("A");
 let B = new phonicClass("B");

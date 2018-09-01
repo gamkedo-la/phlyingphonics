@@ -47,6 +47,10 @@ function fillTemporaryArrayOfQuestionsWithBigAndSmallLetters() {
 function randomLetterWithinSubset () {
   let randomLetterIndex = getRandomInt(0, temporarySubset.length - 1);
   let letter = temporarySubset[randomLetterIndex];
+  if (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels) {
+    letter = letter.charAt(6);
+  }
+  console.log(letter);
   return letter
 }
 
@@ -55,7 +59,7 @@ function checkForLevelResetOrAdvancement() {
     arrayOfSwattedFlies = [];
     chooseBackground();
     trackIndex++;
-    temporarySubset = currentTrack[trackIndex];//vowelTrackLevels[vowelTrackLevelIndex];
+    temporarySubset = currentTrack[trackIndex];
     resetAccuracy();
     initializeArrayOfFlies();
     assignFlaps();
@@ -114,7 +118,7 @@ let resetTemporaryArrayOfQuestionsWithBigAndSmallLetters = () => {
 let assignMyLetterToCheck = () => {
   for ( let i = 0; i < arrayOfFlies.length; i++ ) {
     if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
-      arrayOfFlies[i].myLetterToCheck = arrayOfFlies[i].myLetter.toLowerCase();
+      arrayOfFlies[i].myLetterToCheck = "phonic" + arrayOfFlies[i].myLetter.toLowerCase();
     } else if ( currentTrack === bigLettersTrackLevels ) {
        arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter;
      } else if ( currentTrack === smallLettersTrackLevels ) {
