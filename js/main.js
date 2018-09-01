@@ -81,8 +81,7 @@ window.onload = () => {
   }
 
   drawFlySwatter = () => {
-    //console.log('fly swatter at: ' + mouseX + ',' + mouseY);
-
+    
     if (chosenBackground == 'BabyRoomBG') {
       canvasContext.drawImage(Images.getImage("BabyHand"), mouseX - 50, mouseY - 50);
     } else {

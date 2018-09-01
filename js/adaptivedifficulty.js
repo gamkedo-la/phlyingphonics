@@ -55,7 +55,6 @@ function checkForLevelResetOrAdvancement() {
     arrayOfSwattedFlies = [];
     chooseBackground();
     trackIndex++;
-    console.log(currentTrack, trackIndex);
     temporarySubset = currentTrack[trackIndex];//vowelTrackLevels[vowelTrackLevelIndex];
     resetAccuracy();
     initializeArrayOfFlies();

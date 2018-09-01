@@ -26,11 +26,9 @@ function drawMenu() {
 }
 
 function handleMenuInput(mouseX,mouseY) {
-  console.log(mouseX,mouseY);
   for (let i = 0; i<buttonList.length; i++) {
     if (mouseX >= buttonList[i].x && mouseX <= buttonList[i].x + buttonWidth &&
         mouseY >= buttonList[i].y && mouseY <= buttonList[i].y + buttonHeight) {
-          console.log(buttonList[i].label);
           buttonList[i].onClick();
           if (arrayOfTargetsToPractice === []) {
             alert("Phlying Phonics suggests you practice whatever you want.");

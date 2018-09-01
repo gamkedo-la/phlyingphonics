@@ -27,7 +27,6 @@ let assignTargetAudioWithSmallLetter = () => {
 }
 
 let assignTargetAudioWithBigOrSmallLetter = () => {
-  console.log(temporaryArrayOfQuestions);
   targetAudio = temporaryArrayOfQuestions[0];
 }
 

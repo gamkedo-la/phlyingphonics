@@ -7,7 +7,6 @@ let MAX_SCREEN_SHAKES = 20;
 let MAX_SCREEN_SHAKE_SIZE_PX = 16;
 
 function screenShake(howmany) {
-    //console.log('screenshake ' + howmany);
     screen_shakes += howmany;
     // max out at a reasonable value to avoid infini-shake in tight loops
     if (screen_shakes > MAX_SCREEN_SHAKES)
@@ -26,11 +25,9 @@ function updateScreenshake() {
         screenshakeY = (Math.round((Math.random() * shakesize) - shakesize / 2) * 2);
 
         screen_shakes--;
-        //console.log('screen_shakes:'+screen_shakes);
 
         // about to finish? return to where we were when we started
         if (screen_shakes < 1) {
-            //console.log('screenshakes done. going back to original position.')
             screenshakeX = 0;
             screenshakeY = 0;
         }

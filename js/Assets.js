@@ -14,7 +14,7 @@
 // Made by your friend Remy :) (based on the usual script from Chris)
 
 function Images() {
-    //console.log(imageFileNames);
+
     let imageDict = [];
     console.log("Initializing Images module.");
 

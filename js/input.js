@@ -142,13 +142,7 @@ let resetLevelFromUIClickWithBigAndSmallLetters = () => {
   assignMyLetterToCheck();
   resetAccuracy();
   resetTemporaryArrayOfQuestionsWithBigAndSmallLetters();//in adaptivedifficulty.js
-  for (let i = 0; i<arrayOfFlies[i].length;i++) {
-    console.log(temporaryArrayOfQuestions);
-  }
   resetTargetBigOrSmallLetterNameAndTargetFlies();//in phonics.js
-  for (let i = 0; i<arrayOfFlies.length; i++) {
-    console.log(arrayOfFlies[i].myLetterToCheck);
-  }
 }
 
 //ridiculously long list of onclick functions for individual levels, don't look unless you have to!!! haha

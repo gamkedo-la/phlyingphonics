@@ -241,7 +241,6 @@ function flyClass() {
   this.draw = () => { // draw the fly!
 
     if (chosenBackground === "BabyRoomBG") { // do we want strings (for a baby mobile above the crib) BabyRoomBG
-      //console.log("BabyRoomBG detected: drawing a string!");
       drawBitmapCenteredWithRotationScale(this.stringImage,
         this.x + this.width / 2, this.y + (this.width / 2) - (this.stringImage.height / 2), 0, 1);
     }
@@ -397,7 +396,4 @@ let killFly = (i) => {
   let correctSound = document.getElementById("correctSound");
   correctSound.src = arrayOfCorrectSounds[randomCorrectSoundIndex];
   correctSound.play();
-}  
-  
-  
-
+}
