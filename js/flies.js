@@ -386,7 +386,11 @@ function detactCollisionDir(fly1, fly2) {
 }
 
 let killFly = (i) => {
-  arrayOfFlies[i].myImage = Images.getImage("yellowgreensplat"); //changing source image
+  if (chosenBackground == "BabyRoomBG") {
+    arrayOfFlies[i].myImage = Images.getImage("starsplat"); //changing source image
+  } else {
+    arrayOfFlies[i].myImage = Images.getImage("yellowgreensplat"); //changing source image
+  }
   arrayOfFlies[i].xSpeed = 0; //stops movement
   arrayOfFlies[i].ySpeed = 0;
   arrayOfSwattedFlies.push(arrayOfFlies[i]);
