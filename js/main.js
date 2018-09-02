@@ -84,6 +84,8 @@ window.onload = () => {
     
     if (chosenBackground == 'BabyRoomBG') {
       canvasContext.drawImage(Images.getImage("BabyHand"), mouseX - 50, mouseY - 50);
+    } else if (chosenBackground == 'honeycomb') {
+      canvasContext.drawImage(Images.getImage("HoneyJar"), mouseX - 50, mouseY - 50);
     } else {
       canvasContext.drawImage(Images.getImage("flySwatter"), mouseX - 50, mouseY - 50);
     }
