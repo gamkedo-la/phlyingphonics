@@ -64,9 +64,10 @@ clickCount++;
     missedSound.play();
   }
   updateIndividualTargetsPreviousPracticeSessionNumbers();
+  updateIndividualTargetsPreviousPracticeDate();
   console.log("click count: " + clickCount);
   for (let i = 0; i<arrayOfPhonicResults.length; i++) {
-    console.log(arrayOfPhonicResults[i].previousSessionNumber);
+    console.log(arrayOfPhonicResults[i].previousPracticeDate);
   }
   localStorage.setItem("storedPhonicResults", arrayOfPhonicResults);
 }//end of canvas click

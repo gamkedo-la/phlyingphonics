@@ -1,7 +1,11 @@
 let arrayOfTargetsToPractice = [];
-let previousPracticeDay = undefined;
-let currentPracticeDay = undefined;
+let previousPracticeDate = undefined;
+let currentPracticeDate = Date.now();
+let oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+let currentPracticeDateInDays = currentPracticeDate/oneDayInMilliseconds;
+console.log(currentPracticeDateInDays);
 let currentPracticeSessionNumber;
+
 
 function initializeCurrentPracticeSessionNumber() {
   if (localStorage.getItem("currentPracticeSessionNumber") === null) {
@@ -12,7 +16,6 @@ function initializeCurrentPracticeSessionNumber() {
     currentPracticeSessionNumber++;
     localStorage.setItem("currentPracticeSessionNumber", currentPracticeSessionNumber);
   }
-  console.log(currentPracticeSessionNumber);
 }
 
 function updateIndividualTargetsPreviousPracticeSessionNumbers() {
@@ -25,26 +28,60 @@ function updateIndividualTargetsPreviousPracticeSessionNumbers() {
   }
 }
 
-let storedPhonicResults = localStorage.getItem("storedPhonicResults");
-
-previousPracticeDay = localStorage.getItem("currentDay");
-let date = new Date();
-currentPracticeDay = date.getDay();
-localStorage.setItem("currentDay", currentPracticeDay);
-fillArrayOfTargetsToPractice();
-
-
-function fillArrayOfTargetsToPractice() {
-  arrayOfTargetsToPractice = [];
-  if (storedPhonicResults === null) {
-    return;
-  }
-  for (let i = 0; i<storedPhonicResults.length; i++) {
-    if (storedPhonicResults[i].practiceFrequency === Math.abs(currentPracticeSessionNumber - storedPhonicResults[i].previousSessionNumber)) {
-      arrayOfTargetsToPractice.push(arrayOfPhonicResults[i].phonicString);
+function updateIndividualTargetsPreviousPracticeDate() {
+  for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
+    for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
+      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
+        arrayOfPhonicResults[arrayOfPhonicResultsIndex].previousPracticeDate = currentPracticeDate;
+      }
     }
   }
 }
+
+let storedPhonicResults = localStorage.getItem("storedPhonicResults");
+
+previousPracticeDay = localStorage.getItem("currentDate");
+let date = new Date();
+localStorage.setItem("currentDate", currentPracticeDate);
+//fillArrayOfTargetsToPractice();
+
+function shouldPracticeTargetToday(letter) {
+
+  if (letter.previousPracticeDate === undefined) {
+    return true;
+  }
+  let previousDate = new Date(letter.previousPracticeDate);
+  let today = currentPracticeDate;
+  console.log(letter,previousDate);
+  //let daysSincePracticed = previousDate.getTime() - today.getTime();
+
+  console.log('*******');
+  console.log('previousDate', previousDate);
+  console.log('today', today);
+  console.log('practiceFrequency', letter.practiceFrequency);
+  console.log('daysSincePracticed', daysSincePracticed);
+  console.log('*******');
+
+  return daysSincePracticed >= letter.practiceFrequency;
+}
+
+
+
+/*var oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+
+var today = new Date();
+today.setUTCHours(0,0,0,0);
+
+var daysBack = 3;
+var dateBackDifference = today.getTime() - (oneDayInMilliseconds * daysBack);
+
+var previousDate = new Date(dateBackDifference);
+previousDate.setUTCHours(0,0,0,0);
+
+console.log('today', today);
+console.log('daysBack', daysBack);
+console.log('previousDate', previousDate);*/
+
 
 function phonicClass(phonicString){
   this.phonicString = phonicString;
@@ -55,6 +92,7 @@ function phonicClass(phonicString){
 
   this.practiceFrequency = 1;
   this.previousSessionNumber = 1;
+  this.previousPracticeDate = undefined;
 
   this.calculateAccuracy = function() {
     let reviousAccuracy = this.accuracy;
@@ -249,3 +287,12 @@ let arrayOfPhonicResults = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,
                             smallH,smallI,smallJ,smallK,smallL,smallM,smallN,
                             smallO,smallP,smallQ,smallR,smallS,smallT,smallU,
                             smallV,smallW,smallX,smallY,smallZ];
+
+function fillArrayOfTargetsToPractice() {
+  arrayOfTargetsToPractice = [];
+  arrayOfPhonicResults.forEach(function(letter) {
+    if(shouldPracticeTargetToday(letter)){
+      arrayOfTargetsToPractice.push(letter.phonicString);
+    }
+  });
+}
