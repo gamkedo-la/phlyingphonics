@@ -40,7 +40,7 @@ function updateIndividualTargetsPreviousPracticeDate() {
 
 let storedPhonicResults = localStorage.getItem("storedPhonicResults");
 
-previousPracticeDay = localStorage.getItem("currentDate");
+previousPracticeDate = localStorage.getItem("currentDate");
 let date = new Date();
 localStorage.setItem("currentDate", currentPracticeDate);
 //fillArrayOfTargetsToPractice();
@@ -48,21 +48,23 @@ localStorage.setItem("currentDate", currentPracticeDate);
 function shouldPracticeTargetToday(letter) {
 
   if (letter.previousPracticeDate === undefined) {
-    return true;
+    return letter;
   }
   let previousDate = new Date(letter.previousPracticeDate);
   let today = currentPracticeDate;
-  console.log(letter,previousDate);
-  //let daysSincePracticed = previousDate.getTime() - today.getTime();
+  console.log(letter,letter.previousPracticeDate);
+  let daysSincePracticed = letter.previousPracticeDate - currentPracticeDate;
 
   console.log('*******');
-  console.log('previousDate', previousDate);
+  console.log('previousDate', letter.previousPracticeDate);
   console.log('today', today);
   console.log('practiceFrequency', letter.practiceFrequency);
   console.log('daysSincePracticed', daysSincePracticed);
   console.log('*******');
 
-  return daysSincePracticed >= letter.practiceFrequency;
+  if (daysSincePracticed >= letter.practiceFrequency) {
+    return letter.phonicString;
+  }
 }
 
 

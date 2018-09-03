@@ -31,10 +31,12 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
+  setupKeyboardDateHackInput();
   initializeCurrentPracticeSessionNumber();
   currentTrack = vowelTrackLevels;
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
   updateIndividualTargetsPreviousPracticeSessionNumbers();
+  updateIndividualTargetsPreviousPracticeDate();
   initializeArrayOfFlies();//in adaptivedifficulty.js
   assignMyLetterToCheck();
   assignFlaps();//in flies.js
@@ -43,9 +45,6 @@ let initialize = () => {
   playTargetAudio();
   assignTargetFlies();//in flies.js
   fillArrayOfTargetsToPractice();
-  for (let i = 0; i<arrayOfPhonicResults.length; i++) {
-    console.log(arrayOfPhonicResults[i].previousPracticeDate);
-  }
 }
 
 let launchGame;

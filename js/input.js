@@ -72,6 +72,56 @@ clickCount++;
   localStorage.setItem("storedPhonicResults", arrayOfPhonicResults);
 }//end of canvas click
 
+function setupKeyboardDateHackInput() {
+    document.addEventListener("keydown", keyPressed);
+};
+
+const NUMBER_PAD_PLUS = 107; // to increase currentDate;
+const NUMBER_PAD_MINUS = 109; // to decrease currentDate;
+const KEYBOARD_PLUS = 187; // to increase all previous practice dates;
+const KEYBOARD_MINUS = 189; // to decrease all previous practice dates;
+
+function keyPressed(evt) {
+    switch (evt.keyCode) {
+      case KEYBOARD_PLUS:
+        increasePreviousPracticeDates();
+        break;
+      case KEYBOARD_MINUS:
+        decreasePreviousPracticeDates();
+        break;
+      case NUMBER_PAD_PLUS:
+        increaseCurrentPracticeDate();
+        break;
+      case NUMBER_PAD_MINUS:
+        decreaseCurrentPracticeDate();
+        break;
+      }
+    }
+
+function increasePreviousPracticeDates() {
+  for (let i = 0; i<arrayOfPhonicResults.length;i++) {
+    arrayOfPhonicResults[i].previousPracticeDate += oneDayInMilliseconds/1000;
+    console.log("****", arrayOfPhonicResults[i].previousPracticeDate);
+  }
+}
+
+function decreasePreviousPracticeDates() {
+  for (let i = 0; i<arrayOfPhonicResults.length;i++) {
+    arrayOfPhonicResults[i].previousPracticeDate -= oneDayInMilliseconds/1000;
+    console.log("****", arrayOfPhonicResults[i].previousPracticeDate);
+  }
+}
+
+function increaseCurrentPracticeDate() {
+  currentPracticeDate += oneDayInMilliseconds/1000;
+  console.log(currentPracticeDate);
+}
+
+function decreaseCurrentPracticeDate() {
+  currentPracticeDate -= oneDayInMilliseconds/1000;
+  console.log(currentPracticeDate);
+}
+
 let vowelButton = document.getElementById("vowelButton");
 let accuracyDiv = document.getElementById("accuracyDiv");
 vowelButton.onclick = function() {
