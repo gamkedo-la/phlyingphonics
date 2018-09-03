@@ -1,6 +1,7 @@
 let isMenu = true;
 const buttonWidth = 200;
 const buttonHeight = 40;
+let useStationaryMode;
 
 function startKidMode() {
   isMenu = false;

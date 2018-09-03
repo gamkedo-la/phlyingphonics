@@ -102,13 +102,13 @@ function phonicClass(phonicString){
 
   this.adjustPracticeFrequency = function() {
     if (this.accuracy > 80) {
-      this.practiceFrequency = 4;
+      this.practiceFrequency = this.practiceFrequency*2.5;
     } else if (this.accuracy > 65 && this.accuracy <= 80) {
-        this.practiceFrequency = 3;
+        this.practiceFrequency = this.practiceFrequency*2;
       } else if (this.accuracy > 50 && this.accuracy <= 65) {
-        this.practiceFrequency = 2;
+        this.practiceFrequency = this.practiceFrequency*1.5;
       } else if (this.accuracy <= 50) {
-        this.practiceFrequency = 1;
+        this.practiceFrequency = this.practiceFrequency*1.1;
       }
     }
   }

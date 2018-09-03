@@ -59,7 +59,7 @@ drawFlies = () => {
 
 
 //sets which flies are to be used at the start of the game, after level completion, or after student customization
-initializeArrayOfFlies = () => {
+initializeArrayOfFlies = (temporarySubset) => {
   numberOfFliesAtStartOfLevel = 6;//getRandomInt(1,26);
   arrayOfFlies = new Array(numberOfFliesAtStartOfLevel);
   for (let i = 0; i < numberOfFliesAtStartOfLevel; i++) {

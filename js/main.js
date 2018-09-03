@@ -11,9 +11,6 @@ let canvasLeftEdge;
 // set to false to turn off ss when you swat
 const USE_SCREENSHAKE = true;
 
-// options
-let useStationaryMode = false;
-
 //used by the fly swatter
 let mouseX = 0;
 let mouseY = 0;
@@ -40,7 +37,7 @@ let initialize = () => {
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
   updateIndividualTargetsPreviousPracticeSessionNumbers();
   updateIndividualTargetsPreviousPracticeDate();
-  initializeArrayOfFlies();//in adaptivedifficulty.js
+  initializeArrayOfFlies(temporarySubset);//in adaptivedifficulty.js
   assignMyLetterToCheck();
   assignFlaps();//in flies.js
   fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
@@ -80,9 +77,7 @@ window.onload = () => {
     handleFlyWallCollisions();
     handleFlyToFlyCollisions();
     handleFliesOffScreen();
-    if (!useStationaryMode) {
-      moveFlies();
-    }
+    moveFlies();
     updateFlyProperties();
     updateScreenshake();
 
