@@ -44,7 +44,7 @@ let initialize = () => {
   assignTargetAudio();
   playTargetAudio();
   assignTargetFlies();//in flies.js
-  fillArrayOfTargetsToPractice();
+  //fillArrayOfTargetsToPractice();
 }
 
 let launchGame;

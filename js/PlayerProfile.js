@@ -3,7 +3,6 @@ let previousPracticeDate = undefined;
 let currentPracticeDate = Date.now();
 let oneDayInMilliseconds = 24 * 60 * 60 * 1000;
 let currentPracticeDateInDays = currentPracticeDate/oneDayInMilliseconds;
-console.log(currentPracticeDateInDays);
 let currentPracticeSessionNumber;
 
 
@@ -47,23 +46,21 @@ localStorage.setItem("currentDate", currentPracticeDate);
 
 function shouldPracticeTargetToday(letter) {
 
-  if (letter.previousPracticeDate === undefined) {
-    return letter;
+  if (letter.previousPracticeDate === 0 || letter.previousPracticeDate === undefined) {
+    letter.previousPracticeDate = currentPracticeDate - oneDayInMilliseconds/1000;
   }
-  let previousDate = new Date(letter.previousPracticeDate);
-  let today = currentPracticeDate;
-  console.log(letter,letter.previousPracticeDate);
-  let daysSincePracticed = letter.previousPracticeDate - currentPracticeDate;
-
-  console.log('*******');
-  console.log('previousDate', letter.previousPracticeDate);
-  console.log('today', today);
-  console.log('practiceFrequency', letter.practiceFrequency);
-  console.log('daysSincePracticed', daysSincePracticed);
-  console.log('*******');
-
+  let previousPracticeDate = new Date(letter.previousPracticeDate);
+  let daysSincePracticed = currentPracticeDate - letter.previousPracticeDate;
+  console.log(daysSincePracticed);
+  //console.log('*******');
+  //console.log('previousPracticeDate', letter.previousPracticeDate);
+  //console.log('currentPracticeDate', currentPracticeDate);
+  //console.log('practiceFrequency', letter.practiceFrequency);
+  //console.log('daysSincePracticed', daysSincePracticed);
+  //console.log('*******');
+//  console.log(daysSincePracticed, currentPracticeDate);
   if (daysSincePracticed >= letter.practiceFrequency) {
-    return letter.phonicString;
+    return console.log(letter.phonicString);
   }
 }
 

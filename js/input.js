@@ -80,6 +80,7 @@ const NUMBER_PAD_PLUS = 107; // to increase currentDate;
 const NUMBER_PAD_MINUS = 109; // to decrease currentDate;
 const KEYBOARD_PLUS = 187; // to increase all previous practice dates;
 const KEYBOARD_MINUS = 189; // to decrease all previous practice dates;
+const ENTER = 13; // to hack calculate targets to be practiced, to check that the srs algorithm is behaving properly;
 
 function keyPressed(evt) {
     switch (evt.keyCode) {
@@ -94,6 +95,9 @@ function keyPressed(evt) {
         break;
       case NUMBER_PAD_MINUS:
         decreaseCurrentPracticeDate();
+        break;
+      case ENTER:
+        hackulateTargetsToBePracticed();
         break;
       }
     }
@@ -120,6 +124,16 @@ function increaseCurrentPracticeDate() {
 function decreaseCurrentPracticeDate() {
   currentPracticeDate -= oneDayInMilliseconds/1000;
   console.log(currentPracticeDate);
+}
+
+function hackulateTargetsToBePracticed() {
+  arrayOfPhonicResults.forEach(function(letter) {
+    if(shouldPracticeTargetToday(letter)){
+      console.log(letter.phonicString);
+    } else {
+      //console.log("not " + letter);
+    }
+  });
 }
 
 let vowelButton = document.getElementById("vowelButton");
