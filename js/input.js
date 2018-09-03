@@ -91,10 +91,10 @@ function keyPressed(evt) {
         decreasePreviousPracticeDates();
         break;
       case NUMBER_PAD_PLUS:
-        increaseCurrentPracticeDate();
+        increaseCurrentPracticeDateInDays();
         break;
       case NUMBER_PAD_MINUS:
-        decreaseCurrentPracticeDate();
+        decreaseCurrentPracticeDateInDays();
         break;
       case ENTER:
         hackulateTargetsToBePracticed();
@@ -104,30 +104,33 @@ function keyPressed(evt) {
 
 function increasePreviousPracticeDates() {
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    arrayOfPhonicResults[i].previousPracticeDate += oneDayInMilliseconds/1000;
-    console.log("****", arrayOfPhonicResults[i].previousPracticeDate);
+    arrayOfPhonicResults[i].previousPracticeDate += oneDayInMilliseconds;
+    console.log("e.previousPracticeDate", e.previousPracticeDate/oneDayInMilliseconds);
   }
 }
 
 function decreasePreviousPracticeDates() {
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    arrayOfPhonicResults[i].previousPracticeDate -= oneDayInMilliseconds/1000;
-    console.log("****", arrayOfPhonicResults[i].previousPracticeDate);
+    arrayOfPhonicResults[i].previousPracticeDate -= oneDayInMilliseconds;
+    console.log("e.previousPracticeDate", e.previousPracticeDate/oneDayInMilliseconds);
   }
 }
 
-function increaseCurrentPracticeDate() {
-  currentPracticeDate += oneDayInMilliseconds/1000;
-  console.log(currentPracticeDate);
+function increaseCurrentPracticeDateInDays() {
+
+  currentPracticeDateInDays = ( (currentPracticeDateInDays*oneDayInMilliseconds) + oneDayInMilliseconds ) / oneDayInMilliseconds;
+  console.log("currentPracticeDateInDays",currentPracticeDateInDays);
 }
 
-function decreaseCurrentPracticeDate() {
-  currentPracticeDate -= oneDayInMilliseconds/1000;
-  console.log(currentPracticeDate);
+function decreaseCurrentPracticeDateInDays() {
+  currentPracticeDateInDays = ( (currentPracticeDateInDays*oneDayInMilliseconds) - oneDayInMilliseconds ) / oneDayInMilliseconds;
+  console.log("currentPracticeDateInDays",currentPracticeDateInDays);
 }
 
 function hackulateTargetsToBePracticed() {
-  console.log(a);
+  console.log("currentPracticeDateInDays", currentPracticeDateInDays);
+  console.log("e.previousPracticeDate in days", e.previousPracticeDate/oneDayInMilliseconds);
+  console.log(currentPracticeDateInDays - e.previousPracticeDate/oneDayInMilliseconds);
   //arrayOfPhonicResults.forEach(function(letter) {
   //  if(shouldPracticeTargetToday(letter)){
   //    console.log(letter.phonicString);
