@@ -3,6 +3,7 @@ let previousPracticeDate = undefined;
 let currentPracticeDate = Date.now();
 let oneDayInMilliseconds = 24 * 60 * 60 * 1000;
 let currentPracticeDateInDays = currentPracticeDate/oneDayInMilliseconds;
+console.log(currentPracticeDateInDays);
 let currentPracticeSessionNumber;
 
 

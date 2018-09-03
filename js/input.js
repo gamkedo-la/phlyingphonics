@@ -104,26 +104,26 @@ function keyPressed(evt) {
 
 function increasePreviousPracticeDates() {
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    arrayOfPhonicResults[i].previousPracticeDate += oneDayInMilliseconds;
+    arrayOfPhonicResults[i].previousPracticeDate += oneDayInMilliseconds*0.1;//by only a tenth of a day to give more precise testing of algorithm
     console.log("e.previousPracticeDate", e.previousPracticeDate/oneDayInMilliseconds);
   }
 }
 
 function decreasePreviousPracticeDates() {
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    arrayOfPhonicResults[i].previousPracticeDate -= oneDayInMilliseconds;
+    arrayOfPhonicResults[i].previousPracticeDate -= oneDayInMilliseconds*0.1;//by only a tenth of a day to give more precise testing of algorithm
     console.log("e.previousPracticeDate", e.previousPracticeDate/oneDayInMilliseconds);
   }
 }
 
-function increaseCurrentPracticeDateInDays() {
+function increaseCurrentPracticeDateInDays() {//by only a tenth of a day to give more precise testing of algorithm
 
-  currentPracticeDateInDays = ( (currentPracticeDateInDays*oneDayInMilliseconds) + oneDayInMilliseconds ) / oneDayInMilliseconds;
+  currentPracticeDateInDays = ( (currentPracticeDateInDays*oneDayInMilliseconds) + (oneDayInMilliseconds*0.1) ) / oneDayInMilliseconds;
   console.log("currentPracticeDateInDays",currentPracticeDateInDays);
 }
 
-function decreaseCurrentPracticeDateInDays() {
-  currentPracticeDateInDays = ( (currentPracticeDateInDays*oneDayInMilliseconds) - oneDayInMilliseconds ) / oneDayInMilliseconds;
+function decreaseCurrentPracticeDateInDays() {//by only a tenth of a day to give more precise testing of algorithm
+  currentPracticeDateInDays = ( (currentPracticeDateInDays*oneDayInMilliseconds) - (oneDayInMilliseconds*0.1) ) / oneDayInMilliseconds;
   console.log("currentPracticeDateInDays",currentPracticeDateInDays);
 }
 
