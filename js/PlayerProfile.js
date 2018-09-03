@@ -51,7 +51,7 @@ function shouldPracticeTargetToday(letter) {
   }
   let previousPracticeDate = new Date(letter.previousPracticeDate);
   let daysSincePracticed = currentPracticeDate - letter.previousPracticeDate;
-  console.log(daysSincePracticed);
+  console.log(arrayOfPhonicResults[0].previousPracticeDate, daysSincePracticed);
   //console.log('*******');
   //console.log('previousPracticeDate', letter.previousPracticeDate);
   //console.log('currentPracticeDate', currentPracticeDate);

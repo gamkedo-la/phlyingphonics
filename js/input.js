@@ -127,13 +127,14 @@ function decreaseCurrentPracticeDate() {
 }
 
 function hackulateTargetsToBePracticed() {
-  arrayOfPhonicResults.forEach(function(letter) {
-    if(shouldPracticeTargetToday(letter)){
-      console.log(letter.phonicString);
-    } else {
+  console.log(a);
+  //arrayOfPhonicResults.forEach(function(letter) {
+  //  if(shouldPracticeTargetToday(letter)){
+  //    console.log(letter.phonicString);
+  //  } else {
       //console.log("not " + letter);
-    }
-  });
+  //  }
+//  });
 }
 
 let vowelButton = document.getElementById("vowelButton");
