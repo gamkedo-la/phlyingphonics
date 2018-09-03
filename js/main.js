@@ -11,6 +11,9 @@ let canvasLeftEdge;
 // set to false to turn off ss when you swat
 const USE_SCREENSHAKE = true;
 
+// options
+let useStationaryMode = false;
+
 //used by the fly swatter
 let mouseX = 0;
 let mouseY = 0;
@@ -77,7 +80,9 @@ window.onload = () => {
     handleFlyWallCollisions();
     handleFlyToFlyCollisions();
     handleFliesOffScreen();
-    moveFlies();
+    if (!useStationaryMode) {
+      moveFlies();
+    }
     updateFlyProperties();
     updateScreenshake();
 
