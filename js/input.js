@@ -19,10 +19,14 @@ function decreaseIndividualPhonicAccuracy() {
 }
 
 function adjustPracticeFrequencyAtEndOfLevel(temporarySubset) {
-  for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++)
-    for (let arrayOfPhonicResultsIndex = 0; i<arrayOfPhonicResults[arrayOfPhonicResultsIndex].length; arrayOfPhonicResultsIndex++) {
-      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex]) {
+
+  for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
+    for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
+      //console.log(temporarySubset[temporarySubsetIndex], arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString );
+      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
       arrayOfPhonicResults[arrayOfPhonicResultsIndex].adjustPracticeFrequency();
+      console.log(arrayOfPhonicResults[arrayOfPhonicResultsIndex].practiceFrequency);
+      }
     }
   }
 }
