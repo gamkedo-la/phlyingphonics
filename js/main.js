@@ -31,6 +31,7 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
+  //console.log(localStorage.getItem("arrayOfProfiles"));
   initializeArrayOfProfiles();
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
     if (arrayOfPhonicResults[i].previousPracticeDate === undefined) {

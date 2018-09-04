@@ -72,7 +72,7 @@ function drawProfileMenu() {
 }
 
 function handleProfileMenuInput(mouseX,mouseY) {
-  console.log(mouseX,mouseY);
+  console.log("mouse coordinates", mouseX,mouseY);
   for (let i = 0; i<profileMenuButtonList.length; i++) {
     if (mouseX >= profileMenuButtonList[i].x && mouseX <= profileMenuButtonList[i].x + buttonWidth &&
       mouseY >= profileMenuButtonList[i].y && mouseY <= profileMenuButtonList[i].y + buttonHeight) {
@@ -81,20 +81,22 @@ function handleProfileMenuInput(mouseX,mouseY) {
   }
 }
 
-let arrayOfProfiles = [];
+let arrayOfProfiles = ["Bao Bao"];
 
 function initializeArrayOfProfiles() {
-  if (localStorage.getItem("arrayOfProfiles") === null) {
+  if (localStorage.getItem("storedArrayOfProfiles") === null) {
     arrayOfProfiles = [];
+    console.log("arrayOfProfiles", arrayOfProfiles);
   } else {
-    arrayOfProfiles = localStorage.getItem("arrayOfProfiles");
+    arrayOfProfiles = JSON.parse(localStorage.getItem("storedArrayOfProfiles"));
+    console.log(arrayOfProfiles);
   }
 }
 
 function generateNewProfile() {
   let newProfileName = prompt("What is your name?", "Type your name here");
   arrayOfProfiles.push(newProfileName);
-  alert(arrayOfProfiles);
-  localStorage.setItem("arrayOfProfiles", arrayOfProfiles);
-  alert(localStorage.getItem("arrayOfProfiles"));
+  console.log("arrayOfProfiles", arrayOfProfiles);
+  localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
+  console.log(localStorage.getItem("storedArrayOfProfiles"));
 }
