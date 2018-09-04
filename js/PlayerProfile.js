@@ -32,7 +32,7 @@ function updateIndividualTargetsPreviousPracticeDate() {
   for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
     for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
       if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
-        arrayOfPhonicResults[arrayOfPhonicResultsIndex].previousPracticeDate = currentPracticeDate;
+        arrayOfPhonicResults[arrayOfPhonicResultsIndex].previousPracticeDate = currentPracticeDateInDays;
       }
     }
   }
@@ -47,21 +47,22 @@ localStorage.setItem("currentDate", currentPracticeDate);
 
 function shouldPracticeTargetToday(letter) {
 
-  if (letter.previousPracticeDate === 0 || letter.previousPracticeDate === undefined) {
-    letter.previousPracticeDate = currentPracticeDate - oneDayInMilliseconds/1000;
-  }
+
   let previousPracticeDate = new Date(letter.previousPracticeDate);
-  let daysSincePracticed = currentPracticeDate - letter.previousPracticeDate;
-  console.log(arrayOfPhonicResults[0].previousPracticeDate, daysSincePracticed);
+  let daysSincePracticed = currentPracticeDateInDays - letter.previousPracticeDate;
+
+
   //console.log('*******');
+  //console.log('phonic string', letter.phonicString);
   //console.log('previousPracticeDate', letter.previousPracticeDate);
-  //console.log('currentPracticeDate', currentPracticeDate);
+  //console.log('currentPracticeDate', currentPracticeDateInDays);
   //console.log('practiceFrequency', letter.practiceFrequency);
   //console.log('daysSincePracticed', daysSincePracticed);
   //console.log('*******');
-//  console.log(daysSincePracticed, currentPracticeDate);
+  //console.log(daysSincePracticed, currentPracticeDate);
+
   if (daysSincePracticed >= letter.practiceFrequency) {
-    return console.log(letter.phonicString);
+    return letter;
   }
 }
 
@@ -102,13 +103,13 @@ function phonicClass(phonicString){
 
   this.adjustPracticeFrequency = function() {
     if (this.accuracy > 80) {
-      this.practiceFrequency = this.practiceFrequency*2.5;
+      this.practiceFrequency = 2.5;
     } else if (this.accuracy > 65 && this.accuracy <= 80) {
-        this.practiceFrequency = this.practiceFrequency*2;
+        this.practiceFrequency = 2;
       } else if (this.accuracy > 50 && this.accuracy <= 65) {
-        this.practiceFrequency = this.practiceFrequency*1.5;
+        this.practiceFrequency = 1.5;
       } else if (this.accuracy <= 50) {
-        this.practiceFrequency = this.practiceFrequency*1.1;
+        this.practiceFrequency = 1;
       }
     }
   }
@@ -292,7 +293,9 @@ function fillArrayOfTargetsToPractice() {
   arrayOfTargetsToPractice = [];
   arrayOfPhonicResults.forEach(function(letter) {
     if(shouldPracticeTargetToday(letter)){
+      //console.log(letter);
       arrayOfTargetsToPractice.push(letter.phonicString);
-    }
+    } 
   });
+  console.log(arrayOfTargetsToPractice);
 }

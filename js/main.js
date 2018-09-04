@@ -31,6 +31,16 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
+  console.log(arrayOfTargetsToPractice);
+  for (let i = 0; i<arrayOfPhonicResults.length;i++) {
+    if (arrayOfPhonicResults[i].previousPracticeDate === undefined) {
+      arrayOfPhonicResults[i].previousPracticeDate = (currentPracticeDate - oneDayInMilliseconds)/oneDayInMilliseconds;
+    }
+  }
+  //for (let i = 0; i<arrayOfPhonicResults.length;i++) {
+    //console.log(arrayOfPhonicResults[i].previousPracticeDate, arrayOfPhonicResults[i].practiceFrequency);
+  //}
+  fillArrayOfTargetsToPractice();
   setupKeyboardDateHackInput();
   initializeCurrentPracticeSessionNumber();
   currentTrack = vowelTrackLevels;
@@ -44,7 +54,7 @@ let initialize = () => {
   assignTargetAudio();
   playTargetAudio();
   assignTargetFlies();//in flies.js
-  //fillArrayOfTargetsToPractice();
+
 }
 
 let launchGame;

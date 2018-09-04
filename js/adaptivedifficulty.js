@@ -56,6 +56,7 @@ function randomLetterWithinSubset () {
 function checkForLevelResetOrAdvancement() {
   if (arrayOfFlies.length === 0 && overallAccuracy >= 80) {
     adjustPracticeFrequencyAtEndOfLevel(temporarySubset);//in input.js line 22
+    fillArrayOfTargetsToPractice();
     arrayOfSwattedFlies = [];
     chooseBackground();
     trackIndex++;
@@ -68,6 +69,7 @@ function checkForLevelResetOrAdvancement() {
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     adjustPracticeFrequencyAtEndOfLevel(temporarySubset);
+    fillArrayOfTargetsToPractice();
     arrayOfSwattedFlies = [];
     resetAccuracy();
     chooseBackground();
