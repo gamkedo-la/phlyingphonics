@@ -56,7 +56,7 @@ function handleMainMenuInput(mouseX,mouseY) {
 }
 
 let profileMenuButtonList = [
-  {label: "new student", x:50,y:70/*, onClick: generateNewProfile*/},
+  {label: "new student", x:50,y:70, onClick: generateNewProfile},
   {label: "savedProfile1", x:400,y:70/*, onClick: loadSavedProfile1*/},
   {label: "savedProfile2", x:250,y:140/*, onClick: loadSavedProfile2*/}
 ];
@@ -69,5 +69,18 @@ function drawProfileMenu() {
     colorText(profileMenuButtonList[i].label, profileMenuButtonList[i].x + buttonWidth/2,profileMenuButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
   }
   canvasContext.textAlign = "left";
+}
 
+function handleProfileMenuInput(mouseX,mouseY) {
+  console.log(mouseX,mouseY);
+  for (let i = 0; i<profileMenuButtonList.length; i++) {
+    if (mouseX >= profileMenuButtonList[i].x && mouseX <= profileMenuButtonList[i].x + buttonWidth &&
+      mouseY >= profileMenuButtonList[i].y && mouseY <= profileMenuButtonList[i].y + buttonHeight) {
+        profileMenuButtonList[i].onClick();
+    }
+  }
+}
+
+function generateNewProfile() {
+  prompt("What is your name?", "Type your name here");
 }

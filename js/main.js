@@ -31,6 +31,7 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
+  
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
     if (arrayOfPhonicResults[i].previousPracticeDate === undefined) {
       arrayOfPhonicResults[i].previousPracticeDate = (currentPracticeDate - oneDayInMilliseconds)/oneDayInMilliseconds;

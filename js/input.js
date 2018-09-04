@@ -36,6 +36,8 @@ function handleCanvasClick(evt) {
   if (isMainMenu) {
     handleMainMenuInput(evt.pageX,evt.pageY);
     return;
+  } else if (isProfileMenu) {
+    handleProfileMenuInput(evt.pageX,evt.pageY);
   }
 
   //for (let i = 0; i<arrayOfPhonicResults.length; i++) {
