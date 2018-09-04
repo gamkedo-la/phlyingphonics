@@ -115,7 +115,7 @@ function increasePreviousPracticeDates() {
   }
 }
 
-function decreasePreviousPracticeDates() {
+function decreasePreviousPracticeDates(temporarySubset) {
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
     arrayOfPhonicResults[i].previousPracticeDate -= oneDayInMilliseconds*0.1;//by only a tenth of a day to give more precise testing of algorithm
     console.log("e.previousPracticeDate", e.previousPracticeDate/oneDayInMilliseconds);

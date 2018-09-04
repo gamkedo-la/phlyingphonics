@@ -31,7 +31,6 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
-  console.log(arrayOfTargetsToPractice);
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
     if (arrayOfPhonicResults[i].previousPracticeDate === undefined) {
       arrayOfPhonicResults[i].previousPracticeDate = (currentPracticeDate - oneDayInMilliseconds)/oneDayInMilliseconds;
@@ -40,7 +39,11 @@ let initialize = () => {
   //for (let i = 0; i<arrayOfPhonicResults.length;i++) {
     //console.log(arrayOfPhonicResults[i].previousPracticeDate, arrayOfPhonicResults[i].practiceFrequency);
   //}
-  fillArrayOfTargetsToPractice();
+  if (localStorage.getItem("arrayOfTargetsToPractice") === null) {
+    fillArrayOfTargetsToPractice();
+  } else {
+    arrayOfTargetsToPractice = localStorage.getItem("arrayOfTargetsToPractice");
+  }
   setupKeyboardDateHackInput();
   initializeCurrentPracticeSessionNumber();
   currentTrack = vowelTrackLevels;

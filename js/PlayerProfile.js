@@ -295,7 +295,8 @@ function fillArrayOfTargetsToPractice() {
     if(shouldPracticeTargetToday(letter)){
       //console.log(letter);
       arrayOfTargetsToPractice.push(letter.phonicString);
-    } 
+      localStorage.setItem("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
+    }
   });
   console.log(arrayOfTargetsToPractice);
 }
