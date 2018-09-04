@@ -83,6 +83,15 @@ function handleProfileMenuInput(mouseX,mouseY) {
 
 let arrayOfProfiles = [];
 
+function initializeArrayOfProfiles() {
+  if (localStorage.getItem("arrayOfProfiles") === null) {
+    arrayOfProfiles = [];
+  } else {
+    arrayOfProfiles = localStorage.getItem("arrayOfProfiles");
+  }
+  console.log(arrayOfProfiles);
+}
+
 function generateNewProfile() {
   let newProfileName = prompt("What is your name?", "Type your name here");
   arrayOfProfiles.push(newProfileName);
