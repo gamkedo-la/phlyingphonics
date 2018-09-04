@@ -81,6 +81,12 @@ function handleProfileMenuInput(mouseX,mouseY) {
   }
 }
 
+let arrayOfProfiles = [];
+
 function generateNewProfile() {
-  prompt("What is your name?", "Type your name here");
+  let newProfileName = prompt("What is your name?", "Type your name here");
+  arrayOfProfiles.push(newProfileName);
+  alert(arrayOfProfiles);
+  localStorage.setItem("arrayOfProfiles", arrayOfProfiles);
+  alert(localStorage.getItem("arrayOfProfiles"));
 }
