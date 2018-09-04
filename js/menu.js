@@ -85,7 +85,6 @@ function drawProfileMenu() {
 }
 
 function handleProfileMenuInput(mouseX,mouseY) {
-  console.log("mouse coordinates", mouseX,mouseY);
   for (let i = 0; i<profileMenuButtonList.length; i++) {
     if (mouseX >= profileMenuButtonList[i].x && mouseX <= profileMenuButtonList[i].x + buttonWidth &&
       mouseY >= profileMenuButtonList[i].y && mouseY <= profileMenuButtonList[i].y + buttonHeight) {
@@ -108,10 +107,13 @@ function initializeArrayOfProfiles() {
 
 function generateNewProfile() {
   let newProfileName = prompt("What is your name?", "Type your name here");
-  arrayOfProfiles.push(newProfileName);
+  if (newProfileName !== null) {
+    arrayOfProfiles.push(newProfileName);
+    existingProfilesMenuButtonList.push({label:newProfileName,x:10,y:( (arrayOfProfiles.length)*buttonHeight ) + 20*arrayOfProfiles.length/*onclick: */});
+  }
+  console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
   console.log("arrayOfProfiles", arrayOfProfiles);
   localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
-  console.log(localStorage.getItem("storedArrayOfProfiles"));
 }
 
 let existingProfilesMenuButtonList = [
@@ -123,7 +125,7 @@ function drawExistingProfilesMenu() {
   canvasContext.fillStyle = "black";
   canvasContext.fillRect(0,0, canvas.width,canvas.height);
   canvasContext.textAlign = "center";
-  for (let i = 0; i<profileMenuButtonList.length; i++) {
+  for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     colorRect(existingProfilesMenuButtonList[i].x,existingProfilesMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
     colorText(existingProfilesMenuButtonList[i].label, existingProfilesMenuButtonList[i].x + buttonWidth/2,existingProfilesMenuButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
   }
@@ -131,7 +133,6 @@ function drawExistingProfilesMenu() {
 }
 
 function handleExistingProfileMenuInput() {
-  console.log("mouse coordinates", mouseX,mouseY);
   for (let i = 0; i<profileMenuButtonList.length; i++) {
     if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
       mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
