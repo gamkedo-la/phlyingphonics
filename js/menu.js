@@ -1,5 +1,6 @@
 let isMainMenu = true;
 let isProfileMenu = false;
+let isShowingExistingProfiles = false;
 const buttonWidth = 200;
 const buttonHeight = 40;
 let useStationaryMode;
@@ -16,6 +17,19 @@ function startAdvancedMode() {
 
 function toggleStationaryMode() {
   useStationaryMode = !useStationaryMode;
+}
+
+function showExistingProfiles() {
+  isProfileMenu = false;
+  isShowingExistingProfiles = true;
+  if (arrayOfProfiles.length === 0) {
+    alert("No profiles exist, go back and create a new profile");
+  }
+}
+
+function showProfileMenu() {
+  isProfileMenu = true;
+  isShowingExistingProfiles = false;
 }
 
 let mainMenuButtonList = [
@@ -57,8 +71,7 @@ function handleMainMenuInput(mouseX,mouseY) {
 
 let profileMenuButtonList = [
   {label: "new student", x:50,y:70, onClick: generateNewProfile},
-  {label: "savedProfile1", x:400,y:70/*, onClick: loadSavedProfile1*/},
-  {label: "savedProfile2", x:250,y:140/*, onClick: loadSavedProfile2*/}
+  {label: "returning student", x:400,y:70, onClick: showExistingProfiles}
 ];
 
 function drawProfileMenu() {
@@ -81,7 +94,7 @@ function handleProfileMenuInput(mouseX,mouseY) {
   }
 }
 
-let arrayOfProfiles = ["Bao Bao"];
+let arrayOfProfiles = [];
 
 function initializeArrayOfProfiles() {
   if (localStorage.getItem("storedArrayOfProfiles") === null) {
@@ -99,4 +112,30 @@ function generateNewProfile() {
   console.log("arrayOfProfiles", arrayOfProfiles);
   localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
   console.log(localStorage.getItem("storedArrayOfProfiles"));
+}
+
+let existingProfilesMenuButtonList = [
+  {label: "back", x:10,y:10, onClick: showProfileMenu}
+];
+
+function drawExistingProfilesMenu() {
+  canvasContext.clearRect(0,0, canvas.width, canvas.height);
+  canvasContext.fillStyle = "black";
+  canvasContext.fillRect(0,0, canvas.width,canvas.height);
+  canvasContext.textAlign = "center";
+  for (let i = 0; i<profileMenuButtonList.length; i++) {
+    colorRect(existingProfilesMenuButtonList[i].x,existingProfilesMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
+    colorText(existingProfilesMenuButtonList[i].label, existingProfilesMenuButtonList[i].x + buttonWidth/2,existingProfilesMenuButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
+  }
+  canvasContext.textAlign = "left";
+}
+
+function handleExistingProfileMenuInput() {
+  console.log("mouse coordinates", mouseX,mouseY);
+  for (let i = 0; i<profileMenuButtonList.length; i++) {
+    if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
+      mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
+        existingProfilesMenuButtonList[i].onClick();
+    }
+  }
 }

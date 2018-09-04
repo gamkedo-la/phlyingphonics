@@ -113,6 +113,9 @@ window.onload = () => {
     } else if (isProfileMenu) {
       drawProfileMenu();
       return;
+    } else if (isShowingExistingProfiles) {
+      drawExistingProfilesMenu();
+      return;
     }
 
     canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);

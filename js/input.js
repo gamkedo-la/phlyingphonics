@@ -38,6 +38,8 @@ function handleCanvasClick(evt) {
     return;
   } else if (isProfileMenu) {
     handleProfileMenuInput(evt.pageX,evt.pageY);
+  } else if (isShowingExistingProfiles) {
+    handleExistingProfileMenuInput(evt.pageX,evt.pageY);
   }
 
   //for (let i = 0; i<arrayOfPhonicResults.length; i++) {
