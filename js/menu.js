@@ -89,7 +89,6 @@ function initializeArrayOfProfiles() {
   } else {
     arrayOfProfiles = localStorage.getItem("arrayOfProfiles");
   }
-  console.log(arrayOfProfiles);
 }
 
 function generateNewProfile() {
