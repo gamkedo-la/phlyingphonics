@@ -33,8 +33,8 @@ let clickCount = 0;
 
 function handleCanvasClick(evt) {
 
-  if (isMenu) {
-    handleMenuInput(evt.pageX,evt.pageY);
+  if (isMainMenu) {
+    handleMainMenuInput(evt.pageX,evt.pageY);
     return;
   }
 

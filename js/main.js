@@ -36,9 +36,7 @@ let initialize = () => {
       arrayOfPhonicResults[i].previousPracticeDate = (currentPracticeDate - oneDayInMilliseconds)/oneDayInMilliseconds;
     }
   }
-  //for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    //console.log(arrayOfPhonicResults[i].previousPracticeDate, arrayOfPhonicResults[i].practiceFrequency);
-  //}
+
   if (localStorage.getItem("arrayOfTargetsToPractice") === null) {
     fillArrayOfTargetsToPractice();
   } else {
@@ -107,8 +105,11 @@ window.onload = () => {
   //part of game loop, maybe have the splats disappear over with a setTimeout
   //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
-    if (isMenu) {
-      drawMenu();
+    if (isMainMenu) {
+      drawMainMenu();
+      return;
+    } else if (isProfileMenu) {
+      drawProfileMenu();
       return;
     }
 
