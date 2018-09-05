@@ -117,7 +117,7 @@ function generateNewProfile() {
   if (newProfileName !== null) {
     arrayOfProfiles.push(newProfileName);
     existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 40),
-                                        onclick: loadProfileSettingsAndStartGame});
+                                        onClick: loadProfileSettingsAndStartGame});
   }
   console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
   console.log("arrayOfProfiles", arrayOfProfiles);
@@ -144,7 +144,8 @@ function handleExistingProfileMenuInput() {
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
       mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
-        existingProfilesMenuButtonList[i].onClick();
+        console.log(existingProfilesMenuButtonList[i].onclick);
+        existingProfilesMenuButtonList[i].onclick();
     }
   }
 }
