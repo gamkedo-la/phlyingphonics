@@ -108,7 +108,7 @@ function initializeArrayOfProfiles() {
 function initializeExistingProfilesMenuButtonList() {
   for (let i = 0; i<arrayOfProfiles.length; i++) {
     existingProfilesMenuButtonList.push({label: JSON.stringify(arrayOfProfiles[i]), x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight+40)),
-                                        onclick: loadProfileSettingsAndStartGame});
+                                        onClick: loadProfileSettingsAndStartGame});
   }
 }
 
@@ -144,8 +144,8 @@ function handleExistingProfileMenuInput() {
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
       mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
-        console.log(existingProfilesMenuButtonList[i].onclick);
-        existingProfilesMenuButtonList[i].onclick();
+        console.log(existingProfilesMenuButtonList[i].onClick);
+        existingProfilesMenuButtonList[i].onClick();
     }
   }
 }
