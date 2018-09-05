@@ -23,7 +23,7 @@ function adjustPracticeFrequencyAtEndOfLevel(temporarySubset) {
     for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
       if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
       arrayOfPhonicResults[arrayOfPhonicResultsIndex].adjustPracticeFrequency();
-      console.log(arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString, arrayOfPhonicResults[arrayOfPhonicResultsIndex].practiceFrequency);
+      console.log(arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString + ".practiceFrequency", arrayOfPhonicResults[arrayOfPhonicResultsIndex].practiceFrequency);
       }
     }
   }
@@ -77,8 +77,6 @@ function handleCanvasClick(evt) {
     missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
     missedSound.play();
   }
-  updateIndividualTargetsPreviousPracticeSessionNumbers();
-  updateIndividualTargetsPreviousPracticeDate();
   //console.log("click count: " + clickCount);
   //localStorage.setItem("storedPhonicResults", arrayOfPhonicResults);
 }//end of canvas click
@@ -115,15 +113,24 @@ function keyPressed(evt) {
 
 function increasePreviousPracticeDates() {
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    arrayOfPhonicResults[i].previousPracticeDate += oneDayInMilliseconds*0.1;//by only a tenth of a day to give more precise testing of algorithm
-    console.log("e.previousPracticeDate", e.previousPracticeDate/oneDayInMilliseconds);
+    if (arrayOfPhonicResults[i].hasBeenPracticed) {
+      arrayOfPhonicResults[i].previousPracticeDate += 0.1;//by only a tenth of a day to give more precise testing of algorithm
+      console.log("*****");
+      console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
+      console.log("*****");
+
+    }
   }
 }
 
 function decreasePreviousPracticeDates(temporarySubset) {
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    arrayOfPhonicResults[i].previousPracticeDate -= oneDayInMilliseconds*0.1;//by only a tenth of a day to give more precise testing of algorithm
-    console.log("e.previousPracticeDate", e.previousPracticeDate/oneDayInMilliseconds);
+    if (arrayOfPhonicResults[i].hasBeenPracticed) {
+      arrayOfPhonicResults[i].previousPracticeDate -= 0.1;//by only a tenth of a day to give more precise testing of algorithm
+      console.log("*****");
+      console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
+      console.log("*****");
+    }
   }
 }
 
@@ -139,9 +146,11 @@ function decreaseCurrentPracticeDateInDays() {//by only a tenth of a day to give
 }
 
 function hackulateTargetsToBePracticed() {
-  console.log("currentPracticeDateInDays", currentPracticeDateInDays);
-  console.log("e.previousPracticeDate in days", e.previousPracticeDate/oneDayInMilliseconds);
-  console.log(currentPracticeDateInDays - e.previousPracticeDate/oneDayInMilliseconds);
+  for (let i = 0; i<arrayOfPhonicResults.length;i++) {
+    if ( arrayOfPhonicResults[i].hasBeenPracticed && shouldPracticeTargetToday(arrayOfPhonicResults[i]) ) {
+      console.log(arrayOfPhonicResults[i].phonicString + "should be practiced");
+    }
+  }
   //arrayOfPhonicResults.forEach(function(letter) {
   //  if(shouldPracticeTargetToday(letter)){
   //    console.log(letter.phonicString);

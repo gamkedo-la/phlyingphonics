@@ -53,10 +53,31 @@ function randomLetterWithinSubset () {
   return letter
 }
 
+function updateLettersThatHaveBeenPracticed() {
+  console.log("temporarySubset", temporarySubset);
+  console.log("phonicString", arrayOfPhonicResults[0].phonicString);
+  for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
+    for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
+      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
+        console.log("hello world");
+        arrayOfPhonicResults[arrayOfPhonicResultsIndex].hasBeenPracticed = true;
+      }
+    }
+  }
+  for (let i = 0;i<arrayOfPhonicResults.length;i++) {
+    if (arrayOfPhonicResults[i].hasBeenPracticed) {
+      console.log(arrayOfPhonicResults[i].phonicString + ".hasBeenPracticed", arrayOfPhonicResults[i].hasBeenPracticed);
+    }
+  }
+}
+
 function checkForLevelResetOrAdvancement() {
   if (arrayOfFlies.length === 0 && overallAccuracy >= 80) {
+    updateLettersThatHaveBeenPracticed();
+    updateIndividualTargetsPreviousPracticeSessionNumbers();
+    updateIndividualTargetsPreviousPracticeDate();
     adjustPracticeFrequencyAtEndOfLevel(temporarySubset);//in input.js line 22
-    fillArrayOfTargetsToPractice();
+    fillArrayOfTargetsToPractice();//playerProfile.js 292
     arrayOfSwattedFlies = [];
     chooseBackground();
     trackIndex++;
@@ -66,10 +87,19 @@ function checkForLevelResetOrAdvancement() {
     assignFlaps();
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
+    for (let i = 0; i<arrayOfPhonicResults.length;i++) {
+      if (arrayOfPhonicResults[i].previousPracticeDate !== undefined) {
+        console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
+        console.log("currentPracticeDateInDays", currentPracticeDateInDays);
+      }
+    }
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
-    adjustPracticeFrequencyAtEndOfLevel(temporarySubset);
-    fillArrayOfTargetsToPractice();
+    updateLettersThatHaveBeenPracticed();
+    updateIndividualTargetsPreviousPracticeSessionNumbers();
+    updateIndividualTargetsPreviousPracticeDate();
+    adjustPracticeFrequencyAtEndOfLevel(temporarySubset);//in input.js line 22
+    fillArrayOfTargetsToPractice();//playerProfile.js 292
     arrayOfSwattedFlies = [];
     resetAccuracy();
     chooseBackground();
@@ -77,6 +107,12 @@ function checkForLevelResetOrAdvancement() {
     assignFlaps();
     assignMyLetterToCheck();
     fillTemporaryArrayOfQuestions();
+    for (let i = 0; i<arrayOfPhonicResults.length;i++) {
+      if (arrayOfPhonicResults[i].previousPracticeDate !== undefined) {
+        console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
+        console.log("currentPracticeDateInDays", currentPracticeDateInDays);
+      }
+    }
   }
 }
 

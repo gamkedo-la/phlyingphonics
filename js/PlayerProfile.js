@@ -57,11 +57,11 @@ function shouldPracticeTargetToday(letter) {
   //console.log('previousPracticeDate', letter.previousPracticeDate);
   //console.log('currentPracticeDate', currentPracticeDateInDays);
   //console.log('practiceFrequency', letter.practiceFrequency);
-  //console.log('daysSincePracticed', daysSincePracticed);
+  console.log('daysSincePracticed', daysSincePracticed);
   //console.log('*******');
   //console.log(daysSincePracticed, currentPracticeDate);
 
-  if (daysSincePracticed >= letter.practiceFrequency) {
+  if (letter.hasBeenPracticed && daysSincePracticed >= letter.practiceFrequency) {
     return letter;
   }
 }
@@ -91,7 +91,8 @@ function phonicClass(phonicString){
   this.accuracy = 100;
   this.numberOfAttempts = 0;
 
-  this.practiceFrequency = 1;
+  this.hasBeenPracticed = false;
+  this.practiceFrequency = undefined;
   this.previousSessionNumber = 1;
   this.previousPracticeDate = undefined;
 
@@ -292,8 +293,8 @@ let arrayOfPhonicResults = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,
 function fillArrayOfTargetsToPractice() {
   arrayOfTargetsToPractice = [];
   arrayOfPhonicResults.forEach(function(letter) {
-    if(shouldPracticeTargetToday(letter)){
-      //console.log(letter);
+    if(shouldPracticeTargetToday(letter)){//PlayerProfile.js line 48
+      console.log(letter);
       arrayOfTargetsToPractice.push(letter.phonicString);
       localStorage.setItem("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
     }
