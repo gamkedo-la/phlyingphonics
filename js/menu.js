@@ -122,6 +122,7 @@ function generateNewProfile() {
   console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
   console.log("arrayOfProfiles", arrayOfProfiles);
   localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
+  loadProfileSettingsAndStartGame();
 }
 
 let existingProfilesMenuButtonList = [
