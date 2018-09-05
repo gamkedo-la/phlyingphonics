@@ -33,6 +33,8 @@ let initialize = () => {
   backgroundMusic.play();
   //console.log(localStorage.getItem("arrayOfProfiles"));
   initializeArrayOfProfiles();
+  initializeExistingProfilesMenuButtonList();
+  console.log(existingProfilesMenuButtonList);
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
     if (arrayOfPhonicResults[i].previousPracticeDate === undefined) {
       arrayOfPhonicResults[i].previousPracticeDate = (currentPracticeDate - oneDayInMilliseconds)/oneDayInMilliseconds;

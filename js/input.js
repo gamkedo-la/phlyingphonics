@@ -39,6 +39,7 @@ function handleCanvasClick(evt) {
   } else if (isProfileMenu) {
     handleProfileMenuInput(evt.pageX,evt.pageY);
   } else if (isShowingExistingProfiles) {
+    console.log(existingProfilesMenuButtonList);
     handleExistingProfileMenuInput(evt.pageX,evt.pageY);
   }
 

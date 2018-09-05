@@ -101,7 +101,14 @@ function initializeArrayOfProfiles() {
     console.log("arrayOfProfiles", arrayOfProfiles);
   } else {
     arrayOfProfiles = JSON.parse(localStorage.getItem("storedArrayOfProfiles"));
-    console.log(arrayOfProfiles);
+    console.log("arrayOfProfiles", arrayOfProfiles);
+  }
+}
+
+function initializeExistingProfilesMenuButtonList() {
+  for (let i = 0; i<arrayOfProfiles.length; i++) {
+    existingProfilesMenuButtonList.push({label: JSON.stringify(arrayOfProfiles[i]), x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight+40)),
+                                        onclick: loadProfileSettingsAndStartGame});
   }
 }
 
@@ -109,7 +116,8 @@ function generateNewProfile() {
   let newProfileName = prompt("What is your name?", "Type your name here");
   if (newProfileName !== null) {
     arrayOfProfiles.push(newProfileName);
-    existingProfilesMenuButtonList.push({label:newProfileName,x:10,y:( (arrayOfProfiles.length)*buttonHeight ) + 20*arrayOfProfiles.length/*onclick: */});
+    existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*buttonHeight ) + 20*arrayOfProfiles.length,
+                                        onclick: loadProfileSettingsAndStartGame});
   }
   console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
   console.log("arrayOfProfiles", arrayOfProfiles);
@@ -139,4 +147,10 @@ function handleExistingProfileMenuInput() {
         existingProfilesMenuButtonList[i].onClick();
     }
   }
+}
+
+function loadProfileSettingsAndStartGame() {
+  isMainMenu = false;
+  isProfileMenu = false;
+  isShowingExistingProfiles = false;
 }
