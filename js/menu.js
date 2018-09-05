@@ -116,7 +116,7 @@ function generateNewProfile() {
   let newProfileName = prompt("What is your name?", "Type your name here");
   if (newProfileName !== null) {
     arrayOfProfiles.push(newProfileName);
-    existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*buttonHeight ) + 20*arrayOfProfiles.length,
+    existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 40),
                                         onclick: loadProfileSettingsAndStartGame});
   }
   console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
@@ -141,7 +141,7 @@ function drawExistingProfilesMenu() {
 }
 
 function handleExistingProfileMenuInput() {
-  for (let i = 0; i<profileMenuButtonList.length; i++) {
+  for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
       mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
         existingProfilesMenuButtonList[i].onClick();
