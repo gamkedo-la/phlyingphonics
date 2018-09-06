@@ -167,6 +167,8 @@ function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
   console.log("buttonLabel", buttonLabel);
   console.log("newProfileName", newProfileName);
   currentProfile = assignCurrentProfile(newProfileName, buttonLabel);
+  customTrack.push(currentProfile.targetsToPractice);
+  console.log("customTrack", customTrack);
   console.log("currentProfile", currentProfile);
 }
 
