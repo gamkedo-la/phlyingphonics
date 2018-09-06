@@ -401,4 +401,10 @@ let killFly = (i) => {
   let correctSound = document.getElementById("correctSound");
   correctSound.src = arrayOfCorrectSounds[randomCorrectSoundIndex];
   correctSound.play();
+  if (currentTrack === customTrack && arrayOfFlies.length === 0) {
+    alert("Congratulations! You have reviewed all of today's targets. Try some new targets to keep learning!");
+    currentTrack = vowelTrackLevels;
+    trackIndex = 0;
+    temporarySubset = currentTrack[trackIndex];
+  }
 }
