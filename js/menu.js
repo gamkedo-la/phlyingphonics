@@ -25,6 +25,7 @@ function showExistingProfiles() {
   if (arrayOfProfiles.length === 0) {
     alert("No profiles exist, go back and create a new profile");
   }
+  console.log(existingProfilesMenuButtonList);
 }
 
 function showProfileMenu() {
@@ -107,18 +108,23 @@ function initializeArrayOfProfiles() {
 
 function initializeExistingProfilesMenuButtonList() {
   for (let i = 0; i<arrayOfProfiles.length; i++) {
-    existingProfilesMenuButtonList.push({label: JSON.stringify(arrayOfProfiles[i]), x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight+40)),
+    //console.log(arrayOfProfiles[i]);
+    existingProfilesMenuButtonList.push({label: arrayOfProfiles[i].profileName, x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight+40)),
                                         onClick: loadProfileSettingsAndStartGame});
   }
 }
 
 function generateNewProfile() {
+  let newProfile = {profileName: undefined, targetsToPractice: []};
   let newProfileName = prompt("What is your name?", "Type your name here");
+  newProfile.profileName = newProfileName;
+  console.log(newProfile.profileName);
   if (newProfileName !== null) {
-    arrayOfProfiles.push(newProfileName);
+    arrayOfProfiles.push(newProfile);
     existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 40),
                                         onClick: loadProfileSettingsAndStartGame});
   }
+  console.log("existingProfilesMenuButtonList label", existingProfilesMenuButtonList[1].label);
   console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
   console.log("arrayOfProfiles", arrayOfProfiles);
   localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));

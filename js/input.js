@@ -149,6 +149,8 @@ function hackulateTargetsToBePracticed() {
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
     if ( arrayOfPhonicResults[i].hasBeenPracticed && shouldPracticeTargetToday(arrayOfPhonicResults[i]) ) {
       console.log(arrayOfPhonicResults[i].phonicString + "should be practiced");
+      fillArrayOfTargetsToPractice();
+      console.log("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
     }
   }
   //arrayOfPhonicResults.forEach(function(letter) {

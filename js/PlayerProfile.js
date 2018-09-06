@@ -299,5 +299,6 @@ function fillArrayOfTargetsToPractice() {
       localStorage.setItem("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
     }
   });
-  console.log(arrayOfTargetsToPractice);
+  console.log("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
+  console.log("storedArrayOfTargetsToPractice", localStorage.getItem("storedArrayOfProfiles"));
 }
