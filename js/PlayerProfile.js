@@ -39,9 +39,20 @@ function updateIndividualTargetsPreviousPracticeDate() {
   }
 }
 
-let storedPhonicResults = localStorage.getItem("storedPhonicResults");
+let storedPhonicResults;
+if  (localStorage.getItem("storedPhonicResults") === null) {
+  storedPhonicResults = undefined;
+} else {
+  storedPhonicResults = localStorage.getItem("storedPhonicResults");
+}
 
-previousPracticeDate = localStorage.getItem("currentDate");
+if (localStorage.getItem("currentDate") === null) {
+  previousPracticeDate = undefined;
+} else {
+  previousPracticeDate = localStorage.getItem("currentDate");
+}
+
+
 let date = new Date();
 localStorage.setItem("currentDate", currentPracticeDate);
 //fillArrayOfTargetsToPractice();
@@ -304,5 +315,5 @@ function fillArrayOfTargetsToPractice() {
     }
   });
   console.log("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
-  console.log("storedArrayOfTargetsToPractice", localStorage.getItem("storedArrayOfProfiles"));
+  //console.log("storedArrayOfTargetsToPractice", localStorage.getItem("storedArrayOfProfiles"));
 }
