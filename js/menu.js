@@ -108,7 +108,7 @@ function initializeArrayOfProfiles() {
 
 function initializeExistingProfilesMenuButtonList() {
   for (let i = 0; i<arrayOfProfiles.length; i++) {
-    //console.log(arrayOfProfiles[i]);
+    console.log(arrayOfProfiles[i].targetsToPractice);
     existingProfilesMenuButtonList.push({label: arrayOfProfiles[i].profileName, x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight+40)),
                                         onClick: loadProfileSettingsAndStartGame});
   }
@@ -147,18 +147,36 @@ function drawExistingProfilesMenu() {
   canvasContext.textAlign = "left";
 }
 
+let buttonLabel;
 function handleExistingProfileMenuInput() {
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
       mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
         console.log(existingProfilesMenuButtonList[i].onClick);
-        existingProfilesMenuButtonList[i].onClick();
+        buttonLabel = existingProfilesMenuButtonList[i].label;
+        existingProfilesMenuButtonList[i].onClick(buttonLabel);
     }
   }
 }
 
-function loadProfileSettingsAndStartGame() {
+function loadProfileSettingsAndStartGame(i) {
   isMainMenu = false;
   isProfileMenu = false;
   isShowingExistingProfiles = false;
+  currentProfile = assignCurrentProfile(buttonLabel);
+  console.log("currentProfile", currentProfile);
+}
+
+function assignCurrentProfile(buttonLabel) {
+  for (let i = 0; i<arrayOfProfiles.length; i++) {
+      if (arrayOfProfiles[i].profileName === buttonLabel) {
+
+        console.log("arrayOfProfiles[i].profileName", arrayOfProfiles[i].profileName);
+        console.log("buttonLabel", buttonLabel);
+        console.log("arrayOfProfiles[i]", arrayOfProfiles[i]);
+        currentProfile = arrayOfProfiles[i];
+        return currentProfile;
+        console.log("current profile", currentProfile);
+      }
+  }
 }

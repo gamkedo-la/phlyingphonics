@@ -1,3 +1,4 @@
+let currentProfile = undefined;
 let arrayOfTargetsToPractice = [];
 let previousPracticeDate = undefined;
 let currentPracticeDate = Date.now();
