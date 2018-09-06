@@ -11,6 +11,8 @@ let assignTargetAudio = () => {
     assignTargetAudioWithPhonic();
   } else if ( currentTrack === mixedSizeLetterNameLevels ) {
     assignTargetAudioWithBigOrSmallLetter();
+  } else if ( currentTrack === customTrack ) {
+    assignTargetAudioWithPhonic();
   }
 }
 

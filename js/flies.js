@@ -273,13 +273,14 @@ function flyClass() {
     }
 
     // draw the letter
-    if ((currentTrack === bigLettersTrackLevels) || (currentTrack === mixedSizeLetterNameLevels)) {
+    if ((currentTrack === bigLettersTrackLevels) || (currentTrack === mixedSizeLetterNameLevels || currentTrack === customTrack)) {
       if (this.myLetterToCheck === "bigO" || this.myLetterToCheck === "bigC") {
         canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 65, 65);
       } else {
       canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
       }
-    } else if ((currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) || (currentTrack === consonantTrackLevels)) {
+    } else if ((currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) ||
+               (currentTrack === consonantTrackLevels) || currentTrack === customTrack) {
       canvasContext.drawImage(Images.getImage(this.myLetter.toLowerCase()), this.x + 80, this.y + 60, 50, 50)
     }
   }

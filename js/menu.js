@@ -164,12 +164,14 @@ function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
   isMainMenu = false;
   isProfileMenu = false;
   isShowingExistingProfiles = false;
-  console.log("buttonLabel", buttonLabel);
-  console.log("newProfileName", newProfileName);
   currentProfile = assignCurrentProfile(newProfileName, buttonLabel);
   customTrack.push(currentProfile.targetsToPractice);
+  currentTrack = customTrack;
   console.log("customTrack", customTrack);
+  console.log("temporarySubset", temporarySubset);
+  console.log("arrayOfFlies", arrayOfFlies);
   console.log("currentProfile", currentProfile);
+  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
 }
 
 function assignCurrentProfile(newProfileName, buttonLabel) {

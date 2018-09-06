@@ -64,6 +64,7 @@ function handleCanvasClick(evt) {
       temporaryArrayOfQuestions.splice(0,1);
       checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
       assignTargetAudio();//in phonics.js
+      console.log("targetAudio", targetAudio);
       assignTargetFlies(i);//in phonics.js
       playTargetAudio();//in phonics.js
     }/*end of correct answers*/ else {
