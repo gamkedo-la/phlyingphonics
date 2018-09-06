@@ -311,13 +311,15 @@ function fillArrayOfTargetsToPractice() {
   }
   arrayOfPhonicResults.forEach(function(letter) {
     if(shouldPracticeTargetToday(letter)){//PlayerProfile.js line 48
-      console.log(letter);
+      //console.log(letter);
       currentProfile.targetsToPractice.push(letter.phonicString);
       console.log("currentProfile.targetsToPractice", currentProfile.profileName, currentProfile.targetsToPractice);
       arrayOfTargetsToPractice.push(letter.phonicString);
       localStorage.setItem("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
+      localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
+      console.log("storedArrayOfProfiles", localStorage.getItem("storedArrayOfProfiles"));
     }
   });
-  console.log("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
+  //console.log("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
   //console.log("storedArrayOfTargetsToPractice", localStorage.getItem("storedArrayOfProfiles"));
 }

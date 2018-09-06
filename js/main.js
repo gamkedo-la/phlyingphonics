@@ -43,6 +43,12 @@ let initialize = () => {
   } else {
     arrayOfTargetsToPractice = localStorage.getItem("arrayOfTargetsToPractice");
   }
+  if (localStorage.getItem("storedArrayOfProfiles" === null)) {
+
+  } else {
+    console.log("storedArrayOfProfiles", localStorage.getItem("storedArrayOfProfiles"));
+  }
+  
   setupKeyboardDateHackInput();
   initializeCurrentPracticeSessionNumber();
   currentTrack = vowelTrackLevels;
