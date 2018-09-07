@@ -4,7 +4,7 @@ let previousPracticeDate = undefined;
 let currentPracticeDate = Date.now();
 let oneDayInMilliseconds = 24 * 60 * 60 * 1000;
 let currentPracticeDateInDays = currentPracticeDate/oneDayInMilliseconds;
-console.log(currentPracticeDateInDays);
+//console.log(currentPracticeDateInDays);
 let currentPracticeSessionNumber;
 
 
@@ -69,7 +69,7 @@ function shouldPracticeTargetToday(letter) {
   //console.log('previousPracticeDate', letter.previousPracticeDate);
   //console.log('currentPracticeDate', currentPracticeDateInDays);
   //console.log('practiceFrequency', letter.practiceFrequency);
-  console.log('daysSincePracticed', daysSincePracticed);
+  //console.log('daysSincePracticed', daysSincePracticed);
   //console.log('*******');
   //console.log(daysSincePracticed, currentPracticeDate);
 
@@ -313,11 +313,11 @@ function fillArrayOfTargetsToPractice() {
     if(shouldPracticeTargetToday(letter)){//PlayerProfile.js line 48
       //console.log(letter);
       currentProfile.targetsToPractice.push(letter.phonicString);
-      console.log("currentProfile.targetsToPractice", currentProfile.profileName, currentProfile.targetsToPractice);
+      //console.log("currentProfile.targetsToPractice", currentProfile.profileName, currentProfile.targetsToPractice);
       arrayOfTargetsToPractice.push(letter.phonicString);
       localStorage.setItem("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
       localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
-      console.log("storedArrayOfProfiles", localStorage.getItem("storedArrayOfProfiles"));
+      //console.log("storedArrayOfProfiles", localStorage.getItem("storedArrayOfProfiles"));
     }
   });
   //console.log("arrayOfTargetsToPractice", arrayOfTargetsToPractice);

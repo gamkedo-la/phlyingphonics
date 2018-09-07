@@ -17,13 +17,14 @@ let assignTargetAudio = () => {
 }
 
 let assignTargetAudioWithPhonic = () => {
-  console.log("targetAudio");
+  //console.log("targetAudio");
   console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
   targetAudio = "phonic" + temporaryArrayOfQuestions[0].toLowerCase();
 }
 
 let assignTargetAudioWithBigLetter = () => {
-  targetAudio = "big" + temporaryArrayOfQuestions[0];
+  targetAudio = "big" + temporaryArrayOfQuestions[0].toUpperCase();
+  console.log("targetAudio", targetAudio);
 }
 
 let assignTargetAudioWithSmallLetter = () => {

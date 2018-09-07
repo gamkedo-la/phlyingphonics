@@ -25,7 +25,7 @@ function showExistingProfiles() {
   if (arrayOfProfiles.length === 0) {
     alert("No profiles exist, go back and create a new profile");
   }
-  console.log(existingProfilesMenuButtonList);
+  //console.log(existingProfilesMenuButtonList);
 }
 
 function showProfileMenu() {
@@ -100,16 +100,16 @@ let arrayOfProfiles = [];
 function initializeArrayOfProfiles() {
   if (localStorage.getItem("storedArrayOfProfiles") === null) {
     arrayOfProfiles = [];
-    console.log("arrayOfProfiles", arrayOfProfiles);
+    //console.log("arrayOfProfiles", arrayOfProfiles);
   } else {
     arrayOfProfiles = JSON.parse(localStorage.getItem("storedArrayOfProfiles"));
-    console.log("arrayOfProfiles", arrayOfProfiles);
+    //console.log("arrayOfProfiles", arrayOfProfiles);
   }
 }
 
 function initializeExistingProfilesMenuButtonList() {
   for (let i = 0; i<arrayOfProfiles.length; i++) {
-    console.log(arrayOfProfiles[i].targetsToPractice);
+    //console.log(arrayOfProfiles[i].targetsToPractice);
     existingProfilesMenuButtonList.push({label: arrayOfProfiles[i].profileName, x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight+40)),
                                         onClick: loadProfileSettingsAndStartGame});
   }
@@ -125,11 +125,12 @@ function generateNewProfile() {
     existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 40),
                                         onClick: loadProfileSettingsAndStartGame});
   }
-  console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
+  //console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
   //console.log("arrayOfProfiles", arrayOfProfiles);
   localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
-  console.log("newProfileName", newProfileName);
+  //console.log("newProfileName", newProfileName);
   loadProfileSettingsAndStartGame(newProfileName);
+  console.log(temporaryArrayOfQuestions);
 }
 
 let existingProfilesMenuButtonList = [
@@ -153,7 +154,7 @@ function handleExistingProfileMenuInput() {
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
       mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
-        console.log(existingProfilesMenuButtonList[i].onClick);
+        //console.log(existingProfilesMenuButtonList[i].onClick);
         buttonLabel = existingProfilesMenuButtonList[i].label;
         existingProfilesMenuButtonList[i].onClick(buttonLabel);
     }
@@ -166,28 +167,39 @@ function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
   isProfileMenu = false;
   isShowingExistingProfiles = false;
   currentProfile = assignCurrentProfile(newProfileName, buttonLabel);
-  let chunkedCustomLevel = chunkArray(currentProfile.targetsToPractice, 2);
-  customTrack.push(chunkedCustomLevel);
-  currentTrack = customTrack;
-  console.log("customTrack", customTrack);
-  console.log("temporarySubset", temporarySubset);
-  console.log("arrayOfFlies", arrayOfFlies);
-  console.log("currentProfile", currentProfile);
-  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
+  if (currentProfile.targetsToPractice.length === 0) {
+    currentTrack = vowelTrackLevels;
+    trackIndex = 0;
+    console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
+  } else {
+    chunkArray(currentProfile.targetsToPractice, 2);
+    customTrack = chunkArray(currentProfile.targetsToPractice, 2);
+    currentTrack = customTrack;
+    trackIndex = 0;
+    temporarySubset = currentTrack[trackIndex];
+    console.log("customTrack", customTrack);
+    console.log("temporarySubset", temporarySubset);
+  }
+  initializeArrayOfFlies(temporarySubset);
+  console.log("targetAudio", targetAudio);
+  //console.log("temporarySubset", temporarySubset);
+  //console.log("arrayOfFlies", arrayOfFlies);
+  //console.log("currentProfile", currentProfile);
+  //console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
 }
 
 function assignCurrentProfile(newProfileName, buttonLabel) {
 
   for (let i = 0; i<arrayOfProfiles.length; i++) {
-      console.log(arrayOfProfiles[i].profileName, buttonLabel);
+      //console.log(arrayOfProfiles[i].profileName, buttonLabel);
       if (arrayOfProfiles[i].profileName === buttonLabel) {
-        console.log("hello world");
-        console.log("arrayOfProfiles[i].profileName", arrayOfProfiles[i].profileName);
-        console.log("buttonLabel", buttonLabel);
-        console.log("arrayOfProfiles[i]", arrayOfProfiles[i]);
+        //console.log("hello world");
+        //console.log("arrayOfProfiles[i].profileName", arrayOfProfiles[i].profileName);
+        //console.log("buttonLabel", buttonLabel);
+        //console.log("arrayOfProfiles[i]", arrayOfProfiles[i]);
         currentProfile = arrayOfProfiles[i];
         return currentProfile;
-        console.log("current profile", currentProfile);
+        //console.log("current profile", currentProfile);
       }
   }
 }

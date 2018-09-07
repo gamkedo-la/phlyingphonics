@@ -60,12 +60,19 @@ drawFlies = () => {
 
 //sets which flies are to be used at the start of the game, after level completion, or after student customization
 initializeArrayOfFlies = (temporarySubset) => {
+  console.log("initializing flies");
   numberOfFliesAtStartOfLevel = 6;//getRandomInt(1,26);
   arrayOfFlies = new Array(numberOfFliesAtStartOfLevel);
   for (let i = 0; i < numberOfFliesAtStartOfLevel; i++) {
-    arrayOfFlies[i] = new flyClass();
+    arrayOfFlies[i] = new flyClass();//this file line 216ish
     arrayOfFlies[i].index = i;
   }
+  assignMyLetterToCheck();
+  assignFlaps();//in flies.js
+  fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
+  assignTargetAudio();
+  playTargetAudio();
+  assignTargetFlies();//in flies.js
 }
 
 
@@ -231,6 +238,7 @@ function flyClass() {
   this.stringImage = Images.getImage("stringImage");
   this.myImageB = undefined; // flapping
   this.myLetter = randomLetterWithinSubset();//in adaptivedifficulty.js
+  console.log("this.myLetter", this.myLetter);
   this.myLetterNameAudio = Sounds.getSound("big" + this.myLetter);
   this.myLetterToCheck = undefined;
   this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());

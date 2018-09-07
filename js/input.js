@@ -23,7 +23,7 @@ function adjustPracticeFrequencyAtEndOfLevel(temporarySubset) {
     for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
       if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
       arrayOfPhonicResults[arrayOfPhonicResultsIndex].adjustPracticeFrequency();
-      console.log(arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString + ".practiceFrequency", arrayOfPhonicResults[arrayOfPhonicResultsIndex].practiceFrequency);
+      //console.log(arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString + ".practiceFrequency", arrayOfPhonicResults[arrayOfPhonicResultsIndex].practiceFrequency);
       }
     }
   }
@@ -39,7 +39,7 @@ function handleCanvasClick(evt) {
   } else if (isProfileMenu) {
     handleProfileMenuInput(evt.pageX,evt.pageY);
   } else if (isShowingExistingProfiles) {
-    console.log(existingProfilesMenuButtonList);
+    //console.log(existingProfilesMenuButtonList);
     handleExistingProfileMenuInput(evt.pageX,evt.pageY);
   }
 
@@ -62,9 +62,10 @@ function handleCanvasClick(evt) {
       calculateOverallAccuracy();
       killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
       temporaryArrayOfQuestions.splice(0,1);
+      console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
       checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
       assignTargetAudio();//in phonics.js
-      console.log("targetAudio", targetAudio);
+      //console.log("targetAudio", targetAudio);
       assignTargetFlies(i);//in phonics.js
       playTargetAudio();//in phonics.js
     }/*end of correct answers*/ else {
@@ -169,6 +170,7 @@ vowelButton.onclick = function() {
   currentTrack = vowelTrackLevels;
   temporarySubset = vowelTrackLevels[0];
   resetLevelFromUIClick();
+  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
 }
 
 let consonantButton = document.getElementById("consonantButton");
@@ -176,6 +178,7 @@ consonantButton.onclick = function() {
   currentTrack = consonantTrackLevels;
   temporarySubset = consonantTrackLevels[0];
   resetLevelFromUIClick();
+  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions)
 }
 
 let resetLevelFromUIClick = () => {
@@ -195,9 +198,12 @@ bigLetters.onclick = function() {
   trackIndex = 0;
   temporarySubset = bigLettersTrackLevels[trackIndex];
   resetLevelFromUIClickWithBigLetters();
+  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions)
 }
 
 let resetLevelFromUIClickWithBigLetters = () => {
+  console.log("temporarySubset", temporarySubset);
+  stopTargetAudio();
   chooseBackground();
   clearFlies();//in flies.js
   initializeArrayOfFlies(temporarySubset);
@@ -214,9 +220,11 @@ smallLetters.onclick = function() {
   trackIndex = 0;
   temporarySubset = smallLettersTrackLevels[trackIndex];
   resetLevelFromUIClickWithSmallLetters();
+  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions)
 }
 
 let resetLevelFromUIClickWithSmallLetters = () => {
+  stopTargetAudio();
   chooseBackground();
   clearFlies();//in flies.js
   initializeArrayOfFlies(temporarySubset);

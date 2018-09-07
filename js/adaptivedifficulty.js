@@ -17,6 +17,10 @@ function fillTemporaryArrayOfQuestions() {
     fillTemporaryArrayOfQuestionsWithSmallLetters();
   } else if ( currentTrack === mixedSizeLetterNameLevels ) {
     fillTemporaryArrayOfQuestionsWithBigAndSmallLetters();
+  } else if ( currentTrack === customTrack ) {
+    console.log("arrayOfFlies", arrayOfFlies);
+    fillTemporaryArrayOfQuestionsWithPhonics();
+
   }
 }
 
@@ -44,29 +48,36 @@ function fillTemporaryArrayOfQuestionsWithBigAndSmallLetters() {
   }
 }
 
+function fillTemporaryArrayOfQuestionWithAnyPossibleTarget() {
+  for (let i = 0; i<arrayOfFlies.length; i++) {
+
+  }
+}
+
 function randomLetterWithinSubset () {
+  console.log("temporarySubset", temporarySubset);
   let randomLetterIndex = getRandomInt(0, temporarySubset.length - 1);
   let letter = temporarySubset[randomLetterIndex];
-  if (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels) {
+  if (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels || currentTrack === customTrack) {
     letter = letter.charAt(6);
   }
   return letter
 }
 
 function updateLettersThatHaveBeenPracticed() {
-  console.log("temporarySubset", temporarySubset);
-  console.log("phonicString", arrayOfPhonicResults[0].phonicString);
+  //console.log("temporarySubset", temporarySubset);
+  //console.log("phonicString", arrayOfPhonicResults[0].phonicString);
   for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
     for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
       if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
-        console.log("hello world");
+        //console.log("hello world");
         arrayOfPhonicResults[arrayOfPhonicResultsIndex].hasBeenPracticed = true;
       }
     }
   }
   for (let i = 0;i<arrayOfPhonicResults.length;i++) {
     if (arrayOfPhonicResults[i].hasBeenPracticed) {
-      console.log(arrayOfPhonicResults[i].phonicString + ".hasBeenPracticed", arrayOfPhonicResults[i].hasBeenPracticed);
+      //console.log(arrayOfPhonicResults[i].phonicString + ".hasBeenPracticed", arrayOfPhonicResults[i].hasBeenPracticed);
     }
   }
 }
@@ -82,19 +93,18 @@ function checkForLevelResetOrAdvancement() {
     chooseBackground();
     trackIndex++;
     temporarySubset = currentTrack[trackIndex];
-    console.log("temporarySubset", temporarySubset);
+    //console.log("temporarySubset", temporarySubset);
     resetAccuracy();
-    console.log("trackIndex", trackIndex);
-    console.log("currentTrack", currentTrack);
-    console.log("temporarySubset", temporarySubset);
+    //console.log("trackIndex", trackIndex);
+    //console.log("currentTrack", currentTrack);
+    //console.log("temporarySubset", temporarySubset);
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
     assignMyLetterToCheck();
-    fillTemporaryArrayOfQuestions();
     for (let i = 0; i<arrayOfPhonicResults.length;i++) {
       if (arrayOfPhonicResults[i].previousPracticeDate !== undefined) {
-        console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
-        console.log("currentPracticeDateInDays", currentPracticeDateInDays);
+        //console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
+        //console.log("currentPracticeDateInDays", currentPracticeDateInDays);
       }
     }
 
@@ -110,11 +120,10 @@ function checkForLevelResetOrAdvancement() {
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
     assignMyLetterToCheck();
-    fillTemporaryArrayOfQuestions();
     for (let i = 0; i<arrayOfPhonicResults.length;i++) {
       if (arrayOfPhonicResults[i].previousPracticeDate !== undefined) {
-        console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
-        console.log("currentPracticeDateInDays", currentPracticeDateInDays);
+        //console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
+        //console.log("currentPracticeDateInDays", currentPracticeDateInDays);
       }
     }
   }
@@ -168,6 +177,8 @@ let assignMyLetterToCheck = () => {
        } else {
          arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter.toUpperCase();
        }
+     } else if ( currentTrack === customTrack ) {
+       arrayOfFlies[i].myLetterToCheck = "phonic" + arrayOfFlies[i].myLetter.toLowerCase();
      }
   }
 }

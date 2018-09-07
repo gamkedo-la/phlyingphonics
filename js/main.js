@@ -35,7 +35,7 @@ let initialize = () => {
   initializeArrayOfProfiles();
   initializeExistingProfilesMenuButtonList();
   for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    console.log(arrayOfPhonicResults[i].previousPracticeDate);
+    //console.log(arrayOfPhonicResults[i].previousPracticeDate);
   }
 
   if (localStorage.getItem("arrayOfTargetsToPractice") === null) {
@@ -48,13 +48,14 @@ let initialize = () => {
   } else {
     console.log("storedArrayOfProfiles", localStorage.getItem("storedArrayOfProfiles"));
   }
-  
+
   setupKeyboardDateHackInput();
   initializeCurrentPracticeSessionNumber();
   currentTrack = vowelTrackLevels;
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
   updateIndividualTargetsPreviousPracticeSessionNumbers();
   updateIndividualTargetsPreviousPracticeDate();
+  /*
   initializeArrayOfFlies(temporarySubset);//in adaptivedifficulty.js
   assignMyLetterToCheck();
   assignFlaps();//in flies.js
@@ -62,6 +63,7 @@ let initialize = () => {
   assignTargetAudio();
   playTargetAudio();
   assignTargetFlies();//in flies.js
+  */
 
 }
 
