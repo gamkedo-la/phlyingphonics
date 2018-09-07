@@ -17,6 +17,8 @@ let assignTargetAudio = () => {
 }
 
 let assignTargetAudioWithPhonic = () => {
+  console.log("targetAudio");
+  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
   targetAudio = "phonic" + temporaryArrayOfQuestions[0].toLowerCase();
 }
 

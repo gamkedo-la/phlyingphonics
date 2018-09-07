@@ -82,7 +82,11 @@ function checkForLevelResetOrAdvancement() {
     chooseBackground();
     trackIndex++;
     temporarySubset = currentTrack[trackIndex];
+    console.log("temporarySubset", temporarySubset);
     resetAccuracy();
+    console.log("trackIndex", trackIndex);
+    console.log("currentTrack", currentTrack);
+    console.log("temporarySubset", temporarySubset);
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
     assignMyLetterToCheck();

@@ -273,19 +273,20 @@ function flyClass() {
     }
 
     // draw the letter
-    if ((currentTrack === bigLettersTrackLevels) || (currentTrack === mixedSizeLetterNameLevels || currentTrack === customTrack)) {
+    if ( (currentTrack === bigLettersTrackLevels) || (currentTrack === mixedSizeLetterNameLevels || currentTrack === customTrack) ) {
       if (this.myLetterToCheck === "bigO" || this.myLetterToCheck === "bigC") {
         canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 65, 65);
       } else {
-      canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
+        canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
       }
-    } else if ((currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) ||
-               (currentTrack === consonantTrackLevels) || currentTrack === customTrack) {
-      canvasContext.drawImage(Images.getImage(this.myLetter.toLowerCase()), this.x + 80, this.y + 60, 50, 50)
+    } else if ( (currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) ||
+               (currentTrack === consonantTrackLevels) || (currentTrack === customTrack) ) {
+      canvasContext.drawImage(Images.getImage(this.myLetter.toLowerCase()), this.x + 80, this.y + 60, 50, 50);
     }
   }
-
 }
+
+
 
 checkCurrentFlyDirectionX = () => {
   if (this.xSpeed < 0) {
@@ -401,7 +402,7 @@ let killFly = (i) => {
   let correctSound = document.getElementById("correctSound");
   correctSound.src = arrayOfCorrectSounds[randomCorrectSoundIndex];
   correctSound.play();
-  if (currentTrack === customTrack && arrayOfFlies.length === 0) {
+  if (currentTrack === customTrack && trackIndex === customTrack.length - 1 && arrayOfFlies.length === 0) {
     alert("Congratulations! You have reviewed all of today's targets. Try some new targets to keep learning!");
     currentTrack = vowelTrackLevels;
     trackIndex = 0;

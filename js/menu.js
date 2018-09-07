@@ -160,12 +160,14 @@ function handleExistingProfileMenuInput() {
   }
 }
 
+let chunkedCustomLevel;
 function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
   isMainMenu = false;
   isProfileMenu = false;
   isShowingExistingProfiles = false;
   currentProfile = assignCurrentProfile(newProfileName, buttonLabel);
-  customTrack.push(currentProfile.targetsToPractice);
+  let chunkedCustomLevel = chunkArray(currentProfile.targetsToPractice, 2);
+  customTrack.push(chunkedCustomLevel);
   currentTrack = customTrack;
   console.log("customTrack", customTrack);
   console.log("temporarySubset", temporarySubset);
