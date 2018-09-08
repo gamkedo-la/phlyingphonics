@@ -34,8 +34,8 @@ let initialize = () => {
   //console.log(localStorage.getItem("arrayOfProfiles"));
   initializeArrayOfProfiles();
   initializeExistingProfilesMenuButtonList();
-  for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-    //console.log(arrayOfPhonicResults[i].previousPracticeDate);
+  for (let i = 0; i<arrayOfTargetResults.length;i++) {
+    //console.log(arrayOfTargetResults[i].previousPracticeDate);
   }
 
   if (localStorage.getItem("arrayOfTargetsToPractice") === null) {
@@ -57,7 +57,7 @@ let initialize = () => {
   updateIndividualTargetsPreviousPracticeDate();
   /*
   initializeArrayOfFlies(temporarySubset);//in adaptivedifficulty.js
-  assignMyLetterToCheck();
+  //assignMyLetterToCheck();
   assignFlaps();//in flies.js
   fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
   assignTargetAudio();

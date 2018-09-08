@@ -9,6 +9,9 @@ let temporaryArrayOfQuestions = new Array();
 
 
 function fillTemporaryArrayOfQuestions() {
+  for (let i = 0; i<arrayOfFlies.length; i++) {
+    console.log("arrayOfFlies[i].myVisualLetter", arrayOfFlies[i].myVisualLetter);
+  }
   if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithPhonics();
   } else if ( currentTrack === bigLettersTrackLevels ) {
@@ -18,66 +21,104 @@ function fillTemporaryArrayOfQuestions() {
   } else if ( currentTrack === mixedSizeLetterNameLevels ) {
     fillTemporaryArrayOfQuestionsWithBigAndSmallLetters();
   } else if ( currentTrack === customTrack ) {
-    console.log("arrayOfFlies", arrayOfFlies);
-    fillTemporaryArrayOfQuestionsWithPhonics();
+    //console.log("arrayOfFlies", arrayOfFlies);
+    fillTemporaryArrayOfQuestionWithAnyPossibleTarget();
 
   }
 }
 
 function fillTemporaryArrayOfQuestionsWithPhonics() {
+  temporaryArrayOfQuestions = [];
   for (let i = 0; i<arrayOfFlies.length; i++) {
-    temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetter.toLowerCase());
+    temporaryArrayOfQuestions.push(arrayOfFlies[i].rawTargetData);
   }
 }
 
 function fillTemporaryArrayOfQuestionsWithBigLetters() {
+  temporaryArrayOfQuestions = [];
+
   for (let i = 0; i<arrayOfFlies.length; i++) {
-    temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetter);
+    temporaryArrayOfQuestions.push(arrayOfFlies[i].rawTargetData);
   }
 }
 
 function fillTemporaryArrayOfQuestionsWithSmallLetters() {
+  temporaryArrayOfQuestions = [];
+
   for (let i = 0; i<arrayOfFlies.length; i++) {
-    temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetter.toLowerCase());
+    temporaryArrayOfQuestions.push(arrayOfFlies[i].rawTargetData);
   }
 }
 
 function fillTemporaryArrayOfQuestionsWithBigAndSmallLetters() {
+  temporaryArrayOfQuestions = [];
+
   for (let i = 0; i<arrayOfFlies.length; i++) {
-    temporaryArrayOfQuestions.push(arrayOfFlies[i].myLetterToCheck);
+    temporaryArrayOfQuestions.push(arrayOfFlies[i].rawTargetData);
   }
 }
 
 function fillTemporaryArrayOfQuestionWithAnyPossibleTarget() {
+  temporaryArrayOfQuestions = [];
+
   for (let i = 0; i<arrayOfFlies.length; i++) {
-
+    temporaryArrayOfQuestions.push(arrayOfFlies[i].rawTargetData);
   }
 }
 
-function randomLetterWithinSubset () {
+function assignVisualLetter(rawTargetData) {
+  let visualLetter;
+  if (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels) {
+    visualLetter = "small" + rawTargetData.charAt(6);
+  } else if (currentTrack === smallLettersTrackLevels || currentTrack === bigLettersTrackLevels || currentTrack === mixedSizeLetterNameLevels) {
+    visualLetter = rawTargetData;
+  } else if (currentTrack === customTrack) {
+      console.log("rawTargetData", rawTargetData);
+      if (rawTargetData.length === 7) {
+        visualLetter = "small" + rawTargetData.charAt(6);
+      } else {
+        visualLetter = rawTargetData;
+      }
+    }
+  return visualLetter;
+}
+
+function assignTargetSoundForSprite() {
+  let targetSoundForSprite = randomTargetWithinSubset();
+  return targetSoundForSprite;
+}
+
+function assignRawTargetData() {
+  let rawTargetData = randomTargetWithinSubset();
+  return rawTargetData;
+}
+
+function randomTargetWithinSubset () {
   console.log("temporarySubset", temporarySubset);
-  let randomLetterIndex = getRandomInt(0, temporarySubset.length - 1);
-  let letter = temporarySubset[randomLetterIndex];
-  if (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels || currentTrack === customTrack) {
-    letter = letter.charAt(6);
-  }
-  return letter
+  let randomTargetIndex = getRandomInt(0, temporarySubset.length - 1);
+  let target = temporarySubset[randomTargetIndex];
+  return target
 }
+//if ( (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels || currentTrack === customTrack ) && letter.length === 4 ) {
+//  letter = letter;
+//} else if ( (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels || currentTrack === customTrack ) && letter.length === 6 ) {
+//  letter = letter.charAt(5);}
+//}
 
 function updateLettersThatHaveBeenPracticed() {
   //console.log("temporarySubset", temporarySubset);
-  //console.log("phonicString", arrayOfPhonicResults[0].phonicString);
+  //console.log("myTargetString", arrayOfTargetResults[0].targetString);
   for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
-    for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
-      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
+    for (let arrayOfTargetResultsIndex = 0; arrayOfTargetResultsIndex<arrayOfTargetResults.length; arrayOfTargetResultsIndex++) {
+      if (temporarySubset[temporarySubsetIndex] === arrayOfTargetResults[arrayOfTargetResultsIndex].targetString) {
         //console.log("hello world");
-        arrayOfPhonicResults[arrayOfPhonicResultsIndex].hasBeenPracticed = true;
+        arrayOfTargetResults[arrayOfTargetResultsIndex].hasBeenPracticed = true;
       }
     }
   }
-  for (let i = 0;i<arrayOfPhonicResults.length;i++) {
-    if (arrayOfPhonicResults[i].hasBeenPracticed) {
-      //console.log(arrayOfPhonicResults[i].phonicString + ".hasBeenPracticed", arrayOfPhonicResults[i].hasBeenPracticed);
+  for (let i = 0;i<arrayOfTargetResults.length;i++) {
+    if (arrayOfTargetResults[i].hasBeenPracticed) {
+      //console.log(arrayOfTargetResults[i].targetString + ".hasBeenPracticed", arrayOfTargetResults[i].hasBeenPracticed);
     }
   }
 }
@@ -100,10 +141,10 @@ function checkForLevelResetOrAdvancement() {
     //console.log("temporarySubset", temporarySubset);
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
-    assignMyLetterToCheck();
-    for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-      if (arrayOfPhonicResults[i].previousPracticeDate !== undefined) {
-        //console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
+    //assignMyLetterToCheck();
+    for (let i = 0; i<arrayOfTargetResults.length;i++) {
+      if (arrayOfTargetResults[i].previousPracticeDate !== undefined) {
+        //console.log(arrayOfTargetResults[i].targetString + ".previousPracticeDate", arrayOfTargetResults[i].previousPracticeDate);
         //console.log("currentPracticeDateInDays", currentPracticeDateInDays);
       }
     }
@@ -119,10 +160,10 @@ function checkForLevelResetOrAdvancement() {
     chooseBackground();
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
-    assignMyLetterToCheck();
-    for (let i = 0; i<arrayOfPhonicResults.length;i++) {
-      if (arrayOfPhonicResults[i].previousPracticeDate !== undefined) {
-        //console.log(arrayOfPhonicResults[i].phonicString + ".previousPracticeDate", arrayOfPhonicResults[i].previousPracticeDate);
+    //assignMyLetterToCheck();
+    for (let i = 0; i<arrayOfTargetResults.length;i++) {
+      if (arrayOfTargetResults[i].previousPracticeDate !== undefined) {
+        //console.log(arrayOfTargetResults[i].targetString + ".previousPracticeDate", arrayOfTargetResults[i].previousPracticeDate);
         //console.log("currentPracticeDateInDays", currentPracticeDateInDays);
       }
     }
@@ -166,19 +207,19 @@ let resetTemporaryArrayOfQuestionsWithBigAndSmallLetters = () => {
 let assignMyLetterToCheck = () => {
   for ( let i = 0; i < arrayOfFlies.length; i++ ) {
     if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
-      arrayOfFlies[i].myLetterToCheck = "phonic" + arrayOfFlies[i].myLetter.toLowerCase();
+      arrayOfFlies[i].myLetterToCheck = "phonic" + arrayOfFlies[i].myVisualLetter.toLowerCase();
     } else if ( currentTrack === bigLettersTrackLevels ) {
-       arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter;
+       arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myVisualLetter;
      } else if ( currentTrack === smallLettersTrackLevels ) {
-       arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter.toUpperCase();
+       arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myVisualLetter.toUpperCase();
      } else if ( currentTrack === mixedSizeLetterNameLevels ) {
-       if ( arrayOfFlies[i].myLetter === arrayOfFlies[i].myLetter.toLowerCase() ) {
-         arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myLetter.toUpperCase();
+       if ( arrayOfFlies[i].myVisualLetter === arrayOfFlies[i].myVisualLetter.toLowerCase() ) {
+         arrayOfFlies[i].myLetterToCheck = "small" + arrayOfFlies[i].myVisualLetter.toUpperCase();
        } else {
-         arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myLetter.toUpperCase();
+         arrayOfFlies[i].myLetterToCheck = "big" + arrayOfFlies[i].myVisualLetter.toUpperCase();
        }
      } else if ( currentTrack === customTrack ) {
-       arrayOfFlies[i].myLetterToCheck = "phonic" + arrayOfFlies[i].myLetter.toLowerCase();
+       arrayOfFlies[i].myLetterToCheck = "phonic" + arrayOfFlies[i].myVisualLetter.toLowerCase();
      }
   }
 }

@@ -39,6 +39,10 @@ let assignTargetBigLetterName = () => {
   targetBigLetterName = "big" + temporaryArrayOfQuestions[0];
 }
 
+let assignTargetAudioWithPhonicOrLetterName = () => {
+
+}
+
 let playTargetAudio = () => {
   Sounds.getSound(targetAudio).loop = true;
   Sounds.getSound(targetAudio).play();

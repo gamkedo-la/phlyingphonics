@@ -5,7 +5,8 @@ let arrayOfFlies = []; //flies to be used in game
 let targetFly;
 let assignTargetFlies = () => {
   for (let i = 0; i < arrayOfFlies.length; i++) {
-    if (arrayOfFlies[i].myLetterToCheck === targetAudio) {
+    //console.log(arrayOfFlies[i].myLetterToCheck);
+    if (arrayOfFlies[i].rawTargetData === targetAudio) {
       arrayOfFlies[i].target = true;
     } else {
       arrayOfFlies[i].target = false;
@@ -67,7 +68,7 @@ initializeArrayOfFlies = (temporarySubset) => {
     arrayOfFlies[i] = new flyClass();//this file line 216ish
     arrayOfFlies[i].index = i;
   }
-  assignMyLetterToCheck();
+  //assignMyLetterToCheck();
   assignFlaps();//in flies.js
   fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
   assignTargetAudio();
@@ -237,11 +238,13 @@ function flyClass() {
   this.myImage = Images.getImage(randomizeStartingSpriteImage());
   this.stringImage = Images.getImage("stringImage");
   this.myImageB = undefined; // flapping
-  this.myLetter = randomLetterWithinSubset();//in adaptivedifficulty.js
-  console.log("this.myLetter", this.myLetter);
-  this.myLetterNameAudio = Sounds.getSound("big" + this.myLetter);
+  this.rawTargetData = assignRawTargetData();
+  console.log("this.rawTargetData", this.rawTargetData);
+  this.mySound = Sounds.getSound(this.rawTargetData);
+  console.log(this.mySound);
+  this.myVisualLetter = assignVisualLetter(this.rawTargetData);//in adaptivedifficulty.js
+  console.log("this.myVisualLetter", this.myVisualLetter);
   this.myLetterToCheck = undefined;
-  this.myPhonic = Sounds.getSound(this.myLetter.toLowerCase());
   this.target = false;
   this.drawCount = 0;
   this.hasFlyCollisionWith = new Set();
@@ -282,14 +285,14 @@ function flyClass() {
 
     // draw the letter
     if ( (currentTrack === bigLettersTrackLevels) || (currentTrack === mixedSizeLetterNameLevels || currentTrack === customTrack) ) {
-      if (this.myLetterToCheck === "bigO" || this.myLetterToCheck === "bigC") {
-        canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 65, 65);
+      if (this.myVisualLetter === "bigO" || this.myVisualLetter === "bigC") {
+        canvasContext.drawImage(Images.getImage(this.myVisualLetter), this.x + 80, this.y + 60, 65, 65);
       } else {
-        canvasContext.drawImage(Images.getImage(this.myLetter), this.x + 80, this.y + 60, 50, 50);
+        canvasContext.drawImage(Images.getImage(this.myVisualLetter), this.x + 80, this.y + 60, 50, 50);
       }
     } else if ( (currentTrack === smallLettersTrackLevels) || (currentTrack === vowelTrackLevels) ||
                (currentTrack === consonantTrackLevels) || (currentTrack === customTrack) ) {
-      canvasContext.drawImage(Images.getImage(this.myLetter.toLowerCase()), this.x + 80, this.y + 60, 50, 50);
+      canvasContext.drawImage(Images.getImage(this.myVisualLetter.toLowerCase()), this.x + 80, this.y + 60, 50, 50);
     }
   }
 }

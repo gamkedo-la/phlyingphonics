@@ -21,9 +21,9 @@ function initializeCurrentPracticeSessionNumber() {
 
 function updateIndividualTargetsPreviousPracticeSessionNumbers() {
   for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
-    for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
-      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
-        arrayOfPhonicResults[arrayOfPhonicResultsIndex].previousSessionNumber = currentPracticeSessionNumber;
+    for (let arrayOfTargetResultsIndex = 0; arrayOfTargetResultsIndex<arrayOfTargetResults.length; arrayOfTargetResultsIndex++) {
+      if (temporarySubset[temporarySubsetIndex] === arrayOfTargetResults[arrayOfTargetResultsIndex].targetString) {
+        arrayOfTargetResults[arrayOfTargetResultsIndex].previousSessionNumber = currentPracticeSessionNumber;
       }
     }
   }
@@ -31,19 +31,19 @@ function updateIndividualTargetsPreviousPracticeSessionNumbers() {
 
 function updateIndividualTargetsPreviousPracticeDate() {
   for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
-    for (let arrayOfPhonicResultsIndex = 0; arrayOfPhonicResultsIndex<arrayOfPhonicResults.length; arrayOfPhonicResultsIndex++) {
-      if (temporarySubset[temporarySubsetIndex] === arrayOfPhonicResults[arrayOfPhonicResultsIndex].phonicString) {
-        arrayOfPhonicResults[arrayOfPhonicResultsIndex].previousPracticeDate = currentPracticeDateInDays;
+    for (let arrayOfTargetResultsIndex = 0; arrayOfTargetResultsIndex<arrayOfTargetResults.length; arrayOfTargetResultsIndex++) {
+      if (temporarySubset[temporarySubsetIndex] === arrayOfTargetResults[arrayOfTargetResultsIndex].targetString) {
+        arrayOfTargetResults[arrayOfTargetResultsIndex].previousPracticeDate = currentPracticeDateInDays;
       }
     }
   }
 }
 
-let storedPhonicResults;
-if  (localStorage.getItem("storedPhonicResults") === null) {
-  storedPhonicResults = undefined;
+let storedTargetResults;
+if  (localStorage.getItem("storedTargetResults") === null) {
+  storedTargetResults = undefined;
 } else {
-  storedPhonicResults = localStorage.getItem("storedPhonicResults");
+  storedTargetResults = localStorage.getItem("storedTargetResults");
 }
 
 if (localStorage.getItem("currentDate") === null) {
@@ -65,7 +65,7 @@ function shouldPracticeTargetToday(letter) {
 
 
   //console.log('*******');
-  //console.log('phonic string', letter.phonicString);
+  //console.log('target string', letter.targetString);
   //console.log('previousPracticeDate', letter.previousPracticeDate);
   //console.log('currentPracticeDate', currentPracticeDateInDays);
   //console.log('practiceFrequency', letter.practiceFrequency);
@@ -96,8 +96,8 @@ console.log('daysBack', daysBack);
 console.log('previousDate', previousDate);*/
 
 
-function phonicClass(phonicString){
-  this.phonicString = phonicString;
+function targetClass(targetString){
+  this.targetString = targetString;
   this.correctAnswers = 0;
   this.unCorrectAnswers = 0;
   this.accuracy = 100;
@@ -128,172 +128,91 @@ function phonicClass(phonicString){
   }
 
 
-let a = new phonicClass("phonica");
-let b = new phonicClass("phonicb");
-let c = new phonicClass("phonicc");
-let d = new phonicClass("phonicd");
-let e = new phonicClass("phonice");
-let f = new phonicClass("phonicf");
-let g = new phonicClass("phonicg");
-let h = new phonicClass("phonich");
-let i = new phonicClass("phonici");
-let j = new phonicClass("phonicj");
-let k = new phonicClass("phonick");
-let l = new phonicClass("phonicl");
-let m = new phonicClass("phonicm");
-let n = new phonicClass("phonicn");
-let o = new phonicClass("phonico");
-let p = new phonicClass("phonicp");
-let q = new phonicClass("phonicq");
-let r = new phonicClass("phonicr");
-let s = new phonicClass("phonics");
-let t = new phonicClass("phonict");
-let u = new phonicClass("phonicu");
-let v = new phonicClass("phonicv");
-let w = new phonicClass("phonicw");
-let x = new phonicClass("phonicx");
-let y = new phonicClass("phonicy");
-let z = new phonicClass("phonicz");
+let phonica = new targetClass("phonica");
+let phonicb = new targetClass("phonicb");
+let phonicc = new targetClass("phonicc");
+let phonicd = new targetClass("phonicd");
+let phonice = new targetClass("phonice");
+let phonicf = new targetClass("phonicf");
+let phonicg = new targetClass("phonicg");
+let phonich = new targetClass("phonich");
+let phonici = new targetClass("phonici");
+let phonicj = new targetClass("phonicj");
+let phonick = new targetClass("phonick");
+let phonicl = new targetClass("phonicl");
+let phonicm = new targetClass("phonicm");
+let phonicn = new targetClass("phonicn");
+let phonico = new targetClass("phonico");
+let phonicp = new targetClass("phonicp");
+let phonicq = new targetClass("phonicq");
+let phonicr = new targetClass("phonicr");
+let phonics = new targetClass("phonics");
+let phonict = new targetClass("phonict");
+let phonicu = new targetClass("phonicu");
+let phonicv = new targetClass("phonicv");
+let phonicw = new targetClass("phonicw");
+let phonicx = new targetClass("phonicx");
+let phonicy = new targetClass("phonicy");
+let phonicz = new targetClass("phonicz");
 
-let A = new phonicClass("A");
-let B = new phonicClass("B");
-let C = new phonicClass("C");
-let D = new phonicClass("D");
-let E = new phonicClass("E");
-let F = new phonicClass("F");
-let G = new phonicClass("G");
-let H = new phonicClass("H");
-let I = new phonicClass("I");
-let J = new phonicClass("J");
-let K = new phonicClass("K");
-let L = new phonicClass("L");
-let M = new phonicClass("M");
-let N = new phonicClass("N");
-let O = new phonicClass("O");
-let P = new phonicClass("P");
-let Q = new phonicClass("Q");
-let R = new phonicClass("R");
-let S = new phonicClass("S");
-let T = new phonicClass("T");
-let U = new phonicClass("U");
-let V = new phonicClass("V");
-let W = new phonicClass("W");
-let X = new phonicClass("X");
-let Y = new phonicClass("Y");
-let Z = new phonicClass("Z");
+let smallA = new targetClass("smallA");
+let smallB = new targetClass("smallB");
+let smallC = new targetClass("smallC");
+let smallD = new targetClass("smallD");
+let smallE = new targetClass("smallE");
+let smallF = new targetClass("smallF");
+let smallG = new targetClass("smallG");
+let smallH = new targetClass("smallH");
+let smallI = new targetClass("smallI");
+let smallJ = new targetClass("smallJ");
+let smallK = new targetClass("smallK");
+let smallL = new targetClass("smallL");
+let smallM = new targetClass("smallM");
+let smallN = new targetClass("smallN");
+let smallO = new targetClass("smallO");
+let smallP = new targetClass("smallP");
+let smallQ = new targetClass("smallQ");
+let smallR = new targetClass("smallR");
+let smallS = new targetClass("smallS");
+let smallT = new targetClass("smallT");
+let smallU = new targetClass("smallU");
+let smallV = new targetClass("smallV");
+let smallW = new targetClass("smallW");
+let smallX = new targetClass("smallX");
+let smallY = new targetClass("smallY");
+let smallZ = new targetClass("smallZ");
 
-let bigA = new phonicClass("bigA");
-let bigB = new phonicClass("bigB");
-let bigC = new phonicClass("bigC");
-let bigD = new phonicClass("bigD");
-let bigE = new phonicClass("bigE");
-let bigF = new phonicClass("bigF");
-let bigG = new phonicClass("bigG");
-let bigH = new phonicClass("bigH");
-let bigI = new phonicClass("bigI");
-let bigJ = new phonicClass("bigJ");
-let bigK = new phonicClass("bigK");
-let bigL = new phonicClass("bigL");
-let bigM = new phonicClass("bigM");
-let bigN = new phonicClass("bigN");
-let bigO = new phonicClass("bigO");
-let bigP = new phonicClass("bigP");
-let bigQ = new phonicClass("bigQ");
-let bigR = new phonicClass("bigR");
-let bigS = new phonicClass("bigS");
-let bigT = new phonicClass("bigT");
-let bigU = new phonicClass("bigU");
-let bigV = new phonicClass("bigV");
-let bigW = new phonicClass("bigW");
-let bigX = new phonicClass("bigX");
-let bigY = new phonicClass("bigY");
-let bigZ = new phonicClass("bigZ");
+let bigA = new targetClass("bigA");
+let bigB = new targetClass("bigB");
+let bigC = new targetClass("bigC");
+let bigD = new targetClass("bigD");
+let bigE = new targetClass("bigE");
+let bigF = new targetClass("bigF");
+let bigG = new targetClass("bigG");
+let bigH = new targetClass("bigH");
+let bigI = new targetClass("bigI");
+let bigJ = new targetClass("bigJ");
+let bigK = new targetClass("bigK");
+let bigL = new targetClass("bigL");
+let bigM = new targetClass("bigM");
+let bigN = new targetClass("bigN");
+let bigO = new targetClass("bigO");
+let bigP = new targetClass("bigP");
+let bigQ = new targetClass("bigQ");
+let bigR = new targetClass("bigR");
+let bigS = new targetClass("bigS");
+let bigT = new targetClass("bigT");
+let bigU = new targetClass("bigU");
+let bigV = new targetClass("bigV");
+let bigW = new targetClass("bigW");
+let bigX = new targetClass("bigX");
+let bigY = new targetClass("bigY");
+let bigZ = new targetClass("bigZ");
 
-let smallA = new phonicClass("smallA");
-let smallB = new phonicClass("smallB");
-let smallC = new phonicClass("smallC");
-let smallD = new phonicClass("smallD");
-let smallE = new phonicClass("smallE");
-let smallF = new phonicClass("smallF");
-let smallG = new phonicClass("smallG");
-let smallH = new phonicClass("smallH");
-let smallI = new phonicClass("smallI");
-let smallJ = new phonicClass("smallJ");
-let smallK = new phonicClass("smallK");
-let smallL = new phonicClass("smallL");
-let smallM = new phonicClass("smallM");
-let smallN = new phonicClass("smallN");
-let smallO = new phonicClass("smallO");
-let smallP = new phonicClass("smallP");
-let smallQ = new phonicClass("smallQ");
-let smallR = new phonicClass("smallR");
-let smallS = new phonicClass("smallS");
-let smallT = new phonicClass("smallT");
-let smallU = new phonicClass("smallU");
-let smallV = new phonicClass("smallV");
-let smallW = new phonicClass("smallW");
-let smallX = new phonicClass("smallX");
-let smallY = new phonicClass("smallY");
-let smallZ = new phonicClass("smallZ");
 
-let InitializePhonics = () => {
-   a = new phonicClass("a");
-   b = new phonicClass("b");
-   c = new phonicClass("c");
-   d = new phonicClass("d");
-   e = new phonicClass("e");
-   f = new phonicClass("f");
-   g = new phonicClass("g");
-   h = new phonicClass("h");
-   i = new phonicClass("i");
-   j = new phonicClass("j");
-   k = new phonicClass("k");
-   l = new phonicClass("l");
-   m = new phonicClass("m");
-   n = new phonicClass("n");
-   o = new phonicClass("o");
-   p = new phonicClass("p");
-   q = new phonicClass("q");
-   r = new phonicClass("r");
-   s = new phonicClass("s");
-   t = new phonicClass("t");
-   u = new phonicClass("u");
-   v = new phonicClass("v");
-   w = new phonicClass("w");
-   x = new phonicClass("x");
-   y = new phonicClass("y");
-   z = new phonicClass("z");
 
-   A = new phonicClass("A");
-   B = new phonicClass("B");
-   C = new phonicClass("C");
-   D = new phonicClass("D");
-   E = new phonicClass("E");
-   F = new phonicClass("F");
-   G = new phonicClass("G");
-   H = new phonicClass("H");
-   I = new phonicClass("I");
-   J = new phonicClass("J");
-   K = new phonicClass("K");
-   L = new phonicClass("L");
-   M = new phonicClass("M");
-   N = new phonicClass("N");
-   O = new phonicClass("O");
-   P = new phonicClass("P");
-   Q = new phonicClass("Q");
-   R = new phonicClass("R");
-   S = new phonicClass("S");
-   T = new phonicClass("T");
-   U = new phonicClass("U");
-   V = new phonicClass("V");
-   W = new phonicClass("W");
-   X = new phonicClass("X");
-   Y = new phonicClass("Y");
-   Z = new phonicClass("Z");
-}
-
-let arrayOfPhonicResults = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,
-                            A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
+let arrayOfTargetResults = [phonica,phonicb,phonicc,phonicd,phonice,phonicf,phonicg,phonich,phonici,phonicj,phonick,phonicl,phonicm,phonicn,
+                            phonico,phonicp,phonicq,phonicr,phonics,phonict,phonicu,phonicv,phonicw,phonicx,phonicy,phonicz,
                             bigA,bigB,bigC,bigD,bigE,bigF,bigG,bigH,bigI,bigJ,
                             bigK,bigL,bigM,bigN,bigO,bigP,bigQ,bigR,bigS,bigT,
                             bigU,bigV,bigW,bigX,bigY,bigZ,
@@ -309,12 +228,12 @@ function fillArrayOfTargetsToPractice() {
   } else {
     currentProfile.targetsToPractice = []; // FIXME this can be undefined at startup
   }
-  arrayOfPhonicResults.forEach(function(letter) {
+  arrayOfTargetResults.forEach(function(letter) {
     if(shouldPracticeTargetToday(letter)){//PlayerProfile.js line 48
       //console.log(letter);
-      currentProfile.targetsToPractice.push(letter.phonicString);
+      currentProfile.targetsToPractice.push(letter.targetString);
       //console.log("currentProfile.targetsToPractice", currentProfile.profileName, currentProfile.targetsToPractice);
-      arrayOfTargetsToPractice.push(letter.phonicString);
+      arrayOfTargetsToPractice.push(letter.targetString);
       localStorage.setItem("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
       localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
       //console.log("storedArrayOfProfiles", localStorage.getItem("storedArrayOfProfiles"));
