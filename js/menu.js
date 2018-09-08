@@ -60,11 +60,6 @@ function handleMainMenuInput(mouseX,mouseY) {
       mouseY >= mainMenuButtonList[i].y && mouseY <= mainMenuButtonList[i].y + buttonHeight) {
         mainMenuButtonList[i].onClick();
         if (mainMenuButtonList[i].label !== "stationary mode") {
-          if (arrayOfTargetsToPractice.length < 1) {
-            alert("Phlying Phonics suggests you practice whatever you want.");
-          } else {
-            alert("Phlying Phonics suggests you practice " + arrayOfTargetsToPractice);
-          }
         }
       }
   }
