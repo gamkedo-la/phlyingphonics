@@ -147,6 +147,9 @@ let imageFileNames = [
     "images/cartoonFly-spritesheet.png",
     "images/dragon_bee_v1.png",
     "images/dragon_bee_b.png",
+    "images/mobileOne.png",
+    "images/mobileTwo.png",
+    "images/mobileThree.png",
     "images/stringImage.png"
 
 ];

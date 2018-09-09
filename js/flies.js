@@ -194,6 +194,7 @@ function drawBitmapWithRotationScale(useBitmap, atX, atY, withAng, withScale) {
 
 let arrayOfStartingFlyImages = ["cartoonFly", "fly_version_1", "dragon_bee_v1"];
 let arrayOfStartingButterflyImages = ["blackNorange", "bluebutterfly1", "croppedpink1"];
+let arrayOfStartingMobileImages = ["mobileOne", "mobileTwo", "mobileThree"];
 let randomizeStartingSpriteImage = () => {
   let startingSprieImage;
   if (chosenBackground === "tree2") {
@@ -201,6 +202,9 @@ let randomizeStartingSpriteImage = () => {
     return startingSpriteImage;
   } else if (chosenBackground === "honeycomb") {
     startingSpriteImage = "dragon_bee_v1";
+    return startingSpriteImage;
+  } else if (chosenBackground === "BabyRoomBG") {
+    startingSpriteImage = arrayOfStartingMobileImages[getRandomInt(0, arrayOfStartingMobileImages.length - 1)];
     return startingSpriteImage;
   } else {
   startingSpriteImage = arrayOfStartingFlyImages[getRandomInt(0, arrayOfStartingFlyImages.length - 1)];
