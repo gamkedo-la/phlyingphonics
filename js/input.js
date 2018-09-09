@@ -41,7 +41,7 @@ function handleCanvasClick(evt) {
   } else if (isShowingExistingProfiles) {
     //console.log(existingProfilesMenuButtonList);
     handleExistingProfileMenuInput(evt.pageX,evt.pageY);
-  }
+  } else { //gameplay click info
 
   //for (let i = 0; i<arrayOfTargetResults.length; i++) {
 //    console.log(arrayOfTargetResults[i].practiceFrequency);
@@ -79,8 +79,7 @@ function handleCanvasClick(evt) {
     missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
     missedSound.play();
   }
-  //console.log("click count: " + clickCount);
-  //localStorage.setItem("storedTargetResults", arrayOfTargetResults);
+}// end of gameplay click info
 }//end of canvas click
 
 function setupKeyboardDateHackInput() {
