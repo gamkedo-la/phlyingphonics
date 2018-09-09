@@ -8,6 +8,7 @@ let assignTargetAudio = () => {
 
 let playTargetAudio = () => {
   Sounds.getSound(targetAudio).loop = true;
+  Sounds.getSound(targetAudio).volume = 1;
   Sounds.getSound(targetAudio).play();
 }
 
