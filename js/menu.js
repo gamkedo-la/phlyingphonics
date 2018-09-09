@@ -119,13 +119,19 @@ function generateNewProfile() {
     arrayOfProfiles.push(newProfile);
     existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 40),
                                         onClick: loadProfileSettingsAndStartGame});
+                                        localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
+                                        loadProfileSettingsAndStartGame(newProfileName);
+  } else if (newProfileName === null) {
+    console.log("newProfileName", newProfileName);
+    console.log("isShowingExistingProfiles", isShowingExistingProfiles, "isProfileMenu", isProfileMenu);
+    showProfileMenu();
   }
   //console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
   //console.log("arrayOfProfiles", arrayOfProfiles);
-  localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
+  //localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
   //console.log("newProfileName", newProfileName);
-  loadProfileSettingsAndStartGame(newProfileName);
-  console.log(temporaryArrayOfQuestions);
+  //loadProfileSettingsAndStartGame(newProfileName);
+  //console.log(temporaryArrayOfQuestions);
 }
 
 let existingProfilesMenuButtonList = [
