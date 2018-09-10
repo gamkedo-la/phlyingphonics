@@ -97,7 +97,9 @@ window.onload = () => {
     handleFlyWallCollisions();
     handleFlyToFlyCollisions();
     handleFliesOffScreen();
-    moveFlies();
+    if (!useStationaryMode) {
+      moveFlies();
+    }
     updateFlyProperties();
     updateScreenshake();
 
