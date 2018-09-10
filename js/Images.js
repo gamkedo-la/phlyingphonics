@@ -82,7 +82,7 @@ let imageFileNames = [
     "images/bowlOfFruit.png",
     "images/honeycomb.png",
     "images/BabyRoomBG.png",
-    "images/tree2.png",
+    "images/tree2.jpg",
     "images/purplecountertop.png",
     "images/capitalLetters/bigA.png",
     "images/capitalLetters/bigB.png",
