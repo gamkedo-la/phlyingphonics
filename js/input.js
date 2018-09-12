@@ -36,6 +36,9 @@ function handleCanvasClick(evt) {
   if (isMainMenu) {
     handleMainMenuInput(evt.pageX,evt.pageY);
     return;
+  } else if (isOpeningLanguageSelector) {
+    handleOpeningLanguageSelectorInput(evt.pageX,evt.pageY);
+    return;
   } else if (isProfileMenu) {
     handleProfileMenuInput(evt.pageX,evt.pageY);
   } else if (isShowingExistingProfiles) {

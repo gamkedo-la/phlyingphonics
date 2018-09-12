@@ -1,9 +1,15 @@
-let isMainMenu = true;
+let isOpeningLanguageSelector = true;
+let isMainMenu = false;
 let isProfileMenu = false;
 let isShowingExistingProfiles = false;
 const buttonWidth = 200;
 const buttonHeight = 40;
 let useStationaryMode;
+
+function goToMainMenu() {
+  isOpeningLanguageSelector = false;
+  isMainMenu = true;
+}
 
 function startKidMode() {
   isMainMenu = false;
@@ -32,6 +38,38 @@ function showProfileMenu() {
   isProfileMenu = true;
   isShowingExistingProfiles = false;
 }
+
+let languageSelectorButtonList = [
+  {label: "普通话", x:25,y:210, onClick: goToMainMenu},
+  {label: "English", x:250,y:210, onClick: goToMainMenu},
+  {label: "हिंदुस्तानी", x:475,y:210, onClick: goToMainMenu},
+  {label: "Español", x:700,y:210, onClick: goToMainMenu},
+  {label: "عربى", x:925,y:210, onClick: goToMainMenu}
+]
+
+function drawOpeningLanguageSelector() {
+  canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
+  canvasContext.textAlign = "center";
+  for (let i = 0; i<languageSelectorButtonList.length; i++) {
+    colorRect(languageSelectorButtonList[i].x,languageSelectorButtonList[i].y, buttonWidth,buttonHeight, "blue");
+    colorText(languageSelectorButtonList[i].label, languageSelectorButtonList[i].x + buttonWidth/2,languageSelectorButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
+  }
+  canvasContext.textAlign = "left";
+}
+
+function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
+  console.log("mouse x/y", mouseX,mouseY);
+  console.log("languageSelectorButtonList", languageSelectorButtonList);
+  for (let i = 0; i<languageSelectorButtonList.length; i++) {
+    if (mouseX >= languageSelectorButtonList[i].x && mouseX <= languageSelectorButtonList[i].x + buttonWidth &&
+      mouseY >= languageSelectorButtonList[i].y && mouseY <= languageSelectorButtonList[i].y + buttonHeight) {
+        console.log("button click recognized");
+        languageSelectorButtonList[i].onClick();
+
+    }
+  }
+}
+
 
 let mainMenuButtonList = [
   {label: "kid mode", x:125,y:210, onClick: startKidMode},

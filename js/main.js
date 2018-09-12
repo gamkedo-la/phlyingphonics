@@ -123,6 +123,9 @@ window.onload = () => {
     if (isMainMenu) {
       drawMainMenu();
       return;
+    } else if (isOpeningLanguageSelector) {
+      drawOpeningLanguageSelector();
+      return;
     } else if (isProfileMenu) {
       drawProfileMenu();
       return;
