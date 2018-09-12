@@ -184,6 +184,7 @@ consonantButton.onclick = function() {
 
 let resetLevelFromUIClick = () => {
   chooseBackground();
+  stopTargetAudio();
   clearFlies();//in flies.js
   initializeArrayOfFlies(temporarySubset);
   assignFlaps();
