@@ -31,22 +31,20 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   backgroundMusic.play();
-  //console.log(localStorage.getItem("arrayOfProfiles"));
+
   initializeArrayOfProfiles();
   initializeExistingProfilesMenuButtonList();
-  for (let i = 0; i<arrayOfTargetResults.length;i++) {
-    //console.log(arrayOfTargetResults[i].previousPracticeDate);
+
+  if (localStorage.getItem("language") === null) {
+    langauge = englishButtonAndTextStrings;
+  } else {
+    language = localStorage.getItem("language");
   }
 
   if (localStorage.getItem("arrayOfTargetsToPractice") === null) {
     fillArrayOfTargetsToPractice();
   } else {
     arrayOfTargetsToPractice = localStorage.getItem("arrayOfTargetsToPractice");
-  }
-  if (localStorage.getItem("storedArrayOfProfiles" === null)) {
-
-  } else {
-    console.log("storedArrayOfProfiles", localStorage.getItem("storedArrayOfProfiles"));
   }
 
   setupKeyboardDateHackInput();
@@ -55,15 +53,7 @@ let initialize = () => {
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
   updateIndividualTargetsPreviousPracticeSessionNumbers();
   updateIndividualTargetsPreviousPracticeDate();
-  /*
-  initializeArrayOfFlies(temporarySubset);//in adaptivedifficulty.js
-  //assignMyLetterToCheck();
-  assignFlaps();//in flies.js
-  fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
-  assignTargetAudio();
-  playTargetAudio();
-  assignTargetFlies();//in flies.js
-  */
+
 
 }
 
@@ -148,10 +138,6 @@ window.onload = () => {
     // drawn a bit bigger than the screen to avoid white edges during screenshakes
     canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
 
-    //canvasContext.fillText(mouseX + " " + mouseY, mouseX, mouseY);
-    //drawTestFlyWithCapitalLetter();
-    //testFly.draw();
-    //  drawA();
     drawSwattedFlies();
     drawFlies();
     drawFlySwatter();

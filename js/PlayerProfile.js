@@ -4,7 +4,6 @@ let previousPracticeDate = undefined;
 let currentPracticeDate = Date.now();
 let oneDayInMilliseconds = 24 * 60 * 60 * 1000;
 let currentPracticeDateInDays = currentPracticeDate/oneDayInMilliseconds;
-//console.log(currentPracticeDateInDays);
 let currentPracticeSessionNumber;
 
 
@@ -63,37 +62,10 @@ function shouldPracticeTargetToday(letter) {
   let previousPracticeDate = new Date(letter.previousPracticeDate);
   let daysSincePracticed = currentPracticeDateInDays - letter.previousPracticeDate;
 
-
-  //console.log('*******');
-  //console.log('target string', letter.targetString);
-  //console.log('previousPracticeDate', letter.previousPracticeDate);
-  //console.log('currentPracticeDate', currentPracticeDateInDays);
-  //console.log('practiceFrequency', letter.practiceFrequency);
-  //console.log('daysSincePracticed', daysSincePracticed);
-  //console.log('*******');
-  //console.log(daysSincePracticed, currentPracticeDate);
-
   if (letter.hasBeenPracticed && daysSincePracticed >= letter.practiceFrequency) {
     return letter;
   }
 }
-
-
-
-/*var oneDayInMilliseconds = 24 * 60 * 60 * 1000;
-
-var today = new Date();
-today.setUTCHours(0,0,0,0);
-
-var daysBack = 3;
-var dateBackDifference = today.getTime() - (oneDayInMilliseconds * daysBack);
-
-var previousDate = new Date(dateBackDifference);
-previousDate.setUTCHours(0,0,0,0);
-
-console.log('today', today);
-console.log('daysBack', daysBack);
-console.log('previousDate', previousDate);*/
 
 
 function targetClass(targetString){
@@ -230,15 +202,10 @@ function fillArrayOfTargetsToPractice() {
   }
   arrayOfTargetResults.forEach(function(letter) {
     if(shouldPracticeTargetToday(letter)){//PlayerProfile.js line 48
-      //console.log(letter);
       currentProfile.targetsToPractice.push(letter.targetString);
-      //console.log("currentProfile.targetsToPractice", currentProfile.profileName, currentProfile.targetsToPractice);
       arrayOfTargetsToPractice.push(letter.targetString);
       localStorage.setItem("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
       localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
-      //console.log("storedArrayOfProfiles", localStorage.getItem("storedArrayOfProfiles"));
     }
   });
-  //console.log("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
-  //console.log("storedArrayOfTargetsToPractice", localStorage.getItem("storedArrayOfProfiles"));
 }

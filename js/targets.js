@@ -27,7 +27,6 @@ let resetTargetAudioAndTargetFlies = () => {
 let resetTargetBigOrSmallLetterNameAndTargetFlies = () => {
   stopTargetAudio();
   assignTargetAudio();
-  //assignMyLetterToCheck();
   assignTargetFlies();
   playTargetAudio();
 }

@@ -5,7 +5,6 @@ let arrayOfFlies = []; //flies to be used in game
 let targetFly;
 let assignTargetFlies = () => {
   for (let i = 0; i < arrayOfFlies.length; i++) {
-    //console.log(arrayOfFlies[i].myLetterToCheck);
     if (arrayOfFlies[i].rawTargetData === targetAudio) {
       arrayOfFlies[i].target = true;
     } else {
@@ -61,14 +60,13 @@ drawFlies = () => {
 
 //sets which flies are to be used at the start of the game, after level completion, or after student customization
 initializeArrayOfFlies = (temporarySubset) => {
-  console.log("initializing flies");
+
   numberOfFliesAtStartOfLevel = 6;//getRandomInt(1,26);
   arrayOfFlies = new Array(numberOfFliesAtStartOfLevel);
   for (let i = 0; i < numberOfFliesAtStartOfLevel; i++) {
     arrayOfFlies[i] = new flyClass();//this file line 216ish
     arrayOfFlies[i].index = i;
   }
-  //assignMyLetterToCheck();
   assignFlaps();//in flies.js
   fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
   assignTargetAudio();
@@ -243,11 +241,8 @@ function flyClass() {
   this.stringImage = Images.getImage("stringImage");
   this.myImageB = undefined; // flapping
   this.rawTargetData = assignRawTargetData();
-  console.log("this.rawTargetData", this.rawTargetData);
   this.mySound = Sounds.getSound(this.rawTargetData);
-  console.log(this.mySound);
   this.myVisualLetter = assignVisualLetter(this.rawTargetData);//in adaptivedifficulty.js
-  console.log("this.myVisualLetter", this.myVisualLetter);
   this.myLetterToCheck = undefined;
   this.target = false;
   this.drawCount = 0;

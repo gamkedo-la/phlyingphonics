@@ -9,9 +9,6 @@ let temporaryArrayOfQuestions = new Array();
 
 
 function fillTemporaryArrayOfQuestions() {
-  for (let i = 0; i<arrayOfFlies.length; i++) {
-    console.log("arrayOfFlies[i].myVisualLetter", arrayOfFlies[i].myVisualLetter);
-  }
   if ( currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels ) {
     fillTemporaryArrayOfQuestionsWithPhonics();
   } else if ( currentTrack === bigLettersTrackLevels ) {
@@ -21,9 +18,7 @@ function fillTemporaryArrayOfQuestions() {
   } else if ( currentTrack === mixedSizeLetterNameLevels ) {
     fillTemporaryArrayOfQuestionsWithBigAndSmallLetters();
   } else if ( currentTrack === customTrack ) {
-    //console.log("arrayOfFlies", arrayOfFlies);
     fillTemporaryArrayOfQuestionWithAnyPossibleTarget();
-
   }
 }
 
@@ -73,7 +68,6 @@ function assignVisualLetter(rawTargetData) {
   } else if (currentTrack === smallLettersTrackLevels || currentTrack === bigLettersTrackLevels || currentTrack === mixedSizeLetterNameLevels) {
     visualLetter = rawTargetData;
   } else if (currentTrack === customTrack) {
-      console.log("rawTargetData", rawTargetData);
       if (rawTargetData.length === 7) {
         visualLetter = "small" + rawTargetData.charAt(6);
       } else {
@@ -94,31 +88,18 @@ function assignRawTargetData() {
 }
 
 function randomTargetWithinSubset () {
-  console.log("temporarySubset", temporarySubset);
   let randomTargetIndex = getRandomInt(0, temporarySubset.length - 1);
   let target = temporarySubset[randomTargetIndex];
   return target
 }
-//if ( (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels || currentTrack === customTrack ) && letter.length === 4 ) {
-//  letter = letter;
-//} else if ( (currentTrack === vowelTrackLevels || currentTrack === consonantTrackLevels || currentTrack === customTrack ) && letter.length === 6 ) {
-//  letter = letter.charAt(5);}
-//}
+
 
 function updateLettersThatHaveBeenPracticed() {
-  //console.log("temporarySubset", temporarySubset);
-  //console.log("myTargetString", arrayOfTargetResults[0].targetString);
   for (let temporarySubsetIndex = 0; temporarySubsetIndex<temporarySubset.length; temporarySubsetIndex++) {
     for (let arrayOfTargetResultsIndex = 0; arrayOfTargetResultsIndex<arrayOfTargetResults.length; arrayOfTargetResultsIndex++) {
       if (temporarySubset[temporarySubsetIndex] === arrayOfTargetResults[arrayOfTargetResultsIndex].targetString) {
-        //console.log("hello world");
         arrayOfTargetResults[arrayOfTargetResultsIndex].hasBeenPracticed = true;
       }
-    }
-  }
-  for (let i = 0;i<arrayOfTargetResults.length;i++) {
-    if (arrayOfTargetResults[i].hasBeenPracticed) {
-      //console.log(arrayOfTargetResults[i].targetString + ".hasBeenPracticed", arrayOfTargetResults[i].hasBeenPracticed);
     }
   }
 }
@@ -134,20 +115,9 @@ function checkForLevelResetOrAdvancement() {
     chooseBackground();
     trackIndex++;
     temporarySubset = currentTrack[trackIndex];
-    //console.log("temporarySubset", temporarySubset);
     resetAccuracy();
-    //console.log("trackIndex", trackIndex);
-    //console.log("currentTrack", currentTrack);
-    //console.log("temporarySubset", temporarySubset);
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
-    //assignMyLetterToCheck();
-    for (let i = 0; i<arrayOfTargetResults.length;i++) {
-      if (arrayOfTargetResults[i].previousPracticeDate !== undefined) {
-        //console.log(arrayOfTargetResults[i].targetString + ".previousPracticeDate", arrayOfTargetResults[i].previousPracticeDate);
-        //console.log("currentPracticeDateInDays", currentPracticeDateInDays);
-      }
-    }
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     updateLettersThatHaveBeenPracticed();
@@ -160,13 +130,6 @@ function checkForLevelResetOrAdvancement() {
     chooseBackground();
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
-    //assignMyLetterToCheck();
-    for (let i = 0; i<arrayOfTargetResults.length;i++) {
-      if (arrayOfTargetResults[i].previousPracticeDate !== undefined) {
-        //console.log(arrayOfTargetResults[i].targetString + ".previousPracticeDate", arrayOfTargetResults[i].previousPracticeDate);
-        //console.log("currentPracticeDateInDays", currentPracticeDateInDays);
-      }
-    }
   }
 }
 

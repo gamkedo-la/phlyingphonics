@@ -31,7 +31,6 @@ function showExistingProfiles() {
   if (arrayOfProfiles.length === 0) {
     alert("No profiles exist, go back and create a new profile");
   }
-  //console.log(existingProfilesMenuButtonList);
 }
 
 function showProfileMenu() {
@@ -58,12 +57,9 @@ function drawOpeningLanguageSelector() {
 }
 
 function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
-  console.log("mouse x/y", mouseX,mouseY);
-  console.log("languageSelectorButtonList", languageSelectorButtonList);
   for (let i = 0; i<languageSelectorButtonList.length; i++) {
     if (mouseX >= languageSelectorButtonList[i].x && mouseX <= languageSelectorButtonList[i].x + buttonWidth &&
       mouseY >= languageSelectorButtonList[i].y && mouseY <= languageSelectorButtonList[i].y + buttonHeight) {
-        console.log("button click recognized");
         languageSelectorButtonList[i].onClick();
 
     }
@@ -78,7 +74,6 @@ let mainMenuButtonList = [
 ];
 
 function drawMainMenu() {
-  //colorRect(0,0 , canvas.width,canvas.height, "black");//add background image for menu
   canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<mainMenuButtonList.length; i++) {
@@ -110,7 +105,6 @@ let profileMenuButtonList = [
 ];
 
 function drawProfileMenu() {
-  //colorRect(0,0 , canvas.width,canvas.height, "black");
   canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<profileMenuButtonList.length; i++) {
@@ -135,16 +129,13 @@ let arrayOfProfiles = [];
 function initializeArrayOfProfiles() {
   if (localStorage.getItem("storedArrayOfProfiles") === null) {
     arrayOfProfiles = [];
-    //console.log("arrayOfProfiles", arrayOfProfiles);
   } else {
     arrayOfProfiles = JSON.parse(localStorage.getItem("storedArrayOfProfiles"));
-    //console.log("arrayOfProfiles", arrayOfProfiles);
   }
 }
 
 function initializeExistingProfilesMenuButtonList() {
   for (let i = 0; i<arrayOfProfiles.length; i++) {
-    //console.log(arrayOfProfiles[i].targetsToPractice);
     existingProfilesMenuButtonList.push({label: arrayOfProfiles[i].profileName, x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight + 20) + 130),
                                         onClick: loadProfileSettingsAndStartGame});
   }
@@ -154,7 +145,6 @@ function generateNewProfile() {
   let newProfile = {profileName: undefined, targetsToPractice: []};
   let newProfileName = prompt("What is your name?", "Type your name here");
   newProfile.profileName = newProfileName;
-  //console.log(newProfile.profileName);
   if (newProfileName !== null) {
     arrayOfProfiles.push(newProfile);
     existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 80),
@@ -162,16 +152,8 @@ function generateNewProfile() {
                                         localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
                                         loadProfileSettingsAndStartGame(newProfileName);
   } else if (newProfileName === null) {
-    console.log("newProfileName", newProfileName);
-    console.log("isShowingExistingProfiles", isShowingExistingProfiles, "isProfileMenu", isProfileMenu);
     showProfileMenu();
   }
-  //console.log("existingProfilesMenuButtonList", existingProfilesMenuButtonList);
-  //console.log("arrayOfProfiles", arrayOfProfiles);
-  //localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
-  //console.log("newProfileName", newProfileName);
-  //loadProfileSettingsAndStartGame(newProfileName);
-  //console.log(temporaryArrayOfQuestions);
 }
 
 let existingProfilesMenuButtonList = [
@@ -180,8 +162,6 @@ let existingProfilesMenuButtonList = [
 
 function drawExistingProfilesMenu() {
   canvasContext.clearRect(0,0, canvas.width, canvas.height);
-  //canvasContext.fillStyle = "black";
-  //canvasContext.fillRect(0,0, canvas.width,canvas.height);
   canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
@@ -196,7 +176,6 @@ function handleExistingProfileMenuInput() {
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
       mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
-        //console.log(existingProfilesMenuButtonList[i].onClick);
         buttonLabel = existingProfilesMenuButtonList[i].label;
         existingProfilesMenuButtonList[i].onClick(buttonLabel);
     }
@@ -212,36 +191,22 @@ function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
   if (currentProfile.targetsToPractice.length === 0) {
     currentTrack = vowelTrackLevels;
     trackIndex = 0;
-    console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
   } else {
     chunkArray(currentProfile.targetsToPractice, 2);
     customTrack = chunkArray(currentProfile.targetsToPractice, 2);
     currentTrack = customTrack;
     trackIndex = 0;
     temporarySubset = currentTrack[trackIndex];
-    console.log("customTrack", customTrack);
-    console.log("temporarySubset", temporarySubset);
   }
   initializeArrayOfFlies(temporarySubset);
-  console.log("targetAudio", targetAudio);
-  //console.log("temporarySubset", temporarySubset);
-  //console.log("arrayOfFlies", arrayOfFlies);
-  //console.log("currentProfile", currentProfile);
-  //console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
 }
 
 function assignCurrentProfile(newProfileName, buttonLabel) {
 
   for (let i = 0; i<arrayOfProfiles.length; i++) {
-      //console.log(arrayOfProfiles[i].profileName, buttonLabel);
       if (arrayOfProfiles[i].profileName === buttonLabel) {
-        //console.log("hello world");
-        //console.log("arrayOfProfiles[i].profileName", arrayOfProfiles[i].profileName);
-        //console.log("buttonLabel", buttonLabel);
-        //console.log("arrayOfProfiles[i]", arrayOfProfiles[i]);
         currentProfile = arrayOfProfiles[i];
         return currentProfile;
-        //console.log("current profile", currentProfile);
       }
   }
 }

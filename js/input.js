@@ -23,7 +23,6 @@ function adjustPracticeFrequencyAtEndOfLevel(temporarySubset) {
     for (let arrayOfTargetResultsIndex = 0; arrayOfTargetResultsIndex<arrayOfTargetResults.length; arrayOfTargetResultsIndex++) {
       if (temporarySubset[temporarySubsetIndex] === arrayOfTargetResults[arrayOfTargetResultsIndex].targetString) {
       arrayOfTargetResults[arrayOfTargetResultsIndex].adjustPracticeFrequency();
-      //console.log(arrayOfTargetResults[arrayOfTargetResultsIndex].targetString + ".practiceFrequency", arrayOfTargetResults[arrayOfTargetResultsIndex].practiceFrequency);
       }
     }
   }
@@ -42,13 +41,9 @@ function handleCanvasClick(evt) {
   } else if (isProfileMenu) {
     handleProfileMenuInput(evt.pageX,evt.pageY);
   } else if (isShowingExistingProfiles) {
-    //console.log(existingProfilesMenuButtonList);
     handleExistingProfileMenuInput(evt.pageX,evt.pageY);
   } else { //gameplay click info
 
-  //for (let i = 0; i<arrayOfTargetResults.length; i++) {
-//    console.log(arrayOfTargetResults[i].practiceFrequency);
-//  }
   clickCount++;
 
   numberOfAttempts++;
@@ -65,10 +60,8 @@ function handleCanvasClick(evt) {
       calculateOverallAccuracy();
       killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
       temporaryArrayOfQuestions.splice(0,1);
-      console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
       checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
       assignTargetAudio();//in targets.js
-      //console.log("targetAudio", targetAudio);
       assignTargetFlies(i);//in targets.js
       playTargetAudio();//in targets.js
     }/*end of correct answers*/ else {
@@ -157,13 +150,6 @@ function hackulateTargetsToBePracticed() {
       console.log("arrayOfTargetsToPractice", arrayOfTargetsToPractice);
     }
   }
-  //arrayOfTargetResults.forEach(function(letter) {
-  //  if(shouldPracticeTargetToday(letter)){
-  //    console.log(letter.targetString);
-  //  } else {
-      //console.log("not " + letter);
-  //  }
-//  });
 }
 
 let vowelButton = document.getElementById("vowelButton");
@@ -173,7 +159,6 @@ vowelButton.onclick = function() {
   currentTrack = vowelTrackLevels;
   temporarySubset = vowelTrackLevels[0];
   resetLevelFromUIClick();
-  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
 }
 
 let consonantButton = document.getElementById("consonantButton");
@@ -182,7 +167,6 @@ consonantButton.onclick = function() {
   currentTrack = consonantTrackLevels;
   temporarySubset = consonantTrackLevels[0];
   resetLevelFromUIClick();
-  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions)
 }
 
 let resetLevelFromUIClick = () => {
@@ -191,10 +175,8 @@ let resetLevelFromUIClick = () => {
   clearFlies();//in flies.js
   initializeArrayOfFlies(temporarySubset);
   assignFlaps();
-  //assignMyLetterToCheck();
   resetAccuracy();
   resetTemporaryArrayOfQuestions();
-  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
   resetTargetAudioAndTargetFlies();
 }
 
@@ -208,14 +190,11 @@ bigLetters.onclick = function() {
 }
 
 let resetLevelFromUIClickWithBigLetters = () => {
-  console.log("temporarySubset", temporarySubset);
-  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions);
   stopTargetAudio();
   chooseBackground();
   clearFlies();//in flies.js
   initializeArrayOfFlies(temporarySubset);
   assignFlaps();
-  //assignMyLetterToCheck();
   resetAccuracy();
   resetTargetAudioAndTargetFlies();//in adaptivedifficulty.js
 }
@@ -227,7 +206,6 @@ smallLetters.onclick = function() {
   trackIndex = 0;
   temporarySubset = smallLettersTrackLevels[trackIndex];
   resetLevelFromUIClickWithSmallLetters();
-  console.log("temporaryArrayOfQuestions", temporaryArrayOfQuestions)
 }
 
 let resetLevelFromUIClickWithSmallLetters = () => {
@@ -236,7 +214,6 @@ let resetLevelFromUIClickWithSmallLetters = () => {
   clearFlies();//in flies.js
   initializeArrayOfFlies(temporarySubset);
   assignFlaps();
-  //assignMyLetterToCheck();
   resetAccuracy();
   resetTemporaryArrayOfQuestionsWithSmallLetters();//in adaptivedifficulty.js
   resetTargetSmallLetterNameAndTargetFlies();//in targets.js
@@ -256,7 +233,6 @@ let resetLevelFromUIClickWithBigAndSmallLetters = () => {
   clearFlies();//in flies.js
   initializeArrayOfFlies(temporarySubset);
   assignFlaps();
-  //assignMyLetterToCheck();
   resetAccuracy();
   resetTemporaryArrayOfQuestionsWithBigAndSmallLetters();//in adaptivedifficulty.js
   resetTargetBigOrSmallLetterNameAndTargetFlies();//in targets.js
