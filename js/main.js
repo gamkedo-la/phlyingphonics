@@ -110,6 +110,8 @@ window.onload = () => {
       canvasContext.drawImage(Images.getImage("BabyHand"), mouseX - 50, mouseY - 50);
     } else if (chosenBackground == 'tree2') { // FIXME: add other levels here in the future if they contain butterflies
       canvasContext.drawImage(Images.getImage("butterflyNet"), mouseX - 50, mouseY - 50);
+    } else if (chosenBackground === "honeycomb") {
+      canvasContext.drawImage(Images.getImage("HoneyJar"), mouseX - 50, mouseY - 50);
     } else {
       canvasContext.drawImage(Images.getImage("flySwatter"), mouseX - 50, mouseY - 50);
     }
