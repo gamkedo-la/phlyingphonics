@@ -107,7 +107,7 @@ function initializeArrayOfProfiles() {
 function initializeExistingProfilesMenuButtonList() {
   for (let i = 0; i<arrayOfProfiles.length; i++) {
     //console.log(arrayOfProfiles[i].targetsToPractice);
-    existingProfilesMenuButtonList.push({label: arrayOfProfiles[i].profileName, x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight+40)),
+    existingProfilesMenuButtonList.push({label: arrayOfProfiles[i].profileName, x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight + 20) + 130),
                                         onClick: loadProfileSettingsAndStartGame});
   }
 }
@@ -137,7 +137,7 @@ function generateNewProfile() {
 }
 
 let existingProfilesMenuButtonList = [
-  {label: "back", x:625,y:10, onClick: showProfileMenu}
+  {label: "back", x:1000,y:10, onClick: showProfileMenu}
 ];
 
 function drawExistingProfilesMenu() {
