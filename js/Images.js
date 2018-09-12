@@ -69,7 +69,7 @@ function Images() {
 //////////////    Your file names go here!    ////////////////
 let imageFileNames = [
 
-    "images/openingMenuBackGround.jpg",
+    "images/openingMenuBackground.jpg",
     "images/table.png",
     "images/fly.png",
     "images/butterflies/blackNorange.png",

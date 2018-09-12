@@ -41,7 +41,7 @@ let mainMenuButtonList = [
 
 function drawMainMenu() {
   //colorRect(0,0 , canvas.width,canvas.height, "black");//add background image for menu
-  canvasContext.drawImage(Images.getImage("openingMenuBackGround"), 0,0, canvas.width, canvas.height);
+  canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<mainMenuButtonList.length; i++) {
     if (mainMenuButtonList[i].label === "stationary mode") {
@@ -73,7 +73,7 @@ let profileMenuButtonList = [
 
 function drawProfileMenu() {
   //colorRect(0,0 , canvas.width,canvas.height, "black");
-  canvasContext.drawImage(Images.getImage("openingMenuBackGround"), 0,0, canvas.width, canvas.height);
+  canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<profileMenuButtonList.length; i++) {
     colorRect(profileMenuButtonList[i].x,profileMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
@@ -119,7 +119,7 @@ function generateNewProfile() {
   //console.log(newProfile.profileName);
   if (newProfileName !== null) {
     arrayOfProfiles.push(newProfile);
-    existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 40),
+    existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 80),
                                         onClick: loadProfileSettingsAndStartGame});
                                         localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
                                         loadProfileSettingsAndStartGame(newProfileName);
@@ -137,14 +137,14 @@ function generateNewProfile() {
 }
 
 let existingProfilesMenuButtonList = [
-  {label: "back", x:1000,y:10, onClick: showProfileMenu}
+  {label: "back", x:800,y:10, onClick: showProfileMenu}
 ];
 
 function drawExistingProfilesMenu() {
   canvasContext.clearRect(0,0, canvas.width, canvas.height);
   //canvasContext.fillStyle = "black";
   //canvasContext.fillRect(0,0, canvas.width,canvas.height);
-  canvasContext.drawImage(Images.getImage("openingMenuBackGround"), 0,0, canvas.width, canvas.height);
+  canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     colorRect(existingProfilesMenuButtonList[i].x,existingProfilesMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
