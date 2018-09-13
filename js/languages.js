@@ -80,12 +80,97 @@ let arabicButtonAndTextStrings = {
   videoButton:"??? فيديو"
 }
 
+let swahiliButtonAndTextStrings = {
+  kidMode:"Hali ya Kid",
+  advancedMode:"Hali ya juu",
+  stationaryMode:"Njia ya Msafiri",
+  newStudent:"Mwanafunzi Mpya",
+  returningStudent:"Kurudi Mwanafunzi",
+  whatIsYourName:"¿Jina lako nani??",
+  typeYourNameHere:"Andika jina lako hapa",
+  previous:"Kabla",
+  congratulations:"Hongera! Umehakikishia malengo yote ya leo. Jaribu malengo mapya ya kuendelea kujifunza!",
+  noProfilesExist:"Hakuna maelezo yaliyopo, kurudi nyuma na uunda wasifu mpya",
+  information:"??? Taarifa",
+  gamePlayInfo:"Sikiliza sauti. Itasema sauti ya phonic au jina la barua. Bonyeza phonic au barua kwenye skrini na panya au kidole chako. Furahia!",
+  videoButton:"??? Vídeo"
+}
+
+let frenchButtonAndTextStrings = {
+  kidMode:"Mode Enfant",
+  advancedMode:"Mode Avancé",
+  stationaryMode:"Mode Stationnaire",
+  newStudent:"Nouvel étudiant",
+  returningStudent:"Étudiant de retour",
+  whatIsYourName:"Comment vous appelez-vous?",
+  typeYourNameHere:"Tapez votre nom ici",
+  previous:"Précédent",
+  congratulations:"Toutes nos félicitations! Vous avez examiné toutes les cibles d'aujourd'hui. Essayez de nouvelles cibles pour continuer à apprendre!",
+  noProfilesExist:"Aucun profil n'existe, revenir en arrière et créer un nouveau profil",
+  information:"??? Info",
+  gamePlayInfo:"Écoutez la voix On dira un son phonique ou un nom de lettre. Cliquez sur le phonique ou la lettre sur l'écran avec la souris ou le doigt. S'amuser!",
+  videoButton:"??? Vidéo"
+}
+
+let portugueseButtonAndTextStrings = {
+  kidMode:"Modo Infantil",
+  advancedMode:"Modo avançado",
+  stationaryMode:"Modo estacionário",
+  newStudent:"Novo estudante",
+  returningStudent:"Estudante de retorno",
+  whatIsYourName:"Qual é o seu nome?",
+  typeYourNameHere:"Digite seu nome aqui",
+  previous:"Anterior",
+  congratulations:"Parabéns! Você analisou todos os alvos de hoje. Tente alguns novos alvos para continuar aprendendo!",
+  noProfilesExist:"Não existem perfis, volte e crie um novo perfil",
+  information:"??? Em formação",
+  gamePlayInfo:"Ouça a voz. Ele dirá um som fônico ou um nome de letra. Clique no fônico ou na letra na tela com o mouse ou com o dedo. Diverta-se!",
+  videoButton:"??? Vídeo"
+}
+
+let russianButtonAndTextStrings = {
+  kidMode:"Ребенок",
+  advancedMode:"Расширенный режим",
+  stationaryMode:"Стационарный режим",
+  newStudent:"Новый студент",
+  returningStudent:"Возвращающийся студент",
+  whatIsYourName:"Как вас зовут?",
+  typeYourNameHere:"Введите свое имя здесь",
+  previous:"предыдущий",
+  congratulations:"Поздравляем! Вы просмотрели все сегодняшние цели. Попробуйте новые цели, чтобы учиться!",
+  noProfilesExist:"Нет профилей, вернуться и создать новый профиль",
+  information:"??? Информация",
+  gamePlayInfo:"Слушайте голос. Он скажет либо звуковой звук, либо имя письма. Нажмите на букву или букву на экране с помощью мыши или пальца. Повеселись!",
+  videoButton:"??? видео"
+}
+
+let japaneseButtonAndTextStrings = {
+  kidMode:"キッドモード",
+  advancedMode:"アドバンストモード",
+  stationaryMode:"静止モード",
+  newStudent:"新入生",
+  returningStudent:"帰国する学生",
+  whatIsYourName:"お名前は何ですか？",
+  typeYourNameHere:"名前を入力してください",
+  previous:"前",
+  congratulations:"おめでとう！あなたは今日のすべての目標を見直しました。学習を続けるためにいくつかの新しい目標を試してください！",
+  noProfilesExist:"プロファイルは存在しません。戻ると新しいプロファイルを作成します。",
+  information:"??? 情報",
+  gamePlayInfo:"声を聞く。それは、音の音か文字の名前を言うでしょう。マウスまたは指で画面上の音または文字をクリックします。楽しむ！",
+  videoButton:"??? ビデオ"
+}
+
 let languageSelectorButtonList = [
   {label: "普通话", x:25,y:210, language: mandarinButtonAndTextStrings, onClick: goToMainMenu},
   {label: "English", x:250,y:210, language: englishButtonAndTextStrings, onClick: goToMainMenu},
   {label: "हिंदुस्तानी", x:475,y:210, language: hindustaniButtonAndTextStrings, onClick: goToMainMenu},
   {label: "Español", x:700,y:210, language: spanishButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "عربى", x:925,y:210, language: arabicButtonAndTextStrings, onClick: goToMainMenu}
+  {label: "عربى", x:925,y:210, language: arabicButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Kiswahili", x:25,y:310, language: swahiliButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Français", x:250,y:310, language: frenchButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Português", x:475,y:310, language: portugueseButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "русский", x:700,y:310, language: russianButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "日本語", x:925,y:310, language: japaneseButtonAndTextStrings, onClick: goToMainMenu}
 ];
 
 if (localStorage.getItem("language") === null) {
