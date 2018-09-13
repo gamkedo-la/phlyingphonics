@@ -144,6 +144,10 @@ window.onload = () => {
     colorRect(0, canvas.height - 50, 100, 50, "blue");
     colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
 
+    //exit game button
+    colorRect(canvas.width - 100,0, 100,50, "blue");
+    colorText(language.exit, canvas.width - 90, 30, "white", "18x papyrus");
+
     drawSwattedFlies();
     drawFlies();
     drawFlySwatter();

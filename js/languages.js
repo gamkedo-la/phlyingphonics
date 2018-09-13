@@ -13,7 +13,8 @@ let mandarinButtonAndTextStrings = {
   noProfilesExist:"没有配置文件，请返回并创建新的配置文件",
   information:"??? 信息",
   gamePlayInfo:"听听声音。它会说一个声音或一个字母名称。用鼠标或手指点击屏幕上的语音或字母。玩的开心!",
-  videoButton:"??? 视频"
+  videoButton:"??? 视频",
+  exit:"出口"
 }
 
 let englishButtonAndTextStrings = {
@@ -29,7 +30,8 @@ let englishButtonAndTextStrings = {
   noProfilesExist:"No profiles exist, go back and create a new profile",
   information:"??? Info",
   gamePlayInfo:"Listen to the voice. It will say either a phonic sound or a letter name. Click the phonic or letter on the screen with either the mouse or your finger. Have fun!",
-  videoButton:"??? Video"
+  videoButton:"??? Video",
+  exit:"Exit"
 }
 
 let hindustaniButtonAndTextStrings = {
@@ -45,7 +47,8 @@ let hindustaniButtonAndTextStrings = {
   noProfilesExist:"कोई प्रोफाइल मौजूद नहीं है, वापस जाएं और एक नई प्रोफ़ाइल बनाएं",
   information:"??? जानकारी",
   gamePlayInfo:"आवाज सुनो। यह या तो एक ध्वन्यात्मक ध्वनि या एक अक्षर नाम कहेंगे। माउस या अपनी अंगुली के साथ स्क्रीन पर ध्वन्यात्मक या अक्षर पर क्लिक करें। मज़े करो!",
-  videoButton:"??? वीडियो"
+  videoButton:"??? वीडियो",
+  exit:"बाहर जाएं"
 }
 
 let spanishButtonAndTextStrings = {
@@ -61,7 +64,8 @@ let spanishButtonAndTextStrings = {
   noProfilesExist:"No existen perfiles, retrocede y crea un nuevo perfil",
   information:"??? Info",
   gamePlayInfo:"Escucha la voz. Dirá un sonido fónico o un nombre de letra. Haga clic en la fónica o letra en la pantalla con el mouse o con el dedo. ¡Que te diviertas!",
-  videoButton:"??? Vídeo"
+  videoButton:"??? Vídeo",
+  exit:"Salida"
 }
 
 let arabicButtonAndTextStrings = {
@@ -77,7 +81,8 @@ let arabicButtonAndTextStrings = {
   noProfilesExist:"لا توجد ملفات تعريف ، والعودة وإنشاء ملف تعريف جديد",
   information:"??? معلومات",
   gamePlayInfo:"استمع إلى الصوت. سيقول إما صوت صوتي أو اسم حرف. انقر فوق صوتي أو حرف على الشاشة باستخدام الماوس أو إصبعك. إستمتع!",
-  videoButton:"??? فيديو"
+  videoButton:"??? فيديو",
+  exit:"ىخرج"
 }
 
 let swahiliButtonAndTextStrings = {
@@ -93,7 +98,8 @@ let swahiliButtonAndTextStrings = {
   noProfilesExist:"Hakuna maelezo yaliyopo, kurudi nyuma na uunda wasifu mpya",
   information:"??? Taarifa",
   gamePlayInfo:"Sikiliza sauti. Itasema sauti ya phonic au jina la barua. Bonyeza phonic au barua kwenye skrini na panya au kidole chako. Furahia!",
-  videoButton:"??? Vídeo"
+  videoButton:"??? Vídeo",
+  exit:"Utgång"
 }
 
 let frenchButtonAndTextStrings = {
@@ -109,7 +115,8 @@ let frenchButtonAndTextStrings = {
   noProfilesExist:"Aucun profil n'existe, revenir en arrière et créer un nouveau profil",
   information:"??? Info",
   gamePlayInfo:"Écoutez la voix On dira un son phonique ou un nom de lettre. Cliquez sur le phonique ou la lettre sur l'écran avec la souris ou le doigt. S'amuser!",
-  videoButton:"??? Vidéo"
+  videoButton:"??? Vidéo",
+  exit:"Sortie"
 }
 
 let portugueseButtonAndTextStrings = {
@@ -125,7 +132,8 @@ let portugueseButtonAndTextStrings = {
   noProfilesExist:"Não existem perfis, volte e crie um novo perfil",
   information:"??? Em formação",
   gamePlayInfo:"Ouça a voz. Ele dirá um som fônico ou um nome de letra. Clique no fônico ou na letra na tela com o mouse ou com o dedo. Diverta-se!",
-  videoButton:"??? Vídeo"
+  videoButton:"??? Vídeo",
+  exit:"Saída"
 }
 
 let russianButtonAndTextStrings = {
@@ -141,7 +149,8 @@ let russianButtonAndTextStrings = {
   noProfilesExist:"Нет профилей, вернуться и создать новый профиль",
   information:"??? Информация",
   gamePlayInfo:"Слушайте голос. Он скажет либо звуковой звук, либо имя письма. Нажмите на букву или букву на экране с помощью мыши или пальца. Повеселись!",
-  videoButton:"??? видео"
+  videoButton:"??? видео",
+  exit:"Выход"
 }
 
 let japaneseButtonAndTextStrings = {
@@ -157,7 +166,8 @@ let japaneseButtonAndTextStrings = {
   noProfilesExist:"プロファイルは存在しません。戻ると新しいプロファイルを作成します。",
   information:"??? 情報",
   gamePlayInfo:"声を聞く。それは、音の音か文字の名前を言うでしょう。マウスまたは指で画面上の音または文字をクリックします。楽しむ！",
-  videoButton:"??? ビデオ"
+  videoButton:"??? ビデオ",
+  exit:"出口"
 }
 
 let languageSelectorButtonList = [

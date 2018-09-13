@@ -75,10 +75,17 @@ function handleCanvasClick(evt) {
     missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
     missedSound.play();
   }
+  //info button click
   if (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > canvas.height - 50 && evt.pageY < canvas.height) {
     alert(language.gamePlayInfo);
+  }//exit button click
+  if (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) {
+    hackulateTargetsToBePracticed();
+    goToMainMenu();
+    stopTargetAudio();
+    arrayOfSwattedFlies = [];
   }
-  //canvas.width - 100,canvas.height - 50, 100,50
+  //canvas.width - 100,0
 }// end of gameplay click info
 }//end of canvas click
 
@@ -147,6 +154,7 @@ function decreaseCurrentPracticeDateInDays() {//by only a tenth of a day to give
 }
 
 function hackulateTargetsToBePracticed() {
+  console.log("arrayOfTargetResults", arrayOfTargetResults);
   for (let i = 0; i<arrayOfTargetResults.length;i++) {
     if ( arrayOfTargetResults[i].hasBeenPracticed && shouldPracticeTargetToday(arrayOfTargetResults[i]) ) {
       console.log(arrayOfTargetResults[i].targetString + "should be practiced");
