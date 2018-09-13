@@ -513,8 +513,8 @@ fvbpcxButton.onclick = function() {
 }
 
 let fvbpcxdButton = document.getElementById("fvbpcxd");
-fvbpcxButton.index = 17;
-fvbpcxButton.onclick = function() {
+fvbpcxdButton.index = 17;
+fvbpcxdButton.onclick = function() {
   currentTrack = consonantTrackLevels;
   trackIndex = 17;
   temporarySubset = consonantTrackLevels[17];
