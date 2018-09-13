@@ -75,6 +75,10 @@ function handleCanvasClick(evt) {
     missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
     missedSound.play();
   }
+  if (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > canvas.height - 50 && evt.pageY < canvas.height) {
+    alert(language.gamePlayInfo);
+  }
+  //canvas.width - 100,canvas.height - 50, 100,50
 }// end of gameplay click info
 }//end of canvas click
 
