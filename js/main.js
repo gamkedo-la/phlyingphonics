@@ -136,8 +136,13 @@ window.onload = () => {
     // drawn a bit bigger than the screen to avoid white edges during screenshakes
     canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
 
+    //text info button
     colorRect(canvas.width - 100,canvas.height - 50, 100,50, "blue");
     colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+
+    //video info button
+    colorRect(0, canvas.height - 50, 100, 50, "blue");
+    colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
 
     drawSwattedFlies();
     drawFlies();

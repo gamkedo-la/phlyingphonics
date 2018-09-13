@@ -12,7 +12,8 @@ let mandarinButtonAndTextStrings = {
   congratulations:"恭喜！您已经查看了今天的所有目标。尝试一些新目标继续学习！",
   noProfilesExist:"没有配置文件，请返回并创建新的配置文件",
   information:"??? 信息",
-  gamePlayInfo:"听听声音。它会说一个声音或一个字母名称。用鼠标或手指点击屏幕上的语音或字母。玩的开心!"
+  gamePlayInfo:"听听声音。它会说一个声音或一个字母名称。用鼠标或手指点击屏幕上的语音或字母。玩的开心!",
+  videoButton:"??? 视频"
 }
 
 let englishButtonAndTextStrings = {
@@ -27,7 +28,8 @@ let englishButtonAndTextStrings = {
   congratulations:"Congratulations! You have reviewed all of today's targets. Try some new targets to keep learning!",
   noProfilesExist:"No profiles exist, go back and create a new profile",
   information:"??? Info",
-  gamePlayInfo:"Listen to the voice. It will say either a phonic sound or a letter name. Click the phonic or letter on the screen with either the mouse or your finger. Have fun!"
+  gamePlayInfo:"Listen to the voice. It will say either a phonic sound or a letter name. Click the phonic or letter on the screen with either the mouse or your finger. Have fun!",
+  videoButton:"??? Video"
 }
 
 let hindustaniButtonAndTextStrings = {
@@ -42,7 +44,8 @@ let hindustaniButtonAndTextStrings = {
   congratulations:"बधाई हो! आपने आज के सभी लक्ष्यों की समीक्षा की है। सीखने के लिए कुछ नए लक्ष्य आज़माएं!ो",
   noProfilesExist:"कोई प्रोफाइल मौजूद नहीं है, वापस जाएं और एक नई प्रोफ़ाइल बनाएं",
   information:"??? जानकारी",
-  gamePlayInfo:"आवाज सुनो। यह या तो एक ध्वन्यात्मक ध्वनि या एक अक्षर नाम कहेंगे। माउस या अपनी अंगुली के साथ स्क्रीन पर ध्वन्यात्मक या अक्षर पर क्लिक करें। मज़े करो!"
+  gamePlayInfo:"आवाज सुनो। यह या तो एक ध्वन्यात्मक ध्वनि या एक अक्षर नाम कहेंगे। माउस या अपनी अंगुली के साथ स्क्रीन पर ध्वन्यात्मक या अक्षर पर क्लिक करें। मज़े करो!",
+  videoButton:"??? वीडियो"
 }
 
 let spanishButtonAndTextStrings = {
@@ -57,7 +60,8 @@ let spanishButtonAndTextStrings = {
   congratulations:"¡Felicidades! Usted ha revisado todos los objetivos de hoy. ¡Prueba algunos objetivos nuevos para seguir aprendiendo!",
   noProfilesExist:"No existen perfiles, retrocede y crea un nuevo perfil",
   information:"??? Info",
-  gamePlayInfo:"Escucha la voz. Dirá un sonido fónico o un nombre de letra. Haga clic en la fónica o letra en la pantalla con el mouse o con el dedo. ¡Que te diviertas!"
+  gamePlayInfo:"Escucha la voz. Dirá un sonido fónico o un nombre de letra. Haga clic en la fónica o letra en la pantalla con el mouse o con el dedo. ¡Que te diviertas!",
+  videoButton:"??? Vídeo"
 }
 
 let arabicButtonAndTextStrings = {
@@ -72,7 +76,8 @@ let arabicButtonAndTextStrings = {
   congratulations:"تهانينا! لقد قمت بمراجعة جميع أهداف اليوم. جرب بعض الأهداف الجديدة لمواصلة التعلم!",
   noProfilesExist:"لا توجد ملفات تعريف ، والعودة وإنشاء ملف تعريف جديد",
   information:"??? معلومات",
-  gamePlayInfo:"استمع إلى الصوت. سيقول إما صوت صوتي أو اسم حرف. انقر فوق صوتي أو حرف على الشاشة باستخدام الماوس أو إصبعك. إستمتع!"
+  gamePlayInfo:"استمع إلى الصوت. سيقول إما صوت صوتي أو اسم حرف. انقر فوق صوتي أو حرف على الشاشة باستخدام الماوس أو إصبعك. إستمتع!",
+  videoButton:"??? فيديو"
 }
 
 let languageSelectorButtonList = [
