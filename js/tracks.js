@@ -184,7 +184,7 @@ let mixedSizeLetterNameLevels = [
   ["smallo","bigO"],
   ["smalla","bigO","smallo"],
   ["smalla","bigA"],
-  ["smalla","bigA","smallo","O"],
+  ["smalla","bigA","smallo","bigO"],
   ["smallc","smallo"],
   ["smalla","bigA","smallo","bigO","smallc"],
   ["smallc","bigC"],
