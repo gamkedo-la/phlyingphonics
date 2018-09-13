@@ -35,11 +35,7 @@ let initialize = () => {
   initializeArrayOfProfiles();
   initializeExistingProfilesMenuButtonList();
 
-  if (localStorage.getItem("language") === null) {
-    langauge = englishButtonAndTextStrings;
-  } else {
-    language = localStorage.getItem("language");
-  }
+
 
   if (localStorage.getItem("arrayOfTargetsToPractice") === null) {
     fillArrayOfTargetsToPractice();
@@ -59,6 +55,7 @@ let initialize = () => {
 
 let launchGame;
 launchGame = () => {
+  //console.log("mainMenuButtonList", mainMenuButtonList);
   initialize();
   setInterval(gameLoop, 1000/30);
 }
@@ -110,6 +107,7 @@ window.onload = () => {
   //part of game loop, maybe have the splats disappear over with a setTimeout
   //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
+
     if (isMainMenu) {
       drawMainMenu();
       return;

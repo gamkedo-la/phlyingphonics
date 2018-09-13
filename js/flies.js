@@ -413,7 +413,7 @@ let killFly = (i) => {
   correctSound.src = arrayOfCorrectSounds[randomCorrectSoundIndex];
   correctSound.play();
   if (currentTrack === customTrack && trackIndex === customTrack.length - 1 && arrayOfFlies.length === 0) {
-    alert("Congratulations! You have reviewed all of today's targets. Try some new targets to keep learning!");
+    alert(language.congratulations);
     currentTrack = vowelTrackLevels;
     trackIndex = 0;
     temporarySubset = currentTrack[trackIndex];

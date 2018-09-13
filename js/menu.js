@@ -29,7 +29,7 @@ function showExistingProfiles() {
   isProfileMenu = false;
   isShowingExistingProfiles = true;
   if (arrayOfProfiles.length === 0) {
-    alert("No profiles exist, go back and create a new profile");
+    alert(language.noProfilesExist);
   }
 }
 
@@ -38,13 +38,7 @@ function showProfileMenu() {
   isShowingExistingProfiles = false;
 }
 
-let languageSelectorButtonList = [
-  {label: "普通话", x:25,y:210, onClick: goToMainMenu},
-  {label: "English", x:250,y:210, onClick: goToMainMenu},
-  {label: "हिंदुस्तानी", x:475,y:210, onClick: goToMainMenu},
-  {label: "Español", x:700,y:210, onClick: goToMainMenu},
-  {label: "عربى", x:925,y:210, onClick: goToMainMenu}
-]
+//language selector button list is in languages.js as a work around for defining variables
 
 function drawOpeningLanguageSelector() {
   canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
@@ -61,17 +55,22 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
     if (mouseX >= languageSelectorButtonList[i].x && mouseX <= languageSelectorButtonList[i].x + buttonWidth &&
       mouseY >= languageSelectorButtonList[i].y && mouseY <= languageSelectorButtonList[i].y + buttonHeight) {
         languageSelectorButtonList[i].onClick();
+        language = languageSelectorButtonList[i].language;
+        console.log("language", language);
+        mainMenuButtonList[0].label = language.kidMode;
+        mainMenuButtonList[1].label = language.advancedMode;
+        mainMenuButtonList[2].label = language.stationaryMode;
+        profileMenuButtonList[0].label = language.newStudent;
+        profileMenuButtonList[1].label = language.returningStudent;
+        existingProfilesMenuButtonList[0].label = language.previous;
 
+        JSON.stringify(localStorage.setItem("language", language));
     }
   }
 }
 
 
-let mainMenuButtonList = [
-  {label: "kid mode", x:125,y:210, onClick: startKidMode},
-  {label: "advanced mode", x:500,y:210, onClick: startAdvancedMode},
-  {label: "stationary mode", x:310,y:300, onClick: toggleStationaryMode}
-];
+
 
 function drawMainMenu() {
   canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
@@ -143,7 +142,7 @@ function initializeExistingProfilesMenuButtonList() {
 
 function generateNewProfile() {
   let newProfile = {profileName: undefined, targetsToPractice: []};
-  let newProfileName = prompt("What is your name?", "Type your name here");
+  let newProfileName = prompt(language.whatIsYourName, language.typeYourNameHere);
   newProfile.profileName = newProfileName;
   if (newProfileName !== null) {
     arrayOfProfiles.push(newProfile);
