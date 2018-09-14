@@ -66,11 +66,15 @@ initializeArrayOfFlies = (temporarySubset) => {
   } else {
     numberOfFliesAtStartOfLevel = temporarySubset.length;
   }
-  arrayOfFlies = new Array(numberOfFliesAtStartOfLevel);
+
+  console.log("temporarySubset", temporarySubset);
+
   for (let i = 0; i < numberOfFliesAtStartOfLevel; i++) {
-    arrayOfFlies[i] = new flyClass();//this file line 216ish
-    arrayOfFlies[i].index = i;
+    let newFly = new flyClass(i, temporarySubset);
+    arrayOfFlies.push(newFly);
+    console.log("arrayOfFlies", arrayOfFlies);
   }
+
   assignFlaps();//in flies.js
   fillTemporaryArrayOfQuestions();//in adaptivedifficulty.js
   assignTargetAudio();
@@ -227,7 +231,7 @@ let assignFlyImageB = () => {
 
 
 
-function flyClass() {
+function flyClass(i, temporarySubset) {
 
   this.width = 200;
   this.height = 200;
@@ -244,7 +248,7 @@ function flyClass() {
   this.myImage = Images.getImage(randomizeStartingSpriteImage());
   this.stringImage = Images.getImage("stringImage");
   this.myImageB = undefined; // flapping
-  this.rawTargetData = assignRawTargetData();
+  this.rawTargetData = assignRawTargetData(i, temporarySubset);
   this.mySound = Sounds.getSound(this.rawTargetData);
   this.myVisualLetter = assignVisualLetter(this.rawTargetData);//in adaptivedifficulty.js
   this.myLetterToCheck = undefined;

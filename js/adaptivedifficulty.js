@@ -82,12 +82,21 @@ function assignTargetSoundForSprite() {
   return targetSoundForSprite;
 }
 
-function assignRawTargetData() {
-  let rawTargetData = randomTargetWithinSubset();
+function assignRawTargetData(i, temporarySubset) {
+  let rawTargetData;
+
+  if (i < temporarySubset.length) {
+    rawTargetData = temporarySubset[i];
+  } else {
+    rawTargetData = randomTargetWithinSubset();
+  }
+
+  console.log("rawTargetData", rawTargetData);
   return rawTargetData;
 }
 
 function randomTargetWithinSubset () {
+  //console.log("temporarySubset", temporarySubset);
   let randomTargetIndex = getRandomInt(0, temporarySubset.length - 1);
   let target = temporarySubset[randomTargetIndex];
   return target
