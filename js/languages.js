@@ -8,7 +8,7 @@ let mandarinButtonAndTextStrings = {
   returningStudent:"回归学生",
   whatIsYourName:"您叫什么名字？",
   typeYourNameHere:"于此处输入您的姓名",
-  previous:"前页",
+  previous:"返回前页",
   congratulations:"恭喜！您已经查看了今天的所有目标。尝试一些新目标继续学习！",
   noProfilesExist:"无配置文件，请返回前页创建新配置文件。",
   information:"??? 帮助",
