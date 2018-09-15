@@ -158,16 +158,16 @@ let japaneseButtonAndTextStrings = {
   advancedMode:"アドバンストモード",
   stationaryMode:"静止モード",
   newStudent:"新入生",
-  returningStudent:"帰国する学生",
+  returningStudent:"戻る学生",
   whatIsYourName:"お名前は？",
   typeYourNameHere:"名前を入力してください。",
-  previous:"前",
+  previous:"戻る",
   congratulations:"おめでとう！あなたは今日のすべての目標を見直しました。学習を続けるためにいくつかの新しい目標を試してください！",
   noProfilesExist:"プロファイルは存在しません。戻ると新しいプロファイルを作成します。",
   information:"??? 情報",
   gamePlayInfo:"声を聞く。それは、音の音か文字の名前を言うでしょう。マウスまたは指で画面上の音または文字をクリックします。楽しんでください！",
   videoButton:"??? ビデオ",
-  exit:"出口"
+  exit:"出る"
 }
 
 let languageSelectorButtonList = [
