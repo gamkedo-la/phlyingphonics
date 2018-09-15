@@ -6,14 +6,14 @@ let mandarinButtonAndTextStrings = {
   stationaryMode:"固定模式",
   newStudent:"新生",
   returningStudent:"回归学生",
-  whatIsYourName:"你叫什么名字？",
+  whatIsYourName:"您叫什么名字？",
   typeYourNameHere:"于此处输入您的姓名",
-  previous:"以前",
+  previous:"之前",
   congratulations:"恭喜！您已经查看了今天的所有目标。尝试一些新目标继续学习！",
   noProfilesExist:"没有配置文件，请返回并创建新的配置文件",
-  information:"??? 信息",
-  gamePlayInfo:"听听声音。它会说一个声音或一个字母名称。用鼠标或手指点击屏幕上的语音或字母。玩的开心!",
-  videoButton:"??? 视频",
+  information:"信息",
+  gamePlayInfo:"听听声音。它会说一个声音或一个字母名称。用鼠标或手指点击屏幕上的语音或字母。开心地玩!",
+  videoButton:"视频按钮",
   exit:"出口"
 }
 
@@ -164,9 +164,9 @@ let japaneseButtonAndTextStrings = {
   previous:"前",
   congratulations:"おめでとう！あなたは今日のすべての目標を見直しました。学習を続けるためにいくつかの新しい目標を試してください！",
   noProfilesExist:"プロファイルは存在しません。戻ると新しいプロファイルを作成します。",
-  information:"??? 情報",
-  gamePlayInfo:"声を聞く。それは、音の音か文字の名前を言うでしょう。マウスまたは指で画面上の音または文字をクリックします。楽しむ！",
-  videoButton:"??? ビデオ",
+  information:"情報",
+  gamePlayInfo:"声を聞く。それは、音の音か文字の名前を言うでしょう。マウスまたは指で画面上の音または文字をクリックします。楽しんでください！",
+  videoButton:"ビデオのボタン",
   exit:"出口"
 }
 
