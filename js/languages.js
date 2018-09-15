@@ -171,7 +171,7 @@ let japaneseButtonAndTextStrings = {
 }
 
 let languageSelectorButtonList = [
-  {label: "华语", x:25,y:210, language: mandarinButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "简体中文", x:25,y:210, language: mandarinButtonAndTextStrings, onClick: goToMainMenu},
   {label: "English", x:250,y:210, language: englishButtonAndTextStrings, onClick: goToMainMenu},
   {label: "हिंदुस्तानी", x:475,y:210, language: hindustaniButtonAndTextStrings, onClick: goToMainMenu},
   {label: "Español", x:700,y:210, language: spanishButtonAndTextStrings, onClick: goToMainMenu},
