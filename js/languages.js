@@ -10,10 +10,10 @@ let mandarinButtonAndTextStrings = {
   typeYourNameHere:"于此处输入您的姓名",
   previous:"前页",
   congratulations:"恭喜！您已经查看了今天的所有目标。尝试一些新目标继续学习！",
-  noProfilesExist:"没有配置文件，请返回并创建新的配置文件",
-  information:"信息",
+  noProfilesExist:"无配置文件，请返回前页创建新配置文件。",
+  information:"帮助",
   gamePlayInfo:"听听读音。它会说一个声音或一个字母名称。用鼠标或手指点击屏幕上的语音或字母。开心地玩!",
-  videoButton:"视频按钮",
+  videoButton:"视频",
   exit:"离开"
 }
 
