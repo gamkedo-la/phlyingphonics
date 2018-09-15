@@ -153,6 +153,7 @@ let imageFileNames = [
     "images/mobileThree.png",
     "images/stringImage.png",
     "images/gui_button.png",
+    "images/menu_button.png",
 
 ];
 

@@ -5,6 +5,7 @@ let isShowingExistingProfiles = false;
 const buttonWidth = 200;
 const buttonHeight = 40;
 let useStationaryMode;
+const MENU_BUTTON_TXT_OFFSET_Y = 6; // nudge the text inside the buttons down a little
 
 function goToMainMenu() {
   isOpeningLanguageSelector = false;
@@ -44,8 +45,9 @@ function drawOpeningLanguageSelector() {
   canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<languageSelectorButtonList.length; i++) {
-    colorRect(languageSelectorButtonList[i].x,languageSelectorButtonList[i].y, buttonWidth,buttonHeight, "blue");
-    colorText(languageSelectorButtonList[i].label, languageSelectorButtonList[i].x + buttonWidth/2,languageSelectorButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
+    //colorRect(languageSelectorButtonList[i].x,languageSelectorButtonList[i].y, buttonWidth,buttonHeight, "blue");
+    canvasContext.drawImage(Images.getImage("menu_button"), languageSelectorButtonList[i].x, languageSelectorButtonList[i].y);
+    colorText(languageSelectorButtonList[i].label, languageSelectorButtonList[i].x + buttonWidth/2,languageSelectorButtonList[i].y + buttonHeight/2 + MENU_BUTTON_TXT_OFFSET_Y, "white", "18px papyrus");
   }
   canvasContext.textAlign = "left";
 }
@@ -78,11 +80,13 @@ function drawMainMenu() {
   for (let i = 0; i<mainMenuButtonList.length; i++) {
     if (mainMenuButtonList[i].label === "stationary mode") {
       let stationaryButtonColor = useStationaryMode ? "green" : "red";
-      colorRect(mainMenuButtonList[i].x,mainMenuButtonList[i].y, buttonWidth,buttonHeight, stationaryButtonColor);
+      //colorRect(mainMenuButtonList[i].x,mainMenuButtonList[i].y, buttonWidth,buttonHeight, stationaryButtonColor);
+      canvasContext.drawImage(Images.getImage("menu_button"), mainMenuButtonList[i].x,mainMenuButtonList[i].y);
     } else {
-      colorRect(mainMenuButtonList[i].x,mainMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
+      //colorRect(mainMenuButtonList[i].x,mainMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
+      canvasContext.drawImage(Images.getImage("menu_button"), mainMenuButtonList[i].x,mainMenuButtonList[i].y);
     }
-    colorText(mainMenuButtonList[i].label, mainMenuButtonList[i].x + buttonWidth/2,mainMenuButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
+    colorText(mainMenuButtonList[i].label, mainMenuButtonList[i].x + buttonWidth/2,mainMenuButtonList[i].y + buttonHeight/2 + MENU_BUTTON_TXT_OFFSET_Y, "white", "18px papyrus");
   }
   canvasContext.textAlign = "left";
 }
@@ -107,8 +111,9 @@ function drawProfileMenu() {
   canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<profileMenuButtonList.length; i++) {
-    colorRect(profileMenuButtonList[i].x,profileMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
-    colorText(profileMenuButtonList[i].label, profileMenuButtonList[i].x + buttonWidth/2,profileMenuButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
+    //colorRect(profileMenuButtonList[i].x,profileMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
+    canvasContext.drawImage(Images.getImage("menu_button"), profileMenuButtonList[i].x,profileMenuButtonList[i].y);
+    colorText(profileMenuButtonList[i].label, profileMenuButtonList[i].x + buttonWidth/2,profileMenuButtonList[i].y + buttonHeight/2 + MENU_BUTTON_TXT_OFFSET_Y, "white", "18px papyrus");
   }
   canvasContext.textAlign = "left";
 }
@@ -164,8 +169,9 @@ function drawExistingProfilesMenu() {
   canvasContext.drawImage(Images.getImage("openingMenuBackground"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
-    colorRect(existingProfilesMenuButtonList[i].x,existingProfilesMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
-    colorText(existingProfilesMenuButtonList[i].label, existingProfilesMenuButtonList[i].x + buttonWidth/2,existingProfilesMenuButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
+    //colorRect(existingProfilesMenuButtonList[i].x,existingProfilesMenuButtonList[i].y, buttonWidth,buttonHeight, "blue");
+    canvasContext.drawImage(Images.getImage("menu_button"), existingProfilesMenuButtonList[i].x,existingProfilesMenuButtonList[i].y);
+    colorText(existingProfilesMenuButtonList[i].label, existingProfilesMenuButtonList[i].x + buttonWidth/2 + MENU_BUTTON_TXT_OFFSET_Y, existingProfilesMenuButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
   }
   canvasContext.textAlign = "left";
 }
