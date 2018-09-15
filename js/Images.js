@@ -151,7 +151,8 @@ let imageFileNames = [
     "images/mobileOne.png",
     "images/mobileTwo.png",
     "images/mobileThree.png",
-    "images/stringImage.png"
+    "images/stringImage.png",
+    "images/gui_button.png",
 
 ];
 

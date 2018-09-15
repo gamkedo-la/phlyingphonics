@@ -137,15 +137,18 @@ window.onload = () => {
     canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
 
     //text info button
-    colorRect(canvas.width - 100,canvas.height - 50, 100,50, "blue");
+    //colorRect(canvas.width - 100,canvas.height - 50, 100,50, "blue");
+    canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, canvas.height - 50);
     colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
 
     //video info button
-    colorRect(0, canvas.height - 50, 100, 50, "blue");
+    //colorRect(0, canvas.height - 50, 100, 50, "blue");
+    canvasContext.drawImage(Images.getImage("gui_button"), 0, canvas.height - 50);
     colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
 
     //exit game button
-    colorRect(canvas.width - 100,0, 100,50, "blue");
+    //colorRect(canvas.width - 100,0, 100,50, "blue");
+    canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, 0);
     colorText(language.exit, canvas.width - 90, 30, "white", "18x papyrus");
 
     drawSwattedFlies();
