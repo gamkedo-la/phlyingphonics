@@ -11,9 +11,9 @@ let mandarinButtonAndTextStrings = {
   previous:"前页",
   congratulations:"恭喜！您已经查看了今天的所有目标。尝试一些新目标继续学习！",
   noProfilesExist:"无配置文件，请返回前页创建新配置文件。",
-  information:"帮助",
+  information:"??? 帮助",
   gamePlayInfo:"听听读音。它会说一个声音或一个字母名称。用鼠标或手指点击屏幕上的语音或字母。开心地玩!",
-  videoButton:"视频",
+  videoButton:"??? 视频",
   exit:"离开"
 }
 
@@ -164,9 +164,9 @@ let japaneseButtonAndTextStrings = {
   previous:"前",
   congratulations:"おめでとう！あなたは今日のすべての目標を見直しました。学習を続けるためにいくつかの新しい目標を試してください！",
   noProfilesExist:"プロファイルは存在しません。戻ると新しいプロファイルを作成します。",
-  information:"情報",
+  information:"??? 情報",
   gamePlayInfo:"声を聞く。それは、音の音か文字の名前を言うでしょう。マウスまたは指で画面上の音または文字をクリックします。楽しんでください！",
-  videoButton:"ビデオのボタン",
+  videoButton:"??? ビデオ",
   exit:"出口"
 }
 
