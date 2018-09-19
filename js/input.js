@@ -33,7 +33,7 @@ let mousePressed = false;
 let fingerPressed = false;
 
 function handleCanvasClick(evt, fingerX,fingerY) {
-
+  console.log("evt",evt);
   if (isMainMenu) {
     handleMainMenuInput(evt.pageX,evt.pageY);
     return;
@@ -52,10 +52,13 @@ function handleCanvasClick(evt, fingerX,fingerY) {
   screenShake(10);
 
   let hits = 0;
+  console.log("fingerX/Y", fingerX,fingerY);
 
   for (let i = 0; i<arrayOfFlies.length; i++) {
-    if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
-        evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {//checks for correct swat based on coordinates and target sound
+    if ( (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
+        evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) ||
+        (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 && evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
+            evt.changedTouches[0].pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) ) {//checks for correct swat based on coordinates and target sound
       increaseIndividualTargetAccuracy();
       correctAnswers++;
       hits++;
