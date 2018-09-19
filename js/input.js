@@ -29,9 +29,11 @@ function adjustPracticeFrequencyAtEndOfLevel(temporarySubset) {
 }
 
 let clickCount = 0;
+let mousePressed = false;
+let fingerPressed = false;
 
-function handleCanvasClick(evt) {
-
+function handleCanvasClick(evt, fingerX,fingerY) {
+ 
   if (isMainMenu) {
     handleMainMenuInput(evt.pageX,evt.pageY);
     return;

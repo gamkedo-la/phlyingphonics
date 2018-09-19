@@ -15,6 +15,10 @@ const USE_SCREENSHAKE = true;
 let mouseX = 0;
 let mouseY = 0;
 
+//for touch input
+let fingerX = 0;
+let fingerY = 0;
+
 //loop declarations
 let updateEverything;
 let drawEverything;
@@ -49,7 +53,7 @@ let initialize = () => {
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
   updateIndividualTargetsPreviousPracticeSessionNumbers();
   updateIndividualTargetsPreviousPracticeDate();
-
+  console.log("languageSelectorButtonList", languageSelectorButtonList);
 
 }
 
@@ -77,6 +81,31 @@ window.onload = () => {
   }
 
   canvas.addEventListener("click", handleCanvasClick); //defined in Input.js, this function splats the flies
+  canvas.addEventListener("mousedown", function(evt) {
+    mousePressed = true;
+  });
+  canvas.addEventListener("mouseup", function(evt) {
+    mousePressed = false;
+  });
+  canvas.addEventListener("touchstart", function(evt) {
+    evt.preventDefault();
+    fingerPressed = true;
+    fingerX = evt.touches[0].pageX;
+    fingerY = evt.touches[0].pageY;
+
+    //console.log("buttonCoordinates", languageSelectorButtonList[0].x, languageSelectorButtonList[0].y, buttonWidth, buttonHeight);
+  console.log("fingerX/Y", fingerX,fingerY);
+    console.log("fingerPressed");
+  });
+  canvas.addEventListener("touchend", handleCanvasClick);// {
+
+    //console.log("evt", evt);
+    //console.log("fingerX/Y", fingerX,fingerY);
+  //  console.log("buttonCoordinates", languageSelectorButtonList[0].x, languageSelectorButtonList[0].y, buttonWidth, buttonHeight);
+  //  console.log("mouseX/Y", mouseX,mouseY);
+    //fingerPressed = false;
+  //  console.log("fingerUp");
+//});
 
   //part of gameLoop
   updateEverything = () => {
