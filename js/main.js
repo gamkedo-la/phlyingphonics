@@ -92,7 +92,7 @@ window.onload = () => {
     fingerPressed = true;
     fingerX = evt.touches[0].pageX;
     fingerY = evt.touches[0].pageY;
-    console.log("fingerX/Y", fingerX, fingerY);
+  
   });
   canvas.addEventListener("touchend", handleCanvasClick);// {
 
