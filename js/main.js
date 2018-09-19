@@ -167,18 +167,40 @@ window.onload = () => {
 
     //text info button
     //colorRect(canvas.width - 100,canvas.height - 50, 100,50, "blue");
+    if ( (mousePressed || fingerPressed) && ( (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > canvas.height - 50 && mouseY < canvas.height) ||
+         (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > canvas.height - 50 && fingerY < canvas.height) ) ) {
+           console.log("mouseX/Y", mouseX, mouseY);
+      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+      colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+    } else {
     canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, canvas.height - 50);
     colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+    }
 
     //video info button
     //colorRect(0, canvas.height - 50, 100, 50, "blue");
-    canvasContext.drawImage(Images.getImage("gui_button"), 0, canvas.height - 50);
-    colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
+    if ( (mousePressed || fingerPressed) && (mouseX > 0 && mouseX < 100 && mouseY > canvas.height - 50 && mouseY < canvas.height) ||
+          (fingerX > 0 && fingerX < 100 && fingerY > canvas.height - 50 && fingerY < canvas.height) ) {
+      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+      colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
+    } else {
+      canvasContext.drawImage(Images.getImage("gui_button"), 0, canvas.height - 50);
+      colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
+    }
 
     //exit game button
     //colorRect(canvas.width - 100,0, 100,50, "blue");
-    canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, 0);
-    colorText(language.exit, canvas.width - 90, 30, "white", "18x papyrus");
+    if ( (mousePressed || fingerPressed) && (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > 0 && mouseY < 50) ||
+          (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > 0 && fingerY < 50) ) {
+            console.log("mouseX/Y", mouseX, mouseY);
+
+            canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+            colorText(language.exit, canvas.width - 90, 30, "white", "18x papyrus");
+          }
+     else {
+      canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, 0);
+      colorText(language.exit, canvas.width - 90, 30, "white", "18x papyrus");
+    }
 
     drawSwattedFlies();
     drawFlies();

@@ -33,7 +33,7 @@ let mousePressed = false;
 let fingerPressed = false;
 
 function handleCanvasClick(evt, fingerX,fingerY) {
- 
+
   if (isMainMenu) {
     handleMainMenuInput(evt.pageX,evt.pageY);
     return;
@@ -78,10 +78,16 @@ function handleCanvasClick(evt, fingerX,fingerY) {
     missedSound.play();
   }
   //info button click
-  if (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > canvas.height - 50 && evt.pageY < canvas.height) {
+  if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > canvas.height - 50 && evt.pageY < canvas.height) ) {
+    canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+    colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+    fanflap.play();
     alert(language.gamePlayInfo);
   }//exit button click
-  if (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) {
+  if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
+    canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+    colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+    fanflap.play();
     hackulateTargetsToBePracticed();
     goToMainMenu();
     stopTargetAudio();
