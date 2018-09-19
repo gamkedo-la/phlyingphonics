@@ -92,20 +92,10 @@ window.onload = () => {
     fingerPressed = true;
     fingerX = evt.touches[0].pageX;
     fingerY = evt.touches[0].pageY;
-
-    //console.log("buttonCoordinates", languageSelectorButtonList[0].x, languageSelectorButtonList[0].y, buttonWidth, buttonHeight);
-  console.log("fingerX/Y", fingerX,fingerY);
-    console.log("fingerPressed");
+    console.log("fingerX/Y", fingerX, fingerY);
   });
   canvas.addEventListener("touchend", handleCanvasClick);// {
 
-    //console.log("evt", evt);
-    //console.log("fingerX/Y", fingerX,fingerY);
-  //  console.log("buttonCoordinates", languageSelectorButtonList[0].x, languageSelectorButtonList[0].y, buttonWidth, buttonHeight);
-  //  console.log("mouseX/Y", mouseX,mouseY);
-    //fingerPressed = false;
-  //  console.log("fingerUp");
-//});
 
   //part of gameLoop
   updateEverything = () => {
@@ -179,8 +169,8 @@ window.onload = () => {
 
     //video info button
     //colorRect(0, canvas.height - 50, 100, 50, "blue");
-    if ( (mousePressed || fingerPressed) && (mouseX > 0 && mouseX < 100 && mouseY > canvas.height - 50 && mouseY < canvas.height) ||
-          (fingerX > 0 && fingerX < 100 && fingerY > canvas.height - 50 && fingerY < canvas.height) ) {
+    if ( (mousePressed || fingerPressed) && ( (mouseX > 0 && mouseX < 100 && mouseY > canvas.height - 50 && mouseY < canvas.height) ||
+          (fingerX > 0 && fingerX < 100 && fingerY > canvas.height - 50 && fingerY < canvas.height) ) ) {
       canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
       colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
     } else {
@@ -190,8 +180,8 @@ window.onload = () => {
 
     //exit game button
     //colorRect(canvas.width - 100,0, 100,50, "blue");
-    if ( (mousePressed || fingerPressed) && (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > 0 && mouseY < 50) ||
-          (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > 0 && fingerY < 50) ) {
+    if ( (mousePressed || fingerPressed) && ( (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > 0 && mouseY < 50) ||
+          (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > 0 && fingerY < 50) ) ) {
             console.log("mouseX/Y", mouseX, mouseY);
 
             canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);

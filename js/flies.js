@@ -67,12 +67,10 @@ initializeArrayOfFlies = (temporarySubset) => {
     numberOfFliesAtStartOfLevel = temporarySubset.length;
   }
 
-  console.log("temporarySubset", temporarySubset);
 
   for (let i = 0; i < numberOfFliesAtStartOfLevel; i++) {
     let newFly = new flyClass(i, temporarySubset);
     arrayOfFlies.push(newFly);
-    console.log("arrayOfFlies", arrayOfFlies);
   }
 
   assignFlaps();//in flies.js

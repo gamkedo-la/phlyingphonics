@@ -33,7 +33,7 @@ let mousePressed = false;
 let fingerPressed = false;
 
 function handleCanvasClick(evt, fingerX,fingerY) {
-  console.log("evt",evt);
+
   if (isMainMenu) {
     handleMainMenuInput(evt.pageX,evt.pageY);
     return;
@@ -52,50 +52,90 @@ function handleCanvasClick(evt, fingerX,fingerY) {
   screenShake(10);
 
   let hits = 0;
-  console.log("fingerX/Y", fingerX,fingerY);
 
-  for (let i = 0; i<arrayOfFlies.length; i++) {
-    if ( (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
-        evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) ||
-        (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 && evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
-            evt.changedTouches[0].pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) ) {//checks for correct swat based on coordinates and target sound
-      increaseIndividualTargetAccuracy();
-      correctAnswers++;
-      hits++;
-      calculateOverallAccuracy();
-      killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
-      temporaryArrayOfQuestions.splice(0,1);
-      checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
-      assignTargetAudio();//in targets.js
-      assignTargetFlies(i);//in targets.js
-      playTargetAudio();//in targets.js
-    }/*end of correct answers*/ else {
-      calculateOverallAccuracy();
-    }//end of incorrect answers
-  }//end of looping through flies
-  if (hits === 0) {
-    decreaseIndividualTargetAccuracy();
-    let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
-    let missedSound = document.getElementById("missedSound");
-    missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
-    missedSound.play();
-  }
-  //info button click
-  if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > canvas.height - 50 && evt.pageY < canvas.height) ) {
-    canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
-    colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-    fanflap.play();
-    alert(language.gamePlayInfo);
-  }//exit button click
-  if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
-    canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
-    colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-    fanflap.play();
-    hackulateTargetsToBePracticed();
-    goToMainMenu();
-    stopTargetAudio();
-    arrayOfSwattedFlies = [];
-  }
+  if (evt.changedTouches === undefined) {
+    for (let i = 0; i<arrayOfFlies.length; i++) {
+      if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
+          evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {
+        increaseIndividualTargetAccuracy();
+        correctAnswers++;
+        hits++;
+        calculateOverallAccuracy();
+        killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
+        temporaryArrayOfQuestions.splice(0,1);
+        checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
+        assignTargetAudio();//in targets.js
+        assignTargetFlies(i);//in targets.js
+        playTargetAudio();//in targets.js
+      }/*end of correct answers*/ else {
+        calculateOverallAccuracy();
+      }//end of incorrect answers
+    }//end of looping through flies
+    if (hits === 0) {
+      decreaseIndividualTargetAccuracy();
+      let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
+      let missedSound = document.getElementById("missedSound");
+      missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
+      missedSound.play();
+    }
+    //info button click
+    if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > canvas.height - 50 && evt.pageY < canvas.height) ) {
+      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+      colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+      fanflap.play();
+      alert(language.gamePlayInfo);
+    }//exit button click
+    if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
+      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+      colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+      fanflap.play();
+      hackulateTargetsToBePracticed();
+      goToMainMenu();
+      stopTargetAudio();
+      arrayOfSwattedFlies = [];
+    }
+  } else {
+      for (let i = 0; i<arrayOfFlies.length; i++) {
+          if (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 && evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
+              evt.changedTouches[0].pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {//checks for correct swat based on coordinates and target sound
+          increaseIndividualTargetAccuracy();
+          correctAnswers++;
+          hits++;
+          calculateOverallAccuracy();
+          killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
+          temporaryArrayOfQuestions.splice(0,1);
+          checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
+          assignTargetAudio();//in targets.js
+          assignTargetFlies(i);//in targets.js
+          playTargetAudio();//in targets.js
+        }/*end of correct answers*/ else {
+          calculateOverallAccuracy();
+        }//end of incorrect answers
+      }//end of looping through flies
+      if (hits === 0) {
+        decreaseIndividualTargetAccuracy();
+        let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
+        let missedSound = document.getElementById("missedSound");
+        missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
+        missedSound.play();
+      }
+      //info button click
+      if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > canvas.height - 50 && evt.pageY < canvas.height) ) {
+        canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+        colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+        fanflap.play();
+        alert(language.gamePlayInfo);
+      }//exit button click
+      if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
+        canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
+        colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
+        fanflap.play();
+        hackulateTargetsToBePracticed();
+        goToMainMenu();
+        stopTargetAudio();
+        arrayOfSwattedFlies = [];
+      }
+    }//end of else which checks for touch event
   //canvas.width - 100,0
 }// end of gameplay click info
 }//end of canvas click

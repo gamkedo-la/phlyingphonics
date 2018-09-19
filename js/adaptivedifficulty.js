@@ -91,7 +91,6 @@ function assignRawTargetData(i, temporarySubset) {
     rawTargetData = randomTargetWithinSubset();
   }
 
-  console.log("rawTargetData", rawTargetData);
   return rawTargetData;
 }
 
