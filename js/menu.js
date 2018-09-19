@@ -72,6 +72,7 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
         languageSelectorButtonList[i].onClick();
         fingerX = 0;
         fingerY = 0;
+        fanflap.play();
         language = languageSelectorButtonList[i].language;
         //console.log("language", language);
         mainMenuButtonList[0].label = language.kidMode;
@@ -125,6 +126,7 @@ function handleMainMenuInput(mouseX,mouseY) {
         mainMenuButtonList[i].onClick();
         fingerX = 0;
         fingerY = 0;
+        fanflap.play();
         if (mainMenuButtonList[i].label !== "stationary mode") {
         }
       }
@@ -162,6 +164,7 @@ function handleProfileMenuInput(mouseX,mouseY) {
       (fingerX >= profileMenuButtonList[i].x && fingerX <= profileMenuButtonList[i].x + buttonWidth &&
         fingerY >= profileMenuButtonList[i].y && fingerY <= profileMenuButtonList[i].y + buttonHeight) ) {
         profileMenuButtonList[i].onClick();
+        fanflap.play();
         fingerX = 0;
         fingerY = 0;
     }
@@ -233,6 +236,7 @@ function handleExistingProfileMenuInput() {
         fingerY >= existingProfilesMenuButtonList[i].y && fingerY <= existingProfilesMenuButtonList[i].y + buttonHeight) ) {
         buttonLabel = existingProfilesMenuButtonList[i].label;
         existingProfilesMenuButtonList[i].onClick(buttonLabel);
+        fanflap.play();
         fingerX = 0;
         fingerY = 0;
     }

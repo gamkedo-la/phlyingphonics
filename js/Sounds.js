@@ -89,3 +89,5 @@ missedSound.volume = 0.55;
 let arrayOfCorrectSounds = ["audio/VOX_Sofia_GoodJob01.mp3","audio/VOX_Sofia_GoodJob02.mp3","audio/VOX_Sofia_GreatWork.mp3","audio/VOX_Sofia_Hurray.mp3",
 							"audio/VOX_Sofia_KeepItUp.mp3","audio/VOX_Sofia_Yay.mp3","audio/splatsound.mp3"];
 correctSound.volume = 0.55;
+
+let fanflap = document.getElementById("fanflap");
