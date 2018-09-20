@@ -70,6 +70,7 @@ function Images() {
 let imageFileNames = [
 
     "images/openingMenuBackground.jpg",
+    "images/openingmenubackground2.png",
     "images/table.png",
     "images/fly.png",
     "images/butterflies/blackNorange.png",
@@ -155,7 +156,15 @@ let imageFileNames = [
     "images/gui_button.png",
     "images/gui_button_down.png",
     "images/menu_button.png",
-    "images/menu_button_down.png"
+    "images/menu_button_down.png",
+    "images/gui_button_purple.png",
+    "images/gui_button_purple_down.png",
+    "images/menu_button_purple.png",
+    "images/menu_button_purple_down.png",
+    "images/gui_button_play.png",
+    "images/gui_button_play_down.png",
+    "images/gui_button_settings.png",
+    "images/gui_button_settings_down.png"
 
 ];
 

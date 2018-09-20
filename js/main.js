@@ -92,7 +92,7 @@ window.onload = () => {
     fingerPressed = true;
     fingerX = evt.touches[0].pageX;
     fingerY = evt.touches[0].pageY;
-  
+
   });
   canvas.addEventListener("touchend", handleCanvasClick);// {
 
@@ -126,7 +126,8 @@ window.onload = () => {
   //part of game loop, maybe have the splats disappear over with a setTimeout
   //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
-
+    console.log("mouseX/Y", mouseX,mouseY);
+    
     if (isMainMenu) {
       drawMainMenu();
       return;
