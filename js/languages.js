@@ -170,6 +170,23 @@ let japaneseButtonAndTextStrings = {
   exit:"出る"
 }
 
+let bahasaButtonAndTextStrings = {
+  kidMode:"Mode kanak-kanak",
+  advancedMode:"Mode lanjutan",
+  stationaryMode:"Mode tenang",
+  newStudent:"Murid baru",
+  returningStudent:"Murid kembali",
+  whatIsYourName:"Siapakah nama anda?",
+  typeYourNameHere:"Sila taipkan nama anda.",
+  previous:"Dahulu",
+  congratulations:"Taniah! Anda telah belajar kesemuanya hari ini. Cubalah sasaran baru untuk terus belajar!",
+  noProfilesExist:"Profil tidak wujud. Sila kembali dan membuat profil baru.",
+  information:"??? informasi",
+  gamePlayInfo:"Sila mendengar suaranya dan pastikan ia suara phonic atau huruf. Klik pada phonic atau huruf di layaran anda. Selamat mencuba!",
+  videoButton:"??? video",
+  exit:"Keluar"
+}
+
 let languageSelectorButtonList = [
   {label: "简体中文", x:25,y:210, language: mandarinButtonAndTextStrings, onClick: goToMainMenu},
   {label: "English", x:250,y:210, language: englishButtonAndTextStrings, onClick: goToMainMenu},
@@ -180,7 +197,8 @@ let languageSelectorButtonList = [
   {label: "Français", x:250,y:310, language: frenchButtonAndTextStrings, onClick: goToMainMenu},
   {label: "Português", x:475,y:310, language: portugueseButtonAndTextStrings, onClick: goToMainMenu},
   {label: "русский", x:700,y:310, language: russianButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "日本語", x:925,y:310, language: japaneseButtonAndTextStrings, onClick: goToMainMenu}
+  {label: "日本語", x:925,y:310, language: japaneseButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Bahasa Malaysia", x:25,y:410, language: bahasaButtonAndTextStrings, onClick: goToMainMenu}
 ];
 
 if (localStorage.getItem("language") === null) {
