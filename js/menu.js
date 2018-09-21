@@ -62,19 +62,18 @@ function drawOpeningLanguageSelector() {
     colorText(languageSelectorButtonList[i].label, languageSelectorButtonList[i].x + buttonWidth/2,languageSelectorButtonList[i].y + buttonHeight/2 + MENU_BUTTON_TXT_OFFSET_Y, "white", "18px papyrus");
   }
   canvasContext.textAlign = "left";
-  if ( (mousePressed || fingerPressed) && ( (mouseX >= 480 && mouseX <= 680 && mouseY >= 200 && mouseY <= 275 + buttonHeight) ||
-       (fingerX >= 480 && fingerX <= 680 && fingerY >= 200 && fingerY <= 275 ) ) )  {
-         canvasContext.drawImage(Images.getImage("gui_button_play_down"), 480,200, 200,75);
+  if ( (mousePressed || fingerPressed) && ( (mouseX >= 480 && mouseX <= 780 && mouseY >= 200 && mouseY <= 350 + buttonHeight) ||
+       (fingerX >= 480 && fingerX <= 780 && fingerY >= 200 && fingerY <= 350 ) ) )  {
+         canvasContext.drawImage(Images.getImage("gui_button_play_down"), 480,200, 300,150);
        } else {
-          canvasContext.drawImage(Images.getImage("gui_button_play"), 480,200, 200,75);
+          canvasContext.drawImage(Images.getImage("gui_button_play"), 480,200, 300,150);
         }
-        if ( (mousePressed || fingerPressed) && ( (mouseX >= 480 && mouseX <= 680 && mouseY >= 350 && mouseY <= 425 + buttonHeight) ||
-             (fingerX >= 480 && fingerX <= 680 && fingerY >= 350 && fingerY <= 425 ) ) )  {
-               canvasContext.drawImage(Images.getImage("gui_button_settings_down"), 480,350, 200,75);
+        if ( (mousePressed || fingerPressed) && ( (mouseX >= 530 && mouseX <= 730 && mouseY >= 400 && mouseY <= 475 + buttonHeight) ||
+             (fingerX >= 530 && fingerX <= 730 && fingerY >= 400 && fingerY <= 475 ) ) )  {
+               canvasContext.drawImage(Images.getImage("gui_button_settings_down"), 530,400, 200,75);
              } else {
-                canvasContext.drawImage(Images.getImage("gui_button_settings"), 480,350, 200,75);
+                canvasContext.drawImage(Images.getImage("gui_button_settings"), 530,400, 200,75);
               }
-              colorCircleWithTransparency(canvas.width/2, canvas.height/2, 20, "white", glowTransparency);
 }
 
 function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
