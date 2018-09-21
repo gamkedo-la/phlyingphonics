@@ -14,6 +14,16 @@ function colorCircle(centerX, centerY, radius, fillColor) {
     canvasContext.fill();
 }
 
+
+function colorCircleWithTransparency(centerX, centerY, radius, fillColor, transparency) {
+    canvasContext.fillStyle = fillColor;
+    canvasContext.globalAlpha = transparency;
+    canvasContext.beginPath();
+    canvasContext.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
+    canvasContext.fill();
+    canvasContext.globalAlpha = 1;
+}
+
 // Accepted formats for fillColorAlpha: standard named color string (alpha = 1) or [r,g,b,a]
 //Used in conjunction with the ParticleRenderer
 function colorCircleAlpha(centerX, centerY, radius, fillColorAlpha) {

@@ -44,6 +44,8 @@ function showProfileMenu() {
 }
 
 //language selector button list is in languages.js as a work around for defining variables
+let glowTransparency = 0.1;
+let glowSpeed = 0.025;
 
 function drawOpeningLanguageSelector() {
   canvasContext.drawImage(Images.getImage("openingmenubackground2"), 0,0, canvas.width, canvas.height);
@@ -72,6 +74,7 @@ function drawOpeningLanguageSelector() {
              } else {
                 canvasContext.drawImage(Images.getImage("gui_button_settings"), 480,350, 200,75);
               }
+              colorCircleWithTransparency(canvas.width/2, canvas.height/2, 20, "white", glowTransparency);
 }
 
 function handleOpeningLanguageSelectorInput(mouseX,mouseY) {

@@ -99,6 +99,10 @@ window.onload = () => {
 
   //part of gameLoop
   updateEverything = () => {
+    if ( (glowTransparency < 0.1) || (glowTransparency > 0.8) ) {
+      glowSpeed *= -1;
+    }
+    glowTransparency += glowSpeed;
 
     handleFlyWallCollisions();
     handleFlyToFlyCollisions();
@@ -127,7 +131,7 @@ window.onload = () => {
   //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
     console.log("mouseX/Y", mouseX,mouseY);
-    
+
     if (isMainMenu) {
       drawMainMenu();
       return;

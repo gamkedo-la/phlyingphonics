@@ -49,7 +49,11 @@ drawFlies = () => {
   for (let flyDrawingIteration = 0; flyDrawingIteration < numberOfFliesAtStartOfLevel; flyDrawingIteration++) {
     //  canvasContext.drawImage(fly, arrayOfFlies[flyDrawingIteration].x, arrayOfFlies[flyDrawingIteration].y,
     //                          arrayOfFlies[flyDrawingIteration].width, arrayOfFlies[flyDrawingIteration].height);
+    if (arrayOfFlies[flyDrawingIteration].target) {
 
+      colorCircleWithTransparency(arrayOfFlies[flyDrawingIteration].x + 100, arrayOfFlies[flyDrawingIteration].y + 100,
+                                  100, "white", glowTransparency);
+    }
     if (arrayOfFlies[flyDrawingIteration]) { // does this fly still exist? (can be undefined after a sucessful swat)
       arrayOfFlies[flyDrawingIteration].draw();
     }
