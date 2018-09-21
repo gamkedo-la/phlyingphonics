@@ -46,7 +46,7 @@ drawSwattedFlies = () => {
 }
 
 drawFlies = () => {
-  for (let flyDrawingIteration = 0; flyDrawingIteration < numberOfFliesAtStartOfLevel; flyDrawingIteration++) {
+  for (let flyDrawingIteration = 0; flyDrawingIteration < arrayOfFlies.length; flyDrawingIteration++) {
     //  canvasContext.drawImage(fly, arrayOfFlies[flyDrawingIteration].x, arrayOfFlies[flyDrawingIteration].y,
     //                          arrayOfFlies[flyDrawingIteration].width, arrayOfFlies[flyDrawingIteration].height);
     if (arrayOfFlies[flyDrawingIteration].target) {

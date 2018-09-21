@@ -142,7 +142,7 @@ function handleCanvasClick(evt, fingerX,fingerY) {
     }//end of else which checks for touch event
   //canvas.width - 100,0
   fingerPressed = false;
-  ev
+  
 }// end of gameplay click info
 fingerPressed = false;
 console.log("fingerPressed", fingerPressed);

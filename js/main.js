@@ -130,7 +130,6 @@ window.onload = () => {
   //part of game loop, maybe have the splats disappear over with a setTimeout
   //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
-    console.log("mouseX/Y", mouseX,mouseY);
 
     if (isMainMenu) {
       drawMainMenu();
