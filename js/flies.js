@@ -52,7 +52,7 @@ drawFlies = () => {
     if (arrayOfFlies[flyDrawingIteration].target) {
 
       colorCircleWithTransparency(arrayOfFlies[flyDrawingIteration].x + 100, arrayOfFlies[flyDrawingIteration].y + 100,
-                                  100, "white", glowTransparency);
+                                  100, "gray", glowTransparency);
     }
     if (arrayOfFlies[flyDrawingIteration]) { // does this fly still exist? (can be undefined after a sucessful swat)
       arrayOfFlies[flyDrawingIteration].draw();
