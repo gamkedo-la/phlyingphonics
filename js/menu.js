@@ -1,4 +1,4 @@
-let isOpeningLanguageSelector = true;
+let isOpeningLanguageSelector = false;
 let isMainMenu = false;
 let isProfileMenu = false;
 let isShowingExistingProfiles = false;

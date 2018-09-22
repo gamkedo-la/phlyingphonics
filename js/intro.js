@@ -1,3 +1,5 @@
+let intro = true;
+
 let startTimeOfGame = new Date();
 let currentTime = new Date();
 let deltaTime = currentTime - startTimeOfGame;
@@ -15,7 +17,8 @@ let introPhonicATransparencySpeed = 0.025;
 let introFlySwatterX;
 let introFlySwatterXSpeed = 3;
 
-function drawIntro() {
+function drawIntro(mouseX,mouseY) {
+
   if (deltaTime < 1100) {
     canvasContext.drawImage(Images.getImage("openingmenubackground2"), 0,0, 365,180, 0,0, canvas.width/2,canvas.height/3);
   }
@@ -76,7 +79,42 @@ function drawIntro() {
     }
     canvasContext.drawImage(Images.getImage("smallb"), canvas.width/4 + 380,300, 50,50);
     canvasContext.drawImage(Images.getImage("flySwatter"), introFlySwatterX,300, 300,150);
-    canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width - 350,200, 300,150);
-    canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 300,400, 200,75);
+    if  ( (mousePressed || fingerPressed)
+        && ( (mouseX >= canvas.width - 350 && mouseX <= canvas.width - 50  && mouseY >= 200 && mouseY <= 350) ||
+      (fingerX >= canvas.width - 350 && fingerX <= canvas.width - 50  && fingerY >= 200 && fingerY <= canvas.width - 50) )
+    ) {
+        canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width - 350,200, 300,150);
+        console.log("mouseX/Y", mouseX,mouseY);
+        fingerX = 0;
+        fingerY = 0;
+        fanflap.play();
+      } else {
+          canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width - 350,200, 300,150);
+        }
+    if ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - 300 && mouseX <= canvas.width - 100  &&
+      mouseY >= 400 && mouseY <= 475) ||
+      (fingerX >= canvas.width - 300 && fingerX <= canvas.width - 100  &&
+        fingerY >= 400 && fingerY <= canvas.width - 475) ) ) {
+        canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 300,400, 200,75);
+        fingerX = 0;
+        fingerY = 0;
+        fanflap.play();
+      } else {
+          canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 300,400, 200,75);
+        }
   }
+}
+
+
+function handleIntroInput(mouseX,mouseY) {
+
+    if ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width/4 - 350 && mouseX <= canvas.width/4 - 50  &&
+      mouseY >= 200 && mouseY <= 350) ||
+      (fingerX >= canvas.width/4 - 350 && fingerX <= canvas.width/4 - 50  &&
+        fingerY >= 200 && fingerY <= canvas.width/4 - 50) ) ) {
+
+        fingerX = 0;
+        fingerY = 0;
+        fanflap.play();
+      }
 }

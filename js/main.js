@@ -84,6 +84,11 @@ window.onload = () => {
   canvas.addEventListener("click", handleCanvasClick); //defined in Input.js, this function splats the flies
   canvas.addEventListener("mousedown", function(evt) {
     mousePressed = true;
+    console.log("mousePressed", mousePressed);
+    //console.log("mouseX/Y", mouseX,mouseY);
+    //console.log("canvas.width - 350", canvas.width - 350);
+    //console.log("canvas.width - 50", canvas.width - 50);
+
   });
   canvas.addEventListener("mouseup", function(evt) {
     mousePressed = false;
@@ -134,11 +139,13 @@ window.onload = () => {
   //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
 
-    if (isMainMenu) {
+    if (intro) {
+      drawIntro(mouseX,mouseY);
+      return;
+    } else if (isMainMenu) {
       drawMainMenu();
       return;
     } else if (isOpeningLanguageSelector) {
-      drawIntro();
       //drawOpeningLanguageSelector();
       return;
     } else if (isProfileMenu) {
