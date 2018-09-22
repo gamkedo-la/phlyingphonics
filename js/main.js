@@ -71,6 +71,7 @@ window.onload = () => {
   window.onresize();
   backgroundMusic.volume = 0.1;
   chooseBackground();
+  introFlySwatterX = canvas.width/4;
 
   // gathers mouse coordinates for debugging potential debugging,
   // used in canvasContext.fillText in drawEverything part of gameLoop
@@ -104,6 +105,8 @@ window.onload = () => {
     }
     glowTransparency += glowSpeed;
 
+    currentTime = new Date();
+    deltaTime = currentTime - startTimeOfGame;
     handleFlyWallCollisions();
     handleFlyToFlyCollisions();
     handleFliesOffScreen();
@@ -135,7 +138,8 @@ window.onload = () => {
       drawMainMenu();
       return;
     } else if (isOpeningLanguageSelector) {
-      drawOpeningLanguageSelector();
+      drawIntro();
+      //drawOpeningLanguageSelector();
       return;
     } else if (isProfileMenu) {
       drawProfileMenu();
