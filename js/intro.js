@@ -1,9 +1,5 @@
 let intro = true;
 
-let startTimeOfGame = new Date();
-let currentTime = new Date();
-let deltaTime = currentTime - startTimeOfGame;
-
 let introTransparency = 0.0;
 let introTransparencySpeed = 0.0075;
 

@@ -8,6 +8,10 @@ let canvasRightEdge;
 let canvasBottomEdge;
 let canvasLeftEdge;
 
+let startTimeOfGame = new Date();
+let currentTime = new Date();
+let deltaTime = currentTime - startTimeOfGame;
+
 // set to false to turn off ss when you swat
 const USE_SCREENSHAKE = true;
 
