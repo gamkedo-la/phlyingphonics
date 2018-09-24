@@ -32,9 +32,12 @@ let clickCount = 0;
 let mousePressed = false;
 let fingerPressed = false;
 
-function handleCanvasClick(evt, fingerX,fingerY) {
+function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
 
-  if (isMainMenu) {
+  if (intro) {
+    handleIntroInput(evt.pageX,evt.pageY);
+    return;
+  } else if (isMainMenu) {
     handleMainMenuInput(evt.pageX,evt.pageY);
     return;
   } else if (isOpeningLanguageSelector) {
@@ -142,7 +145,7 @@ function handleCanvasClick(evt, fingerX,fingerY) {
     }//end of else which checks for touch event
   //canvas.width - 100,0
   fingerPressed = false;
-  
+
 }// end of gameplay click info
 fingerPressed = false;
 console.log("fingerPressed", fingerPressed);

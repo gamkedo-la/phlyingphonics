@@ -1,9 +1,5 @@
 let intro = true;
 
-let startTimeOfGame = new Date();
-let currentTime = new Date();
-let deltaTime = currentTime - startTimeOfGame;
-
 let introTransparency = 0.0;
 let introTransparencySpeed = 0.0075;
 
@@ -84,7 +80,6 @@ function drawIntro(mouseX,mouseY) {
       (fingerX >= canvas.width - 350 && fingerX <= canvas.width - 50  && fingerY >= 200 && fingerY <= canvas.width - 50) )
     ) {
         canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width - 350,200, 300,150);
-        console.log("mouseX/Y", mouseX,mouseY);
         fingerX = 0;
         fingerY = 0;
         fanflap.play();
@@ -108,13 +103,31 @@ function drawIntro(mouseX,mouseY) {
 
 function handleIntroInput(mouseX,mouseY) {
 
-    if ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width/4 - 350 && mouseX <= canvas.width/4 - 50  &&
-      mouseY >= 200 && mouseY <= 350) ||
-      (fingerX >= canvas.width/4 - 350 && fingerX <= canvas.width/4 - 50  &&
-        fingerY >= 200 && fingerY <= canvas.width/4 - 50) ) ) {
 
-        fingerX = 0;
-        fingerY = 0;
-        fanflap.play();
+
+ console.log("mouseX/Y", mouseX,mouseY);
+ console.log("mousePressed", mousePressed);
+  if (
+      ( (mouseX >= canvas.width - 350 && mouseX <= canvas.width - 50  && mouseY >= 200 && mouseY <= 350) ||
+    (fingerX >= canvas.width - 350 && fingerX <= canvas.width - 50  && fingerY >= 200 && fingerY <= canvas.width - 50) )
+    ) {
+      console.log("clicked");
+      introPlayButton.onClick();
       }
+      console.log("intro", intro);
 }
+
+let introPlayButton = {onClick: introPlayButtonOnClick};
+
+function introPlayButtonOnClick() {
+  console.log("hello world");
+  canvasContext.globalAlpha = 1;
+  intro = false;
+  fingerPressed = false;
+  fingerX = 0;
+  fingerY = 0;
+  loadProfileSettingsAndStartGame();
+}
+
+
+console.log("introPlayButton", introPlayButton);

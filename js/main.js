@@ -8,6 +8,10 @@ let canvasRightEdge;
 let canvasBottomEdge;
 let canvasLeftEdge;
 
+let startTimeOfGame = new Date();
+let currentTime = new Date();
+let deltaTime = currentTime - startTimeOfGame;
+
 // set to false to turn off ss when you swat
 const USE_SCREENSHAKE = true;
 
@@ -34,6 +38,7 @@ getRandomInt = (min, max) => {
 }
 
 let initialize = () => {
+  intro = true;
   backgroundMusic.play();
 
   initializeArrayOfProfiles();
@@ -54,6 +59,11 @@ let initialize = () => {
   updateIndividualTargetsPreviousPracticeSessionNumbers();
   updateIndividualTargetsPreviousPracticeDate();
   console.log("languageSelectorButtonList", languageSelectorButtonList);
+  console.log("intro", intro);
+  console.log("isMainMenu", isMainMenu);
+  console.log("isOpeningLanguageSelector", isOpeningLanguageSelector);
+  console.log("isProfileMenu", isProfileMenu);
+  console.log("isShowingExistingProfiles", isShowingExistingProfiles);
 
 }
 
@@ -84,7 +94,7 @@ window.onload = () => {
   canvas.addEventListener("click", handleCanvasClick); //defined in Input.js, this function splats the flies
   canvas.addEventListener("mousedown", function(evt) {
     mousePressed = true;
-    console.log("mousePressed", mousePressed);
+
     //console.log("mouseX/Y", mouseX,mouseY);
     //console.log("canvas.width - 350", canvas.width - 350);
     //console.log("canvas.width - 50", canvas.width - 50);
@@ -101,7 +111,8 @@ window.onload = () => {
 
   });
   canvas.addEventListener("touchend", handleCanvasClick);// {
-
+    console.log("mousePressed", mousePressed);
+    console.log("fingerPressed", fingerPressed);
 
   //part of gameLoop
   updateEverything = () => {
@@ -154,7 +165,7 @@ window.onload = () => {
     } else if (isShowingExistingProfiles) {
       drawExistingProfilesMenu();
       return;
-    }
+    } else {
 
     canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
     if (USE_SCREENSHAKE) {
@@ -213,6 +224,7 @@ window.onload = () => {
 
     if (USE_SCREENSHAKE) { canvasContext.restore(); }
   }
+}
 
   gameLoop = () => {
     updateEverything();
