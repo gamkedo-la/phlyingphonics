@@ -263,7 +263,10 @@ function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
   isProfileMenu = false;
   isShowingExistingProfiles = false;
   currentProfile = assignCurrentProfile(newProfileName, buttonLabel);
-  if (currentProfile.targetsToPractice.length === 0) {
+  if (currentProfile === undefined) {
+    currentTrack = vowelTrackLevels;
+    trackIndex = 0;
+  } else if (currentProfile.targetsToPractice.length === 0) {
     currentTrack = vowelTrackLevels;
     trackIndex = 0;
   } else {
