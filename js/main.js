@@ -38,6 +38,8 @@ getRandomInt = (min, max) => {
 }
 
 let initialize = () => {
+  checkForFirstLaunch();
+  console.log("firstLaunch",firstLaunch);
   intro = true;
   backgroundMusic.play();
 
