@@ -62,18 +62,6 @@ function drawOpeningLanguageSelector() {
     colorText(languageSelectorButtonList[i].label, languageSelectorButtonList[i].x + buttonWidth/2,languageSelectorButtonList[i].y + buttonHeight/2 + MENU_BUTTON_TXT_OFFSET_Y, "white", "18px papyrus");
   }
   canvasContext.textAlign = "left";
-  if ( (mousePressed || fingerPressed) && ( (mouseX >= 480 && mouseX <= 780 && mouseY >= 200 && mouseY <= 350 + buttonHeight) ||
-       (fingerX >= 480 && fingerX <= 780 && fingerY >= 200 && fingerY <= 350 ) ) )  {
-         canvasContext.drawImage(Images.getImage("gui_button_play_down"), 480,200, 300,150);
-       } else {
-          canvasContext.drawImage(Images.getImage("gui_button_play"), 480,200, 300,150);
-        }
-        if ( (mousePressed || fingerPressed) && ( (mouseX >= 530 && mouseX <= 730 && mouseY >= 400 && mouseY <= 475 + buttonHeight) ||
-             (fingerX >= 530 && fingerX <= 730 && fingerY >= 400 && fingerY <= 475 ) ) )  {
-               canvasContext.drawImage(Images.getImage("gui_button_settings_down"), 530,400, 200,75);
-             } else {
-                canvasContext.drawImage(Images.getImage("gui_button_settings"), 530,400, 200,75);
-              }
 }
 
 function handleOpeningLanguageSelectorInput(mouseX,mouseY) {

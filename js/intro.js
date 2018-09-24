@@ -120,13 +120,22 @@ function handleIntroInput(mouseX,mouseY) {
 let introPlayButton = {onClick: introPlayButtonOnClick};
 
 function introPlayButtonOnClick() {
-  console.log("hello world");
+
   canvasContext.globalAlpha = 1;
-  intro = false;
-  fingerPressed = false;
-  fingerX = 0;
-  fingerY = 0;
-  loadProfileSettingsAndStartGame();
+  if (firstLaunch) {
+    intro = false;
+    isOpeningLanguageSelector = true;
+    fingerPressed = false;
+    fingerX = 0;
+    fingerY = 0;
+
+  } else {
+    intro = false;
+    fingerPressed = false;
+    fingerX = 0;
+    fingerY = 0;
+    loadProfileSettingsAndStartGame();
+  }
 }
 
 

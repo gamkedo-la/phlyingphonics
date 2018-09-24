@@ -159,7 +159,7 @@ window.onload = () => {
       drawMainMenu();
       return;
     } else if (isOpeningLanguageSelector) {
-      //drawOpeningLanguageSelector();
+      drawOpeningLanguageSelector();
       return;
     } else if (isProfileMenu) {
       drawProfileMenu();
