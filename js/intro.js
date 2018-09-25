@@ -86,18 +86,21 @@ function drawIntro(mouseX,mouseY) {
       } else {
           canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width - 350,200, 300,150);
         }
-    if ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - 300 && mouseX <= canvas.width - 100  &&
-      mouseY >= 400 && mouseY <= 475) ||
-      (fingerX >= canvas.width - 300 && fingerX <= canvas.width - 100  &&
-        fingerY >= 400 && fingerY <= canvas.width - 475) ) ) {
-        canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 300,400, 200,75);
-        fingerX = 0;
-        fingerY = 0;
-        fanflap.play();
-      } else {
-          canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 300,400, 200,75);
-        }
-  }
+    //added check for first launch because the settings button would be logically confusing for tutorial purposes
+    if (!firstLaunch) {
+      if ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - 300 && mouseX <= canvas.width - 100  &&
+        mouseY >= 400 && mouseY <= 475) ||
+        (fingerX >= canvas.width - 300 && fingerX <= canvas.width - 100  &&
+          fingerY >= 400 && fingerY <= canvas.width - 475) ) ) {
+          canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 300,400, 200,75);
+          fingerX = 0;
+          fingerY = 0;
+          fanflap.play();
+        } else {
+            canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 300,400, 200,75);
+          }
+      }
+    }
 }
 
 
