@@ -154,20 +154,21 @@ let russianButtonAndTextStrings = {
 }
 
 let japaneseButtonAndTextStrings = {
-  kidMode:"キッドモード",
-  advancedMode:"アドバンストモード",
-  stationaryMode:"静止モード",
-  newStudent:"新入生",
-  returningStudent:"戻る学生",
-  whatIsYourName:"お名前は？",
-  typeYourNameHere:"名前を入力してください。",
-  previous:"戻る",
-  congratulations:"おめでとう！あなたは今日のすべての目標を見直しました。学習を続けるためにいくつかの新しい目標を試してください！",
-  noProfilesExist:"プロファイルは存在しません。戻ると新しいプロファイルを作成します。",
-  information:"??? 情報",
-  gamePlayInfo:"声を聞く。それは、音の音か文字の名前を言うでしょう。マウスまたは指で画面上の音または文字をクリックします。楽しんでください！",
-  videoButton:"??? ビデオ",
-  exit:"出る"
+    kidMode:"キッドモード",
+    advancedMode:"アドバンスモード",
+    stationaryMode:"静止モード",
+    //keeping previous entries just in case 新入生 戻る学校
+    newStudent:"初めから",　//"start new" 
+    returningStudent:"続きから", //"continue (from last time)" - no "returning student" in japanese (as far as I know) but will try to think of something else if needed
+    whatIsYourName:"お名前は？",
+    typeYourNameHere:"名前を入力してください",
+    previous:"戻る",
+    congratulations:"おめでとうございます！今日の目標をすべて達成しました！もっと目標を作って学習を続けましょう！",
+    noProfilesExist:"プロファイルは存在しません。戻ると新しいプロファイルが作成できます。",
+    information:"??? 情報",
+    gamePlayInfo:"声を聞いてください。音声か文字の名前を言ってもらいます。マウスか、指で画面上の音、または文字をクリックしてください。楽しんでくださいね！",
+    videoButton:"??? 動画",
+    exit:"出る"
 }
 
 let bahasaButtonAndTextStrings = {
