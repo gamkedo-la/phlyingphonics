@@ -134,6 +134,7 @@ function introPlayButtonOnClick() {
     fingerPressed = false;
     fingerX = 0;
     fingerY = 0;
+    language = JSON.parse(localStorage.getItem("language"));
     loadProfileSettingsAndStartGame();
   }
 }

@@ -61,6 +61,7 @@ let initialize = () => {
   updateIndividualTargetsPreviousPracticeSessionNumbers();
   updateIndividualTargetsPreviousPracticeDate();
   console.log("languageSelectorButtonList", languageSelectorButtonList);
+  console.log("language", language);
   console.log("intro", intro);
   console.log("isMainMenu", isMainMenu);
   console.log("isOpeningLanguageSelector", isOpeningLanguageSelector);

@@ -76,7 +76,7 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
         fingerY = 0;
         fanflap.play();
         language = languageSelectorButtonList[i].language;
-        //console.log("language", language);
+        console.log("language", language);
         mainMenuButtonList[0].label = language.kidMode;
         mainMenuButtonList[1].label = language.advancedMode;
         mainMenuButtonList[2].label = language.stationaryMode;
@@ -84,7 +84,8 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
         profileMenuButtonList[1].label = language.returningStudent;
         existingProfilesMenuButtonList[0].label = language.previous;
 
-        JSON.stringify(localStorage.setItem("language", language));
+        localStorage.setItem("language", JSON.stringify(language));
+        
     }
   }
 }
