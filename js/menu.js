@@ -85,7 +85,7 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
         existingProfilesMenuButtonList[0].label = language.previous;
 
         localStorage.setItem("language", JSON.stringify(language));
-        
+
     }
   }
 }

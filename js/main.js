@@ -178,6 +178,8 @@ window.onload = () => {
     } else if (isShowingExistingProfiles) {
       drawExistingProfilesMenu();
       return;
+    } else if (isSettingsMenu) {
+      drawSettingsMenu();
     } else {
 
     canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
@@ -239,7 +241,9 @@ window.onload = () => {
           (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > 0 && fingerY < 50) ) ) {
             console.log("mouseX/Y", mouseX, mouseY);
 
-            canvasContext.drawImage(Images.getImage("gui_button__settings_down"), canvas.width - 100, canvas.height - 50);
+            canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 100, canvas.height - 50);
+            showSettingsButtonBlurbSeen = true;
+            isSettingsMenu = true;
           }
      else {
       canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 100, 0);
