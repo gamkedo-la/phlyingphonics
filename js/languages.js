@@ -29,7 +29,11 @@ let englishButtonAndTextStrings = {
   congratulations:"Congratulations! You have reviewed all of today's targets. Try some new targets to keep learning!",
   noProfilesExist:"No profiles exist, go back and create a new profile",
   information:"??? Info",
-  gamePlayInfo:"Listen to the voice. It will say either a phonic sound or a letter name. Click the phonic or letter on the screen with either the mouse or your finger. Have fun!",
+  gamePlayInfoLine1:"Listen to the voice. It will say either a phonic sound or a letter name.",
+  gamePlayInfoLine2:"Click the phonic or letter on the screen with either the mouse or your finger.",
+  gamePlayInfoLine3:"The correct answers are glowing to help teach new students how to play.",
+  gamePlayInfoLine4:"Have fun!",
+  showSettingsButtonBlurbText:"Click or touch the settings button",
   videoButton:"??? Video",
   exit:"Exit"
 }
@@ -158,7 +162,7 @@ let japaneseButtonAndTextStrings = {
     advancedMode:"アドバンスモード",
     stationaryMode:"静止モード",
     //keeping previous entries just in case 新入生 戻る学校
-    newStudent:"初めから",　//"start new" 
+    newStudent:"初めから",　//"start new"
     returningStudent:"続きから", //"continue (from last time)" - no "returning student" in japanese (as far as I know) but will try to think of something else if needed
     whatIsYourName:"お名前は？",
     typeYourNameHere:"名前を入力してください",

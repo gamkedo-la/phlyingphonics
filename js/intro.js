@@ -86,7 +86,7 @@ function drawIntro(mouseX,mouseY) {
       } else {
           canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width - 350,200, 300,150);
         }
-    //added check for first launch because the settings button would be logically confusing for tutorial purposes
+    //added check for first launch because the settings button would be logically confusing for tutorial/walkthrough purposes on first launch
     if (!firstLaunch) {
       if ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - 300 && mouseX <= canvas.width - 100  &&
         mouseY >= 400 && mouseY <= 475) ||

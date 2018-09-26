@@ -71,6 +71,10 @@ let imageFileNames = [
 
     "images/openingMenuBackground.jpg",
     "images/openingmenubackground2.png",
+    "images/gameplayinfoblurb.png",
+    "images/gui_button_check.png",
+    "images/gui_button_check_down.png",
+    "images/arrow.png",
     "images/table.png",
     "images/fly.png",
     "images/butterflies/blackNorange.png",

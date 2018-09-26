@@ -43,6 +43,16 @@ let initialize = () => {
   intro = true;
   backgroundMusic.play();
 
+  arrowX = canvas.width - 250;
+  setInterval(function() {
+    if (arrowX === canvas.width - 250) {
+      arrowX = canvas.width - 205;
+    } else {
+      arrowX = canvas.width - 250;
+    }
+    console.log("arrowX", arrowX);
+  }, 1000);
+
   initializeArrayOfProfiles();
   initializeExistingProfilesMenuButtonList();
 
@@ -184,6 +194,7 @@ window.onload = () => {
     // drawn a bit bigger than the screen to avoid white edges during screenshakes
     canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
 
+    /* old GUI button layout
     //text info button
     //colorRect(canvas.width - 100,canvas.height - 50, 100,50, "blue");
     if ( (mousePressed || fingerPressed) && ( (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > canvas.height - 50 && mouseY < canvas.height) ||
@@ -195,6 +206,7 @@ window.onload = () => {
     canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, canvas.height - 50);
     colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
     }
+
 
     //video info button
     //colorRect(0, canvas.height - 50, 100, 50, "blue");
@@ -220,11 +232,23 @@ window.onload = () => {
       canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, 0);
       colorText(language.exit, canvas.width - 90, 30, "white", "18x papyrus");
     }
+    end of old GUI button layout */
 
+    //settings button
+    if ( (mousePressed || fingerPressed) && ( (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > 0 && mouseY < 50) ||
+          (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > 0 && fingerY < 50) ) ) {
+            console.log("mouseX/Y", mouseX, mouseY);
+
+            canvasContext.drawImage(Images.getImage("gui_button__settings_down"), canvas.width - 100, canvas.height - 50);
+          }
+     else {
+      canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 100, 0);
+    }
     drawSwattedFlies();
     drawFlies();
     drawFlySwatter();
-
+    drawFirstLaunchGamePlayInfoBlurb();
+    drawSettingsButtonBlurb();
     if (USE_SCREENSHAKE) { canvasContext.restore(); }
   }
 }
