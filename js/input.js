@@ -81,31 +81,14 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
       missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
       missedSound.play();
     }
-
-    /*old gameplay gui button layout
-    //info button click
-    if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > canvas.height - 50 && evt.pageY < canvas.height) ) {
-      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
-      colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-      fanflap.play();
-      alert(language.gamePlayInfo);
-    }//exit button click
-    if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
-      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
-      colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-      fanflap.play();
-      hackulateTargetsToBePracticed();
-      goToMainMenu();
-      stopTargetAudio();
-      arrayOfSwattedFlies = [];
-    }*/
     if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
       canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
       colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
       fanflap.play();
       //goToSettingsMenu();
       stopTargetAudio();
-  } else {
+  }
+} else {//beginning of touch events
       for (let i = 0; i<arrayOfFlies.length; i++) {
           if (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 &&
               evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
@@ -124,7 +107,7 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
           calculateOverallAccuracy();
         }//end of incorrect answers
       }//end of looping through flies
-    }
+
       if (hits === 0) {
         decreaseIndividualTargetAccuracy();
         let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
@@ -132,44 +115,20 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
         missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
         missedSound.play();
       }
-
-      /* old gui button layout
-      //info button click
-      if ( (evt.changedTouches[0].pageX > canvas.width - 100 && evt.changedTouches[0].pageX < canvas.width && evt.changedTouches[0].pageY > canvas.height - 50 && evt.changedTouches[0].pageY < canvas.height) ) {
-        canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
-        colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-        fanflap.play();
-        alert(language.gamePlayInfo);
-        evt.changedTouches[0].pageX = 0;
-        evt.changedTouches[0].pageY = 0;
-      }//exit button click
-      if ( (evt.changedTouches[0].pageX > canvas.width - 100 && evt.changedTouches[0].pageX < canvas.width && evt.changedTouches[0].pageY > 0 && evt.changedTouches[0].pageY < 50) ) {
+      if ( (evt.changedTouches[0].pageX > canvas.width - 100 && evt.changedTouches[0].pageX < canvas.width &&
+            evt.changedTouches[0].pageY > 0 && evt.changedTouches[0].pageY < 50) ) {
         canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
         colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
         fanflap.play();
-        hackulateTargetsToBePracticed();
-        goToMainMenu();
+        //goToSettingsMenu();
         stopTargetAudio();
-        arrayOfSwattedFlies = [];
-        evt.changedTouches[0].pageX = 0;
-        evt.changedTouches[0].pageY = 0;
       }
     }//end of else which checks for touch event */
-    if ( (evt.changedTouches[0].pageX > canvas.width - 100 && evt.changedTouches[0].pageX < canvas.width &&
-          evt.changedTouches[0].pageY > 0 && evt.changedTouches[0].pageY < 50) ) {
-      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
-      colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-      fanflap.play();
-      //goToSettingsMenu();
-      stopTargetAudio();
-    }
+
   //canvas.width - 100,0
   fingerPressed = false;
 }
-}// end of gameplay click info
-fingerPressed = false;
-console.log("fingerPressed", fingerPressed);
-}//end of canvas click
+}
 
 function setupKeyboardDateHackInput() {
     document.addEventListener("keydown", keyPressed);

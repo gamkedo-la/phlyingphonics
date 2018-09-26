@@ -79,6 +79,8 @@ let imageFileNames = [
     "images/toggle_circle.png",
     "images/toggle_circle_filler.png",
     "images/settings_menu_background.png",
+    "images/menu_button_forward.png",
+    "images/menu_button_forward_down",
     "images/table.png",
     "images/fly.png",
     "images/butterflies/blackNorange.png",

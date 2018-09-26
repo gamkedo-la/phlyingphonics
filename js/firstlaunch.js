@@ -26,6 +26,10 @@ function drawFirstLaunchGamePlayInfoBlurb() {
       fingerY = 0;
       fanflap.play();
       gamePlayInfoRead = true;
+      console.log("showGlow", showGlow);
+      console.log("toggleOffX", toggleOffX);
+      console.log("customLevelsToggleCircleX", customLevelsToggleCircleX);
+      console.log("stationaryToggleCircleX", stationaryToggleCircleX);
       infoBlurbTransparency = 0.1;
       settingsBlurbStartTime = new Date();
     } else {
@@ -56,5 +60,5 @@ function drawSettingsButtonBlurb() {
 }
 
 function drawSettingsMenuBlurbs() {
-  
+
 }

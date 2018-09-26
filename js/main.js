@@ -50,7 +50,6 @@ let initialize = () => {
     } else {
       arrowX = canvas.width - 250;
     }
-    console.log("arrowX", arrowX);
   }, 1000);
 
   initializeArrayOfProfiles();
@@ -95,8 +94,16 @@ window.onload = () => {
   backgroundMusic.volume = 0.1;
   chooseBackground();
   introFlySwatterX = canvas.width/4;
-  customLevelsToggleCircleX = canvas.width/4 + canvas.width/2 - 130;
-  glowToggleCircleX = canvas.width/4 + canvas.width/2 - 130;
+
+  //initialize toggle circle on and off positions
+  toggleOffX = canvas.width/4 + canvas.width/2 - 104;
+  toggleOnX = canvas.width/4 + canvas.width/2 - 90;
+  glowToggleCircleX = toggleOnX;
+  customLevelsToggleCircleX = toggleOffX;
+  stationaryToggleCircleX = toggleOffX;
+  console.log("customLevelsToggleCircleX", customLevelsToggleCircleX);
+  console.log("toggleOffX", toggleOffX);
+
 
   // gathers mouse coordinates for debugging potential debugging,
   // used in canvasContext.fillText in drawEverything part of gameLoop
