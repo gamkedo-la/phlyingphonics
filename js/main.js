@@ -95,6 +95,8 @@ window.onload = () => {
   backgroundMusic.volume = 0.1;
   chooseBackground();
   introFlySwatterX = canvas.width/4;
+  customLevelsToggleCircleX = canvas.width/4 + canvas.width/2 - 130;
+  glowToggleCircleX = canvas.width/4 + canvas.width/2 - 130;
 
   // gathers mouse coordinates for debugging potential debugging,
   // used in canvasContext.fillText in drawEverything part of gameLoop
