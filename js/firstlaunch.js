@@ -37,10 +37,10 @@ function drawFirstLaunchGamePlayInfoBlurb() {
     } else {
   canvasContext.drawImage(Images.getImage("gui_button_check"), canvas.width - buttonWidth - buttonWidth/3,canvas.height - (canvas.height/3) + canvas.height/8, 100, 50);
   }
-  colorText(language.gamePlayInfoLine1, canvas.width/2 - 300, canvas.height - canvas.height/3 + canvas.height/9, "#EF1300", "20px papyrus");
-  colorText(language.gamePlayInfoLine2, canvas.width/2 - 325, canvas.height - canvas.height/3 + canvas.height/9 + 25, "#EF1300", "20px papyrus");
-  colorText(language.gamePlayInfoLine3, canvas.width/2 - 315, canvas.height - canvas.height/3 + canvas.height/9 + 50, "#EF1300", "20px papyrus");
-  colorText(language.gamePlayInfoLine4, canvas.width/2 - 50, canvas.height - canvas.height/3 + canvas.height/9 + 75, "#EF1300", "20px papyrus");
+  colorText(language.gamePlayInfoLine1, canvas.width/2 - 300, canvas.height - canvas.height/3 + canvas.height/9, "#FC5800", "20px papyrus");
+  colorText(language.gamePlayInfoLine2, canvas.width/2 - 325, canvas.height - canvas.height/3 + canvas.height/9 + 25, "#FC5800", "20px papyrus");
+  colorText(language.gamePlayInfoLine3, canvas.width/2 - 315, canvas.height - canvas.height/3 + canvas.height/9 + 50, "#FC5800", "20px papyrus");
+  colorText(language.gamePlayInfoLine4, canvas.width/2 - 50, canvas.height - canvas.height/3 + canvas.height/9 + 75, "#FC5800", "20px papyrus");
   infoBlurbTransparency += infoBlurbTransparencySpeed;
   canvasContext.globalAlpha = 1;
   }
@@ -55,7 +55,7 @@ function drawSettingsButtonBlurb() {
     canvasContext.globalAlpha = infoBlurbTransparency;
     canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width - 600,0, 500, 50);
     canvasContext.drawImage(Images.getImage("arrow"), arrowX, 13, 100, 25);
-    colorText(language.showSettingsButtonBlurbText, canvas.width - 550, 30, "#EF1300", "20px papyrus");
+    colorText(language.showSettingsButtonBlurbText, canvas.width - 550, 30, "#FC5800", "20px papyrus");
     infoBlurbTransparency += infoBlurbTransparencySpeed;
     canvasContext.globalAlpha = 1;
   }

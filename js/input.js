@@ -83,13 +83,13 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
       missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
       missedSound.play();
     }
-    if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
+    /*if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
       canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
       colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
       fanflap.play();
       //goToSettingsMenu();
       stopTargetAudio();
-  }
+  }*/
 } else {//beginning of touch events
       for (let i = 0; i<arrayOfFlies.length; i++) {
           if (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 &&
@@ -117,14 +117,14 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
         missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
         missedSound.play();
       }
-      if ( (evt.changedTouches[0].pageX > canvas.width - 100 && evt.changedTouches[0].pageX < canvas.width &&
+      /*if ( (evt.changedTouches[0].pageX > canvas.width - 100 && evt.changedTouches[0].pageX < canvas.width &&
             evt.changedTouches[0].pageY > 0 && evt.changedTouches[0].pageY < 50) ) {
         canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
         colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
         fanflap.play();
         //goToSettingsMenu();
         stopTargetAudio();
-      }
+      }*/
     }//end of else which checks for touch event */
 
   //canvas.width - 100,0

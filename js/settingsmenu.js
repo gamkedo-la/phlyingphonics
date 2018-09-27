@@ -15,7 +15,7 @@ function drawSettingsMenu() {
   canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
 
   //custom levels
-  colorText("Custom Levels", canvas.width/4 + 35,50, "#EF1300", "30px papyrus");
+  colorText("Custom Levels", canvas.width/4 + 35,50, "#FC5800", "30px papyrus");
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,25, 75,25);
   if (!customLevelsShowing && customLevelsToggleCircleX > toggleOffX) {
@@ -59,7 +59,7 @@ function drawSettingsMenu() {
   }
 
   //glow
-  colorText("Glow", canvas.width/4 + 35,105, "#EF1300", "30px papyrus");
+  colorText("Glow", canvas.width/4 + 35,105, "#FC5800", "30px papyrus");
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,83, 75,25);
   if (!showGlow && glowToggleCircleX > toggleOffX) {
@@ -107,7 +107,7 @@ function drawSettingsMenu() {
   console.log("glowOnOffTransparency", glowOnOffTransparency);
 
   //stationary
-  colorText("Stationary", canvas.width/4 + 35,160, "#EF1300", "30px papyrus");
+  colorText("Stationary", canvas.width/4 + 35,160, "#FC5800", "30px papyrus");
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,141, 75,25);
   if (!stationaryMode && stationaryToggleCircleX > toggleOffX) {
@@ -152,11 +152,11 @@ function drawSettingsMenu() {
   canvasContext.drawImage(Images.getImage("cartoonFly"), settingsMenuFlyX, 130, 40,40);
 
   //profiles
-    colorText("Profiles", canvas.width/4 + 35,215, "#EF1300", "30px papyrus");
+    colorText("Profiles", canvas.width/4 + 35,215, "#FC5800", "30px papyrus");
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
 
     //tutorial
-    colorText("Tutorial", canvas.width/4 + 35,270, "#EF1300", "30px papyrus");
+    colorText("Tutorial", canvas.width/4 + 35,270, "#FC5800", "30px papyrus");
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
 
     //play
