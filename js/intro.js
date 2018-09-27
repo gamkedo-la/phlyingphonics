@@ -16,17 +16,17 @@ let introFlySwatterXSpeed = 3;
 function drawIntro(mouseX,mouseY) {
 
   if (deltaTime < 1100) {
-    canvasContext.drawImage(Images.getImage("openingmenubackground2"), 0,0, 365,180, 0,0, canvas.width/2,canvas.height/3);
+    canvasContext.drawImage(Images.getImage("openingmenubackground3"), 50,0, 380,180, 0,0, canvas.width/2,canvas.height/3);
   }
   if (deltaTime > 1100) {
     canvasContext.clearRect(0,0, canvas.width,canvas.height);
-    canvasContext.drawImage(Images.getImage("openingmenubackground2"), 365,0, 435,180, canvas.width/2,0, canvas.width/2,canvas.height/3);
+    canvasContext.drawImage(Images.getImage("openingmenubackground3"), 405,0, 435,180, canvas.width/2,0, canvas.width/2,canvas.height/3);
   }
   if (deltaTime > 2200) {
     canvasContext.clearRect(0,0, canvas.width,canvas.height);
     introTransparency += introTransparencySpeed;
     canvasContext.globalAlpha = introTransparency;
-    canvasContext.drawImage(Images.getImage("openingmenubackground2"), 0,0, canvas.width,canvas.height);
+    canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width,canvas.height);
     if (deltaTime > 5900 && deltaTime < 8350) {
       introPhonics.play();
     }

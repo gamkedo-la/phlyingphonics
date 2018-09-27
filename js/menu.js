@@ -48,7 +48,7 @@ let glowTransparency = 0.1;
 let glowSpeed = 0.025;
 
 function drawOpeningLanguageSelector() {
-  canvasContext.drawImage(Images.getImage("openingmenubackground2"), 0,0, canvas.width, canvas.height);
+  canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<languageSelectorButtonList.length; i++) {
     //check if mouse or finger is pressed for drawing button pressed image
@@ -94,7 +94,7 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
 
 
 function drawMainMenu() {
-  canvasContext.drawImage(Images.getImage("openingmenubackground2"), 0,0, canvas.width, canvas.height);
+  canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<mainMenuButtonList.length; i++) {
     //check for mouse or finger down, if so draw menu button down
@@ -142,7 +142,7 @@ let profileMenuButtonList = [
 ];
 
 function drawProfileMenu() {
-  canvasContext.drawImage(Images.getImage("openingmenubackground2"), 0,0, canvas.width, canvas.height);
+  canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<profileMenuButtonList.length; i++) {
     //check for mouse or finger down, if so draw menu down button
@@ -212,7 +212,7 @@ let existingProfilesMenuButtonList = [
 
 function drawExistingProfilesMenu() {
   canvasContext.clearRect(0,0, canvas.width, canvas.height);
-  canvasContext.drawImage(Images.getImage("openingmenubackground2"), 0,0, canvas.width, canvas.height);
+  canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     //check if finger or mouse pressed, if so draw button down image
