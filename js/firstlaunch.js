@@ -27,6 +27,8 @@ function drawFirstLaunchGamePlayInfoBlurb() {
       fanflap.play();
       gamePlayInfoRead = true;
       console.log("showGlow", showGlow);
+      console.log("stationaryMode", stationaryMode);
+      console.log("customLevelsShowing", customLevelsShowing);
       console.log("toggleOffX", toggleOffX);
       console.log("customLevelsToggleCircleX", customLevelsToggleCircleX);
       console.log("stationaryToggleCircleX", stationaryToggleCircleX);

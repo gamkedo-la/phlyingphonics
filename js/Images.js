@@ -183,6 +183,8 @@ let soundFileNames = [
   "audio/splatsound.mp3",
   "audio/miss_woosh.mp3",
   "audio/miss_woosh_2.mp3",
+  "audio/toggleon.mp3",
+  "audio/toggleoff.mp3",
   "audio/phonics/phonica.mp3",
   "audio/phonics/phonicb.mp3",
   "audio/phonics/phonicc.mp3",

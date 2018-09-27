@@ -47,6 +47,8 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
     handleProfileMenuInput(evt.pageX,evt.pageY);
   } else if (isShowingExistingProfiles) {
     handleExistingProfileMenuInput(evt.pageX,evt.pageY);
+  } else if (isSettingsMenu) {
+    handleSettingsMenuInput(evt.pageX,evt.pageY);
   } else { //gameplay click info
 
   clickCount++;

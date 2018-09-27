@@ -49,7 +49,7 @@ drawFlies = () => {
   for (let flyDrawingIteration = 0; flyDrawingIteration < arrayOfFlies.length; flyDrawingIteration++) {
     //  canvasContext.drawImage(fly, arrayOfFlies[flyDrawingIteration].x, arrayOfFlies[flyDrawingIteration].y,
     //                          arrayOfFlies[flyDrawingIteration].width, arrayOfFlies[flyDrawingIteration].height);
-    if (arrayOfFlies[flyDrawingIteration].target) {
+    if (arrayOfFlies[flyDrawingIteration].target && showGlow) {
 
       colorCircleWithTransparency(arrayOfFlies[flyDrawingIteration].x + 100, arrayOfFlies[flyDrawingIteration].y + 100,
                                   100, "gray", glowTransparency);

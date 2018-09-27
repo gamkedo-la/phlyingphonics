@@ -1,3 +1,8 @@
+document.getElementById("tracks").style.visibility = "hidden";
+document.getElementById("smallLetters").style.visibility = "hidden";
+document.getElementById("bigLetters").style.visibility = "hidden";
+document.getElementById("bigAndSmallLetters").style.visibility = "hidden";
+
 //canvas definitions
 let canvas;
 let canvasContext;
@@ -101,6 +106,7 @@ window.onload = () => {
   glowToggleCircleX = toggleOnX;
   customLevelsToggleCircleX = toggleOffX;
   stationaryToggleCircleX = toggleOffX;
+  settingsMenuFlyX = canvas.width/4 + canvas.width/2 - 175;
   console.log("customLevelsToggleCircleX", customLevelsToggleCircleX);
   console.log("toggleOffX", toggleOffX);
 
@@ -138,10 +144,35 @@ window.onload = () => {
 
   //part of gameLoop
   updateEverything = () => {
+
+    //change transparency levels for target flies and settings menu if glow is selected
     if ( (glowTransparency < 0.1) || (glowTransparency > 0.8) ) {
       glowSpeed *= -1;
     }
     glowTransparency += glowSpeed;
+
+    //toggle level selector visibility
+    if (!customLevelsShowing) {
+      document.getElementById("tracks").style.visibility = "hidden";
+      document.getElementById("smallLetters").style.visibility = "hidden";
+      document.getElementById("bigLetters").style.visibility = "hidden";
+      document.getElementById("bigAndSmallLetters").style.visibility = "hidden";
+    } else {
+      document.getElementById("tracks").style.visibility = "visible";
+      document.getElementById("smallLetters").style.visibility = "visible";
+      document.getElementById("bigLetters").style.visibility = "visible";
+      document.getElementById("bigAndSmallLetters").style.visibility = "visible";
+    }
+
+    //move the fly in the settings menu if not in stationary mode
+    if (!stationaryMode) {
+      settingsMenuFlyX += settingsMenuFlyXSpeed;
+    }
+    if (settingsMenuFlyX > canvas.width/4 + canvas.width/2 - 165) {
+      settingsMenuFlyXSpeed *= -1;
+    } else if (settingsMenuFlyX < canvas.width/4 + canvas.width/2 - 225) {
+      settingsMenuFlyXSpeed *= -1;
+    }
 
     currentTime = new Date();
     deltaTime = currentTime - startTimeOfGame;
@@ -189,6 +220,7 @@ window.onload = () => {
       return;
     } else if (isSettingsMenu) {
       drawSettingsMenu();
+      stopTargetAudio();
     } else {
 
     canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
