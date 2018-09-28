@@ -225,7 +225,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
   if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
       mouseY >= 141 && mouseY <= 166) {
 
-        if (stationaryMode && rotateFlies) {
+        if (stationaryMode && !rotateFlies) {
           stationaryMode = false;
           rotateFlies = true;
           toggleOff.play();
