@@ -67,6 +67,7 @@ function drawSettingsMenu(mouseX,mouseY) {
   colorText("Glow", canvas.width/4 + 35,105, "#FC5800", "30px papyrus");
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,83, 75,25);
+
   if (!showGlow && glowToggleCircleX > toggleOffX) {
     glowToggleCircleX -= toggleXSpeed;
     canvasContext.drawImage(Images.getImage("toggle_circle"), glowToggleCircleX,85, 19,19);
@@ -109,6 +110,7 @@ function drawSettingsMenu(mouseX,mouseY) {
   if (showGlow) {
     colorCircleWithTransparency(canvas.width/4 + canvas.width/2 - 175,95, 25, "gray", glowTransparency);
   }
+  canvasContext.drawImage(Images.getImage("fly_version_1"), canvas.width/4 + canvas.width/2 - 195,75, 40,40);
 
 
   //stationary
