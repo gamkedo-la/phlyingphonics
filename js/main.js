@@ -56,12 +56,12 @@ let initialize = () => {
     }
   }, 1000);
 
-  leftArrowX = canvas.width/4 + canvas.width/2 + 5;
+  leftArrowX = canvas.width/4 + canvas.width/2 + 15;
   setInterval(function() {
-    if (leftArrowX === canvas.width/4 + canvas.width/2 + 5) {
+    if (leftArrowX === canvas.width/4 + canvas.width/2 + 15) {
       leftArrowX = canvas.width - 5;
     } else {
-      leftArrowX = canvas.width/4 + canvas.width/2 + 5;
+      leftArrowX = canvas.width/4 + canvas.width/2 + 15;
     }
   }, 1000);
 

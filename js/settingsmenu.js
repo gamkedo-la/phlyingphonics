@@ -203,6 +203,8 @@ function handleSettingsMenuInput(mouseX,mouseY) {
           toggleOn.play();
         }
         console.log("customLevelsShowing", customLevelsShowing);
+        customLevelsArrowSeen = true;
+        infoBlurbTransparency = 0.1;
       }
   //check for glow toggle click
   if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
@@ -214,6 +216,8 @@ function handleSettingsMenuInput(mouseX,mouseY) {
           showGlow = true;
           toggleOn.play();
         }
+        glowArrowSeen = true;
+        infoBlurbTransparency = 0.1;
       }
   //check for stationary mode toggle click
   if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
@@ -225,6 +229,8 @@ function handleSettingsMenuInput(mouseX,mouseY) {
           stationaryMode = true;
           toggleOn.play();
         }
+        stationaryArrowSeen = true;
+        infoBlurbTransparency = 0.1;
       }
 
       //profiles click canvas.width/4 + canvas.width/2 - 125,193, 75,25
@@ -233,6 +239,9 @@ function handleSettingsMenuInput(mouseX,mouseY) {
               fanflap.play();
               isProfileMenu = true;
               isSettingsMenu = false;
+              customLevelsArrowSeen = true;
+              infoBlurbTransparency = 0.1;
+              profilesArrowSeen = true;
             }
 
       //tutorial click canvas.width/4 + canvas.width/2 - 125,247, 75,25
@@ -244,6 +253,12 @@ function handleSettingsMenuInput(mouseX,mouseY) {
               isSettingsMenu = false;
               console.log("showSettingsButtonBlurbSeen", showSettingsButtonBlurbSeen);
               console.log("gamePlayInfoRead", gamePlayInfoRead);
+              tutorialArrowSeen = true;
+              customLevelsArrowSeen = false;
+              glowArrowSeen = false;
+              stationaryArrowSeen = false;
+              profilesArrowSeen = false;
+              infoBlurbTransparency = 0.1;
             }
 
   //check for play button click
@@ -253,6 +268,8 @@ function handleSettingsMenuInput(mouseX,mouseY) {
     fanflap.play();
     console.log("showSettingsButtonBlurbSeen", showSettingsButtonBlurbSeen);
     console.log("gamePlayInfoRead", gamePlayInfoRead);
+    customLevelsArrowSeen = true;
+    infoBlurbTransparency = 0.1;
   }
 }
 

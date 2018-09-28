@@ -57,18 +57,44 @@ function drawSettingsButtonBlurb() {
 }
 
 let settingsMenuInfoSeen = false;
-let customLevelsBlurbSeen = false;
-let glowBlurbSeen = false;
-let stationaryBlurbSeen = false;
-let profilesBlurbSeen = false;
-let tutorialBlurbSeen = false;
-let playBlurbSeen = false;
+let customLevelsArrowSeen = false;
+let glowArrowSeen = false;
+let stationaryArrowSeen = false;
+let profilesArrowSeen = false;
+let tutorialArrowSeen = false;
+let playArrowSeen = false;
 
 function drawSettingsMenuBlurbs() {
-  if (customLevelsBlurbSeen === false) {
+  if (customLevelsArrowSeen === false) {
     canvasContext.globalAlpha = infoBlurbTransparency;
-    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width/4 + canvas.width/2,15, 150,35);
-    canvasContext.drawImage(Images.getImage("left_arrow"), leftArrowX, 22, 100, 25);
+    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width/4 + canvas.width/2,17, 150,35);
+    canvasContext.drawImage(Images.getImage("left_arrow"), leftArrowX, 22, 105, 25);
+    canvasContext.globalAlpha = 1;
   }
   infoBlurbTransparency += infoBlurbTransparencySpeed;
+  if (!glowArrowSeen && customLevelsArrowSeen) {
+    canvasContext.globalAlpha = infoBlurbTransparency;
+    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width/4 + canvas.width/2,78, 150,35);
+    canvasContext.drawImage(Images.getImage("left_arrow"), leftArrowX, 83, 105, 25);
+    canvasContext.globalAlpha = 1;
+  }
+  if (glowArrowSeen && !stationaryArrowSeen) {
+    canvasContext.globalAlpha = infoBlurbTransparency;
+    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width/4 + canvas.width/2,139, 150,35);
+    canvasContext.drawImage(Images.getImage("left_arrow"), leftArrowX, 144, 105, 25);
+    canvasContext.globalAlpha = 1;
+  }
+  if (!profilesArrowSeen && stationaryArrowSeen) {
+    canvasContext.globalAlpha = infoBlurbTransparency;
+    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width/4 + canvas.width/2,190, 150,35);
+    canvasContext.drawImage(Images.getImage("left_arrow"), leftArrowX, 195, 105, 25);
+    canvasContext.globalAlpha = 1;
+  }
+  if (profilesArrowSeen && !tutorialArrowSeen) {
+    canvasContext.globalAlpha = infoBlurbTransparency;
+    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width/4 + canvas.width/2,243, 150,35);
+    canvasContext.drawImage(Images.getImage("left_arrow"), leftArrowX, 248, 105, 25);
+    canvasContext.globalAlpha = 1;
+  }
+
 }
