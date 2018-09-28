@@ -19,7 +19,7 @@ let drawFlies;
 let moveFlies;
 let handleFlyWallCollisions;
 
-const ROTATE_FLIES = true; // do the fly sprites rotate while flying?
+let rotateFlies = true; // do the fly sprites rotate while flying?
 
 let flySpeedX = 5;
 let flySpeedY = 5;
@@ -265,7 +265,7 @@ function flyClass(i, temporarySubset) {
         this.x + this.width / 2, this.y + (this.width / 2) - (this.stringImage.height / 2), 0, 1);
     }
 
-    if (ROTATE_FLIES &&
+    if (rotateFlies &&
       (this.xSpeed != 0 || this.ySpeed != 0)) { // only wobble back and forth if moving (not when dead)
 
       let scale = this.width / this.myImage.width;

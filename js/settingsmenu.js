@@ -224,13 +224,18 @@ function handleSettingsMenuInput(mouseX,mouseY) {
   //check for stationary mode toggle click
   if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
       mouseY >= 141 && mouseY <= 166) {
-        if (stationaryMode) {
+
+        if (stationaryMode && rotateFlies) {
           stationaryMode = false;
+          rotateFlies = true;
           toggleOff.play();
         } else {
           stationaryMode = true;
+          rotateFlies = false;
           toggleOn.play();
         }
+        console.log("rotateFlies", rotateFlies);
+        console.log("stationaryMode", stationaryMode);
         stationaryArrowSeen = true;
         infoBlurbTransparency = 0.1;
       }

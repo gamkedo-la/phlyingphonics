@@ -37,6 +37,28 @@ function drawIntro(mouseX,mouseY) {
         introFlySwatterX -= introFlySwatterXSpeed;
       }
     }
+    /*if (rotateFlies)
+
+      let scale = 200 / Images.getImage("cartoonFly").width;
+
+      //point in the direction we are moving
+      let angle = Math.atan2(this.ySpeed, this.xSpeed) - 90 * (180 / Math.PI); // degrees away from east
+
+      // look back and forth a little
+      let wobble = Math.sin(performance.now() / 500) * 0.5;
+
+      // centered at x,y? no in this game x,y is the top left corner of the sprite
+      //drawBitmapCenteredWithRotationScale(this.myImage, this.x, this.y, angle + wobble, scale);
+
+      // this would rotate by the corner pivot
+      // drawBitmapWithRotationScale(this.myImage, this.x, this.y, angle + wobble, scale);
+
+      this.drawCount++;
+
+      drawBitmapCenteredWithRotationScale(this.drawCount % 3 > 0 ? this.myImage : this.myImageB,
+        this.x + this.width / 2, this.y + this.width / 2, angle + wobble, scale);
+
+    }*/
     if (deltaTime > 2200 && deltaTime < 8350) {
       canvasContext.drawImage(Images.getImage("cartoonFly"), 50,250, 200,150);
     } else {
