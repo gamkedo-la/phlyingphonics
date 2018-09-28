@@ -12,6 +12,7 @@ function checkForFirstLaunch() {
 let infoBlurbTransparency = 0.1;
 let infoBlurbTransparencySpeed = 0.02;
 let gamePlayInfoRead = false;
+let settingsButtonBlurbRead = false;
 
 function drawFirstLaunchGamePlayInfoBlurb() {
   if (!gamePlayInfoRead) {
@@ -26,12 +27,6 @@ function drawFirstLaunchGamePlayInfoBlurb() {
       fingerY = 0;
       fanflap.play();
       gamePlayInfoRead = true;
-      console.log("showGlow", showGlow);
-      console.log("stationaryMode", stationaryMode);
-      console.log("customLevelsShowing", customLevelsShowing);
-      console.log("toggleOffX", toggleOffX);
-      console.log("customLevelsToggleCircleX", customLevelsToggleCircleX);
-      console.log("stationaryToggleCircleX", stationaryToggleCircleX);
       infoBlurbTransparency = 0.1;
       settingsBlurbStartTime = new Date();
     } else {
@@ -50,7 +45,7 @@ let showSettingsButtonBlurbSeen = false;
 let arrowX; //defined in initialize in main.js
 
 function drawSettingsButtonBlurb() {
-  if (gamePlayInfoRead) {
+  if (gamePlayInfoRead && !showSettingsButtonBlurbSeen) {
     settingsBlurbElapsedTime = settingsBlurbStartTime + currentTime;
     canvasContext.globalAlpha = infoBlurbTransparency;
     canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width - 600,0, 500, 50);
@@ -61,6 +56,19 @@ function drawSettingsButtonBlurb() {
   }
 }
 
-function drawSettingsMenuBlurbs() {
+let settingsMenuInfoSeen = false;
+let customLevelsBlurbSeen = false;
+let glowBlurbSeen = false;
+let stationaryBlurbSeen = false;
+let profilesBlurbSeen = false;
+let tutorialBlurbSeen = false;
+let playBlurbSeen = false;
 
+function drawSettingsMenuBlurbs() {
+  if (customLevelsBlurbSeen === false) {
+    canvasContext.globalAlpha = infoBlurbTransparency;
+    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width/4 + canvas.width/2,15, 150,35);
+    canvasContext.drawImage(Images.getImage("left_arrow"), leftArrowX, 22, 100, 25);
+  }
+  infoBlurbTransparency += infoBlurbTransparencySpeed;
 }

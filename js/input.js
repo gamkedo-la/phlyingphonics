@@ -37,9 +37,6 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
   if (intro) {
     handleIntroInput(evt.pageX,evt.pageY);
     return;
-  } else if (isMainMenu) {
-    handleMainMenuInput(evt.pageX,evt.pageY);
-    return;
   } else if (isOpeningLanguageSelector) {
     handleOpeningLanguageSelectorInput(evt.pageX,evt.pageY);
     return;

@@ -106,18 +106,12 @@ function drawIntro(mouseX,mouseY) {
 
 function handleIntroInput(mouseX,mouseY) {
 
-
-
- console.log("mouseX/Y", mouseX,mouseY);
- console.log("mousePressed", mousePressed);
   if (
       ( (mouseX >= canvas.width - 350 && mouseX <= canvas.width - 50  && mouseY >= 200 && mouseY <= 350) ||
     (fingerX >= canvas.width - 350 && fingerX <= canvas.width - 50  && fingerY >= 200 && fingerY <= canvas.width - 50) )
     ) {
-      console.log("clicked");
       introPlayButton.onClick();
       }
-      console.log("intro", intro);
 }
 
 let introPlayButton = {onClick: introPlayButtonOnClick};
@@ -141,6 +135,3 @@ function introPlayButtonOnClick() {
     loadProfileSettingsAndStartGame();
   }
 }
-
-
-console.log("introPlayButton", introPlayButton);

@@ -9,7 +9,12 @@ let customLevelsOnOffTransparency = 0;
 let onOffToggleTransparencySpeed = 0.1;
 
 
-function drawSettingsMenu() {
+function drawSettingsMenu(mouseX,mouseY) {
+
+
+  canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
+  drawSwattedFlies();
+  drawFlies();
 
   //background
   canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
@@ -104,7 +109,7 @@ function drawSettingsMenu() {
   if (showGlow) {
     colorCircleWithTransparency(canvas.width/4 + canvas.width/2 - 175,95, 25, "gray", glowTransparency);
   }
-  console.log("glowOnOffTransparency", glowOnOffTransparency);
+
 
   //stationary
   colorText("Stationary", canvas.width/4 + 35,160, "#FC5800", "30px papyrus");
@@ -152,15 +157,30 @@ function drawSettingsMenu() {
   canvasContext.drawImage(Images.getImage("cartoonFly"), settingsMenuFlyX, 130, 40,40);
 
   //profiles
-    colorText("Profiles", canvas.width/4 + 35,215, "#FC5800", "30px papyrus");
+    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
+          mouseY >= 193 && mouseY <= 218) ) {
+            canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
+          } else {
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
+    }
+    colorText("Profiles", canvas.width/4 + 35,215, "#FC5800", "30px papyrus");
 
     //tutorial
     colorText("Tutorial", canvas.width/4 + 35,270, "#FC5800", "30px papyrus");
-    canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
+    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
+          mouseY >= 247 && mouseY <= 272) ) {
+            canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
+          } else {
+            canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
+          }
 
     //play
-    canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width/4 + 160,325, 150,100);
+    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 130 && mouseX <= canvas.width/3 + 280 &&
+          mouseY >= 325 && mouseY <= 425) ) {
+          canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width/3 + 130,325, 150,100);
+        } else {
+          canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width/3 + 130,325, 150,100);
+        }
 
 }
 
@@ -173,7 +193,7 @@ let settingsMenuFlyX;
 
 function handleSettingsMenuInput(mouseX,mouseY) {
   //check for Custom Levels toggle click
-  if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 + 50 &&
+  if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
       mouseY >= 25 && mouseY <= 50) {
         if (customLevelsShowing) {
           customLevelsShowing = false;
@@ -185,7 +205,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
         console.log("customLevelsShowing", customLevelsShowing);
       }
   //check for glow toggle click
-  if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 + 50 &&
+  if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
       mouseY >= 83 && mouseY <= 108) {
         if (showGlow) {
           showGlow = false;
@@ -196,7 +216,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
         }
       }
   //check for stationary mode toggle click
-  if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 + 50 &&
+  if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
       mouseY >= 141 && mouseY <= 166) {
         if (stationaryMode) {
           stationaryMode = false;
@@ -206,6 +226,34 @@ function handleSettingsMenuInput(mouseX,mouseY) {
           toggleOn.play();
         }
       }
+
+      //profiles click canvas.width/4 + canvas.width/2 - 125,193, 75,25
+      if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
+            mouseY >= 193 && mouseY <= 218) {
+              fanflap.play();
+              isProfileMenu = true;
+              isSettingsMenu = false;
+            }
+
+      //tutorial click canvas.width/4 + canvas.width/2 - 125,247, 75,25
+      if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
+            mouseY >= 247 && mouseY <= 272) {
+              fanflap.play();
+              showSettingsButtonBlurbSeen = false;
+              gamePlayInfoRead = false;
+              isSettingsMenu = false;
+              console.log("showSettingsButtonBlurbSeen", showSettingsButtonBlurbSeen);
+              console.log("gamePlayInfoRead", gamePlayInfoRead);
+            }
+
+  //check for play button click
+  if (mouseX >= canvas.width/3 + 130 && mouseX <= canvas.width/3 + 280 && mouseY >= 325 && mouseY <= 425) {
+    isSettingsMenu = false;
+    playTargetAudio();
+    fanflap.play();
+    console.log("showSettingsButtonBlurbSeen", showSettingsButtonBlurbSeen);
+    console.log("gamePlayInfoRead", gamePlayInfoRead);
+  }
 }
 
 let toggleOn = new Audio();

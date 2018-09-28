@@ -212,9 +212,3 @@ if (localStorage.getItem("language") === null) {
 } else {
   language = localStorage.getItem("language");
 }
-
-let mainMenuButtonList = [
-  {label: undefined, x:125,y:210, onClick: startKidMode},
-  {label: undefined, x:500,y:210, onClick: startAdvancedMode},
-  {label: undefined, x:310,y:300, onClick: toggleStationaryMode}
-];

@@ -44,7 +44,6 @@ getRandomInt = (min, max) => {
 
 let initialize = () => {
   checkForFirstLaunch();
-  console.log("firstLaunch",firstLaunch);
   intro = true;
   backgroundMusic.play();
 
@@ -54,6 +53,15 @@ let initialize = () => {
       arrowX = canvas.width - 205;
     } else {
       arrowX = canvas.width - 250;
+    }
+  }, 1000);
+
+  leftArrowX = canvas.width/4 + canvas.width/2 + 5;
+  setInterval(function() {
+    if (leftArrowX === canvas.width/4 + canvas.width/2 + 5) {
+      leftArrowX = canvas.width - 5;
+    } else {
+      leftArrowX = canvas.width/4 + canvas.width/2 + 5;
     }
   }, 1000);
 
@@ -74,13 +82,6 @@ let initialize = () => {
   temporarySubset = currentTrack[trackIndex];//consonantTrackLevels[consonantTrackLevelIndex];
   updateIndividualTargetsPreviousPracticeSessionNumbers();
   updateIndividualTargetsPreviousPracticeDate();
-  console.log("languageSelectorButtonList", languageSelectorButtonList);
-  console.log("language", language);
-  console.log("intro", intro);
-  console.log("isMainMenu", isMainMenu);
-  console.log("isOpeningLanguageSelector", isOpeningLanguageSelector);
-  console.log("isProfileMenu", isProfileMenu);
-  console.log("isShowingExistingProfiles", isShowingExistingProfiles);
 
 }
 
@@ -107,8 +108,6 @@ window.onload = () => {
   customLevelsToggleCircleX = toggleOffX;
   stationaryToggleCircleX = toggleOffX;
   settingsMenuFlyX = canvas.width/4 + canvas.width/2 - 175;
-  console.log("customLevelsToggleCircleX", customLevelsToggleCircleX);
-  console.log("toggleOffX", toggleOffX);
 
 
   // gathers mouse coordinates for debugging potential debugging,
@@ -139,8 +138,7 @@ window.onload = () => {
 
   });
   canvas.addEventListener("touchend", handleCanvasClick);// {
-    console.log("mousePressed", mousePressed);
-    console.log("fingerPressed", fingerPressed);
+
 
   //part of gameLoop
   updateEverything = () => {
@@ -179,7 +177,7 @@ window.onload = () => {
     handleFlyWallCollisions();
     handleFlyToFlyCollisions();
     handleFliesOffScreen();
-    if (!useStationaryMode) {
+    if (!stationaryMode) {
       moveFlies();
     }
     updateFlyProperties();
@@ -219,7 +217,10 @@ window.onload = () => {
       drawExistingProfilesMenu();
       return;
     } else if (isSettingsMenu) {
-      drawSettingsMenu();
+      drawSettingsMenu(mouseX,mouseY);
+      if (!settingsMenuInfoSeen) {
+        drawSettingsMenuBlurbs();
+      }
       stopTargetAudio();
     } else {
 
@@ -237,54 +238,14 @@ window.onload = () => {
     // drawn a bit bigger than the screen to avoid white edges during screenshakes
     canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
 
-    /* old GUI button layout
-    //text info button
-    //colorRect(canvas.width - 100,canvas.height - 50, 100,50, "blue");
-    if ( (mousePressed || fingerPressed) && ( (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > canvas.height - 50 && mouseY < canvas.height) ||
-         (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > canvas.height - 50 && fingerY < canvas.height) ) ) {
-           console.log("mouseX/Y", mouseX, mouseY);
-      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
-      colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-    } else {
-    canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, canvas.height - 50);
-    colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-    }
-
-
-    //video info button
-    //colorRect(0, canvas.height - 50, 100, 50, "blue");
-    if ( (mousePressed || fingerPressed) && ( (mouseX > 0 && mouseX < 100 && mouseY > canvas.height - 50 && mouseY < canvas.height) ||
-          (fingerX > 0 && fingerX < 100 && fingerY > canvas.height - 50 && fingerY < canvas.height) ) ) {
-      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
-      colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
-    } else {
-      canvasContext.drawImage(Images.getImage("gui_button"), 0, canvas.height - 50);
-      colorText(language.videoButton, 10,canvas.height - 20, "white", "18x papyrus");
-    }
-
-    //exit game button
-    //colorRect(canvas.width - 100,0, 100,50, "blue");
-    if ( (mousePressed || fingerPressed) && ( (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > 0 && mouseY < 50) ||
-          (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > 0 && fingerY < 50) ) ) {
-            console.log("mouseX/Y", mouseX, mouseY);
-
-            canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, canvas.height - 50);
-            colorText(language.exit, canvas.width - 90, 30, "white", "18x papyrus");
-          }
-     else {
-      canvasContext.drawImage(Images.getImage("gui_button"), canvas.width - 100, 0);
-      colorText(language.exit, canvas.width - 90, 30, "white", "18x papyrus");
-    }
-    end of old GUI button layout */
-
     //settings button
     if ( (mousePressed || fingerPressed) && ( (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > 0 && mouseY < 50) ||
           (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > 0 && fingerY < 50) ) ) {
-            console.log("mouseX/Y", mouseX, mouseY);
-
-            canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 100, canvas.height - 50);
+            canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 100, 0);
             showSettingsButtonBlurbSeen = true;
             isSettingsMenu = true;
+            infoBlurbTransparency = 0.1;
+            fanflap.play();
           }
      else {
       canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 100, 0);
