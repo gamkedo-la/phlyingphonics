@@ -121,6 +121,7 @@ function checkForLevelResetOrAdvancement() {
     fillArrayOfTargetsToPractice();//playerProfile.js 292
     arrayOfSwattedFlies = [];
     chooseBackground();
+    chooseBackgroundSong();
     trackIndex++;
     temporarySubset = currentTrack[trackIndex];
     resetAccuracy();
@@ -136,8 +137,23 @@ function checkForLevelResetOrAdvancement() {
     arrayOfSwattedFlies = [];
     resetAccuracy();
     chooseBackground();
+    chooseBackgroundSong();
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
+  }
+}
+
+function chooseBackgroundSong() {
+  if (chosenBackground === "tree2") {
+    backgroundMusic.pause();
+    backgroundMusic.src = "audio/butterflylevelsong.mp3";
+    backgroundMusic.volume = 0.3;
+    backgroundMusic.play();
+  } else {
+    backgroundMusic.pause();
+    backgroundMusic.src = "audio/flightOfTheABCs.mp3";
+    backgroundMusic.volume = 0.1;
+    backgroundMusic.play();
   }
 }
 
