@@ -1,3 +1,5 @@
+const ASPECT_RATIO = 16/9;
+
 document.getElementById("tracks").style.visibility = "hidden";
 document.getElementById("smallLetters").style.visibility = "hidden";
 document.getElementById("bigLetters").style.visibility = "hidden";
@@ -269,8 +271,11 @@ window.onload = () => {
 }
 
 window.onresize = () => {
-  canvasRightEdge = canvas.width = window.innerWidth*0.8;
-  canvasBottomEdge = canvas.height = window.innerHeight*0.65;
+  let innerW = window.innerWidth*0.8;
+  
+  canvasBottomEdge = canvas.height = innerW * 1 / ASPECT_RATIO;
+  canvasRightEdge = canvas.width = innerW;
+
   canvasTopEdge = 0;
   canvasLeftEdge = 0;
 }
