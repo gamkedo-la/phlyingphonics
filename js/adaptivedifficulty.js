@@ -149,7 +149,13 @@ function chooseBackgroundSong() {
     backgroundMusic.src = "audio/butterflylevelsong.mp3";
     backgroundMusic.volume = 0.3;
     backgroundMusic.play();
-  } else {
+  } else if (chosenBackground === "BabyRoomBG") {
+    backgroundMusic.pause();
+    backgroundMusic.src = "audio/babyroomsong.mp3";
+    backgroundMusic.volume = 0.5;
+    backgroundMusic.play();
+  }
+  else {
     backgroundMusic.pause();
     backgroundMusic.src = "audio/flightOfTheABCs.mp3";
     backgroundMusic.volume = 0.1;
