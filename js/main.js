@@ -1,3 +1,5 @@
+//localStorage.clear();
+
 const ASPECT_RATIO = 16/9;
 
 document.getElementById("tracks").style.visibility = "hidden";
@@ -271,8 +273,8 @@ window.onload = () => {
 }
 
 window.onresize = () => {
-  let innerW = window.innerWidth*0.8;
-  
+  let innerW = 1228;//window.innerWidth*0.8;
+
   canvasBottomEdge = canvas.height = innerW * 1 / ASPECT_RATIO;
   canvasRightEdge = canvas.width = innerW;
 

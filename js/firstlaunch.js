@@ -1,7 +1,10 @@
 let firstLaunch;
 
 function checkForFirstLaunch() {
-  if (localStorage.getItem("firstLaunch") === null) {
+  console.log("checkForFirstLaunch");
+  var fl = localStorage.getItem("firstLaunch");
+  console.log(fl);
+  if (fl === null) {
     firstLaunch = true;
     localStorage.setItem("firstLaunch", firstLaunch);
   } else {

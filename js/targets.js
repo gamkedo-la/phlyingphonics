@@ -6,14 +6,21 @@ let assignTargetAudio = () => {
     targetAudio = temporaryArrayOfQuestions[0];
 }
 
+
 let playTargetAudio = () => {
-  Sounds.getSound(targetAudio).loop = true;
-  Sounds.getSound(targetAudio).volume = 1;
-  Sounds.getSound(targetAudio).play();
+  var thisSound = Sounds.getSound(targetAudio);
+  if (thisSound !== null) {
+    thisSound.loop = true;
+    thisSound.volume = 1;
+    thisSound.play();
+  }
 }
 
 let stopTargetAudio = () => {
-  Sounds.getSound(targetAudio).pause();
+  var thisSound = Sounds.getSound(targetAudio);
+    if (thisSound !== null) {
+    thisSound.pause();
+  }
 }
 
 let resetTargetAudioAndTargetFlies = () => {

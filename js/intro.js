@@ -139,6 +139,7 @@ function handleIntroInput(mouseX,mouseY) {
 let introPlayButton = {onClick: introPlayButtonOnClick};
 
 function introPlayButtonOnClick() {
+  console.log("firstLaunch", firstLaunch);
 
   canvasContext.globalAlpha = 1;
   if (firstLaunch) {
@@ -153,7 +154,15 @@ function introPlayButtonOnClick() {
     fingerPressed = false;
     fingerX = 0;
     fingerY = 0;
-    language = JSON.parse(localStorage.getItem("language"));
+
+    var gotLang = localStorage.getItem("language");
+    console.log(gotLang);
+    if (gotLang == null) {
+      gotLang = englishButtonAndTextStrings;
+      console.log("found no gotLang");
+    }
+    console.log("isOpeningLanguageSelector", isOpeningLanguageSelector);
+    language = JSON.parse(gotLang);
     loadProfileSettingsAndStartGame();
   }
 }

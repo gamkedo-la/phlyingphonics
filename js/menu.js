@@ -75,9 +75,10 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
         fingerX = 0;
         fingerY = 0;
         fanflap.play();
+        console.log(i);
         language = languageSelectorButtonList[i].language;
+        console.log(language);
         existingProfilesMenuButtonList[0].label = language.previous;
-
         localStorage.setItem("language", JSON.stringify(language));
 
     }

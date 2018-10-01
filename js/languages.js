@@ -209,6 +209,8 @@ let languageSelectorButtonList = [
 if (localStorage.getItem("language") === null) {
   language = englishButtonAndTextStrings;
   console.log("language", language);
+  localStorage.setItem("language", JSON.stringify(language));
 } else {
   language = localStorage.getItem("language");
 }
+console.log("loading reached end of language.js");
