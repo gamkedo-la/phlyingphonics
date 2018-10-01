@@ -154,8 +154,12 @@ function chooseBackgroundSong() {
     backgroundMusic.src = "audio/babyroomsong.mp3";
     backgroundMusic.volume = 0.5;
     backgroundMusic.play();
-  }
-  else {
+  } else if (chosenBackground === "honeycomb") {
+    backgroundMusic.pause();
+    backgroundMusic.src = "audio/beelevel.mp3";
+    backgroundMusic.volume = 0.3;
+    backgroundMusic.play();
+  } else {
     backgroundMusic.pause();
     backgroundMusic.src = "audio/flightOfTheABCs.mp3";
     backgroundMusic.volume = 0.1;
