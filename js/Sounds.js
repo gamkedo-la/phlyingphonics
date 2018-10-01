@@ -91,3 +91,4 @@ let arrayOfCorrectSounds = ["audio/VOX_Sofia_GoodJob01.mp3","audio/VOX_Sofia_Goo
 correctSound.volume = 0.55;
 
 let fanflap = document.getElementById("fanflap");
+fanflap.volume = 0.4;

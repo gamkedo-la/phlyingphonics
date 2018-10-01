@@ -273,9 +273,10 @@ window.onload = () => {
 }
 
 window.onresize = () => {
-  let innerW = 1228;//window.innerWidth*0.8;
+  let innerW = 1100;//window.innerWidth*0.8;
 
-  canvasBottomEdge = canvas.height = innerW * 1 / ASPECT_RATIO;
+  //canvasBottomEdge = canvas.height = innerW * 1 / ASPECT_RATIO; //taken out for itch release
+  canvasBottomEdge = 400;
   canvasRightEdge = canvas.width = innerW;
 
   canvasTopEdge = 0;

@@ -32,7 +32,7 @@ function drawIntro(mouseX,mouseY) {
     }
     if (deltaTime > 6200 && deltaTime < 8400) {
       introPhonicATransparency += introPhonicATransparencySpeed;
-      colorCircleWithTransparency(152,335, 100, "gray", introPhonicATransparency);
+      colorCircleWithTransparency(152,280, 100, "gray", introPhonicATransparency);
       if (introFlySwatterX > 115) {
         introFlySwatterX -= introFlySwatterXSpeed;
       }
@@ -60,9 +60,9 @@ function drawIntro(mouseX,mouseY) {
 
     }*/
     if (deltaTime > 2200 && deltaTime < 8350) {
-      canvasContext.drawImage(Images.getImage("cartoonFly"), 50,250, 200,150);
+      canvasContext.drawImage(Images.getImage("mobileThree"), 50,200, 200,150);
     } else {
-      canvasContext.drawImage(Images.getImage("yellowgreensplat"), 50,250, 200,150);
+      canvasContext.drawImage(Images.getImage("starsplat"), 50,200, 200,150);
     }
     if (deltaTime > 8350 && deltaTime < 8400) {
       correctSound.src = "audio/VOX_Sofia_Yay.mp3";
@@ -74,8 +74,8 @@ function drawIntro(mouseX,mouseY) {
     if (deltaTime > 9000) {
       introPhonics.play();
       introPhonicATransparency += introPhonicATransparencySpeed;
-      colorCircleWithTransparency(canvas.width/4 + 407,325, 100, "gray", introPhonicATransparency);
-      if (introFlySwatterX < canvas.width/4 + 350) {
+      colorCircleWithTransparency(canvas.width/4 + 361,275, 100, "gray", introPhonicATransparency);
+      if (introFlySwatterX < canvas.width/4 + 300) {
         introFlySwatterX += introFlySwatterXSpeed;
       }
     }
@@ -89,14 +89,14 @@ function drawIntro(mouseX,mouseY) {
     if (deltaTime > 16000) {
       correctSound.pause();
     }
-    canvasContext.drawImage(Images.getImage("smalla"), 125,300, 50,50);
+    canvasContext.drawImage(Images.getImage("smalla"), 125,260, 50,50);
     if (deltaTime < 15000) {
-      canvasContext.drawImage(Images.getImage("fly_version_1"), canvas.width/4 + 300,250, 200,150);
+      canvasContext.drawImage(Images.getImage("mobileTwo"), canvas.width/4 + 260,200, 200,150);
     } else {
-      canvasContext.drawImage(Images.getImage("yellowgreensplat"), canvas.width/4 + 300,250, 200,150);
+      canvasContext.drawImage(Images.getImage("starsplat"), canvas.width/4 + 255,200, 200,150);
     }
-    canvasContext.drawImage(Images.getImage("smallb"), canvas.width/4 + 380,300, 50,50);
-    canvasContext.drawImage(Images.getImage("flySwatter"), introFlySwatterX,300, 300,150);
+    canvasContext.drawImage(Images.getImage("smallb"), canvas.width/4 + 332,252, 50,50);
+    canvasContext.drawImage(Images.getImage("BabyHand"), introFlySwatterX,250, 300,150);
     if  ( (mousePressed || fingerPressed)
         && ( (mouseX >= canvas.width - 350 && mouseX <= canvas.width - 50  && mouseY >= 200 && mouseY <= 350) ||
       (fingerX >= canvas.width - 350 && fingerX <= canvas.width - 50  && fingerY >= 200 && fingerY <= canvas.width - 50) )
@@ -114,12 +114,12 @@ function drawIntro(mouseX,mouseY) {
         mouseY >= 400 && mouseY <= 475) ||
         (fingerX >= canvas.width - 300 && fingerX <= canvas.width - 100  &&
           fingerY >= 400 && fingerY <= canvas.width - 475) ) ) {
-          canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 300,400, 200,75);
+          canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 200,300, 200,75);
           fingerX = 0;
           fingerY = 0;
           fanflap.play();
         } else {
-            canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 300,400, 200,75);
+            canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 200,300, 200,75);
           }
       }
     }

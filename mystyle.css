@@ -17,8 +17,8 @@ p {
 #bigLetters {
     position: absolute;
     display: block;
-    top: 20px;
-    right: 200px;
+    top: 10px;
+    right: 33px;
 }
 
 #bigLetterButtonImage {
@@ -29,14 +29,14 @@ p {
 
 #smallLetters {
   position: absolute;
-  top: 20px;
-  right: 100px;
+  top: 43px;
+  right: 25px;
 }
 
 #bigAndSmallLetters {
   position: absolute;
-  top: 45px;
-  right: 115px;
+  top: 75px;
+  right: 0px;
 }
 
 

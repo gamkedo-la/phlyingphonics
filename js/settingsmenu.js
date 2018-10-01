@@ -179,9 +179,9 @@ function drawSettingsMenu(mouseX,mouseY) {
     //play
     if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 130 && mouseX <= canvas.width/3 + 280 &&
           mouseY >= 325 && mouseY <= 425) ) {
-          canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width/3 + 130,325, 150,100);
+          canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width/3 + 130,290, 150,100);
         } else {
-          canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width/3 + 130,325, 150,100);
+          canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width/3 + 130,290, 150,100);
         }
 
 }
@@ -282,5 +282,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
 
 let toggleOn = new Audio();
 toggleOn.src = "audio/toggleon.mp3";
+toggleOn.volume = 0.3;
 let toggleOff = new Audio();
 toggleOff.src = "audio/toggleoff.mp3";
+toggleOff.volume = 0.3;
