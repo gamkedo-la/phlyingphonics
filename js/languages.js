@@ -197,17 +197,17 @@ let bahasaButtonAndTextStrings = {
 }
 
 let languageSelectorButtonList = [
-  {label: "简体中文", x:25,y:210, language: mandarinButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "English", x:250,y:210, language: englishButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "हिंदुस्तानी", x:475,y:210, language: hindustaniButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "Español", x:700,y:210, language: spanishButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "عربى", x:925,y:210, language: arabicButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "Kiswahili", x:25,y:310, language: swahiliButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "Français", x:250,y:310, language: frenchButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "Português", x:475,y:310, language: portugueseButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "русский", x:700,y:310, language: russianButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "日本語", x:925,y:310, language: japaneseButtonAndTextStrings, onClick: goToMainMenu},
-  {label: "Bahasa Malaysia", x:25,y:410, language: bahasaButtonAndTextStrings, onClick: goToMainMenu}
+  {label: "简体中文", x:115,y:185, language: mandarinButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "English", x:340,y:185, language: englishButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "हिंदुस्तानी", x:565,y:185, language: hindustaniButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Español", x:790,y:185, language: spanishButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Kiswahili", x:115,y:265, language: swahiliButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Français", x:340,y:265, language: frenchButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Português", x:565,y:265, language: portugueseButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "русский", x:790,y:265, language: russianButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "Bahasa Malaysia", x:115,y:340, language: bahasaButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "عربى", x:340,y:340, language: arabicButtonAndTextStrings, onClick: goToMainMenu},
+  {label: "日本語", x:565,y:340, language: japaneseButtonAndTextStrings, onClick: goToMainMenu}
 ];
 
 if (localStorage.getItem("language") === null) {
