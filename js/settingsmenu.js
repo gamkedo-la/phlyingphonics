@@ -176,14 +176,33 @@ function drawSettingsMenu(mouseX,mouseY) {
             canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
           }
 
+    //credits
+    colorText("Credits", canvas.width/4 + 35,325, "#FC5800", "30px papyrus");
+    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 - 38 && mouseY >= 335 && mouseX <= canvas.width/3 + 37 && mouseY <= 385) ) {
+          canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/3 - 38,335, 75,50);
+          tutorial = false;
+        } else {
+          canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/3 - 38,335, 75,50);
+        }
+
     //play
     if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 130 && mouseX <= canvas.width/3 + 280 &&
           mouseY >= 325 && mouseY <= 425) ) {
           canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width/3 + 130,290, 150,100);
+          tutorial = false;
         } else {
           canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width/3 + 130,290, 150,100);
         }
 
+        //older kids Mode
+        colorText("Older Kids", canvas.width/3 + 290,325, "#FC5800", "30px papyrus");
+        if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 290 && mouseX <= canvas.width/3 + 132.5 &&
+              mouseY >= 340 && mouseY <= 357.5) ) {
+              canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/3 + 325,340, 75,25);
+              tutorial = false;
+            } else {
+              canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/3 + 325,340, 75,25);
+            }
 }
 
 let showGlow = true;
@@ -257,6 +276,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
               fanflap.play();
               showSettingsButtonBlurbSeen = false;
               gamePlayInfoRead = false;
+              statsInfoRead = false;
               isSettingsMenu = false;
               console.log("showSettingsButtonBlurbSeen", showSettingsButtonBlurbSeen);
               console.log("gamePlayInfoRead", gamePlayInfoRead);
@@ -267,6 +287,11 @@ function handleSettingsMenuInput(mouseX,mouseY) {
               profilesArrowSeen = false;
               infoBlurbTransparency = 0.1;
             }
+
+            //credits click
+            if (mouseX >= canvas.width/3 - 38 && mouseY >= 335 && mouseX <= canvas.width/3 + 37 && mouseY <= 385) {
+                    alert("Gamkedoooooooooo!!!!!!")
+                  }
 
   //check for play button click
   if (mouseX >= canvas.width/3 + 130 && mouseX <= canvas.width/3 + 280 && mouseY >= 325 && mouseY <= 425) {

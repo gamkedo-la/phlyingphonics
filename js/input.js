@@ -33,7 +33,7 @@ let mousePressed = false;
 let fingerPressed = false;
 
 function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
-
+  //console.log("statsInfoRead", statsInfoRead);
   if (intro) {
     handleIntroInput(evt.pageX,evt.pageY);
     return;
@@ -48,6 +48,7 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
     handleSettingsMenuInput(evt.pageX,evt.pageY);
   } else { //gameplay click info
 
+    if (!tutorial) {
   clickCount++;
 
   numberOfAttempts++;
@@ -78,7 +79,9 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
       let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
       let missedSound = document.getElementById("missedSound");
       missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
-      missedSound.play();
+      if (!tutorial) {
+        missedSound.play();
+      }
     }
     /*if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
       canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
@@ -126,6 +129,7 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
 
   //canvas.width - 100,0
   fingerPressed = false;
+}
 }
 }
 

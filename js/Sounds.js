@@ -87,8 +87,12 @@ let arrayOfMissedSounds = ["audio/miss_woosh.mp3","audio/miss_woosh_2.mp3","audi
 missedSound.volume = 0.55;
 
 let arrayOfCorrectSounds = ["audio/VOX_Sofia_GoodJob01.mp3","audio/VOX_Sofia_GoodJob02.mp3","audio/VOX_Sofia_GreatWork.mp3","audio/VOX_Sofia_Hurray.mp3",
-							"audio/VOX_Sofia_KeepItUp.mp3","audio/VOX_Sofia_Yay.mp3","audio/splatsound.mp3"];
+							"audio/VOX_Sofia_KeepItUp.mp3","audio/VOX_Sofia_Yay.mp3"];
 correctSound.volume = 0.55;
 
+
+let arrayOfOlderModeSplatSounds = ["audio/VOX_Sofia_GoodJob01.mp3","audio/VOX_Sofia_GoodJob02.mp3","audio/VOX_Sofia_GreatWork.mp3","audio/VOX_Sofia_Hurray.mp3",
+							"audio/VOX_Sofia_KeepItUp.mp3","audio/VOX_Sofia_Yay.mp3","audio/splatsound.mp3"];
+
 let fanflap = document.getElementById("fanflap");
-fanflap.volume = 0.4;
+fanflap.volume = 0.2;

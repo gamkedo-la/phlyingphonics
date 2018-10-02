@@ -1,9 +1,9 @@
 let firstLaunch;
 
 function checkForFirstLaunch() {
-  console.log("checkForFirstLaunch");
+  //console.log("checkForFirstLaunch");
   var fl = localStorage.getItem("firstLaunch");
-  console.log(fl);
+  //console.log(fl);
   if (fl === null) {
     firstLaunch = true;
     localStorage.setItem("firstLaunch", firstLaunch);
@@ -26,12 +26,12 @@ function drawFirstLaunchGamePlayInfoBlurb() {
     ( (fingerX >= canvas.width - buttonWidth - buttonWidth/3 +75) && (fingerX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
       (fingerY >= canvas.height - (canvas.height/3) + canvas.height/8) && (fingerY <= canvas.height - (canvas.height/3) + canvas.height/8 + 50) ) ) {
       canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width - buttonWidth - buttonWidth/3 + 75,canvas.height - (canvas.height/3) + canvas.height/8, 100,50);
+      console.log("click inside game play info coordinates");
       fingerX = 0;
       fingerY = 0;
       fanflap.play();
       gamePlayInfoRead = true;
       infoBlurbTransparency = 0.1;
-      settingsBlurbStartTime = new Date();
     } else {
   canvasContext.drawImage(Images.getImage("gui_button_check"), canvas.width - buttonWidth - buttonWidth/3 + 75,canvas.height - (canvas.height/3) + canvas.height/8, 100, 50);
   }
@@ -44,11 +44,43 @@ function drawFirstLaunchGamePlayInfoBlurb() {
   }
 }
 
+let statsInfoRead = false;
+let tutorial = true;
+
+function drawFirstLaunchStatsInfoBlurb() {
+
+  if (gamePlayInfoRead && !statsInfoRead) {
+
+  canvasContext.globalAlpha = infoBlurbTransparency;
+  canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), 0,canvas.height/3, canvas.width, canvas.height/3);
+  if ( ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - buttonWidth - buttonWidth/3 + 75) && (mouseX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
+    (mouseY >= canvas.height/3 + canvas.height/8) && (mouseY <= canvas.height/3 + canvas.height/8 + 50) ) ||
+    ( (fingerX >= canvas.width - buttonWidth - buttonWidth/3 +75) && (fingerX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
+      (fingerY >= canvas.height/3 + canvas.height/8) && (fingerY <= canvas.height/3 + canvas.height/8 + 50) ) ) ) {
+      canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width - buttonWidth - buttonWidth/3 + 75,(canvas.height/3) + canvas.height/8, 100,50);
+      fingerX = 0;
+      fingerY = 0;
+      fanflap.play();
+      statsInfoRead = true;
+      infoBlurbTransparency = 0.1;
+      settingsBlurbStartTime = new Date();
+    } else {
+  canvasContext.drawImage(Images.getImage("gui_button_check"), canvas.width - buttonWidth - buttonWidth/3 + 75,(canvas.height/3) + canvas.height/8, 100, 50);
+  }
+  colorText(language.statsInfoLine1, canvas.width/2 - 150, canvas.height/3 + canvas.height/9 - 15, "#FC5800", "20px papyrus");
+  colorText(language.statsInfoLine2, canvas.width/2 - 150, canvas.height/3 + canvas.height/9 + 10, "#FC5800", "20px papyrus");
+  colorText(language.statsInfoLine3, canvas.width/2 - 250, canvas.height/3 + canvas.height/9 + 35, "#FC5800", "20px papyrus");
+  colorText(language.statsInfoLine4, canvas.width/2 - 210, canvas.height/3 + canvas.height/9 + 60, "#FC5800", "20px papyrus");
+  infoBlurbTransparency += infoBlurbTransparencySpeed;
+  canvasContext.globalAlpha = 1;
+  }
+}
+
 let showSettingsButtonBlurbSeen = false;
 let arrowX; //defined in initialize in main.js
 
 function drawSettingsButtonBlurb() {
-  if (gamePlayInfoRead && !showSettingsButtonBlurbSeen) {
+  if (gamePlayInfoRead && statsInfoRead && !showSettingsButtonBlurbSeen) {
     settingsBlurbElapsedTime = settingsBlurbStartTime + currentTime;
     canvasContext.globalAlpha = infoBlurbTransparency;
     canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width - 600,0, 500, 50);

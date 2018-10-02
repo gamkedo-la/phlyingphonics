@@ -33,6 +33,10 @@ let englishButtonAndTextStrings = {
   gamePlayInfoLine2:"Click the phonic or letter on the screen with either the mouse or your finger.",
   gamePlayInfoLine3:"The correct answers are glowing to help teach new students how to play.",
   gamePlayInfoLine4:"Have fun!",
+  statsInfoLine1:"The game keeps track of your accuracy.",
+  statsInfoLine2:"Your information will be saved in a profile.",
+  statsInfoLine3:"The game will show you what to play at the beginning of each day.",
+  statsInfoLine4:"Make sure to play a little every day for continued progress.",
   showSettingsButtonBlurbText:"Click or touch the settings button",
   videoButton:"??? Video",
   exit:"Exit"
