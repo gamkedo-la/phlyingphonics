@@ -97,29 +97,33 @@ function drawIntro(mouseX,mouseY) {
     }
     canvasContext.drawImage(Images.getImage("smallb"), canvas.width/4 + 332,252, 50,50);
     canvasContext.drawImage(Images.getImage("BabyHand"), introFlySwatterX,250, 300,150);
+
+    //play button
     if  ( (mousePressed || fingerPressed)
-        && ( (mouseX >= canvas.width - 350 && mouseX <= canvas.width - 50  && mouseY >= 200 && mouseY <= 350) ||
-      (fingerX >= canvas.width - 350 && fingerX <= canvas.width - 50  && fingerY >= 200 && fingerY <= canvas.width - 50) )
+        && ( (mouseX >= canvas.width - 340 && mouseX <= canvas.width - 40  && mouseY >= 150 && mouseY <= 300) ||
+      (fingerX >= canvas.width - 340 && fingerX <= canvas.width - 40  && fingerY >= 150 && fingerY <= canvas.width - 100) )
     ) {
-        canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width - 350,200, 300,150);
+        canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width - 340,150, 300,150);
         fingerX = 0;
         fingerY = 0;
         fanflap.play();
       } else {
-          canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width - 350,200, 300,150);
+          canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width - 340,150, 300,150);
         }
+
+    //settings button
     //added check for first launch because the settings button would be logically confusing for tutorial/walkthrough purposes on first launch
     if (!firstLaunch) {
-      if ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - 300 && mouseX <= canvas.width - 100  &&
-        mouseY >= 400 && mouseY <= 475) ||
-        (fingerX >= canvas.width - 300 && fingerX <= canvas.width - 100  &&
-          fingerY >= 400 && fingerY <= canvas.width - 475) ) ) {
-          canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 200,300, 200,75);
+      if ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - 290 && mouseX <= canvas.width - 90  &&
+        mouseY >= 310 && mouseY <= 385) ||
+        (fingerX >= canvas.width - 290 && fingerX <= canvas.width - 90  &&
+          fingerY >= 310 && fingerY <= canvas.width - 385) ) ) {
+          canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 290,310, 200,75);
           fingerX = 0;
           fingerY = 0;
           fanflap.play();
         } else {
-            canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 200,300, 200,75);
+            canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 290,310, 200,75);
           }
       }
     }
@@ -128,15 +132,22 @@ function drawIntro(mouseX,mouseY) {
 
 function handleIntroInput(mouseX,mouseY) {
 
-  if (
-      ( (mouseX >= canvas.width - 350 && mouseX <= canvas.width - 50  && mouseY >= 200 && mouseY <= 350) ||
-    (fingerX >= canvas.width - 350 && fingerX <= canvas.width - 50  && fingerY >= 200 && fingerY <= canvas.width - 50) )
+  //play button
+  if ( ( (mouseX >= canvas.width - 350 && mouseX <= canvas.width - 50  && mouseY >= 200 && mouseY <= 350) ||
+         (fingerX >= canvas.width - 350 && fingerX <= canvas.width - 50  && fingerY >= 200 && fingerY <= canvas.width - 50) )
     ) {
       introPlayButton.onClick();
       }
+
+  //settings button
+    if  ( (mouseX >= canvas.width - 290 && mouseX <= canvas.width - 90  &&  mouseY >= 310 && mouseY <= 385) ||
+       (fingerX >= canvas.width - 290 && fingerX <= canvas.width - 90  && fingerY >= 310 && fingerY <= canvas.width - 385) ) {
+         introSettingsButton.onClick();
+       }
 }
 
 let introPlayButton = {onClick: introPlayButtonOnClick};
+let introSettingsButton = {onClick: introSettingsButtonOnClick};
 
 function introPlayButtonOnClick() {
   //console.log("firstLaunch", firstLaunch);
@@ -165,4 +176,9 @@ function introPlayButtonOnClick() {
     language = JSON.parse(gotLang);
     loadProfileSettingsAndStartGame();
   }
+}
+
+function introSettingsButtonOnClick() {
+  intro = false;
+  isSettingsMenu = true;
 }
