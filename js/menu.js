@@ -87,12 +87,18 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
 
 
 let profileMenuButtonList = [
-  {label: "new student",  x:125,y:210, onClick: generateNewProfile},
-  {label: "returning student", x:500,y:210, onClick: showExistingProfiles}
+  {label: "new student",  x:325,y:185, onClick: generateNewProfile},
+  {label: "back", x:450,y:350, onClick: showSettingsMenu}
 ];
 
+function showSettingsMenu() {
+  isProfileMenu = false;
+  isSettingsMenu = true;
+}
+
 function drawProfileMenu() {
-  canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width, canvas.height);
+  canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+  colorText(language.profiles, canvas.width/2 - 85, 60, "#FC5800", "50px papyrus");
   canvasContext.textAlign = "center";
   for (let i = 0; i<profileMenuButtonList.length; i++) {
     //check for mouse or finger down, if so draw menu down button
@@ -101,16 +107,18 @@ function drawProfileMenu() {
       (fingerX >= profileMenuButtonList[i].x && fingerX <= profileMenuButtonList[i].x + buttonWidth &&
         fingerY >= profileMenuButtonList[i].y && fingerY <= profileMenuButtonList[i].y + buttonHeight ) ) ) {
         canvasContext.drawImage(Images.getImage("menu_button_down"), profileMenuButtonList[i].x, profileMenuButtonList[i].y);
-        colorText(profileMenuButtonList[i].label, profileMenuButtonList[i].x + buttonWidth/2,profileMenuButtonList[i].y + buttonHeight/2 + MENU_BUTTON_TXT_OFFSET_Y, "white", "18px papyrus");
+        colorText(profileMenuButtonList[i].label, profileMenuButtonList[i].x + buttonWidth/2,profileMenuButtonList[i].y + buttonHeight/2/* + MENU_BUTTON_TXT_OFFSET_Y*/, "white", "18px papyrus");
       } else { //if mouse is up, draw up button
     canvasContext.drawImage(Images.getImage("menu_button"), profileMenuButtonList[i].x,profileMenuButtonList[i].y);
-    colorText(profileMenuButtonList[i].label, profileMenuButtonList[i].x + buttonWidth/2,profileMenuButtonList[i].y + buttonHeight/2 + MENU_BUTTON_TXT_OFFSET_Y, "white", "18px papyrus");
+    colorText(profileMenuButtonList[i].label, profileMenuButtonList[i].x + buttonWidth/2,profileMenuButtonList[i].y + buttonHeight/2/* + MENU_BUTTON_TXT_OFFSET_Y*/, "white", "18px papyrus");
   }
   canvasContext.textAlign = "left";
 }
+  drawExistingProfilesMenu();
 }
 
 function handleProfileMenuInput(mouseX,mouseY) {
+  //new student and back buttons
   for (let i = 0; i<profileMenuButtonList.length; i++) {
     if ( (mouseX >= profileMenuButtonList[i].x && mouseX <= profileMenuButtonList[i].x + buttonWidth &&
       mouseY >= profileMenuButtonList[i].y && mouseY <= profileMenuButtonList[i].y + buttonHeight) ||
@@ -122,6 +130,8 @@ function handleProfileMenuInput(mouseX,mouseY) {
         fingerY = 0;
     }
   }
+  //previously made profiles
+  handleExistingProfileMenuInput();
 }
 
 let arrayOfProfiles = [];
@@ -136,7 +146,7 @@ function initializeArrayOfProfiles() {
 
 function initializeExistingProfilesMenuButtonList() {
   for (let i = 0; i<arrayOfProfiles.length; i++) {
-    existingProfilesMenuButtonList.push({label: arrayOfProfiles[i].profileName, x:10 + buttonWidth*1.5,y:((i+1)*(buttonHeight + 20) + 130),
+    existingProfilesMenuButtonList.push({label: arrayOfProfiles[i].profileName, x:270 + buttonWidth*1.5,y:((i+1)*(buttonHeight + 20) + buttonHeight*1.5 + 5),
                                         onClick: loadProfileSettingsAndStartGame});
   }
 }
@@ -147,7 +157,7 @@ function generateNewProfile() {
   newProfile.profileName = newProfileName;
   if (newProfileName !== null) {
     arrayOfProfiles.push(newProfile);
-    existingProfilesMenuButtonList.push({label:newProfileName,x:10 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 80),
+    existingProfilesMenuButtonList.push({label:newProfileName,x:270 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 25),
                                         onClick: loadProfileSettingsAndStartGame});
                                         localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
                                         loadProfileSettingsAndStartGame(newProfileName);
@@ -157,12 +167,10 @@ function generateNewProfile() {
 }
 
 let existingProfilesMenuButtonList = [
-  {label: "back", x:800,y:10, onClick: showProfileMenu}
+  //{label: "back", x:800,y:10, onClick: showProfileMenu}
 ];
 
 function drawExistingProfilesMenu() {
-  canvasContext.clearRect(0,0, canvas.width, canvas.height);
-  canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
     //check if finger or mouse pressed, if so draw button down image

@@ -27,6 +27,7 @@ let englishButtonAndTextStrings = {
   typeYourNameHere:"Type your name here",
   previous:"Back",
   congratulations:"Congratulations! You have reviewed all of today's targets. Try some new targets to keep learning!",
+  profiles:"Profiles",
   noProfilesExist:"No profiles exist, go back and create a new profile",
   information:"??? Info",
   gamePlayInfoLine1:"Listen to the voice. It will say either a phonic sound or a letter name.",
