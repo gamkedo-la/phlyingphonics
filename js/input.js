@@ -34,6 +34,7 @@ let fingerPressed = false;
 
 function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
   //console.log("statsInfoRead", statsInfoRead);
+  //console.log("clicked");
   if (intro) {
     handleIntroInput(evt.pageX,evt.pageY);
     return;

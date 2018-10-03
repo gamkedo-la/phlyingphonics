@@ -175,6 +175,7 @@ function introPlayButtonOnClick() {
     //console.log("isOpeningLanguageSelector", isOpeningLanguageSelector);
     language = JSON.parse(gotLang);
     loadProfileSettingsAndStartGame();
+
   }
 }
 

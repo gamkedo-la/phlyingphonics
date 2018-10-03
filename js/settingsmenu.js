@@ -265,6 +265,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
               fanflap.play();
               isProfileMenu = true;
               isSettingsMenu = false;
+              tutorial = false;
               customLevelsArrowSeen = true;
               infoBlurbTransparency = 0.1;
               profilesArrowSeen = true;
@@ -274,6 +275,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
       if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
             mouseY >= 247 && mouseY <= 272) {
               fanflap.play();
+              tutorial = true;
               showSettingsButtonBlurbSeen = false;
               gamePlayInfoRead = false;
               statsInfoRead = false;

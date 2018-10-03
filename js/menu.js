@@ -160,6 +160,10 @@ function generateNewProfile() {
     existingProfilesMenuButtonList.push({label:newProfileName,x:270 + buttonWidth*1.5,y:( (arrayOfProfiles.length)*(buttonHeight+40) + 25),
                                         onClick: loadProfileSettingsAndStartGame});
                                         localStorage.setItem("storedArrayOfProfiles", JSON.stringify(arrayOfProfiles));
+                                        arrayOfFlies = [];
+                                        arrayOfSwattedFlies = [];
+                                        currentTrack = vowelTrackLevels;
+                                        trackIndex = 0;
                                         loadProfileSettingsAndStartGame(newProfileName);
   } else if (newProfileName === null) {
     showProfileMenu();
@@ -206,23 +210,37 @@ function handleExistingProfileMenuInput() {
 
 let chunkedCustomLevel;
 function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
-  isMainMenu = false;
-  isProfileMenu = false;
-  isShowingExistingProfiles = false;
-  currentProfile = assignCurrentProfile(newProfileName, buttonLabel);
-  if (currentProfile === undefined) {
-    currentTrack = vowelTrackLevels;
-    trackIndex = 0;
-  } else if (currentProfile.targetsToPractice.length === 0) {
+  if (firstLaunch && tutorial) {
     currentTrack = vowelTrackLevels;
     trackIndex = 0;
   } else {
-    chunkArray(currentProfile.targetsToPractice, 2);
-    customTrack = chunkArray(currentProfile.targetsToPractice, 2);
-    currentTrack = customTrack;
-    trackIndex = 0;
-    temporarySubset = currentTrack[trackIndex];
+    isMainMenu = false;
+    isProfileMenu = false;
+    isShowingExistingProfiles = false;
+    tutorial = false;
+    currentProfile = assignCurrentProfile(newProfileName, buttonLabel);
+    console.log("currentProfile", currentProfile);
+    if (currentProfile === undefined) {
+      currentProfile = "placeholder profile";
+      currentProfile.targetsToPractice = ["e","o"];
+      currentTrack = vowelTrackLevels;
+      trackIndex = 0;
+    } else if (currentProfile.targetsToPractice.length === 0) {
+      currentTrack = vowelTrackLevels;
+      trackIndex = 0;
+      temporarySubset = currentTrack[trackIndex];
+    } else {
+      chunkArray(currentProfile.targetsToPractice, 2);
+      customTrack = chunkArray(currentProfile.targetsToPractice, 2);
+      currentTrack = customTrack;
+      trackIndex = 0;
+      temporarySubset = currentTrack[trackIndex];
+    }
   }
+  console.log("temporarySubset", temporarySubset);
+  //console.log("currentProfile.targetsToPractice", currentProfile.targetsToPractice);
+  arrayOfFlies = [];
+  arrayOfSwattedFlies = [];
   initializeArrayOfFlies(temporarySubset);
 }
 
