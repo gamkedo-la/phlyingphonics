@@ -20,7 +20,7 @@ function drawSettingsMenu(mouseX,mouseY) {
   canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
 
   //custom levels
-  colorText("Custom Levels", canvas.width/4 + 35,50, "#FC5800", "30px papyrus");
+  colorText(language.customLevels, canvas.width/4 + 35,50, "#FC5800", "30px papyrus");
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,25, 75,25);
   if (!customLevelsShowing && customLevelsToggleCircleX > toggleOffX) {
@@ -64,7 +64,7 @@ function drawSettingsMenu(mouseX,mouseY) {
   }
 
   //glow
-  colorText("Glow", canvas.width/4 + 35,105, "#FC5800", "30px papyrus");
+  colorText(language.glow, canvas.width/4 + 35,105, "#FC5800", "30px papyrus");
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,83, 75,25);
 
@@ -114,7 +114,7 @@ function drawSettingsMenu(mouseX,mouseY) {
 
 
   //stationary
-  colorText("Stationary", canvas.width/4 + 35,160, "#FC5800", "30px papyrus");
+  colorText(language.stationary, canvas.width/4 + 35,160, "#FC5800", "30px papyrus");
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,141, 75,25);
   if (!stationaryMode && stationaryToggleCircleX > toggleOffX) {
@@ -165,10 +165,10 @@ function drawSettingsMenu(mouseX,mouseY) {
           } else {
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
     }
-    colorText("Profiles", canvas.width/4 + 35,215, "#FC5800", "30px papyrus");
+    colorText(language.profiles, canvas.width/4 + 35,215, "#FC5800", "30px papyrus");
 
     //tutorial
-    colorText("Tutorial", canvas.width/4 + 35,270, "#FC5800", "30px papyrus");
+    colorText(language.tutorial, canvas.width/4 + 35,270, "#FC5800", "30px papyrus");
     if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
           mouseY >= 247 && mouseY <= 272) ) {
             canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
@@ -177,7 +177,7 @@ function drawSettingsMenu(mouseX,mouseY) {
           }
 
     //credits
-    colorText("Credits", canvas.width/4 + 35,325, "#FC5800", "30px papyrus");
+    colorText(language.credits, canvas.width/4 + 35,325, "#FC5800", "30px papyrus");
     if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 - 38 && mouseY >= 335 && mouseX <= canvas.width/3 + 37 && mouseY <= 385) ) {
           canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/3 - 38,335, 75,50);
           tutorial = false;
@@ -195,7 +195,7 @@ function drawSettingsMenu(mouseX,mouseY) {
         }
 
         //older kids Mode
-        colorText("Older Kids", canvas.width/3 + 290,325, "#FC5800", "30px papyrus");
+        colorText(language.olderKids, canvas.width/3 + 290,325, "#FC5800", "30px papyrus");
         if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 290 && mouseX <= canvas.width/3 + 132.5 &&
               mouseY >= 340 && mouseY <= 357.5) ) {
               canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/3 + 325,340, 75,25);

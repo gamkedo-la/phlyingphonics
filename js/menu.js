@@ -85,10 +85,9 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
   }
 }
 
-
 let profileMenuButtonList = [
-  {label: "new student",  x:325,y:185, onClick: generateNewProfile},
-  {label: "back", x:450,y:350, onClick: showSettingsMenu}
+  {label: language.newStudent,  x:325,y:185, onClick: generateNewProfile},
+  {label: language.previous, x:450,y:350, onClick: showSettingsMenu}
 ];
 
 function showSettingsMenu() {
