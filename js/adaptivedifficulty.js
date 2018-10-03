@@ -127,6 +127,7 @@ function checkForLevelResetOrAdvancement() {
     resetAccuracy();
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
+    alert("Good job! Get ready for the next level!");
 
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     updateLettersThatHaveBeenPracticed();
@@ -140,6 +141,7 @@ function checkForLevelResetOrAdvancement() {
     chooseBackgroundSong();
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
+    alert("Good. Let's try that again!");
   }
 }
 
