@@ -90,6 +90,7 @@ let hindustaniButtonAndTextStrings = {
   customLevels:"कस्टम स्तर",
   glow:"चमक",
   stationary:"स्थिर",
+  profiles:"प्रोफाइल",
   tutorial:"ट्यूटोरियल",
   credits:"क्रेडिट",
   olderKids:"बड़े बच्चे",
@@ -123,6 +124,7 @@ let spanishButtonAndTextStrings = {
   customLevels:"Niveles personalizados",
   glow:"Brillo",
   stationary:"Estacionario",
+  profiles:"Perfiles",
   tutorial:"Tutorial",
   credits:"Creditos",
   olderKids:"Niños mayores",
@@ -155,6 +157,7 @@ let arabicButtonAndTextStrings = {
   customLevels:"مستويات مخصصة",
   glow:"توهج",
   stationary:"ثابت",
+  profiles:"مظهر",
   tutorial:"الدورة التعليمية",
   credits:"قروض",
   olderKids:"الاطفال الاكبر سنا",
@@ -187,6 +190,7 @@ let swahiliButtonAndTextStrings = {
   customLevels:"Ngazi za Desturi",
   glow:"Panga",
   stationary:"Imewekwa",
+  profiles:"Profaili",
   tutorial:"Mafunzo",
   credits:"Mikopo",
   olderKids:"Watoto Wakubwa",
@@ -220,6 +224,7 @@ let frenchButtonAndTextStrings = {
   glow:"lueur",
   stationary:"Stationnaire",
   tutorial:"Didacticiel",
+  profiles:"Profils",
   credits:"Crédits",
   olderKids:"Enfants plus âgés",
   newStudent:"Nouvel étudiant",
@@ -251,6 +256,7 @@ let portugueseButtonAndTextStrings = {
   customLevels:"Níveis personalizados",
   glow:"Brilho",
   stationary:"Estacionário",
+  profiles:"Perfis",
   tutorial:"Tutorial",
   credits:"Créditos",
   olderKids:"Crianças mais velhas",
@@ -283,6 +289,7 @@ let russianButtonAndTextStrings = {
   customLevels:"Пользовательские уровни",
   glow:"пылать",
   stationary:"стационарный",
+  profiles:"профили",
   tutorial:"Руководство",
   credits:"кредиты",
   olderKids:"Старые дети",
@@ -316,6 +323,7 @@ let japaneseButtonAndTextStrings = {
     customLevels:"カスタムレベル",
     glow:"グロー",
     stationary:"定常",
+    profiles:"プロフィール",
     tutorial:"チュートリアル",
     credits:"クレジット",
     olderKids:"年長の子供たち",
@@ -348,6 +356,7 @@ let bahasaButtonAndTextStrings = {
   customLevels:"Tahap Khusus",
   glow:"Bersinar",
   stationary:"Pegun",
+  profiles:"Profil",
   tutorial:"Tutorial",
   credits:"Kredit",
   olderKids:"Kanak-kanak yang lebih tua",
@@ -371,10 +380,13 @@ let languageSelectorButtonList = [
 ];
 
 if (localStorage.getItem("language") === null) {
+  console.log("language was null");
   language = englishButtonAndTextStrings;
   console.log("language", language);
   localStorage.setItem("language", JSON.stringify(language));
 } else {
+  console.log("language was defined");
   language = localStorage.getItem("language");
+  console.log(localStorage.getItem("language"));
 }
 console.log("loading reached end of language.js");

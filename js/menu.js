@@ -80,15 +80,12 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
         console.log(language);
         existingProfilesMenuButtonList[0].label = language.previous;
         localStorage.setItem("language", JSON.stringify(language));
-
+        console.log(localStorage.getItem("language"));
     }
   }
 }
 
-let profileMenuButtonList = [
-  {label: language.newStudent,  x:325,y:185, onClick: generateNewProfile},
-  {label: language.previous, x:450,y:350, onClick: showSettingsMenu}
-];
+let profileMenuButtonList;
 
 function showSettingsMenu() {
   isProfileMenu = false;

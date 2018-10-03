@@ -1,4 +1,11 @@
 //localStorage.clear();
+if (localStorage.getItem("language") === null) {
+  console.log("language was null");
+} else if (localStorage.getItem("language") === undefined) {
+  console.log("language was undefined");
+} else {
+  console.log("language", localStorage.getItem("language"));
+}
 
 const ASPECT_RATIO = 16/9;
 
@@ -104,6 +111,12 @@ window.onload = () => {
   backgroundMusic.volume = 0.1;
   chooseBackground();
   introFlySwatterX = canvas.width/4;
+
+  //should be in languages.js, avoiding hoisting/loading issues
+  let profileMenuButtonList = [
+    {label: language.newStudent,  x:325,y:185, onClick: generateNewProfile},
+    {label: language.previous, x:450,y:350, onClick: showSettingsMenu}
+  ];
 
   //initialize toggle circle on and off positions
   toggleOffX = canvas.width/4 + canvas.width/2 - 104;

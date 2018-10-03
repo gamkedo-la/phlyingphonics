@@ -269,6 +269,11 @@ function handleSettingsMenuInput(mouseX,mouseY) {
               customLevelsArrowSeen = true;
               infoBlurbTransparency = 0.1;
               profilesArrowSeen = true;
+              //should be in languages.js, avoiding hoisting/loading issues
+              profileMenuButtonList = [
+                {label: language.newStudent,  x:325,y:185, onClick: generateNewProfile},
+                {label: language.previous, x:450,y:350, onClick: showSettingsMenu}
+              ];
             }
 
       //tutorial click canvas.width/4 + canvas.width/2 - 125,247, 75,25
