@@ -9,8 +9,11 @@ const MENU_BUTTON_TXT_OFFSET_Y = 6; // nudge the text inside the buttons down a 
 let mouseDown = false;
 let mouseUp = true;
 
-function goToMainMenu() {
+function goToMainMenu(i) {
   isOpeningLanguageSelector = false;
+  language = languageSelectorButtonList[i].language;
+  //existingProfilesMenuButtonList[0].label = language.previous;
+  localStorage.setItem("language", JSON.stringify(language));
   loadProfileSettingsAndStartGame();
 }
 
@@ -71,16 +74,14 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
       mouseY >= languageSelectorButtonList[i].y && mouseY <= languageSelectorButtonList[i].y + buttonHeight) ||
       (fingerX >= languageSelectorButtonList[i].x && fingerX <= languageSelectorButtonList[i].x + buttonWidth &&
         fingerY >= languageSelectorButtonList[i].y && fingerY <= languageSelectorButtonList[i].y + buttonHeight) ) {
-        languageSelectorButtonList[i].onClick();
+        languageSelectorButtonList[i].onClick(i);
         fingerX = 0;
         fingerY = 0;
         fanflap.play();
         console.log(i);
-        language = languageSelectorButtonList[i].language;
-        console.log(language);
-        existingProfilesMenuButtonList[0].label = language.previous;
-        localStorage.setItem("language", JSON.stringify(language));
+
         console.log(localStorage.getItem("language"));
+        console.log(language);
     }
   }
 }

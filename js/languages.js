@@ -383,10 +383,11 @@ if (localStorage.getItem("language") === null) {
   console.log("language was null");
   language = englishButtonAndTextStrings;
   console.log("language", language);
-  localStorage.setItem("language", JSON.stringify(language));
+  //localStorage.setItem("language", JSON.stringify(language));
 } else {
   console.log("language was defined");
-  language = localStorage.getItem("language");
-  console.log(localStorage.getItem("language"));
+  console.log("language", language);
+  language = JSON.parse(localStorage.getItem("language"));
+  console.log("language.customLevels", language.customLevels);
 }
 console.log("loading reached end of language.js");

@@ -1,11 +1,11 @@
 //localStorage.clear();
-if (localStorage.getItem("language") === null) {
+/*if (localStorage.getItem("language") === null) {
   console.log("language was null");
 } else if (localStorage.getItem("language") === undefined) {
   console.log("language was undefined");
 } else {
   console.log("language", localStorage.getItem("language"));
-}
+}*/
 
 const ASPECT_RATIO = 16/9;
 
@@ -159,7 +159,8 @@ window.onload = () => {
 
   //part of gameLoop
   updateEverything = () => {
-
+    //console.log(localStorage.getItem("language"));
+    //console.log(localStorage.getItem("storedArrayOfProfiles"));
     //change transparency levels for target flies and settings menu if glow is selected
     if ( (glowTransparency < 0.1) || (glowTransparency > 0.8) ) {
       glowSpeed *= -1;

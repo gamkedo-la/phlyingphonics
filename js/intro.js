@@ -143,7 +143,7 @@ function handleIntroInput(mouseX,mouseY) {
     if  ( (mouseX >= canvas.width - 290 && mouseX <= canvas.width - 90  &&  mouseY >= 310 && mouseY <= 385) ||
        (fingerX >= canvas.width - 290 && fingerX <= canvas.width - 90  && fingerY >= 310 && fingerY <= canvas.width - 385) ) {
          introSettingsButton.onClick();
-         
+
        }
 }
 
@@ -174,7 +174,7 @@ function introPlayButtonOnClick() {
       //console.log("found no gotLang");
     }
     //console.log("isOpeningLanguageSelector", isOpeningLanguageSelector);
-    language = JSON.parse(gotLang);
+    //language = JSON.parse(gotLang);
     loadProfileSettingsAndStartGame();
 
   }
