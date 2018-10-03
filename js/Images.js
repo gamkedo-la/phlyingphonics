@@ -305,7 +305,9 @@ let assignFlaps = () => {
     }
 }
 
-let arrayOfBackgroundStrings = ["table", "purplecountertop", "honeycomb", "BabyRoomBG", "tree2"]; //"table", "tableWithFilter", "bowlOfFruit",
+//temporarily removed table background for first release to try and avoid too many repetitions of fly and rock music aesthetics, should
+//probably put back into older kid mode with a different song
+let arrayOfBackgroundStrings = ["purplecountertop", "honeycomb", "BabyRoomBG", "tree2"]; //"table", "tableWithFilter", "bowlOfFruit",
 let chosenBackground;
 let chooseBackground = () => {
     //chosenBackground = arrayOfBackgroundStrings[3]; return; // FIXME REMOVE this line is for debug only
