@@ -32,8 +32,8 @@ function drawIntro(mouseX,mouseY) {
     }
     if (deltaTime > 6200 && deltaTime < 8400) {
       introPhonicATransparency += introPhonicATransparencySpeed;
-      colorCircleWithTransparency(152,280, 100, "gray", introPhonicATransparency);
-      if (introFlySwatterX > 115) {
+      colorCircleWithTransparency(152,240, 90, "gray", introPhonicATransparency);
+      if (introFlySwatterX > 105) {
         introFlySwatterX -= introFlySwatterXSpeed;
       }
     }
@@ -60,9 +60,9 @@ function drawIntro(mouseX,mouseY) {
 
     }*/
     if (deltaTime > 2200 && deltaTime < 8350) {
-      canvasContext.drawImage(Images.getImage("mobileThree"), 50,200, 200,150);
+      canvasContext.drawImage(Images.getImage("mobileThree"), 50,155, 200,150);
     } else {
-      canvasContext.drawImage(Images.getImage("starsplat"), 50,200, 200,150);
+      canvasContext.drawImage(Images.getImage("starsplat"), 50,155, 200,150);
     }
     if (deltaTime > 8350 && deltaTime < 8400) {
       correctSound.src = "audio/VOX_Sofia_Yay.mp3";
@@ -74,7 +74,7 @@ function drawIntro(mouseX,mouseY) {
     if (deltaTime > 9000) {
       introPhonics.play();
       introPhonicATransparency += introPhonicATransparencySpeed;
-      colorCircleWithTransparency(canvas.width/4 + 361,275, 100, "gray", introPhonicATransparency);
+      colorCircleWithTransparency(canvas.width/4 + 361,235, 90, "gray", introPhonicATransparency);
       if (introFlySwatterX < canvas.width/4 + 300) {
         introFlySwatterX += introFlySwatterXSpeed;
       }
@@ -89,14 +89,14 @@ function drawIntro(mouseX,mouseY) {
     if (deltaTime > 16000) {
       correctSound.pause();
     }
-    canvasContext.drawImage(Images.getImage("smalla"), 125,260, 50,50);
+    canvasContext.drawImage(Images.getImage("smalla"), 125,215, 50,50);
     if (deltaTime < 15000) {
-      canvasContext.drawImage(Images.getImage("mobileTwo"), canvas.width/4 + 260,200, 200,150);
+      canvasContext.drawImage(Images.getImage("mobileTwo"), canvas.width/4 + 260,155, 200,150);
     } else {
-      canvasContext.drawImage(Images.getImage("starsplat"), canvas.width/4 + 255,200, 200,150);
+      canvasContext.drawImage(Images.getImage("starsplat"), canvas.width/4 + 255,155, 200,150);
     }
-    canvasContext.drawImage(Images.getImage("smallb"), canvas.width/4 + 332,252, 50,50);
-    canvasContext.drawImage(Images.getImage("BabyHand"), introFlySwatterX,250, 300,150);
+    canvasContext.drawImage(Images.getImage("smallb"), canvas.width/4 + 332,207, 50,50);
+    canvasContext.drawImage(Images.getImage("BabyHand"), introFlySwatterX,205, 300,150);
 
     //play button
     if  ( (mousePressed || fingerPressed)
