@@ -238,6 +238,8 @@ let mixedSizeLetterNameLevels = [
   ["smalls","bigS","smallz","bigZ"],
 ];
 
+let arrayOfTrackLevelsIndex = 0;
+let arrayOfTrackLevels = [vowelTrackLevels,consonantTrackLevels,bigLettersTrackLevels,smallLettersTrackLevels,mixedSizeLetterNameLevels];
 let mixedSizeLetters = mixedSizeLetterNameLevels;
 
 let customTrack = [];
