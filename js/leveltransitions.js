@@ -100,14 +100,45 @@ function drawLevelCompletedAnimation() {
 
 }
 
+let tryAgainAnimation = false;
+let tryAgainBackgroundTransparency = 0.1;
+let tryAgainBackgroundTransparencySpeed = 0.0085;
+let tryAgainAudio = new Audio();
+tryAgainAudio.src = "audio/tryagain.mp3";
+
+function drawTryAgainAnimation() {
+
+    canvasContext.clearRect(0,0, canvas.width,canvas.height);
+
+    //draw the background, great job text, and play button
+    canvasContext.globalAlpha = tryAgainBackgroundTransparency;
+    canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+    canvasContext.drawImage(Images.getImage("tryagainbaby"),canvas.width/4,25, canvas.width/2 - 50,canvas.height - 100);
+    colorText("Almost!", canvas.width/2 - 75,canvas.height/2 + 65, "#FC5800", "50px papyrus");
+
+    //play
+    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 120 && mouseX <= canvas.width/3 + 270 &&
+          mouseY >= 325 && mouseY <= 425) ) {
+          canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width/3 + 120,290, 150,100);
+          tutorial = false;
+        } else {
+          canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width/3 + 120,290, 150,100);
+        }
+
+    canvasContext.globalAlpha = 1;
+    tryAgainBackgroundTransparency += tryAgainBackgroundTransparencySpeed;
+}
+
 function handleLevelCompletedInput() {
   if (mouseX >= canvas.width/3 + 120 && mouseX <= canvas.width/3 + 270 && mouseY >= 325 && mouseY <= 425) {
     levelCompletedAnimation = false;
+    tryAgainAnimation = false;
     beginLevelAnimation = true;
     console.log("beginLevelAnimation", beginLevelAnimation);
     fanflap.play();
     ashiko.play();
     levelCompletionBackgroundTransparency = 0.1;
+    tryAgainBackgroundTransparency = 0.1;
     levelCompletedStars1X = 100;
     levelCompletedStars1Y = -200;
     levelCompletedStars2X = 350;

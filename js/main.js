@@ -262,6 +262,9 @@ window.onload = () => {
       stopTargetAudio();
     } else if (beginLevelAnimation) {
       drawBeginLevelAnimation();
+    } else if (tryAgainAnimation) {
+      drawTryAgainAnimation();
+      stopTargetAudio();
     }
       else {
 

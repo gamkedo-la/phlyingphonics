@@ -179,7 +179,8 @@ let imageFileNames = [
     "images/gui_button_play.png",
     "images/gui_button_play_down.png",
     "images/gui_button_settings.png",
-    "images/gui_button_settings_down.png"
+    "images/gui_button_settings_down.png",
+    "images/tryagainbaby.png",
 
 ];
 

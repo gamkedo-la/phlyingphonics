@@ -146,7 +146,7 @@ function checkForLevelResetOrAdvancement() {
       assignFlaps();
     } else {
       console.log("hello world from adaptiveDifficulty.js");
-      
+
       levelCompletedAnimation = true;
       backgroundMusic.pause();
       levelCompletedAudio.play();
@@ -158,6 +158,9 @@ function checkForLevelResetOrAdvancement() {
     }
     console.log("levelCompletedAnimation", levelCompletedAnimation);
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
+    tryAgainAnimation = true;
+
+    //levelCompletedAudio.play();
     updateLettersThatHaveBeenPracticed();
     updateIndividualTargetsPreviousPracticeSessionNumbers();
     updateIndividualTargetsPreviousPracticeDate();
@@ -167,9 +170,11 @@ function checkForLevelResetOrAdvancement() {
     resetAccuracy();
     chooseBackground();
     chooseBackgroundSong();
+    backgroundMusic.pause();
+    tryAgainAudio.play();
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
-    alert("Good. Let's try that again!");
+    //alert("Good. Let's try that again!");
   }
 }
 
