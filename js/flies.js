@@ -412,6 +412,8 @@ let killFly = (i) => {
     arrayOfFlies[i].myImage = Images.getImage("starsplat"); //changing source image
   } else if (chosenBackground == "honeycomb") {
     arrayOfFlies[i].myImage = Images.getImage("nucbox");
+  } else if (chosenBackground == "tree2") {
+    arrayOfFlies[i].myImage = Images.getImage("butterflymesh");
   }
   else {
     arrayOfFlies[i].myImage = Images.getImage("yellowgreensplat"); //changing source image

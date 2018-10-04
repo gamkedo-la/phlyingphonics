@@ -158,6 +158,7 @@ let imageFileNames = [
     "images/flySwatter.png",
     "images/butterflyNet.png",
     "images/nucbox.png",
+    "images/butterflymesh.png",
     "images/HoneyJar.png",
     "images/BabyHand.png",
     "images/cartoonFly.png",
