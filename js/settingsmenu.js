@@ -297,7 +297,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
 
             //credits click
             if (mouseX >= canvas.width/3 - 38 && mouseY >= 335 && mouseX <= canvas.width/3 + 37 && mouseY <= 385) {
-                    alert("Gamkedoooooooooo!!!!!!")
+                    alert("Stebs\nChris Deleon\nChrister\nKise\nRandy Tan\netc.");
                   }
 
   //check for play button click
