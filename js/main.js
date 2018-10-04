@@ -236,9 +236,12 @@ window.onload = () => {
       return;
     } else if (isSettingsMenu) {
       drawSettingsMenu(mouseX,mouseY);
+      stopTargetAudio();
       if (!settingsMenuInfoSeen) {
         drawSettingsMenuBlurbs();
       }
+    } else if (levelCompletedAnimation) {
+      drawLevelCompletedAnimation();
       stopTargetAudio();
     } else {
 

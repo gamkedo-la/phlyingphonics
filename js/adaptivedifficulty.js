@@ -123,10 +123,10 @@ function checkForLevelResetOrAdvancement() {
     chooseBackground();
     chooseBackgroundSong();
     trackIndex++;
-    console.log("trackIndex", trackIndex);
-    console.log("currentTrack.length", currentTrack.length);
+
     if (trackIndex === currentTrack.length && arrayOfTrackLevelsIndex < arrayOfTrackLevels.length) {
-      alert("Congratulations! You have completed the current track. Get ready for the next track!");
+      //alert("Congratulations! You have completed the current track. Get ready for the next track!");
+
       arrayOfTrackLevelsIndex++;
       currentTrack = arrayOfTrackLevels[arrayOfTrackLevelsIndex];
       trackIndex = 0;
@@ -135,7 +135,8 @@ function checkForLevelResetOrAdvancement() {
       initializeArrayOfFlies(temporarySubset);
       assignFlaps();
     } else if (trackIndex === currentTrack.length && arrayOfTrackLevelsIndex === arrayOfTrackLevels.length) {
-      alert("Congratulations! You have completed the current track. Get ready for the next track!");
+      //alert("Congratulations! You have completed the current track. Get ready for the next track!");
+
       arrayOfTrackLevelsIndex = 0;
       currentTrack = arrayOfTrackLevels[arrayOfTrackLevelsIndex];
       trackIndex = 0;
@@ -144,13 +145,15 @@ function checkForLevelResetOrAdvancement() {
       initializeArrayOfFlies(temporarySubset);
       assignFlaps();
     } else {
+      levelCompletedAnimation = true;
+      backgroundMusic.pause();
       temporarySubset = currentTrack[trackIndex];
       resetAccuracy();
       initializeArrayOfFlies(temporarySubset);
       assignFlaps();
-      alert("Good job! Get ready for the next level!");
+      //alert("Good job! Get ready for the next level!");
     }
-
+    console.log("levelCompletedAnimation", levelCompletedAnimation);
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     updateLettersThatHaveBeenPracticed();
     updateIndividualTargetsPreviousPracticeSessionNumbers();

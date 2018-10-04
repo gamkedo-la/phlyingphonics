@@ -12,7 +12,6 @@ let mouseUp = true;
 function goToMainMenu(i) {
   isOpeningLanguageSelector = false;
   language = languageSelectorButtonList[i].language;
-  //existingProfilesMenuButtonList[0].label = language.previous;
   localStorage.setItem("language", JSON.stringify(language));
   loadProfileSettingsAndStartGame();
 }
@@ -78,10 +77,6 @@ function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
         fingerX = 0;
         fingerY = 0;
         fanflap.play();
-        console.log(i);
-
-        console.log(localStorage.getItem("language"));
-        console.log(language);
     }
   }
 }
@@ -216,7 +211,6 @@ function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
     isShowingExistingProfiles = false;
     tutorial = false;
     currentProfile = assignCurrentProfile(newProfileName, buttonLabel);
-    console.log("currentProfile", currentProfile);
     if (currentProfile === undefined) {
       currentProfile = "placeholder profile";
       currentProfile.targetsToPractice = ["e","o"];
@@ -234,7 +228,6 @@ function loadProfileSettingsAndStartGame(buttonLabel, newProfileName, i) {
       temporarySubset = currentTrack[trackIndex];
     }
   }
-  console.log("temporarySubset", temporarySubset);
   //console.log("currentProfile.targetsToPractice", currentProfile.targetsToPractice);
   arrayOfFlies = [];
   arrayOfSwattedFlies = [];

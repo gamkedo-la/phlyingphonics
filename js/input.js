@@ -47,7 +47,10 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
     handleExistingProfileMenuInput(evt.pageX,evt.pageY);
   } else if (isSettingsMenu) {
     handleSettingsMenuInput(evt.pageX,evt.pageY);
-  } else { //gameplay click info
+  } else if (levelCompletedAnimation) {
+    handleLevelCompletedInput(evt.pageX,evt.pageY);
+  }
+    else { //gameplay click info
 
     if (!tutorial) {
   clickCount++;
