@@ -157,6 +157,7 @@ let imageFileNames = [
     "images/fly_version_1b.png", // flap
     "images/flySwatter.png",
     "images/butterflyNet.png",
+    "images/nucbox.png",
     "images/HoneyJar.png",
     "images/BabyHand.png",
     "images/cartoonFly.png",
