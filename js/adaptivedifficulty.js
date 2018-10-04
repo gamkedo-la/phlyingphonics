@@ -147,6 +147,7 @@ function checkForLevelResetOrAdvancement() {
     } else {
       levelCompletedAnimation = true;
       backgroundMusic.pause();
+      levelCompletedAudio.play();
       temporarySubset = currentTrack[trackIndex];
       resetAccuracy();
       initializeArrayOfFlies(temporarySubset);

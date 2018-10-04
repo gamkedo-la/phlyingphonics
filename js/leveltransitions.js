@@ -1,3 +1,43 @@
+let beginLevelAnimation = false;
+let beginLevelBackgroundTransparency = 0.1;
+let beginLevelBackgroundTransparencySpeed = 0.00925;
+let ashiko = new Audio();
+ashiko.src = "audio/ashiko.mp3";
+let goSoundPlayed = false;
+let goSound = new Audio();
+goSound.src = "audio/tempobell.mp3";
+let timeGoSoundPlayed;
+let timeSinceGoSoundPlayed;
+
+
+function drawBeginLevelAnimation() {
+  canvasContext.clearRect(0,0, canvas.width,canvas.height);
+
+  //draw the background
+  canvasContext.globalAlpha = beginLevelBackgroundTransparency;
+  if (beginLevelBackgroundTransparency < 0.33) {
+    canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+    canvasContext.drawImage(Images.getImage("redtrafficlight"),canvas.width/2 - 150,0, 300,400);
+    canvasContext.globalAlpha = 1;
+  } else if (beginLevelBackgroundTransparency > 0.33 && beginLevelBackgroundTransparency < 0.66) {
+    canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+    canvasContext.drawImage(Images.getImage("yellowtrafficlight"),canvas.width/2 - 150,0, 300,400);
+    canvasContext.globalAlpha = 1;
+  } else if (beginLevelBackgroundTransparency > 0.66){
+    if (!goSoundPlayed){
+      goSound.play();
+      goSoundPlayed = true;
+      timeGoSoundPlayed = new Date();
+    }
+    canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+    canvasContext.drawImage(Images.getImage("greentrafficlight"),canvas.width/2 - 150,0, 300,400);
+    canvasContext.globalAlpha = 1;
+  }
+
+  beginLevelBackgroundTransparency += beginLevelBackgroundTransparencySpeed;
+
+}
+
 let levelCompletedAnimation = false;
 let levelCompletionBackgroundTransparency = 0.1;
 let levelCompletionBackgroundTransparencySpeed = 0.0085;
@@ -7,6 +47,9 @@ let levelCompletedStars2X = 350;
 let levelCompletedStars2Y = -200;
 let levelCompletedStars3X = 800;
 let levelCompletedStars3Y = -200;
+
+let levelCompletedAudio = new Audio();
+levelCompletedAudio.src = "audio/levelcompleted.mp3";
 
 function drawLevelCompletedAnimation() {
 
@@ -59,8 +102,9 @@ function drawLevelCompletedAnimation() {
 function handleLevelCompletedInput() {
   if (mouseX >= canvas.width/3 + 120 && mouseX <= canvas.width/3 + 270 && mouseY >= 325 && mouseY <= 425) {
     levelCompletedAnimation = false;
-    playTargetAudio();
+    beginLevelAnimation = true;
     fanflap.play();
+    ashiko.play();
     levelCompletionBackgroundTransparency = 0.1;
   }
 }

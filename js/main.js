@@ -162,6 +162,16 @@ window.onload = () => {
     //console.log(localStorage.getItem("language"));
     //console.log(localStorage.getItem("storedArrayOfProfiles"));
     //change transparency levels for target flies and settings menu if glow is selected
+
+    timeSinceGoSoundPlayed = currentTime - timeGoSoundPlayed;
+    if (timeSinceGoSoundPlayed > 750) {
+      beginLevelAnimation = false;
+      backgroundMusic.play();
+      playTargetAudio();
+      timeSinceGoSoundPlayed = 0;
+      goSoundPlayed = false;
+    }
+
     if ( (glowTransparency < 0.1) || (glowTransparency > 0.8) ) {
       glowSpeed *= -1;
     }
@@ -243,7 +253,10 @@ window.onload = () => {
     } else if (levelCompletedAnimation) {
       drawLevelCompletedAnimation();
       stopTargetAudio();
-    } else {
+    } else if (beginLevelAnimation) {
+      drawBeginLevelAnimation();
+    }
+      else {
 
     canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
     if (USE_SCREENSHAKE) {

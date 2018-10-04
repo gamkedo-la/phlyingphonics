@@ -83,6 +83,9 @@ let imageFileNames = [
     "images/settings_menu_background.png",
     "images/menu_button_forward.png",
     "images/menu_button_forward_down.png",
+    "images/redtrafficlight.png",
+    "images/yellowtrafficlight.png",
+    "images/greentrafficlight.png",
     "images/table.png",
     "images/fly.png",
     "images/butterflies/blackNorange.png",
@@ -183,6 +186,7 @@ let imageFileNames = [
 let soundFileNames = [
   "audio/flightOfTheABCs.mp3",
   "audio/splatsound.mp3",
+  "audio/ashiko.mp3",
   "audio/miss_woosh.mp3",
   "audio/miss_woosh_2.mp3",
   "audio/toggleon.mp3",
