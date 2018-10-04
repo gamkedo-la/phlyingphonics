@@ -145,6 +145,8 @@ function checkForLevelResetOrAdvancement() {
       initializeArrayOfFlies(temporarySubset);
       assignFlaps();
     } else {
+      console.log("hello world from adaptiveDifficulty.js");
+      
       levelCompletedAnimation = true;
       backgroundMusic.pause();
       levelCompletedAudio.play();

@@ -11,6 +11,7 @@ let timeSinceGoSoundPlayed;
 
 
 function drawBeginLevelAnimation() {
+
   canvasContext.clearRect(0,0, canvas.width,canvas.height);
 
   //draw the background
@@ -103,8 +104,15 @@ function handleLevelCompletedInput() {
   if (mouseX >= canvas.width/3 + 120 && mouseX <= canvas.width/3 + 270 && mouseY >= 325 && mouseY <= 425) {
     levelCompletedAnimation = false;
     beginLevelAnimation = true;
+    console.log("beginLevelAnimation", beginLevelAnimation);
     fanflap.play();
     ashiko.play();
     levelCompletionBackgroundTransparency = 0.1;
+    levelCompletedStars1X = 100;
+    levelCompletedStars1Y = -200;
+    levelCompletedStars2X = 350;
+    levelCompletedStars2Y = -200;
+    levelCompletedStars3X = 800;
+    levelCompletedStars3Y = -200;
   }
 }

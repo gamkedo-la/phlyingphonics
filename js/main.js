@@ -163,14 +163,21 @@ window.onload = () => {
     //console.log(localStorage.getItem("storedArrayOfProfiles"));
     //change transparency levels for target flies and settings menu if glow is selected
 
-    timeSinceGoSoundPlayed = currentTime - timeGoSoundPlayed;
+
+
+    //console.log("timeSinceGoSoundPlayed", timeSinceGoSoundPlayed);
+
     if (timeSinceGoSoundPlayed > 750) {
       beginLevelAnimation = false;
+      beginLevelBackgroundTransparency = 0;
       backgroundMusic.play();
       playTargetAudio();
-      timeSinceGoSoundPlayed = 0;
+      timeGoSoundPlayed = undefined;
       goSoundPlayed = false;
     }
+
+
+    timeSinceGoSoundPlayed = currentTime - timeGoSoundPlayed;
 
     if ( (glowTransparency < 0.1) || (glowTransparency > 0.8) ) {
       glowSpeed *= -1;
