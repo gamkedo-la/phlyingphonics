@@ -60,6 +60,9 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
 
 
   let hits = 0;
+  let incorrectAnswer = false;
+  let correctAnswer = false;
+
 
   if (evt.changedTouches === undefined) {
     for (let i = 0; i<arrayOfFlies.length; i++) {
@@ -67,6 +70,8 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
       if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
           evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {
         increaseIndividualTargetAccuracy();
+        correctAnswer = true;
+        incorrectAnswer = false;
         correctAnswers++;
         hits++;
         calculateOverallAccuracy();
@@ -80,11 +85,19 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
           evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && !arrayOfFlies[i].target) {
         calculateOverallAccuracy();
         screenShake(10);
-
+        correctAnswer = false;
+        incorrectAnswer = true;
+        let randomIncorrectSoundIndex = getRandomInt(0,arrayOfIncorrectSounds.length - 1);
+        let incorrectSound = document.getElementById("incorrectSound");
+        incorrectSound.src = arrayOfIncorrectSounds[randomIncorrectSoundIndex];
+        if (!tutorial) {
+          incorrectSound.play();
+        }
         console.log("hello incorrect answer");
+      }
       }//end of incorrect answers
     }//end of looping through flies
-    if (hits === 0) {
+    if (hits === 0 && !correctAnswer && !incorrectAnswer) {
       decreaseIndividualTargetAccuracy();
       let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
       let missedSound = document.getElementById("missedSound");
@@ -92,7 +105,7 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
       if (!tutorial) {
         missedSound.play();
       }
-    }
+      console.log("hello complete miss");
     /*if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
       canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
       colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
@@ -105,28 +118,42 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
           if (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 &&
               evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
               evt.changedTouches[0].pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {//checks for correct swat based on coordinates and target sound
-          increaseIndividualTargetAccuracy();
-          correctAnswers++;
-          hits++;
-          calculateOverallAccuracy();
-          killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
-          temporaryArrayOfQuestions.splice(0,1);
-          checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
-          assignTargetAudio();//in targets.js
-          assignTargetFlies(i);//in targets.js
-          playTargetAudio();//in targets.js
-        }/*end of correct answers*/ else {
-          calculateOverallAccuracy();
+              increaseIndividualTargetAccuracy();
+              correctAnswer = true;
+              incorrectAnswer = false;
+              correctAnswers++;
+              hits++;
+              calculateOverallAccuracy();
+              killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
+              temporaryArrayOfQuestions.splice(0,1);
+              checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
+              assignTargetAudio();//in targets.js
+              assignTargetFlies(i);//in targets.js
+              playTargetAudio();//in targets.js
+        }/*end of correct answers*/ else if (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 &&
+            evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
+            evt.changedTouches[0].pageY <= arrayOfFlies[i].bottomEdge - 30 && !arrayOfFlies[i].target) {
+              calculateOverallAccuracy();
+              screenShake(10);
+              correctAnswer = false;
+              incorrectAnswer = true;
+              let randomIncorrectSoundIndex = getRandomInt(0,arrayOfIncorrectSounds.length - 1);
+              let incorrectSound = document.getElementById("incorrectSound");
+              incorrectSound.src = arrayOfIncorrectSounds[randomIncorrectSoundIndex];
+              if (!tutorial) {
+                incorrectSound.play();
+              }
         }//end of incorrect answers
       }//end of looping through flies
 
-      if (hits === 0) {
-        decreaseIndividualTargetAccuracy();
-        let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
-        let missedSound = document.getElementById("missedSound");
-        missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
-        missedSound.play();
-      }
+      if (hits === 0 && !correctAnswer && !incorrectAnswer) {
+          decreaseIndividualTargetAccuracy();
+          let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
+          let missedSound = document.getElementById("missedSound");
+          missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
+          if (!tutorial) {
+            missedSound.play();
+        }
       /*if ( (evt.changedTouches[0].pageX > canvas.width - 100 && evt.changedTouches[0].pageX < canvas.width &&
             evt.changedTouches[0].pageY > 0 && evt.changedTouches[0].pageY < 50) ) {
         canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
