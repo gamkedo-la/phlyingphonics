@@ -62,7 +62,7 @@ function drawIntro(mouseX,mouseY) {
     if (deltaTime > 2200 && deltaTime < 8350) {
       canvasContext.drawImage(Images.getImage("mobileThree"), 50,155, 200,150);
     } else {
-      canvasContext.drawImage(Images.getImage("starsplat"), 50,155, 200,150);
+      canvasContext.drawImage(Images.getImage("yellowstarsplat"), 50,155, 200,150);
     }
     if (deltaTime > 8350 && deltaTime < 8400) {
       correctSound.src = "audio/VOX_Sofia_Yay.mp3";
@@ -93,7 +93,7 @@ function drawIntro(mouseX,mouseY) {
     if (deltaTime < 15000) {
       canvasContext.drawImage(Images.getImage("mobileTwo"), canvas.width/4 + 260,155, 200,150);
     } else {
-      canvasContext.drawImage(Images.getImage("starsplat"), canvas.width/4 + 255,155, 200,150);
+      canvasContext.drawImage(Images.getImage("yellowstarsplat"), canvas.width/4 + 255,155, 200,150);
     }
     canvasContext.drawImage(Images.getImage("smallb"), canvas.width/4 + 332,207, 50,50);
     canvasContext.drawImage(Images.getImage("BabyHand"), introFlySwatterX,205, 300,150);

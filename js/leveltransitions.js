@@ -74,11 +74,11 @@ function drawLevelCompletedAnimation() {
   levelCompletionBackgroundTransparency += levelCompletionBackgroundTransparencySpeed;
 
   //draw stars image left side
-  canvasContext.drawImage(Images.getImage("starsplat"), levelCompletedStars1X,levelCompletedStars1Y, 200,200);
+  canvasContext.drawImage(Images.getImage("yellowstarsplat"), levelCompletedStars1X,levelCompletedStars1Y, 200,200);
   //draw stars image middle
-  canvasContext.drawImage(Images.getImage("starsplat"), levelCompletedStars2X,levelCompletedStars2Y, 400,400);
+  canvasContext.drawImage(Images.getImage("yellowstarsplat"), levelCompletedStars2X,levelCompletedStars2Y, 400,400);
   //draw stars image right side
-  canvasContext.drawImage(Images.getImage("starsplat"), levelCompletedStars3X,levelCompletedStars3Y, 200,200);
+  canvasContext.drawImage(Images.getImage("yellowstarsplat"), levelCompletedStars3X,levelCompletedStars3Y, 200,200);
 
 
   //move the stars
