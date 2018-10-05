@@ -29,7 +29,7 @@ let currentTime = new Date();
 let deltaTime = currentTime - startTimeOfGame;
 
 // set to false to turn off ss when you swat
-const USE_SCREENSHAKE = false;
+const USE_SCREENSHAKE = true;
 
 //used by the fly swatter
 let mouseX = 0;
@@ -269,10 +269,12 @@ window.onload = () => {
       else {
 
     canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
+
     if (USE_SCREENSHAKE) {
       canvasContext.save();
       canvasContext.translate(screenshakeX, screenshakeY);
     }
+    
 
     canvasContext.clearRect(canvasLeftEdge, canvasTopEdge, canvasRightEdge, canvasBottomEdge);
 
