@@ -145,7 +145,6 @@ function checkForLevelResetOrAdvancement() {
       initializeArrayOfFlies(temporarySubset);
       assignFlaps();
     } else {
-      console.log("hello world from adaptiveDifficulty.js");
 
       levelCompletedAnimation = true;
       backgroundMusic.pause();
@@ -156,7 +155,7 @@ function checkForLevelResetOrAdvancement() {
       assignFlaps();
       //alert("Good job! Get ready for the next level!");
     }
-    console.log("levelCompletedAnimation", levelCompletedAnimation);
+    arrayOfParticles = [];
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     tryAgainAnimation = true;
 
@@ -174,6 +173,8 @@ function checkForLevelResetOrAdvancement() {
     tryAgainAudio.play();
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
+    arrayOfParticles = [];
+
     //alert("Good. Let's try that again!");
   }
 }

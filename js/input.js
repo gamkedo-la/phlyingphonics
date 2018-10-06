@@ -81,10 +81,11 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
         assignTargetAudio();//in targets.js
         assignTargetFlies(i);//in targets.js
         playTargetAudio();//in targets.js
+        return;
       }/*end of correct answers*/ else if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
           evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && !arrayOfFlies[i].target) {
         calculateOverallAccuracy();
-        screenShake(10);
+        screenShake(7);
         correctAnswer = false;
         incorrectAnswer = true;
         let randomIncorrectSoundIndex = getRandomInt(0,arrayOfIncorrectSounds.length - 1);
@@ -93,8 +94,8 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
         if (!tutorial) {
           incorrectSound.play();
         }
-        console.log("hello incorrect answer");
-      }
+
+
       }//end of incorrect answers
     }//end of looping through flies
     if (hits === 0 && !correctAnswer && !incorrectAnswer) {
@@ -105,15 +106,11 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
       if (!tutorial) {
         missedSound.play();
       }
-      console.log("hello complete miss");
-    /*if ( (evt.pageX > canvas.width - 100 && evt.pageX < canvas.width && evt.pageY > 0 && evt.pageY < 50) ) {
-      canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
-      colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-      fanflap.play();
-      //goToSettingsMenu();
-      stopTargetAudio();
-  }*/
-} else {//beginning of touch events
+
+    }//end of complete miss
+
+}//end of mouse clicks
+  else {//beginning of touch events
       for (let i = 0; i<arrayOfFlies.length; i++) {
           if (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 &&
               evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
@@ -134,7 +131,7 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
             evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
             evt.changedTouches[0].pageY <= arrayOfFlies[i].bottomEdge - 30 && !arrayOfFlies[i].target) {
               calculateOverallAccuracy();
-              screenShake(10);
+              screenShake(7);
               correctAnswer = false;
               incorrectAnswer = true;
               let randomIncorrectSoundIndex = getRandomInt(0,arrayOfIncorrectSounds.length - 1);
@@ -166,6 +163,7 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
 
   //canvas.width - 100,0
   fingerPressed = false;
+}//end of touch events
 }
 }
 }

@@ -223,7 +223,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
           customLevelsShowing = true;
           toggleOn.play();
         }
-        console.log("customLevelsShowing", customLevelsShowing);
+
         customLevelsArrowSeen = true;
         infoBlurbTransparency = 0.1;
       }
@@ -253,8 +253,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
           rotateFlies = false;
           toggleOn.play();
         }
-        console.log("rotateFlies", rotateFlies);
-        console.log("stationaryMode", stationaryMode);
+
         stationaryArrowSeen = true;
         infoBlurbTransparency = 0.1;
       }
@@ -285,8 +284,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
               gamePlayInfoRead = false;
               statsInfoRead = false;
               isSettingsMenu = false;
-              console.log("showSettingsButtonBlurbSeen", showSettingsButtonBlurbSeen);
-              console.log("gamePlayInfoRead", gamePlayInfoRead);
+
               tutorialArrowSeen = true;
               customLevelsArrowSeen = false;
               glowArrowSeen = false;
@@ -305,8 +303,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
     isSettingsMenu = false;
     playTargetAudio();
     fanflap.play();
-    console.log("showSettingsButtonBlurbSeen", showSettingsButtonBlurbSeen);
-    console.log("gamePlayInfoRead", gamePlayInfoRead);
+    
     customLevelsArrowSeen = true;
     infoBlurbTransparency = 0.1;
   }

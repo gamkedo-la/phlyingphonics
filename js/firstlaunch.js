@@ -26,7 +26,7 @@ function drawFirstLaunchGamePlayInfoBlurb() {
     ( (fingerX >= canvas.width - buttonWidth - buttonWidth/3 +75) && (fingerX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
       (fingerY >= canvas.height - (canvas.height/3) + canvas.height/8) && (fingerY <= canvas.height - (canvas.height/3) + canvas.height/8 + 50) ) ) {
       canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width - buttonWidth - buttonWidth/3 + 75,canvas.height - (canvas.height/3) + canvas.height/8, 100,50);
-      console.log("click inside game play info coordinates");
+      
       fingerX = 0;
       fingerY = 0;
       fanflap.play();

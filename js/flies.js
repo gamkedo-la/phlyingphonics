@@ -255,6 +255,7 @@ function flyClass(i, temporarySubset) {
   this.myVisualLetter = assignVisualLetter(this.rawTargetData);//in adaptivedifficulty.js
   this.myLetterToCheck = undefined;
   this.target = false;
+  this.answered = false;
   this.drawCount = 0;
   this.hasFlyCollisionWith = new Set();
 
@@ -407,6 +408,9 @@ function detactCollisionDir(fly1, fly2) {
   return res
 }
 
+let particleCount = 0;
+let arrayOfParticles = [];
+
 let killFly = (i) => {
   if (chosenBackground == "BabyRoomBG") {
     arrayOfFlies[i].myImage = Images.getImage("yellowstarsplat"); //changing source image
@@ -417,6 +421,14 @@ let killFly = (i) => {
   } else if (chosenBackground == "purplecountertop") {
     arrayOfFlies[i].myImage = Images.getImage("greenstarsplat"); //changing source image
   }
+
+
+  window['starParticle'+i] = new starParticleClass(i);
+  arrayOfParticles.push(window['starParticle'+i]);
+  
+  particleCount++;
+
+  arrayOfFlies[i].answered = true;
   arrayOfFlies[i].xSpeed = 0; //stops movement
   arrayOfFlies[i].ySpeed = 0;
   arrayOfSwattedFlies.push(arrayOfFlies[i]);

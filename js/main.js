@@ -1,11 +1,4 @@
-//localStorage.clear();
-/*if (localStorage.getItem("language") === null) {
-  console.log("language was null");
-} else if (localStorage.getItem("language") === undefined) {
-  console.log("language was undefined");
-} else {
-  console.log("language", localStorage.getItem("language"));
-}*/
+
 
 const ASPECT_RATIO = 16/9;
 
@@ -162,8 +155,14 @@ window.onload = () => {
     //console.log(localStorage.getItem("language"));
     //console.log(localStorage.getItem("storedArrayOfProfiles"));
     //change transparency levels for target flies and settings menu if glow is selected
+    //console.log("arrayOfParticles", arrayOfParticles);
+    //for (let i = 0; i < arrayOfParticles.length; i++) {
+    //  arrayOfParticles[i].move();
+  //  }
 
-
+    for (let i = 0; i < arrayOfParticles.length; i++) {
+      arrayOfParticles[i].move();
+    }
 
     //console.log("timeSinceGoSoundPlayed", timeSinceGoSoundPlayed);
 
@@ -274,7 +273,7 @@ window.onload = () => {
       canvasContext.save();
       canvasContext.translate(screenshakeX, screenshakeY);
     }
-    
+
 
     canvasContext.clearRect(canvasLeftEdge, canvasTopEdge, canvasRightEdge, canvasBottomEdge);
 
@@ -299,6 +298,11 @@ window.onload = () => {
     drawSwattedFlies();
     drawFlies();
     drawFlySwatter();
+
+    for (let i = 0; i < arrayOfParticles.length; i++) {
+      arrayOfParticles[i].draw();
+    }
+
     if (tutorial) {
       drawFirstLaunchGamePlayInfoBlurb();
       drawFirstLaunchStatsInfoBlurb();

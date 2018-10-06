@@ -134,7 +134,7 @@ function handleLevelCompletedInput() {
     levelCompletedAnimation = false;
     tryAgainAnimation = false;
     beginLevelAnimation = true;
-    console.log("beginLevelAnimation", beginLevelAnimation);
+    
     fanflap.play();
     ashiko.play();
     levelCompletionBackgroundTransparency = 0.1;
