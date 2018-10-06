@@ -48,7 +48,7 @@ getRandomInt = (min, max) => {
 let initialize = () => {
   checkForFirstLaunch();
   intro = true;
-  backgroundMusic.volOverride = 0.03;
+  backgroundMusic.volOverride = 0.3;
   backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
   backgroundMusic.play();
   arrayOfAudios.push(backgroundMusic);
@@ -175,7 +175,7 @@ window.onload = () => {
       beginLevelAnimation = false;
       beginLevelBackgroundTransparency = 0;
       backgroundMusic.play();
-      backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
+      //backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
       playTargetAudio();
       timeGoSoundPlayed = undefined;
       goSoundPlayed = false;

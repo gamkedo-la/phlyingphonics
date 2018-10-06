@@ -124,13 +124,13 @@ fanflap.volume = masterVolume*fanFlap.volOverride;
 function masterVolumeUp() {
   //console.log("arrayOfAudios", arrayOfAudios);
 
-  masterVolume += 0.05;
-
+  masterVolume += 0.1;
+  console.log("masterVolume", masterVolume);
   if (masterVolume >= 1) {
     masterVolume = 1;
   }
 
-  backgroundMusic.volOverride = 0.03;
+  backgroundMusic.volOverride = 0.3;
   backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
   if (targetAudio) {
     targetAudio.volOverride = 0.3;
@@ -146,8 +146,16 @@ function masterVolumeUp() {
   introPhonics.volume = masterVolume*introPhonics.volOverride;
   correctSound.volOverride = 0.3;
   correctSound.volume = masterVolume*correctSound.volOverride;
+  incorrectSound.volOverride = 0.3;
+  incorrectSound.volume = masterVolume*incorrectSound.volOverride;
   missedSound.volume = 0.3;
   missedSound.volume = masterVolume*missedSound.volOverride;
+  levelCompletedAudio.volOverride = 0.3;
+  levelCompletedAudio.volume = masterVolume*levelCompletedAudio.volOverride;
+  ashiko.volOverride = 0.3;
+  ashiko.volume = masterVolume*ashiko.volOverride;
+  goSound.volOverride = 0.3;
+  goSound.volume = masterVolume*goSound.volOverride;
 
   Sounds.volUpdates();
   for (let i = 0; i < arrayOfAudios.length; i++) {
@@ -165,13 +173,13 @@ function masterVolumeUp() {
 
 function masterVolumeDown() {
 //  console.log("arrayOfAudios", arrayOfAudios);
-  masterVolume -= 0.05;
-
-  if (masterVolume <= 0.05) {
-    masterVolume = 0.05;
+  masterVolume -= 0.1;
+  console.log("masterVolume", masterVolume);
+  if (masterVolume <= 0.1) {
+    masterVolume = 0.1;
   }
 
-  backgroundMusic.volOverride = 0.03;
+  backgroundMusic.volOverride = 0.3;
   backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
   if (targetAudio) {
     targetAudio.volOverride = 0.3;
@@ -187,8 +195,19 @@ function masterVolumeDown() {
   introPhonics.volume = masterVolume*introPhonics.volOverride;
   correctSound.volOverride = 0.3;
   correctSound.volume = masterVolume*correctSound.volOverride;
+  incorrectSound.volOverride = 0.3;
+  incorrectSound.volume = masterVolume*incorrectSound.volOverride;
   missedSound.volume = 0.3;
   missedSound.volume = masterVolume*missedSound.volOverride;
+  levelCompletedAudio.volOverride = 0.3;
+  levelCompletedAudio.volume = masterVolume*levelCompletedAudio.volOverride;
+  tryAgainAudio.volOverride = 0.3;
+  tryAgainAudio.volume = masterVolume*tryAgainAudio.volOverride;
+  ashiko.volOverride = 0.3;
+  ashiko.volume = masterVolume*ashiko.volOverride;
+  goSound.volOverride = 0.3;
+  goSound.volume = masterVolume*goSound.volOverride;
+
 
   Sounds.volUpdates();
 

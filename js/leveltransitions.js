@@ -3,8 +3,12 @@ let beginLevelBackgroundTransparency = 0.1;
 let beginLevelBackgroundTransparencySpeed = 0.00925;
 let ashiko = new Audio();
 ashiko.src = "audio/ashiko.mp3";
+ashiko.volOverride = 0.3;
+ashiko.volume = masterVolume*ashiko.volOverride;
 let goSoundPlayed = false;
 let goSound = new Audio();
+goSound.volOverride = 0.3;
+goSound.volume = masterVolume*goSound.volOverride;
 goSound.src = "audio/tempobell.mp3";
 let timeGoSoundPlayed;
 let timeSinceGoSoundPlayed;
@@ -51,6 +55,8 @@ let levelCompletedStars3Y = -200;
 
 let levelCompletedAudio = new Audio();
 levelCompletedAudio.src = "audio/levelcompleted.mp3";
+levelCompletedAudio.volOverride = 0.3;
+levelCompletedAudio.volume = masterVolume*levelCompletedAudio.volOverride;
 
 function drawLevelCompletedAnimation() {
 
@@ -105,6 +111,8 @@ let tryAgainBackgroundTransparency = 0.1;
 let tryAgainBackgroundTransparencySpeed = 0.0085;
 let tryAgainAudio = new Audio();
 tryAgainAudio.src = "audio/tryagain.mp3";
+tryAgainAudio.volOverride = 0.3;
+tryAgainAudio.volume = masterVolume*tryAgainAudio.volOverride;
 
 function drawTryAgainAnimation() {
 
@@ -134,7 +142,7 @@ function handleLevelCompletedInput() {
     levelCompletedAnimation = false;
     tryAgainAnimation = false;
     beginLevelAnimation = true;
-    
+
     fanflap.play();
     ashiko.play();
     levelCompletionBackgroundTransparency = 0.1;
