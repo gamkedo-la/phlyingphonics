@@ -177,6 +177,8 @@ const NUMBER_PAD_MINUS = 109; // to decrease currentDate;
 const KEYBOARD_PLUS = 187; // to increase all previous practice dates;
 const KEYBOARD_MINUS = 189; // to decrease all previous practice dates;
 const ENTER = 13; // to hack calculate targets to be practiced, to check that the srs algorithm is behaving properly;
+const UP_ARROW = 38; // master volume up
+const DOWN_ARROW = 40; // master volume down
 
 function keyPressed(evt) {
     switch (evt.keyCode) {
@@ -194,6 +196,12 @@ function keyPressed(evt) {
         break;
       case ENTER:
         hackulateTargetsToBePracticed();
+        break;
+      case UP_ARROW:
+        masterVolumeUp();
+        break;
+      case DOWN_ARROW:
+        masterVolumeDown();
         break;
       }
     }

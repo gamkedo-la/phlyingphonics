@@ -99,3 +99,32 @@ let arrayOfOlderModeSplatSounds = ["audio/VOX_Sofia_GoodJob01.mp3","audio/VOX_So
 
 let fanflap = document.getElementById("fanflap");
 fanflap.volume = 0.2;
+
+
+
+
+function masterVolumeUp() {
+  console.log("arrayOfAudios", arrayOfAudios);
+  for (let i = 0; i < arrayOfAudios.length; i++) {
+
+    console.log("arrayOfAudios[" + i + "]volume", arrayOfAudios[i].volume)
+    if (arrayOfAudios[i] === 1) {
+      arrayOfAudios[i] = 1;
+    } else {
+      arrayOfAudios[i].volume += 0.05;
+    }
+  }
+}
+
+function masterVolumeDown() {
+  console.log("arrayOfAudios", arrayOfAudios);
+  for (let i = 0; i < arrayOfAudios.length; i++) {
+
+    console.log("arrayOfAudios[" + i + "]volume", arrayOfAudios[i].volume)
+    if (arrayOfAudios[i].volume === 0.1) {
+      arrayOfAudios[i].volume === 0.1;
+    } else {
+      arrayOfAudios[i].volume -= 0.05;
+    }
+  }
+}

@@ -4,7 +4,9 @@ let arrayOfFlies = []; //flies to be used in game
 
 let targetFly;
 let assignTargetFlies = () => {
+
   for (let i = 0; i < arrayOfFlies.length; i++) {
+    console.log("rawTargetData[i]", arrayOfFlies[i].rawTargetData,"targetAudio", targetAudio);
     if (arrayOfFlies[i].rawTargetData === targetAudio) {
       arrayOfFlies[i].target = true;
     } else {
@@ -425,7 +427,7 @@ let killFly = (i) => {
 
   window['starParticle'+i] = new starParticleClass(i);
   arrayOfParticles.push(window['starParticle'+i]);
-  
+
   particleCount++;
 
   arrayOfFlies[i].answered = true;

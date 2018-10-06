@@ -1,5 +1,4 @@
-
-
+let arrayOfAudios;
 const ASPECT_RATIO = 16/9;
 
 document.getElementById("tracks").style.visibility = "hidden";
@@ -104,6 +103,9 @@ window.onload = () => {
   backgroundMusic.volume = 0.1;
   chooseBackground();
   introFlySwatterX = canvas.width/4;
+
+  arrayOfAudios = [levelCompletedAudio,tryAgainAudio,backgroundMusic,targetAudio,introPhonics,correctSound,incorrectSound,ashiko,goSound,
+                       toggleOn,toggleOff,missedSound];
 
   //should be in languages.js, avoiding hoisting/loading issues
   let profileMenuButtonList = [
