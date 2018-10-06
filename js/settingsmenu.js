@@ -303,7 +303,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
     isSettingsMenu = false;
     playTargetAudio();
     fanflap.play();
-    
+
     customLevelsArrowSeen = true;
     infoBlurbTransparency = 0.1;
   }
@@ -311,7 +311,9 @@ function handleSettingsMenuInput(mouseX,mouseY) {
 
 let toggleOn = new Audio();
 toggleOn.src = "audio/toggleon.mp3";
-toggleOn.volume = 0.3;
+toggleOn.volOverride = 0.3;
+toggleOn.volume = masterVolume*toggleOn.volOverride;
 let toggleOff = new Audio();
 toggleOff.src = "audio/toggleoff.mp3";
-toggleOff.volume = 0.3;
+toggleOff.volOverride = 0.3;
+toggleOff.volume = masterVolume*toggleOff.volOverride;

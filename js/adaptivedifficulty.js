@@ -183,22 +183,26 @@ function chooseBackgroundSong() {
   if (chosenBackground === "tree2") {
     backgroundMusic.pause();
     backgroundMusic.src = "audio/butterflylevelsong.mp3";
-    backgroundMusic.volume = 0.3;
+    backgroundMusic.volOverride = 0.03;
+    backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
     backgroundMusic.play();
   } else if (chosenBackground === "BabyRoomBG") {
     backgroundMusic.pause();
     backgroundMusic.src = "audio/babyroomsong.mp3";
-    backgroundMusic.volume = 0.5;
+    backgroundMusic.volOverride = 0.03;
+    backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
     backgroundMusic.play();
   } else if (chosenBackground === "honeycomb") {
     backgroundMusic.pause();
     backgroundMusic.src = "audio/beelevel.mp3";
-    backgroundMusic.volume = 0.3;
+    backgroundMusic.volOverride = 0.03;
+    backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
     backgroundMusic.play();
   } else {
     backgroundMusic.pause();
     backgroundMusic.src = "audio/flightOfTheABCs.mp3";
-    backgroundMusic.volume = 0.1;
+    backgroundMusic.volOverride = 0.03;
+    backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
     backgroundMusic.play();
   }
 }

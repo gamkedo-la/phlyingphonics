@@ -13,6 +13,8 @@
 
 // Made by your friend Remy :) (based on the usual script from Chris)
 
+var masterVolume = 1;
+
 function Sounds() {
     let sound;
     let soundDict = [];
@@ -27,6 +29,15 @@ function Sounds() {
 
         sound = document.createElement("AUDIO");
         soundDict[soundName] = sound; //the spot is being kept by a dummy sound; we will load it later
+    }
+
+    Sounds.volUpdates = function() {
+        soundDict.forEach(function(entry){
+
+          entry.volOverride = 0.3;
+          entry.volume = masterVolume*entry.volOverride;
+          console.log(entry.src);
+        }, this);
     }
 
     Sounds.loadSounds = function () {
@@ -84,47 +95,111 @@ Sounds();
 
 let arrayOfIncorrectSounds = ["audio/VOX_Sofia_GoodTry.mp3","audio/VOX_Sofia_MmMm.mp3","audio/VOX_Sofia_UhOh01.mp3",
 							             "audio/VOX_Sofia_UhOh02.mp3","audio/VOX_Sofia_UhUh.mp3"];
-incorrectSound.volume = 0.55;
+
+incorrectSound.volOverride = 0.55;
+incorrectSound.volume = masterVolume*incorrectSound.volOverride;
 
 let arrayOfCorrectSounds = ["audio/VOX_Sofia_GoodJob01.mp3","audio/VOX_Sofia_GoodJob02.mp3","audio/VOX_Sofia_GreatWork.mp3","audio/VOX_Sofia_Hurray.mp3",
 							"audio/VOX_Sofia_KeepItUp.mp3","audio/VOX_Sofia_Yay.mp3"];
-correctSound.volume = 0.55;
+
+correctSound.volOverride = 0.55;
+correctSound.volume = masterVolume*correctSound.volOverride;
 
 let arrayOfMissedSounds = ["audio/miss_woosh.mp3","audio/miss_woosh_2.mp3"];
-missedSound.volume = 0.55;
+
+missedSound.volOverride = 0.55;
+missedSound.volume = masterVolume*missedSound.volOverride;
 
 
 let arrayOfOlderModeSplatSounds = ["audio/VOX_Sofia_GoodJob01.mp3","audio/VOX_Sofia_GoodJob02.mp3","audio/VOX_Sofia_GreatWork.mp3","audio/VOX_Sofia_Hurray.mp3",
 							"audio/VOX_Sofia_KeepItUp.mp3","audio/VOX_Sofia_Yay.mp3","audio/splatsound.mp3"];
 
-let fanflap = document.getElementById("fanflap");
-fanflap.volume = 0.2;
+let fanFlap = document.getElementById("fanflap");
+fanFlap.volOverride = 0.2;
+fanflap.volume = masterVolume*fanFlap.volOverride;
 
 
 
 
 function masterVolumeUp() {
-  console.log("arrayOfAudios", arrayOfAudios);
-  for (let i = 0; i < arrayOfAudios.length; i++) {
+  //console.log("arrayOfAudios", arrayOfAudios);
 
-    console.log("arrayOfAudios[" + i + "]volume", arrayOfAudios[i].volume)
-    if (arrayOfAudios[i] === 1) {
-      arrayOfAudios[i] = 1;
-    } else {
-      arrayOfAudios[i].volume += 0.05;
+  masterVolume += 0.05;
+
+  if (masterVolume >= 1) {
+    masterVolume = 1;
+  }
+
+  backgroundMusic.volOverride = 0.03;
+  backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
+  if (targetAudio) {
+    targetAudio.volOverride = 0.3;
+    targetAudio.volume = masterVolume*targetAudio.volOverride;
+  }
+  toggleOn.volOverride = 0.3;
+  toggleOn.volume = masterVolume*toggleOn.volOverride;
+  toggleOff.volOverride = 0.3;
+  toggleOff.volume = masterVolume*toggleOff.volOverride;
+  fanFlap.volOverride = 0.3;
+  fanFlap.volume = masterVolume*fanFlap.volOverride;
+  introPhonics.volOverride = 0.3;
+  introPhonics.volume = masterVolume*introPhonics.volOverride;
+  correctSound.volOverride = 0.3;
+  correctSound.volume = masterVolume*correctSound.volOverride;
+  missedSound.volume = 0.3;
+  missedSound.volume = masterVolume*missedSound.volOverride;
+
+  Sounds.volUpdates();
+  for (let i = 0; i < arrayOfAudios.length; i++) {
+    if (arrayOfAudios[i]) {
+      if (arrayOfAudios[i].volOverride) {
+        arrayOfAudios[i] = arrayOfAudios[i].volOverride;
+      } else {
+        arrayOfAudios[i].volume = masterVolume;
+      }
     }
+    //console.log("arrayOfAudios[" + i + "]volume", arrayOfAudios[i].volume)
+
   }
 }
 
 function masterVolumeDown() {
-  console.log("arrayOfAudios", arrayOfAudios);
-  for (let i = 0; i < arrayOfAudios.length; i++) {
+//  console.log("arrayOfAudios", arrayOfAudios);
+  masterVolume -= 0.05;
 
-    console.log("arrayOfAudios[" + i + "]volume", arrayOfAudios[i].volume)
-    if (arrayOfAudios[i].volume === 0.1) {
-      arrayOfAudios[i].volume === 0.1;
-    } else {
-      arrayOfAudios[i].volume -= 0.05;
+  if (masterVolume <= 0.05) {
+    masterVolume = 0.05;
+  }
+
+  backgroundMusic.volOverride = 0.03;
+  backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
+  if (targetAudio) {
+    targetAudio.volOverride = 0.3;
+    targetAudio.volume = masterVolume*targetAudio.volOverride;
+  }
+  toggleOn.volOverride = 0.3;
+  toggleOn.volume = masterVolume*toggleOn.volOverride;
+  toggleOff.volOverride = 0.3;
+  toggleOff.volume = masterVolume*toggleOff.volOverride;
+  fanFlap.volOverride = 0.3;
+  fanFlap.volume = masterVolume*fanFlap.volOverride;
+  introPhonics.volOverride = 0.3;
+  introPhonics.volume = masterVolume*introPhonics.volOverride;
+  correctSound.volOverride = 0.3;
+  correctSound.volume = masterVolume*correctSound.volOverride;
+  missedSound.volume = 0.3;
+  missedSound.volume = masterVolume*missedSound.volOverride;
+
+  Sounds.volUpdates();
+
+  for (let i = 0; i < arrayOfAudios.length; i++) {
+    if (arrayOfAudios[i] != undefined && arrayOfAudios[i] != null) {
+      console.log(arrayOfAudios[i].src);
+      if (arrayOfAudios[i].volOverride) {
+        arrayOfAudios[i] = arrayOfAudios[i].volOverride;
+      } else {
+        arrayOfAudios[i].volume = masterVolume;
+      }
     }
   }
 }

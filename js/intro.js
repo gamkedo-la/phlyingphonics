@@ -28,6 +28,8 @@ function drawIntro(mouseX,mouseY) {
     canvasContext.globalAlpha = introTransparency;
     canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width,canvas.height);
     if (deltaTime > 5900 && deltaTime < 8350) {
+      introPhonics.volumeOverride = 0.3;
+      introPhonics.volume = masterVolume*introPhonics.volumeOverride;
       introPhonics.play();
     }
     if (deltaTime > 6200 && deltaTime < 8400) {
@@ -66,12 +68,16 @@ function drawIntro(mouseX,mouseY) {
     }
     if (deltaTime > 8350 && deltaTime < 8400) {
       correctSound.src = "audio/VOX_Sofia_Yay.mp3";
+      correctSound.volOverride = 0.3;
+      correctSound.volume = masterVolume*correctSound.volOverride;
       correctSound.play();
       introPhonics.pause();
       introPhonics.src = "audio/phonics/phonicb.mp3";
       introPhonicATransparency = 0;
     }
     if (deltaTime > 9000) {
+      introPhonics.volOverride = 0.3;
+      introPhonics.volume = masterVolume*introPhonics.volOverride;
       introPhonics.play();
       introPhonicATransparency += introPhonicATransparencySpeed;
       colorCircleWithTransparency(canvas.width/4 + 361,235, 90, "gray", introPhonicATransparency);
@@ -84,6 +90,8 @@ function drawIntro(mouseX,mouseY) {
     }
     if (deltaTime > 15000) {
       introPhonics.pause();
+      correctSound.volOverride = 0.3;
+      correctSound.volume = masterVolume*correctSound.volOverride;
       correctSound.play();
     }
     if (deltaTime > 16000) {
@@ -106,6 +114,8 @@ function drawIntro(mouseX,mouseY) {
         canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width - 340,150, 300,150);
         fingerX = 0;
         fingerY = 0;
+        fanFlap.volOverride = 0.3;
+        fanFlap.volume = masterVolume*fanFlap.volOverride;
         fanflap.play();
       } else {
           canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width - 340,150, 300,150);
@@ -121,6 +131,8 @@ function drawIntro(mouseX,mouseY) {
           canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 290,310, 200,75);
           fingerX = 0;
           fingerY = 0;
+          fanFlap.volOverride = 0.3;
+          fanFlap.volume = masterVolume*fanFlap.volOverride;
           fanflap.play();
         } else {
             canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 290,310, 200,75);

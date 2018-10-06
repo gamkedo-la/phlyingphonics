@@ -48,7 +48,10 @@ getRandomInt = (min, max) => {
 let initialize = () => {
   checkForFirstLaunch();
   intro = true;
+  backgroundMusic.volOverride = 0.03;
+  backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
   backgroundMusic.play();
+  arrayOfAudios.push(backgroundMusic);
 
   arrowX = canvas.width - 250;
   setInterval(function() {
@@ -100,7 +103,7 @@ window.onload = () => {
   canvas = document.getElementById("gameCanvas");
   canvasContext = canvas.getContext("2d");
   window.onresize();
-  backgroundMusic.volume = 0.1;
+
   chooseBackground();
   introFlySwatterX = canvas.width/4;
 
@@ -172,6 +175,7 @@ window.onload = () => {
       beginLevelAnimation = false;
       beginLevelBackgroundTransparency = 0;
       backgroundMusic.play();
+      backgroundMusic.volume = masterVolume*backgroundMusic.volOverride;
       playTargetAudio();
       timeGoSoundPlayed = undefined;
       goSoundPlayed = false;
