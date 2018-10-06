@@ -48,6 +48,8 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
     handleExistingProfileMenuInput(evt.pageX,evt.pageY);
   } else if (isSettingsMenu) {
     handleSettingsMenuInput(evt.pageX,evt.pageY);
+  } else if (isCreditsMenu) {
+    handleCreditsMenuInput(evt.pageX,evt.pageY);
   } else if (levelCompletedAnimation || tryAgainAnimation) {
     handleLevelCompletedInput(evt.pageX,evt.pageY);
   }

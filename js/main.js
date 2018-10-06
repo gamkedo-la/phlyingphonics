@@ -136,7 +136,7 @@ window.onload = () => {
   canvas.addEventListener("click", handleCanvasClick); //defined in Input.js, this function splats the flies
   canvas.addEventListener("mousedown", function(evt) {
     mousePressed = true;
-
+    console.log("mousepressed");
     //console.log("mouseX/Y", mouseX,mouseY);
     //console.log("canvas.width - 350", canvas.width - 350);
     //console.log("canvas.width - 50", canvas.width - 50);
@@ -262,6 +262,8 @@ window.onload = () => {
       if (!settingsMenuInfoSeen) {
         drawSettingsMenuBlurbs();
       }
+    } else if (isCreditsMenu) {
+      drawCreditsMenu();
     } else if (levelCompletedAnimation) {
       drawLevelCompletedAnimation();
       stopTargetAudio();

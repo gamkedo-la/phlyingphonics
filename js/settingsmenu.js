@@ -295,7 +295,8 @@ function handleSettingsMenuInput(mouseX,mouseY) {
 
             //credits click
             if (mouseX >= canvas.width/3 - 38 && mouseY >= 335 && mouseX <= canvas.width/3 + 37 && mouseY <= 385) {
-                    alert("Stebs\nChris Deleon\nChrister\nKise\nRandy Tan\netc.");
+                    isCreditsMenu = true;
+                    isSettingsMenu = false;
                   }
 
   //check for play button click
@@ -317,3 +318,58 @@ let toggleOff = new Audio();
 toggleOff.src = "audio/toggleoff.mp3";
 toggleOff.volOverride = 0.3;
 toggleOff.volume = masterVolume*toggleOff.volOverride;
+
+let isCreditsMenu = false;
+
+function drawCreditsMenu(mouseX,mouseY) {
+  canvasContext.drawImage(Images.getImage("settings_menu_background"),0,0, canvas.width,canvas.height);
+  colorText("Stebs - Project lead, original concept, core functionality, ", 35,25, "#FC5800", "17px papyrus");
+  colorText("user profile storage, adaptive difficulty, language player profiles,  ", 35,55, "#FC5800", "17px papyrus");
+  colorText("voices, music, table backgrounds, asset integration, bug motion, ", 35,85, "#FC5800", "17px papyrus");
+  colorText("letter art, letter grouping, tutorial, glow effect, intro, settings menu ", 35,115, "#FC5800", "17px papyrus");
+
+  colorText("Christer \"McFunkypants\" Kaitila - Fly swatter sprite, screenshake", 35,155, "#FC5800", "17px papyrus");
+  colorText("flies face direction of motion, flap animations, mobile strings", 35,185, "#FC5800", "17px papyrus");
+  colorText("butterfly net, custom button art", 35,205, "#FC5800", "20px papyrus");
+
+  colorText("Randy Tan Shaoxian - Chinese and Japanese language fixes,", 35,255, "#FC5800", "17px papyrus");
+  colorText("canvas scaling with aspect preservation, refactoring and comments", 35,285, "#FC5800", "17px papyrus");
+
+  colorText("Charlene A. - Opening screen art, added Bahasa Malaysia language,", 35,325, "#FC5800", "17px papyrus");
+  colorText("cartoon fly, baby room background/hand, honey jar art and implementation,", 35,355, "#FC5800", "17px papyrus");
+  colorText("stars splat effect, Chineses and Japanese editing, Chinese letter fixes", 35,385, "#FC5800", "17px papyrus");
+
+  //right side
+  colorText("Chris Markle - VO for right/wrong answers,",canvas.width/2 + 135,25, "#FC5800", "17px papyrus");
+  colorText("correct/missed sound hookups",canvas.width/2 + 135,55, "#FC5800", "17px papyrus");
+
+  colorText("Abdulaziz - Dragon bee, fly to fly collisions improved", canvas.width/2 + 135,95, "#FC5800", "17px papyrus");
+
+  colorText("Jaime Rivas - Fly art, two woosh sound effects", canvas.width/2 + 135,135, "#FC5800", "17px papyrus");
+
+  colorText("Jeremy Jackson - Stationary mode hookup", canvas.width/2 + 135,175, "#FC5800", "17px papyrus");
+
+  colorText("Barış Köklü - Phonics class project", canvas.width/2 + 135,215, "#FC5800", "17px papyrus");
+
+  colorText("Rémy Lapointe - Images module implemented", canvas.width/2 + 135,255, "#FC5800", "17px papyrus");
+
+  colorText("pseudoLudo - Honeycomb background", canvas.width/2 + 135,295, "#FC5800", "17px papyrus");
+
+  colorText("Kise - Additional Japanese translations", canvas.width/2 + 135,335, "#FC5800", "17px papyrus");
+
+  if ( /*(mousePressed || fingerPressed) &&*/ (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 &&
+        mouseY >= 165 && mouseY <= 265) ) {
+        canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width/3 + 165,165, 125,100);
+        console.log("hello check button mouseover");
+      } else {
+        canvasContext.drawImage(Images.getImage("gui_button_check"), canvas.width/3 + 165,165, 125,100);
+      }
+}
+
+function handleCreditsMenuInput(mouseX,mouseY) {
+  if (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 && mouseY >= 165 && mouseY <= 265) {
+    isCreditsMenu = false;
+    isSettingsMenu = true;
+    fanflap.play();
+  }
+}
