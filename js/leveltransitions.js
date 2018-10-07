@@ -21,11 +21,11 @@ function drawBeginLevelAnimation() {
   //draw the background
   canvasContext.globalAlpha = beginLevelBackgroundTransparency;
   if (beginLevelBackgroundTransparency < 0.33) {
-    canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+    canvasContext.drawImage(Images.getImage("settings_menu_background2"),canvas.width/4,0, canvas.width/2,canvas.height);
     canvasContext.drawImage(Images.getImage("redtrafficlight"),canvas.width/2 - 150,0, 300,400);
     canvasContext.globalAlpha = 1;
   } else if (beginLevelBackgroundTransparency > 0.33 && beginLevelBackgroundTransparency < 0.66) {
-    canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+    canvasContext.drawImage(Images.getImage("settings_menu_background2"),canvas.width/4,0, canvas.width/2,canvas.height);
     canvasContext.drawImage(Images.getImage("yellowtrafficlight"),canvas.width/2 - 150,0, 300,400);
     canvasContext.globalAlpha = 1;
   } else if (beginLevelBackgroundTransparency > 0.66){
@@ -34,7 +34,7 @@ function drawBeginLevelAnimation() {
       goSoundPlayed = true;
       timeGoSoundPlayed = new Date();
     }
-    canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+    canvasContext.drawImage(Images.getImage("settings_menu_background2"),canvas.width/4,0, canvas.width/2,canvas.height);
     canvasContext.drawImage(Images.getImage("greentrafficlight"),canvas.width/2 - 150,0, 300,400);
     canvasContext.globalAlpha = 1;
   }
@@ -64,7 +64,7 @@ function drawLevelCompletedAnimation() {
 
   //draw the background, great job text, and play button
   canvasContext.globalAlpha = levelCompletionBackgroundTransparency;
-  canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+  canvasContext.drawImage(Images.getImage("settings_menu_background2"),canvas.width/4,0, canvas.width/2,canvas.height);
   colorText("Great Job!", canvas.width/2 - 115,canvas.height/2 + 65, "#FC5800", "50px papyrus");
 
   //play
@@ -120,7 +120,7 @@ function drawTryAgainAnimation() {
 
     //draw the background, great job text, and play button
     canvasContext.globalAlpha = tryAgainBackgroundTransparency;
-    canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+    canvasContext.drawImage(Images.getImage("settings_menu_background2"),canvas.width/4,0, canvas.width/2,canvas.height);
     canvasContext.drawImage(Images.getImage("tryagainbaby"),canvas.width/4,25, canvas.width/2 - 50,canvas.height - 100);
     colorText("Almost!", canvas.width/2 - 75,canvas.height/2 + 65, "#FC5800", "50px papyrus");
 

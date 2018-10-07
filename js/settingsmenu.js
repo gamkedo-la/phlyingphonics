@@ -17,7 +17,7 @@ function drawSettingsMenu(mouseX,mouseY) {
   drawFlies();
 
   //background
-  canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+  canvasContext.drawImage(Images.getImage("settings_menu_background2"),canvas.width/4,0, canvas.width/2,canvas.height);
 
   //custom levels
   colorText(language.customLevels, canvas.width/4 + 35,50, "#FC5800", "30px papyrus");
@@ -327,7 +327,7 @@ toggleOff.volume = masterVolume*toggleOff.volOverride;
 let isCreditsMenu = false;
 
 function drawCreditsMenu(mouseX,mouseY) {
-  canvasContext.drawImage(Images.getImage("settings_menu_background"),0,0, canvas.width,canvas.height);
+  canvasContext.drawImage(Images.getImage("settings_menu_background2"),0,0, canvas.width,canvas.height);
   colorText("Stebs - Project lead, original concept, core functionality, ", 35,25, "#FC5800", "17px papyrus");
   colorText("user profile storage, adaptive difficulty, language player profiles,  ", 35,55, "#FC5800", "17px papyrus");
   colorText("voices, music, table backgrounds, asset integration, bug motion, ", 35,85, "#FC5800", "17px papyrus");

@@ -89,7 +89,7 @@ function showSettingsMenu() {
 }
 
 function drawProfileMenu() {
-  canvasContext.drawImage(Images.getImage("settings_menu_background"),canvas.width/4,0, canvas.width/2,canvas.height);
+  canvasContext.drawImage(Images.getImage("settings_menu_background2"),canvas.width/4,0, canvas.width/2,canvas.height);
   colorText(language.profiles, canvas.width/2 - 85, 60, "#FC5800", "50px papyrus");
   canvasContext.textAlign = "center";
   for (let i = 0; i<profileMenuButtonList.length; i++) {
