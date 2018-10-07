@@ -64,11 +64,18 @@ function coloredOutlineRectCornerToCorner(corner1X, corner1Y, corner2X, corner2Y
     canvasContext.stroke();
 }
 
-function colorText(text, textLineX, textLineY, color, fontInfo) {
+function colorText(text, textLineX, textLineY, color, fontInfo, shadowColor="black", shadowOffsetX=0, shadowOffsetY=0, shadowBlur=0) {
     if (!fontInfo) fontInfo = "11px Arial"; // default
     canvasContext.font = fontInfo;
+    canvasContext.shadowColor = shadowColor;
+    canvasContext.shadowOffsetX = shadowOffsetX;
+    canvasContext.shadowOffsetY = shadowOffsetY;
+    canvasContext.shadowBlur = shadowBlur;
     canvasContext.fillStyle = color;
     canvasContext.fillText(text, textLineX, textLineY);
+    canvasContext.shadowOffsetX = 0;
+    canvasContext.shadowOffsetY = 0;
+    canvasContext.shadowBlur = 0;
 }
 
 function colorTextCentered(text, textLineX, textLineY, color, fontInfo) {
