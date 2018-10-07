@@ -166,8 +166,7 @@ function drawSettingsMenu(mouseX,mouseY) {
             canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
           } else {
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
-    }
-    canvasContext.textAlign = "center";
+    }    
     colorText(language.profiles, canvas.width/4 + 35,215, "#FC5800", "30px papyrus");
     canvasContext.textAlign = "left";
 
