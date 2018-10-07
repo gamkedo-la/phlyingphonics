@@ -171,7 +171,7 @@ window.onload = () => {
 
     //console.log("timeSinceGoSoundPlayed", timeSinceGoSoundPlayed);
 
-    if (timeSinceGoSoundPlayed > 750) {
+    if (timeSinceGoSoundPlayed > 500) {
       beginLevelAnimation = false;
       beginLevelBackgroundTransparency = 0;
       backgroundMusic.play();
@@ -179,6 +179,7 @@ window.onload = () => {
       playTargetAudio();
       timeGoSoundPlayed = undefined;
       goSoundPlayed = false;
+      transitionCounter++;
     }
 
 
@@ -276,6 +277,7 @@ window.onload = () => {
       else {
 
     canvasContext.clearRect(canvasLeftEdge,canvasTopEdge, canvasRightEdge,canvasBottomEdge);
+    canvasContext.globalAlpha = 1;
 
     if (USE_SCREENSHAKE) {
       canvasContext.save();

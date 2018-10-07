@@ -13,9 +13,60 @@ goSound.src = "audio/tempobell.mp3";
 let timeGoSoundPlayed;
 let timeSinceGoSoundPlayed;
 
+let readySetGoSheetX = 0
+let readySetGoAnimationStartTime;
+let transitionCounter = 1
 
-function drawBeginLevelAnimation() {
+function playKiseReadySetGo(readySetGoAnimationDeltaTime) {
+  if (readySetGoAnimationDeltaTime < 150) {
+    readySetGoSheetX = 0;
+  } else if (readySetGoAnimationDeltaTime > 150 && readySetGoAnimationDeltaTime < 300) {
+    readySetGoSheetX = 2200;
+  }  else if (readySetGoAnimationDeltaTime > 300 && readySetGoAnimationDeltaTime < 450) {
+    readySetGoSheetX = 3300;
+  } else if (readySetGoAnimationDeltaTime > 450 && readySetGoAnimationDeltaTime < 600) {
+    readySetGoSheetX = 4400;
+  } else if (readySetGoAnimationDeltaTime > 600 && readySetGoAnimationDeltaTime < 750) {
+    readySetGoSheetX = 5500;
+  } else if (readySetGoAnimationDeltaTime > 750 && readySetGoAnimationDeltaTime < 900) {
+    readySetGoSheetX = 6600;
+  } else if (readySetGoAnimationDeltaTime > 900 && readySetGoAnimationDeltaTime < 1050) {
+    readySetGoSheetX = 7700;
+  } else if (readySetGoAnimationDeltaTime > 1050 && readySetGoAnimationDeltaTime < 1200) {
+    readySetGoSheetX = 8800;
+  } else if (readySetGoAnimationDeltaTime > 1200 && readySetGoAnimationDeltaTime < 1350) {
+    readySetGoSheetX = 9900;
+  } else if (readySetGoAnimationDeltaTime > 1350 && readySetGoAnimationDeltaTime < 1500) {
+    readySetGoSheetX = 11000;
+  } else if (readySetGoAnimationDeltaTime > 1500 && readySetGoAnimationDeltaTime < 1650) {
+    readySetGoSheetX = 12100;
+  } else if (readySetGoAnimationDeltaTime > 1650 && readySetGoAnimationDeltaTime < 1800) {
+    readySetGoSheetX = 13200;
+  } else if (readySetGoAnimationDeltaTime > 1800 && readySetGoAnimationDeltaTime < 1950) {
+    readySetGoSheetX = 14300;
+  } else if (readySetGoAnimationDeltaTime > 1950 && readySetGoAnimationDeltaTime < 2100) {
+    readySetGoSheetX = 15400;
+  } else if (readySetGoAnimationDeltaTime > 2100 && readySetGoAnimationDeltaTime < 2250) {
+    readySetGoSheetX = 16500;
+  } else if (readySetGoAnimationDeltaTime > 2250 && readySetGoAnimationDeltaTime < 2400) {
+    readySetGoSheetX = 17600;
+  } else if (readySetGoAnimationDeltaTime > 2400 && readySetGoAnimationDeltaTime < 2550) {
+    readySetGoSheetX = 18700;
+  } else if (readySetGoAnimationDeltaTime > 2700 && readySetGoAnimationDeltaTime < 2850) {
+    readySetGoSheetX = 19800;
+    if (!goSoundPlayed){
+      goSound.play();
+      goSoundPlayed = true;
+      timeGoSoundPlayed = new Date();
+    }
+  }
 
+  console.log(readySetGoAnimationDeltaTime);
+  canvasContext.drawImage(Images.getImage("readysetgosheet"),readySetGoSheetX,0, 1100,400, 0,0, 1100,400);
+
+}
+
+function playStebsReadySetGo() {
   canvasContext.clearRect(0,0, canvas.width,canvas.height);
 
   //draw the background
@@ -40,6 +91,17 @@ function drawBeginLevelAnimation() {
   }
 
   beginLevelBackgroundTransparency += beginLevelBackgroundTransparencySpeed;
+}
+
+function drawBeginLevelAnimation() {
+
+  let readySetGoAnimationDeltaTime = currentTime - readySetGoAnimationStartTime;
+
+  if (transitionCounter % 2 !== 1) {
+    playKiseReadySetGo(readySetGoAnimationDeltaTime);
+  } else {
+    playStebsReadySetGo();
+  }
 
 }
 
@@ -139,6 +201,9 @@ function drawTryAgainAnimation() {
 
 function handleLevelCompletedInput() {
   if (mouseX >= canvas.width/3 + 120 && mouseX <= canvas.width/3 + 270 && mouseY >= 325 && mouseY <= 425) {
+
+    readySetGoAnimationStartTime = new Date();
+
     levelCompletedAnimation = false;
     tryAgainAnimation = false;
     beginLevelAnimation = true;

@@ -87,6 +87,7 @@ let imageFileNames = [
     "images/redtrafficlight.png",
     "images/yellowtrafficlight.png",
     "images/greentrafficlight.png",
+    "images/readysetgosheet.png",
     "images/table.png",
     "images/fly.png",
     "images/butterflies/blackNorange.png",
