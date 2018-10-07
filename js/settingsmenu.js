@@ -1,3 +1,6 @@
+const SETTINGS_MENU_TEXT_COLOR = "#300914";
+const SETTINGS_MENU_TEXT_FONT = "30px papyrus";
+
 let isSettingsMenu = false;
 let customLevelsToggleCircleX;
 let glowToggleCircleX;
@@ -7,7 +10,6 @@ let toggleOnX;
 let toggleXSpeed = 1;
 let customLevelsOnOffTransparency = 0;
 let onOffToggleTransparencySpeed = 0.1;
-
 
 function drawSettingsMenu(mouseX,mouseY) {
 
@@ -20,7 +22,7 @@ function drawSettingsMenu(mouseX,mouseY) {
   canvasContext.drawImage(Images.getImage("settings_menu_background2"),canvas.width/4,0, canvas.width/2,canvas.height);
 
   //custom levels
-  colorText(language.customLevels, canvas.width/4 + 35,50, "#FC5800", "30px papyrus");
+  colorText(language.customLevels, canvas.width/4 + 35,50, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT);
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,25, 75,25);
   if (!customLevelsShowing && customLevelsToggleCircleX > toggleOffX) {
@@ -65,7 +67,7 @@ function drawSettingsMenu(mouseX,mouseY) {
 
   //glow
 
-  colorText(language.glow, canvas.width/4 + 35,105, "#FC5800", "30px papyrus");
+  colorText(language.glow, canvas.width/4 + 35,105, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT);
 
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,83, 75,25);
@@ -116,7 +118,7 @@ function drawSettingsMenu(mouseX,mouseY) {
 
 
   //stationary
-  colorText(language.stationary, canvas.width/4 + 35,160, "#FC5800", "30px papyrus");
+  colorText(language.stationary, canvas.width/4 + 35,160, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT);
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,141, 75,25);
   if (!stationaryMode && stationaryToggleCircleX > toggleOffX) {
@@ -167,12 +169,12 @@ function drawSettingsMenu(mouseX,mouseY) {
           } else {
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
     }    
-    colorText(language.profiles, canvas.width/4 + 35,215, "#FC5800", "30px papyrus");
+    colorText(language.profiles, canvas.width/4 + 35,215, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT);
     canvasContext.textAlign = "left";
 
 
     //tutorial
-    colorText(language.tutorial, canvas.width/4 + 35,270, "#FC5800", "30px papyrus");
+    colorText(language.tutorial, canvas.width/4 + 35,270, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT);
     if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
           mouseY >= 247 && mouseY <= 272) ) {
             canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
@@ -181,7 +183,7 @@ function drawSettingsMenu(mouseX,mouseY) {
           }
 
     //credits
-    colorText(language.credits, canvas.width/4 + 35,325, "#FC5800", "30px papyrus");
+    colorText(language.credits, canvas.width/4 + 35,325, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT);
     if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 - 38 && mouseY >= 335 && mouseX <= canvas.width/3 + 37 && mouseY <= 385) ) {
           canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/3 - 38,335, 75,50);
           tutorial = false;
@@ -199,7 +201,7 @@ function drawSettingsMenu(mouseX,mouseY) {
         }
 
         //older kids Mode
-        colorText(language.olderKids, canvas.width/3 + 290,325, "#FC5800", "30px papyrus");
+        colorText(language.olderKids, canvas.width/3 + 290,325, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT);
         if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 290 && mouseX <= canvas.width/3 + 132.5 &&
               mouseY >= 340 && mouseY <= 357.5) ) {
               canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/3 + 325,340, 75,25);
@@ -327,39 +329,39 @@ let isCreditsMenu = false;
 
 function drawCreditsMenu(mouseX,mouseY) {
   canvasContext.drawImage(Images.getImage("settings_menu_background2"),0,0, canvas.width,canvas.height);
-  colorText("Stebs - Project lead, original concept, core functionality, ", 35,25, "#FC5800", "17px papyrus");
-  colorText("user profile storage, adaptive difficulty, language player profiles,  ", 35,55, "#FC5800", "17px papyrus");
-  colorText("voices, music, table backgrounds, asset integration, bug motion, ", 35,85, "#FC5800", "17px papyrus");
-  colorText("letter art, letter grouping, tutorial, glow effect, intro, settings menu ", 35,115, "#FC5800", "17px papyrus");
+  colorText("Stebs - Project lead, original concept, core functionality, ", 35,25, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("user profile storage, adaptive difficulty, language player profiles,  ", 35,55, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("voices, music, table backgrounds, asset integration, bug motion, ", 35,85, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("letter art, letter grouping, tutorial, glow effect, intro, settings menu ", 35,115, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("Christer \"McFunkypants\" Kaitila - Fly swatter sprite, screenshake", 35,155, "#FC5800", "17px papyrus");
-  colorText("flies face direction of motion, flap animations, mobile strings", 35,185, "#FC5800", "17px papyrus");
-  colorText("butterfly net, custom button art", 35,205, "#FC5800", "20px papyrus");
+  colorText("Christer \"McFunkypants\" Kaitila - Fly swatter sprite, screenshake", 35,155, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("flies face direction of motion, flap animations, mobile strings", 35,185, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("butterfly net, custom button art", 35,205, SETTINGS_MENU_TEXT_COLOR, "20px papyrus");
 
-  colorText("Randy Tan Shaoxian - Chinese and Japanese language fixes,", 35,255, "#FC5800", "17px papyrus");
-  colorText("canvas scaling with aspect preservation, refactoring and comments", 35,285, "#FC5800", "17px papyrus");
+  colorText("Randy Tan Shaoxian - Chinese and Japanese language fixes,", 35,255, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("canvas scaling with aspect preservation, refactoring and comments", 35,285, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("Charlene A. - Opening screen art, added Bahasa Malaysia language,", 35,325, "#FC5800", "17px papyrus");
-  colorText("cartoon fly, baby room background/hand, honey jar art and implementation,", 35,355, "#FC5800", "17px papyrus");
-  colorText("stars splat effect, Chineses and Japanese editing, Chinese letter fixes", 35,385, "#FC5800", "17px papyrus");
+  colorText("Charlene A. - Opening screen art, added Bahasa Malaysia language,", 35,325, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("cartoon fly, baby room background/hand, honey jar art and implementation,", 35,355, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("stars splat effect, Chineses and Japanese editing, Chinese letter fixes", 35,385, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
   //right side
-  colorText("Chris Markle - VO for right/wrong answers,",canvas.width/2 + 135,25, "#FC5800", "17px papyrus");
-  colorText("correct/missed sound hookups",canvas.width/2 + 135,55, "#FC5800", "17px papyrus");
+  colorText("Chris Markle - VO for right/wrong answers,",canvas.width/2 + 135,25, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
+  colorText("correct/missed sound hookups",canvas.width/2 + 135,55, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("Abdulaziz - Dragon bee, fly to fly collisions improved", canvas.width/2 + 135,95, "#FC5800", "17px papyrus");
+  colorText("Abdulaziz - Dragon bee, fly to fly collisions improved", canvas.width/2 + 135,95, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("Jaime Rivas - Fly art, two woosh sound effects", canvas.width/2 + 135,135, "#FC5800", "17px papyrus");
+  colorText("Jaime Rivas - Fly art, two woosh sound effects", canvas.width/2 + 135,135, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("Jeremy Jackson - Stationary mode hookup", canvas.width/2 + 135,175, "#FC5800", "17px papyrus");
+  colorText("Jeremy Jackson - Stationary mode hookup", canvas.width/2 + 135,175, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("Barış Köklü - Phonics class project", canvas.width/2 + 135,215, "#FC5800", "17px papyrus");
+  colorText("Barış Köklü - Phonics class project", canvas.width/2 + 135,215, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("Rémy Lapointe - Images module implemented", canvas.width/2 + 135,255, "#FC5800", "17px papyrus");
+  colorText("Rémy Lapointe - Images module implemented", canvas.width/2 + 135,255, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("pseudoLudo - Honeycomb background", canvas.width/2 + 135,295, "#FC5800", "17px papyrus");
+  colorText("pseudoLudo - Honeycomb background", canvas.width/2 + 135,295, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
-  colorText("Kise - Additional Japanese translations", canvas.width/2 + 135,335, "#FC5800", "17px papyrus");
+  colorText("Kise - Additional Japanese translations", canvas.width/2 + 135,335, SETTINGS_MENU_TEXT_COLOR, "17px papyrus");
 
   if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 &&
         mouseY >= 165 && mouseY <= 265) ) {
