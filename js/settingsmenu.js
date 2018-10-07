@@ -367,9 +367,6 @@ function drawCreditsMenu(mouseX,mouseY) {
   colorText("Kise - Additional Japanese translations", canvas.width/2 + 135,335, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
   colorText("Ready Set Go Animation", canvas.width/2 + 135,365, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
 
-  colorText("Chris Deleon - A whole lot", canvas.width/2 + 135,395, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
-
-
   if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 &&
         mouseY >= 165 && mouseY <= 265) ) {
         canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width/3 + 165,165, 125,100);
