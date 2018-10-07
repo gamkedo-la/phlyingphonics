@@ -171,7 +171,7 @@ function drawSettingsMenu(mouseX,mouseY) {
             canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
           } else {
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
-    }    
+    }
     colorText(language.profiles, canvas.width/4 + 35,215, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT, SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
     canvasContext.textAlign = "left";
 
@@ -342,11 +342,11 @@ function drawCreditsMenu(mouseX,mouseY) {
   colorText("butterfly net, custom button art", 35,205, SETTINGS_MENU_TEXT_COLOR, "20px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
 
   colorText("Randy Tan Shaoxian - Chinese and Japanese language fixes,", 35,255, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
-  colorText("canvas scaling with aspect preservation, refactoring and comments", 35,285, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
+  colorText("canvas scaling with aspect preservation, refactoring, text editing/shadows", 35,285, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
 
-  colorText("Charlene A. - Opening screen art, added Bahasa Malaysia language,", 35,325, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
+  colorText("Charlene A. - Opening background,Bahasa Malaysia language,", 35,325, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
   colorText("cartoon fly, baby room background/hand, honey jar art and implementation,", 35,355, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
-  colorText("stars splat effect, Chineses and Japanese editing, Chinese letter fixes", 35,385, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
+  colorText("stars splat effect, Chineses and Japanese editing, Credits Background", 35,385, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
 
   //right side
   colorText("Chris Markle - VO for right/wrong answers,",canvas.width/2 + 135,25, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
@@ -365,6 +365,10 @@ function drawCreditsMenu(mouseX,mouseY) {
   colorText("pseudoLudo - Honeycomb background", canvas.width/2 + 135,295, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
 
   colorText("Kise - Additional Japanese translations", canvas.width/2 + 135,335, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
+  colorText("Ready Set Go Animation", canvas.width/2 + 135,365, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
+
+  colorText("Chris Deleon - A whole lot", canvas.width/2 + 135,395, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
+
 
   if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 &&
         mouseY >= 165 && mouseY <= 265) ) {
