@@ -64,7 +64,9 @@ function drawSettingsMenu(mouseX,mouseY) {
   }
 
   //glow
+
   colorText(language.glow, canvas.width/4 + 35,105, "#FC5800", "30px papyrus");
+
   //toggle button
   canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/4 + canvas.width/2 - 125,83, 75,25);
 
@@ -165,7 +167,10 @@ function drawSettingsMenu(mouseX,mouseY) {
           } else {
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
     }
+    canvasContext.textAlign = "center";
     colorText(language.profiles, canvas.width/4 + 35,215, "#FC5800", "30px papyrus");
+    canvasContext.textAlign = "left";
+
 
     //tutorial
     colorText(language.tutorial, canvas.width/4 + 35,270, "#FC5800", "30px papyrus");
@@ -357,7 +362,7 @@ function drawCreditsMenu(mouseX,mouseY) {
 
   colorText("Kise - Additional Japanese translations", canvas.width/2 + 135,335, "#FC5800", "17px papyrus");
 
-  if ( /*(mousePressed || fingerPressed) &&*/ (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 &&
+  if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 &&
         mouseY >= 165 && mouseY <= 265) ) {
         canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width/3 + 165,165, 125,100);
         console.log("hello check button mouseover");
