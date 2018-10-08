@@ -166,8 +166,7 @@ function drawSettingsMenu(mouseX,mouseY) {
   canvasContext.drawImage(Images.getImage("cartoonFly"), settingsMenuFlyX, 130, 40,40);
 
   //profiles
-    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
-          mouseY >= 193 && mouseY <= 218) ) {
+    if (mousePressed && mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 && mouseY >= 193 && mouseY <= 218) {
             canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
           } else {
     canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,193, 75,25);
@@ -178,8 +177,7 @@ function drawSettingsMenu(mouseX,mouseY) {
 
     //tutorial
     colorText(language.tutorial, canvas.width/4 + 35,270, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT, SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
-    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
-          mouseY >= 247 && mouseY <= 272) ) {
+    if (mousePressed && mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 && mouseY >= 247 && mouseY <= 272) {
             canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
           } else {
             canvasContext.drawImage(Images.getImage("menu_button_forward"), canvas.width/4 + canvas.width/2 - 125,247, 75,25);
@@ -187,7 +185,7 @@ function drawSettingsMenu(mouseX,mouseY) {
 
     //credits
     colorText(language.credits, canvas.width/4 + 35,325, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT, SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
-    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 - 38 && mouseY >= 335 && mouseX <= canvas.width/3 + 37 && mouseY <= 385) ) {
+    if (mousePressed && mouseX >= canvas.width/3 - 38 && mouseY >= 335 && mouseX <= canvas.width/3 + 37 && mouseY <= 385) {
           canvasContext.drawImage(Images.getImage("menu_button_forward_down"), canvas.width/3 - 38,335, 75,50);
           tutorial = false;
         } else {
@@ -195,8 +193,7 @@ function drawSettingsMenu(mouseX,mouseY) {
         }
 
     //play
-    if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 130 && mouseX <= canvas.width/3 + 280 &&
-          mouseY >= 325 && mouseY <= 425) ) {
+    if (mousePressed && mouseX >= canvas.width/3 + 130 && mouseX <= canvas.width/3 + 280 && mouseY >= 325 && mouseY <= 425) {
           canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width/3 + 130,290, 150,100);
           tutorial = false;
         } else {
@@ -205,8 +202,7 @@ function drawSettingsMenu(mouseX,mouseY) {
 
         //older kids Mode
         colorText(language.olderKids, canvas.width/3 + 290,325, SETTINGS_MENU_TEXT_COLOR, SETTINGS_MENU_TEXT_FONT, SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
-        if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 290 && mouseX <= canvas.width/3 + 132.5 &&
-              mouseY >= 340 && mouseY <= 357.5) ) {
+        if (mousePressed && mouseX >= canvas.width/3 + 290 && mouseX <= canvas.width/3 + 132.5 && mouseY >= 340 && mouseY <= 357.5) {
               canvasContext.drawImage(Images.getImage("menu_button_empty_toggle"), canvas.width/3 + 325,340, 75,25);
               tutorial = false;
             } else {
@@ -223,6 +219,7 @@ let settingsMenuFlyX;
 
 function handleSettingsMenuInput(mouseX,mouseY) {
   //check for Custom Levels toggle click
+  console.log("mouseX/Y", mouseX,mouseY);
   if (mouseX >= canvas.width/4 + canvas.width/2 - 125 && mouseX <= canvas.width/4 + canvas.width/2 - 50 &&
       mouseY >= 25 && mouseY <= 50) {
         if (customLevelsShowing) {
@@ -232,7 +229,7 @@ function handleSettingsMenuInput(mouseX,mouseY) {
           customLevelsShowing = true;
           toggleOn.play();
         }
-
+        console.log("customLevelsShowing", customLevelsShowing);
         customLevelsArrowSeen = true;
         infoBlurbTransparency = 0.1;
       }
@@ -370,17 +367,15 @@ function drawCreditsMenu(mouseX,mouseY) {
   colorText("Chris Deleon - A whole lot", canvas.width/2 + 135,395, SETTINGS_MENU_TEXT_COLOR, "17px papyrus", SETTINGS_MENU_TEXT_SHADOWCOLOR, SETTINGS_MENU_TEXT_SHADOWOFFSET_X, SETTINGS_MENU_TEXT_SHADOWOFFSET_Y);
 
 
-  if ( (mousePressed || fingerPressed) && (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 &&
-        mouseY >= 165 && mouseY <= 265) ) {
+  if (mousePressed && mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 && mouseY >= 165 && mouseY <= 265) {
         canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width/3 + 165,165, 125,100);
-        console.log("hello check button mouseover");
       } else {
         canvasContext.drawImage(Images.getImage("gui_button_check"), canvas.width/3 + 165,165, 125,100);
       }
 }
 
 function handleCreditsMenuInput(mouseX,mouseY) {
-  if (mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 && mouseY >= 165 && mouseY <= 265) {
+  if ( mouseX >= canvas.width/3 + 165 && mouseX <= canvas.width/3 + 290 && mouseY >= 165 && mouseY <= 265) {
     isCreditsMenu = false;
     isSettingsMenu = true;
     fanflap.play();

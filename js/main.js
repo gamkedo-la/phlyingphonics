@@ -27,10 +27,6 @@ const USE_SCREENSHAKE = true;
 let mouseX = 0;
 let mouseY = 0;
 
-//for touch input
-let fingerX = 0;
-let fingerY = 0;
-
 //loop declarations
 let updateEverything;
 let drawEverything;
@@ -136,6 +132,8 @@ window.onload = () => {
   canvas.addEventListener("click", handleCanvasClick); //defined in Input.js, this function splats the flies
   canvas.addEventListener("mousedown", function(evt) {
     mousePressed = true;
+    mouseX = evt.pageX;
+    mouseY = evt.pageY;
     console.log("mousepressed");
     //console.log("mouseX/Y", mouseX,mouseY);
     //console.log("canvas.width - 350", canvas.width - 350);
@@ -144,19 +142,31 @@ window.onload = () => {
   });
   canvas.addEventListener("mouseup", function(evt) {
     mousePressed = false;
+    mouseX = evt.pageX;
+    mouseY = evt.pageY;
   });
+
   canvas.addEventListener("touchstart", function(evt) {
     evt.preventDefault();
     fingerPressed = true;
     fingerX = evt.touches[0].pageX;
     fingerY = evt.touches[0].pageY;
-
+    console.log("fingerX/Y", fingerX,fingerY);
+    console.log("fingerPressed", fingerPressed);
+  });
+  canvas.addEventListener("touchend", function(evt) {
+    evt.preventDefault();
   });
   canvas.addEventListener("touchend", handleCanvasClick);// {
+
+    //canvas.addEventListener("touchend", function(evt) {
+    //  evt.prevenDefault();
+    //});
 
 
   //part of gameLoop
   updateEverything = () => {
+
     //console.log(localStorage.getItem("language"));
     //console.log(localStorage.getItem("storedArrayOfProfiles"));
     //change transparency levels for target flies and settings menu if glow is selected
@@ -224,6 +234,7 @@ window.onload = () => {
     updateFlyProperties();
     updateScreenshake();
 
+
   }
 
   drawFlySwatter = () => {
@@ -242,6 +253,7 @@ window.onload = () => {
   //so the canvas doesn't get too cluttered when the game has lots of flies
   drawEverything = () => {
 
+    console.log("mousePressed, fingerPressed", mousePressed,fingerPressed);
     if (intro) {
       drawIntro(mouseX,mouseY);
       return;
@@ -294,8 +306,7 @@ window.onload = () => {
     canvasContext.drawImage(Images.getImage(chosenBackground), canvasLeftEdge - 16, canvasTopEdge - 16, canvasRightEdge + 16, canvasBottomEdge + 16);
 
     //settings button
-    if ( (mousePressed || fingerPressed) && ( (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > 0 && mouseY < 50) ||
-          (fingerX > canvas.width - 100 && fingerX < canvas.width && fingerY > 0 && fingerY < 50) ) ) {
+    if ( (mousePressed) && (mouseX > canvas.width - 100 && mouseX < canvas.width && mouseY > 0 && mouseY < 50) ) {
             canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 100, 0);
             showSettingsButtonBlurbSeen = true;
             isSettingsMenu = true;
@@ -320,7 +331,7 @@ window.onload = () => {
     }
     if (USE_SCREENSHAKE) { canvasContext.restore(); }
   }
-}
+}//end of draw everything
 
   gameLoop = () => {
     updateEverything();

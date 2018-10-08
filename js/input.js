@@ -32,26 +32,33 @@ let clickCount = 0;
 let mousePressed = false;
 let fingerPressed = false;
 
-function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
+
+function handleCanvasClick(evt) {
   //console.log("statsInfoRead", statsInfoRead);
   //console.log("clicked");
+
+
+
+
+  fingerPressed = false;
+  
   goSoundPlayed = false;
   if (intro) {
-    handleIntroInput(evt.pageX,evt.pageY);
+    handleIntroInput(evt.pageX, evt.pageY);
     return;
   } else if (isOpeningLanguageSelector) {
-    handleOpeningLanguageSelectorInput(evt.pageX,evt.pageY);
+    handleOpeningLanguageSelectorInput(evt.pageX, evt.pageY);
     return;
   } else if (isProfileMenu) {
-    handleProfileMenuInput(evt.pageX,evt.pageY);
+    handleProfileMenuInput(evt.pageX, evt.pageY);
   } else if (isShowingExistingProfiles) {
-    handleExistingProfileMenuInput(evt.pageX,evt.pageY);
+    handleExistingProfileMenuInput(evt.pageX, evt.pageY);
   } else if (isSettingsMenu) {
-    handleSettingsMenuInput(evt.pageX,evt.pageY);
+    handleSettingsMenuInput(evt.pageX, evt.pageY);
   } else if (isCreditsMenu) {
-    handleCreditsMenuInput(evt.pageX,evt.pageY);
+    handleCreditsMenuInput(evt.pageX, evt.pageY);
   } else if (levelCompletedAnimation || tryAgainAnimation) {
-    handleLevelCompletedInput(evt.pageX,evt.pageY);
+    handleLevelCompletedInput(evt.pageX, evt.pageY);
   }
     else { //gameplay click info
 
@@ -164,10 +171,12 @@ function handleCanvasClick(evt, fingerX,fingerY, mouseX,mouseY) {
     }//end of else which checks for touch event */
 
   //canvas.width - 100,0
-  fingerPressed = false;
+
 }//end of touch events
 }
 }
+fingerX = 0;
+fingerY = 0;
 }
 
 function setupKeyboardDateHackInput() {

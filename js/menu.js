@@ -53,12 +53,11 @@ function drawOpeningLanguageSelector() {
   canvasContext.drawImage(Images.getImage("openingmenubackground3"), 0,0, canvas.width, canvas.height);
   canvasContext.textAlign = "center";
   for (let i = 0; i<languageSelectorButtonList.length; i++) {
-    //check if mouse or finger is pressed for drawing button pressed image
-    if ( (mousePressed || fingerPressed) && ( (mouseX >= languageSelectorButtonList[i].x && mouseX <= languageSelectorButtonList[i].x + buttonWidth &&
-      mouseY >= languageSelectorButtonList[i].y && mouseY <= languageSelectorButtonList[i].y + buttonHeight) || (fingerX >= languageSelectorButtonList[i].x && fingerX <= languageSelectorButtonList[i].x + buttonWidth &&
-        fingerY >= languageSelectorButtonList[i].y && fingerY <= languageSelectorButtonList[i].y + buttonHeight ) ) ) {
+
+    if (mouseX >= languageSelectorButtonList[i].x && mouseX <= languageSelectorButtonList[i].x + buttonWidth &&
+      mouseY >= languageSelectorButtonList[i].y && mouseY <= languageSelectorButtonList[i].y + buttonHeight) {
         canvasContext.drawImage(Images.getImage("menu_button_down"), languageSelectorButtonList[i].x, languageSelectorButtonList[i].y)
-      } else {//if mouse is not down draw up image
+      } else {
     canvasContext.drawImage(Images.getImage("menu_button"), languageSelectorButtonList[i].x, languageSelectorButtonList[i].y);
     }
     colorText(languageSelectorButtonList[i].label, languageSelectorButtonList[i].x + buttonWidth/2,languageSelectorButtonList[i].y + buttonHeight/2 + MENU_BUTTON_TXT_OFFSET_Y, "white", "18px papyrus");
@@ -69,16 +68,13 @@ function drawOpeningLanguageSelector() {
 function handleOpeningLanguageSelectorInput(mouseX,mouseY) {
 
   for (let i = 0; i<languageSelectorButtonList.length; i++) {
-    if ( (mouseX >= languageSelectorButtonList[i].x && mouseX <= languageSelectorButtonList[i].x + buttonWidth &&
-      mouseY >= languageSelectorButtonList[i].y && mouseY <= languageSelectorButtonList[i].y + buttonHeight) ||
-      (fingerX >= languageSelectorButtonList[i].x && fingerX <= languageSelectorButtonList[i].x + buttonWidth &&
-        fingerY >= languageSelectorButtonList[i].y && fingerY <= languageSelectorButtonList[i].y + buttonHeight) ) {
+    if (mouseX >= languageSelectorButtonList[i].x && mouseX <= languageSelectorButtonList[i].x + buttonWidth &&
+      mouseY >= languageSelectorButtonList[i].y && mouseY <= languageSelectorButtonList[i].y + buttonHeight) {
         languageSelectorButtonList[i].onClick(i);
-        fingerX = 0;
-        fingerY = 0;
         fanflap.play();
     }
   }
+
 }
 
 let profileMenuButtonList;
@@ -93,11 +89,9 @@ function drawProfileMenu() {
   colorText(language.profiles, canvas.width/2 - 85, 60, "#FC5800", "50px papyrus");
   canvasContext.textAlign = "center";
   for (let i = 0; i<profileMenuButtonList.length; i++) {
-    //check for mouse or finger down, if so draw menu down button
-    if ( (mousePressed || fingerPressed) && ( (mouseX >= profileMenuButtonList[i].x && mouseX <= profileMenuButtonList[i].x + buttonWidth &&
-      mouseY >= profileMenuButtonList[i].y && mouseY <= profileMenuButtonList[i].y + buttonHeight) ||
-      (fingerX >= profileMenuButtonList[i].x && fingerX <= profileMenuButtonList[i].x + buttonWidth &&
-        fingerY >= profileMenuButtonList[i].y && fingerY <= profileMenuButtonList[i].y + buttonHeight ) ) ) {
+    //check for mousedown, if so draw menu down button
+    if ( mousePressed && (mouseX >= profileMenuButtonList[i].x && mouseX <= profileMenuButtonList[i].x + buttonWidth &&
+      mouseY >= profileMenuButtonList[i].y && mouseY <= profileMenuButtonList[i].y + buttonHeight) ) {
         canvasContext.drawImage(Images.getImage("menu_button_down"), profileMenuButtonList[i].x, profileMenuButtonList[i].y);
         colorText(profileMenuButtonList[i].label, profileMenuButtonList[i].x + buttonWidth/2,profileMenuButtonList[i].y + buttonHeight/2/* + MENU_BUTTON_TXT_OFFSET_Y*/, "white", "18px papyrus");
       } else { //if mouse is up, draw up button
@@ -112,14 +106,10 @@ function drawProfileMenu() {
 function handleProfileMenuInput(mouseX,mouseY) {
   //new student and back buttons
   for (let i = 0; i<profileMenuButtonList.length; i++) {
-    if ( (mouseX >= profileMenuButtonList[i].x && mouseX <= profileMenuButtonList[i].x + buttonWidth &&
-      mouseY >= profileMenuButtonList[i].y && mouseY <= profileMenuButtonList[i].y + buttonHeight) ||
-      (fingerX >= profileMenuButtonList[i].x && fingerX <= profileMenuButtonList[i].x + buttonWidth &&
-        fingerY >= profileMenuButtonList[i].y && fingerY <= profileMenuButtonList[i].y + buttonHeight) ) {
+    if (mouseX >= profileMenuButtonList[i].x && mouseX <= profileMenuButtonList[i].x + buttonWidth &&
+      mouseY >= profileMenuButtonList[i].y && mouseY <= profileMenuButtonList[i].y + buttonHeight) {
         profileMenuButtonList[i].onClick();
         fanflap.play();
-        fingerX = 0;
-        fingerY = 0;
     }
   }
   //previously made profiles
@@ -169,11 +159,9 @@ let existingProfilesMenuButtonList = [
 function drawExistingProfilesMenu() {
   canvasContext.textAlign = "center";
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
-    //check if finger or mouse pressed, if so draw button down image
-    if ( (mousePressed || fingerPressed) && ( (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
-      mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) ||
-      (fingerX >= existingProfilesMenuButtonList[i].x && fingerX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
-        fingerY >= existingProfilesMenuButtonList[i].y && fingerY <= existingProfilesMenuButtonList[i].y + buttonHeight ) ) ) {
+
+    if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
+      mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
         canvasContext.drawImage(Images.getImage("menu_button_down"), existingProfilesMenuButtonList[i].x, existingProfilesMenuButtonList[i].y);
         colorText(existingProfilesMenuButtonList[i].label, existingProfilesMenuButtonList[i].x + buttonWidth/2 + MENU_BUTTON_TXT_OFFSET_Y, existingProfilesMenuButtonList[i].y + buttonHeight/2, "white", "18px papyrus");
       } else { //if mouse is up, draw up button
@@ -187,15 +175,11 @@ function drawExistingProfilesMenu() {
 let buttonLabel;
 function handleExistingProfileMenuInput() {
   for (let i = 0; i<existingProfilesMenuButtonList.length; i++) {
-    if ( (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
-      mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) ||
-      (fingerX >= existingProfilesMenuButtonList[i].x && fingerX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
-        fingerY >= existingProfilesMenuButtonList[i].y && fingerY <= existingProfilesMenuButtonList[i].y + buttonHeight) ) {
+    if (mouseX >= existingProfilesMenuButtonList[i].x && mouseX <= existingProfilesMenuButtonList[i].x + buttonWidth &&
+      mouseY >= existingProfilesMenuButtonList[i].y && mouseY <= existingProfilesMenuButtonList[i].y + buttonHeight) {
         buttonLabel = existingProfilesMenuButtonList[i].label;
         existingProfilesMenuButtonList[i].onClick(buttonLabel);
         fanflap.play();
-        fingerX = 0;
-        fingerY = 0;
     }
   }
 }

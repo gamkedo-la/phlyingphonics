@@ -21,14 +21,9 @@ function drawFirstLaunchGamePlayInfoBlurb() {
   if (!gamePlayInfoRead) {
   canvasContext.globalAlpha = infoBlurbTransparency;
   canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), 0,canvas.height - canvas.height/3, canvas.width, canvas.height/3);
-  if ( ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - buttonWidth - buttonWidth/3 + 75 && mouseX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
-    (mouseY >= canvas.height - (canvas.height/3) + canvas.height/8) && (mouseY <= canvas.height - (canvas.height/3) + canvas.height/8) + 50) ) ||
-    ( (fingerX >= canvas.width - buttonWidth - buttonWidth/3 +75) && (fingerX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
-      (fingerY >= canvas.height - (canvas.height/3) + canvas.height/8) && (fingerY <= canvas.height - (canvas.height/3) + canvas.height/8 + 50) ) ) {
+  if (mousePressed && ( (mouseX >= canvas.width - buttonWidth - buttonWidth/3 + 75 && mouseX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
+    (mouseY >= canvas.height - (canvas.height/3) + canvas.height/8) && (mouseY <= canvas.height - (canvas.height/3) + canvas.height/8) + 50) ) {
       canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width - buttonWidth - buttonWidth/3 + 75,canvas.height - (canvas.height/3) + canvas.height/8, 100,50);
-      
-      fingerX = 0;
-      fingerY = 0;
       fanflap.play();
       gamePlayInfoRead = true;
       infoBlurbTransparency = 0.1;
@@ -53,13 +48,9 @@ function drawFirstLaunchStatsInfoBlurb() {
 
   canvasContext.globalAlpha = infoBlurbTransparency;
   canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), 0,canvas.height/3, canvas.width, canvas.height/3);
-  if ( ( (mousePressed || fingerPressed) && ( (mouseX >= canvas.width - buttonWidth - buttonWidth/3 + 75) && (mouseX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
-    (mouseY >= canvas.height/3 + canvas.height/8) && (mouseY <= canvas.height/3 + canvas.height/8 + 50) ) ||
-    ( (fingerX >= canvas.width - buttonWidth - buttonWidth/3 +75) && (fingerX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
-      (fingerY >= canvas.height/3 + canvas.height/8) && (fingerY <= canvas.height/3 + canvas.height/8 + 50) ) ) ) {
+  if (mousePressed && (mouseX >= canvas.width - buttonWidth - buttonWidth/3 + 75) && (mouseX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
+    (mouseY >= canvas.height/3 + canvas.height/8) && (mouseY <= canvas.height/3 + canvas.height/8 + 50) ) {
       canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width - buttonWidth - buttonWidth/3 + 75,(canvas.height/3) + canvas.height/8, 100,50);
-      fingerX = 0;
-      fingerY = 0;
       fanflap.play();
       statsInfoRead = true;
       infoBlurbTransparency = 0.1;
