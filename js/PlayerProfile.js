@@ -54,7 +54,6 @@ if (localStorage.getItem("currentDate") === null) {
 
 let date = new Date();
 localStorage.setItem("currentDate", currentPracticeDate);
-//fillArrayOfTargetsToPractice();
 
 function shouldPracticeTargetToday(letter) {
 

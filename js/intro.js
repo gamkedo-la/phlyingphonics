@@ -8,12 +8,11 @@ introPhonics.src = "audio/phonics/phonica.mp3";
 
 let introPhonicATransparency = 0.1;
 let introPhonicATransparencySpeed = 0.025;
-//console.log("introPhonics.src", introPhonics.src);
 
 let introFlySwatterX;
 let introFlySwatterXSpeed = 3;
 
-function drawIntro(mouseX,mouseY) {
+function drawIntro(inputX,inputY) {//, inputX,inputY
 
   if (deltaTime < 1100) {
     canvasContext.drawImage(Images.getImage("openingmenubackground3"), 50,0, 380,180, 0,0, canvas.width/2,canvas.height/3);
@@ -86,12 +85,10 @@ function drawIntro(mouseX,mouseY) {
     canvasContext.drawImage(Images.getImage("BabyHand"), introFlySwatterX,205, 300,150);
 
     //play button
-    if  ( (mousePressed || fingerPressed) && (mouseX || fingerX) >= canvas.width - 340 && (mouseX || fingerX) <= canvas.width - 40  &&
-           (mouseY || fingerY) >= 150 && (mouseY || fingerY) <= 300)  {
+    if  ( inputPressed && (inputX >= canvas.width - 340) && (inputX <= canvas.width - 40)  &&
+           (inputY >= 150) && (inputY <= 300) )  {
+             console.log("inputPressed",inputPressed);
         canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width - 340,150, 300,150);
-        fanFlap.volOverride = 0.3;
-        fanFlap.volume = masterVolume*fanFlap.volOverride;
-        fanflap.play();
       } else {
           canvasContext.drawImage(Images.getImage("gui_button_play"), canvas.width - 340,150, 300,150);
         }
@@ -99,11 +96,10 @@ function drawIntro(mouseX,mouseY) {
     //settings button
     //added check for first launch because the settings button would be logically confusing for tutorial/walkthrough purposes on first launch
     if (!firstLaunch) {
-      if ( (mousePressed || fingerPressed) && mouseX >= canvas.width - 290 && mouseX <= canvas.width - 90  && mouseY >= 310 && mouseY <= 385) {
+      if ( (inputPressed && inputX >= canvas.width - 290 && inputX <= canvas.width - 90 && inputY >= 310 && inputY <= 385) ) {
+          console.log("inputPressed", inputPressed);
+          console.log("inputPressed", inputPressed);
           canvasContext.drawImage(Images.getImage("gui_button_settings_down"), canvas.width - 290,310, 200,75);
-          fanFlap.volOverride = 0.3;
-          fanFlap.volume = masterVolume*fanFlap.volOverride;
-          fanflap.play();
         } else {
             canvasContext.drawImage(Images.getImage("gui_button_settings"), canvas.width - 290,310, 200,75);
           }
@@ -112,20 +108,19 @@ function drawIntro(mouseX,mouseY) {
 }
 
 
-function handleIntroInput(evt) {
+function handleIntroInput(inputX,inputY) {
+  console.log(inputX,inputY);
 
-  console.log("mouseX/Y", mouseX,mouseY);
-  console.log("fingerX/Y", fingerX,fingerY);
   //play button
-    if ( ((mouseX || fingerX) >= canvas.width - 350) && ((mouseX || fingerX) <= canvas.width - 50)  &&
-         ((mouseY || fingerY) >= 200) && ((mouseY || fingerY) <= 350) ) {
+    if ( (inputX >= canvas.width - 350) && (inputX <= canvas.width - 50)  &&
+         (inputY >= 200) && (inputY <= 350) ) {
         introPlayButton.onClick();
     }
 
   //settings button
-    if ( ((mouseX || fingerX) >= canvas.width - 290) && ((mouseX || fingerX) <= canvas.width - 90) &&
-         ((mouseY || fingerY) >= 310) && ((mouseY || fingerY) <= 385) ) {
-           console.log("mouseX/Y", mouseX,mouseY);
+    if ( (inputX >= canvas.width - 290) && (inputX <= canvas.width - 90) &&
+         (inputY >= 310) && (inputY <= 385) ) {
+           console.log("inputX/Y", inputX,inputY);
          introSettingsButton.onClick();
        }
 }
@@ -146,6 +141,9 @@ function introPlayButtonOnClick() {
     if (gotLang == null) {
       gotLang = englishButtonAndTextStrings;
     }
+    fanFlap.volOverride = 0.3;
+    fanFlap.volume = masterVolume*fanFlap.volOverride;
+    fanflap.play();
     loadProfileSettingsAndStartGame();
   }
 }
@@ -154,4 +152,7 @@ function introSettingsButtonOnClick() {
   console.log("hello intro settings button click");
   intro = false;
   isSettingsMenu = true;
+  fanFlap.volOverride = 0.3;
+  fanFlap.volume = masterVolume*fanFlap.volOverride;
+  fanflap.play();
 }

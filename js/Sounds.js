@@ -122,7 +122,6 @@ fanflap.volume = masterVolume*fanFlap.volOverride;
 
 
 function masterVolumeUp() {
-  //console.log("arrayOfAudios", arrayOfAudios);
 
   masterVolume += 0.1;
   console.log("masterVolume", masterVolume);
@@ -166,13 +165,11 @@ function masterVolumeUp() {
         arrayOfAudios[i].volume = masterVolume;
       }
     }
-    //console.log("arrayOfAudios[" + i + "]volume", arrayOfAudios[i].volume)
 
   }
 }
 
 function masterVolumeDown() {
-//  console.log("arrayOfAudios", arrayOfAudios);
   masterVolume -= 0.1;
   console.log("masterVolume", masterVolume);
   if (masterVolume <= 0.1) {

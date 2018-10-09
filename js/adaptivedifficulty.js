@@ -95,7 +95,6 @@ function assignRawTargetData(i, temporarySubset) {
 }
 
 function randomTargetWithinSubset () {
-  //console.log("temporarySubset", temporarySubset);
   let randomTargetIndex = getRandomInt(0, temporarySubset.length - 1);
   let target = temporarySubset[randomTargetIndex];
   return target
@@ -125,8 +124,6 @@ function checkForLevelResetOrAdvancement() {
     trackIndex++;
 
     if (trackIndex === currentTrack.length && arrayOfTrackLevelsIndex < arrayOfTrackLevels.length) {
-      //alert("Congratulations! You have completed the current track. Get ready for the next track!");
-
       arrayOfTrackLevelsIndex++;
       currentTrack = arrayOfTrackLevels[arrayOfTrackLevelsIndex];
       trackIndex = 0;
@@ -135,8 +132,6 @@ function checkForLevelResetOrAdvancement() {
       initializeArrayOfFlies(temporarySubset);
       assignFlaps();
     } else if (trackIndex === currentTrack.length && arrayOfTrackLevelsIndex === arrayOfTrackLevels.length) {
-      //alert("Congratulations! You have completed the current track. Get ready for the next track!");
-
       arrayOfTrackLevelsIndex = 0;
       currentTrack = arrayOfTrackLevels[arrayOfTrackLevelsIndex];
       trackIndex = 0;
@@ -153,13 +148,10 @@ function checkForLevelResetOrAdvancement() {
       resetAccuracy();
       initializeArrayOfFlies(temporarySubset);
       assignFlaps();
-      //alert("Good job! Get ready for the next level!");
     }
     arrayOfParticles = [];
   } else if (arrayOfFlies.length === 0 && overallAccuracy < 80) {
     tryAgainAnimation = true;
-
-    //levelCompletedAudio.play();
     updateLettersThatHaveBeenPracticed();
     updateIndividualTargetsPreviousPracticeSessionNumbers();
     updateIndividualTargetsPreviousPracticeDate();
@@ -174,8 +166,6 @@ function checkForLevelResetOrAdvancement() {
     initializeArrayOfFlies(temporarySubset);
     assignFlaps();
     arrayOfParticles = [];
-
-    //alert("Good. Let's try that again!");
   }
 }
 

@@ -1,9 +1,7 @@
 let firstLaunch;
 
 function checkForFirstLaunch() {
-  //console.log("checkForFirstLaunch");
   var fl = localStorage.getItem("firstLaunch");
-  //console.log(fl);
   if (fl === null) {
     firstLaunch = true;
     localStorage.setItem("firstLaunch", firstLaunch);
@@ -21,8 +19,8 @@ function drawFirstLaunchGamePlayInfoBlurb() {
   if (!gamePlayInfoRead) {
   canvasContext.globalAlpha = infoBlurbTransparency;
   canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), 0,canvas.height - canvas.height/3, canvas.width, canvas.height/3);
-  if (mousePressed && ( (mouseX >= canvas.width - buttonWidth - buttonWidth/3 + 75 && mouseX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
-    (mouseY >= canvas.height - (canvas.height/3) + canvas.height/8) && (mouseY <= canvas.height - (canvas.height/3) + canvas.height/8) + 50) ) {
+  if (inputPressed && ( (inputX >= canvas.width - buttonWidth - buttonWidth/3 + 75 && inputX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
+    (inputY >= canvas.height - (canvas.height/3) + canvas.height/8) && (inputY <= canvas.height - (canvas.height/3) + canvas.height/8) + 50) ) {
       canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width - buttonWidth - buttonWidth/3 + 75,canvas.height - (canvas.height/3) + canvas.height/8, 100,50);
       fanflap.play();
       gamePlayInfoRead = true;
@@ -48,8 +46,8 @@ function drawFirstLaunchStatsInfoBlurb() {
 
   canvasContext.globalAlpha = infoBlurbTransparency;
   canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), 0,canvas.height/3, canvas.width, canvas.height/3);
-  if (mousePressed && (mouseX >= canvas.width - buttonWidth - buttonWidth/3 + 75) && (mouseX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
-    (mouseY >= canvas.height/3 + canvas.height/8) && (mouseY <= canvas.height/3 + canvas.height/8 + 50) ) {
+  if (inputPressed && (inputX >= canvas.width - buttonWidth - buttonWidth/3 + 75) && (inputX <= canvas.width - buttonWidth - buttonWidth/3 + 175)  &&
+    (inputY >= canvas.height/3 + canvas.height/8) && (inputY <= canvas.height/3 + canvas.height/8 + 50) ) {
       canvasContext.drawImage(Images.getImage("gui_button_check_down"), canvas.width - buttonWidth - buttonWidth/3 + 75,(canvas.height/3) + canvas.height/8, 100,50);
       fanflap.play();
       statsInfoRead = true;
@@ -74,9 +72,9 @@ function drawSettingsButtonBlurb() {
   if (gamePlayInfoRead && statsInfoRead && !showSettingsButtonBlurbSeen) {
     settingsBlurbElapsedTime = settingsBlurbStartTime + currentTime;
     canvasContext.globalAlpha = infoBlurbTransparency;
-    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width - 600,0, 500, 50);
-    canvasContext.drawImage(Images.getImage("arrow"), arrowX, 13, 100, 25);
-    colorText(language.showSettingsButtonBlurbText, canvas.width - 550, 30, "#FC5800", "20px papyrus");
+    canvasContext.drawImage(Images.getImage("gameplayinfoblurb"), canvas.width - 600,canvas.height - 50, 500, 50);
+    canvasContext.drawImage(Images.getImage("arrow"), arrowX, canvas.height - 35, 100, 25);
+    colorText(language.showSettingsButtonBlurbText, canvas.width - 550, canvas.height - 20, "#FC5800", "20px papyrus");
     infoBlurbTransparency += infoBlurbTransparencySpeed;
     canvasContext.globalAlpha = 1;
   }

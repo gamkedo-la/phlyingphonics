@@ -130,7 +130,7 @@ function drawLevelCompletedAnimation() {
   colorText("Great Job!", canvas.width/2 - 115,canvas.height/2 + 65, "#FC5800", "50px papyrus");
 
   //play
-  if (mouseX >= canvas.width/3 + 120 && mouseX <= canvas.width/3 + 270 && mouseY >= 325 && mouseY <= 425) {
+  if (inputPressed && inputX >= canvas.width/3 + 120 && inputX <= canvas.width/3 + 270 && inputY >= 325 && inputY <= 425) {
         canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width/3 + 120,290, 150,100);
         tutorial = false;
       } else {
@@ -186,7 +186,7 @@ function drawTryAgainAnimation() {
     colorText("Almost!", canvas.width/2 - 75,canvas.height/2 + 65, "#FC5800", "50px papyrus");
 
     //play
-    if (mouseX >= canvas.width/3 + 120 && mouseX <= canvas.width/3 + 270 && mouseY >= 325 && mouseY <= 425) {
+    if (inputPressed && inputX >= canvas.width/3 + 120 && inputX <= canvas.width/3 + 270 && inputY >= 325 && inputY <= 425) {
           canvasContext.drawImage(Images.getImage("gui_button_play_down"), canvas.width/3 + 120,290, 150,100);
           tutorial = false;
         } else {
@@ -198,7 +198,7 @@ function drawTryAgainAnimation() {
 }
 
 function handleLevelCompletedInput() {
-  if (mouseX >= canvas.width/3 + 120 && mouseX <= canvas.width/3 + 270 && mouseY >= 325 && mouseY <= 425) {
+  if (inputX >= canvas.width/3 + 120 && inputX <= canvas.width/3 + 270 && inputY >= 325 && inputY <= 425) {
 
     readySetGoAnimationStartTime = new Date();
 

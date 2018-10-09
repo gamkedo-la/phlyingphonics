@@ -28,37 +28,65 @@ function adjustPracticeFrequencyAtEndOfLevel(temporarySubset) {
   }
 }
 
+function handleMousedown(evt) {
+  inputX = evt.pageX;
+  inputY = evt.pageY;
+  inputPressed = true;
+  console.log("inputPressed", inputPressed);
+  console.log("mousedown X/Y", inputX,inputY);
+  console.log("left mouse button pressed", inputPressed);
+}
+
+function handleMouseup(evt) {
+  inputX = evt.pageX;
+  inputY = evt.pageY;
+  inputPressed = false;
+  console.log("mouseup X/Y", inputX,inputY);
+  console.log("left mouse button pressed", inputPressed);
+}
+
+
+function handleTouchstart(evt) {
+
+  inputX = evt.changedTouches[0].pageX;
+  inputY = evt.changedTouches[0].pageY;
+  inputPressed = true;
+  console.log("finger touchstart X/Y", inputX,inputY)
+  console.log("inputPressed", inputPressed);
+}
+
+function handleTouchend(evt) {
+
+  inputX = evt.changedTouches[evt.changedTouches.length - 1].pageX;
+  inputY = evt.changedTouches[evt.changedTouches.length - 1].pageY;
+  inputPressed = false;
+  console.log("finger touchend X/Y", inputX,inputY);
+  console.log("inputPressed", inputPressed);
+}
+
+
 let clickCount = 0;
-let mousePressed = false;
-let fingerPressed = false;
+let inputPressed = false;
 
-
-function handleCanvasClick(evt) {
-  //console.log("statsInfoRead", statsInfoRead);
-  //console.log("clicked");
-
-
-
-
-  fingerPressed = false;
-  
+function handleCanvasClick(evt, inputX,inputY) {//inputX,inputY,
+  console.log(evt);
   goSoundPlayed = false;
   if (intro) {
-    handleIntroInput(evt.pageX, evt.pageY);
+    handleIntroInput(evt.pageX,evt.pageY);//inputX,inputY,
     return;
   } else if (isOpeningLanguageSelector) {
-    handleOpeningLanguageSelectorInput(evt.pageX, evt.pageY);
+    handleOpeningLanguageSelectorInput(inputX,inputY);//inputX,inputY,
     return;
   } else if (isProfileMenu) {
-    handleProfileMenuInput(evt.pageX, evt.pageY);
+    handleProfileMenuInput(evt.pageX,evt.pageY);//inputX,inputY,
   } else if (isShowingExistingProfiles) {
-    handleExistingProfileMenuInput(evt.pageX, evt.pageY);
+    handleExistingProfileMenuInput(evt.pageX,evt.pageY);//inputX,inputY,
   } else if (isSettingsMenu) {
-    handleSettingsMenuInput(evt.pageX, evt.pageY);
+    handleSettingsMenuInput(evt.pageX,evt.pageY);//inputX,inputY,
   } else if (isCreditsMenu) {
-    handleCreditsMenuInput(evt.pageX, evt.pageY);
+    handleCreditsMenuInput(evt.pageX,evt.pageY);//inputX,inputY,
   } else if (levelCompletedAnimation || tryAgainAnimation) {
-    handleLevelCompletedInput(evt.pageX, evt.pageY);
+    handleLevelCompletedInput(evt.pageX,evt.pageY);//inputX,inputY,
   }
     else { //gameplay click info
 
@@ -73,11 +101,11 @@ function handleCanvasClick(evt) {
   let correctAnswer = false;
 
 
-  if (evt.changedTouches === undefined) {
+
     for (let i = 0; i<arrayOfFlies.length; i++) {
       //correct answers
-      if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
-          evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {
+      if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX <= arrayOfFlies[i].rightEdge - 30 &&
+          evt.pageY >= arrayOfFlies[i].topEdge + 30 && evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {
         increaseIndividualTargetAccuracy();
         correctAnswer = true;
         incorrectAnswer = false;
@@ -91,8 +119,9 @@ function handleCanvasClick(evt) {
         assignTargetFlies(i);//in targets.js
         playTargetAudio();//in targets.js
         return;
-      }/*end of correct answers*/ else if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX<=arrayOfFlies[i].rightEdge - 30 && evt.pageY >= arrayOfFlies[i].topEdge + 30 &&
-          evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && !arrayOfFlies[i].target) {
+        /*end of correct answers*/
+      } else if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX <= arrayOfFlies[i].rightEdge - 30 &&
+                 evt.pageY >= arrayOfFlies[i].topEdge + 30 && evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && !arrayOfFlies[i].target) {
         calculateOverallAccuracy();
         screenShake(7);
         correctAnswer = false;
@@ -119,65 +148,9 @@ function handleCanvasClick(evt) {
     }//end of complete miss
 
 }//end of mouse clicks
-  else {//beginning of touch events
-      for (let i = 0; i<arrayOfFlies.length; i++) {
-          if (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 &&
-              evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
-              evt.changedTouches[0].pageY <= arrayOfFlies[i].bottomEdge - 30 && arrayOfFlies[i].target) {//checks for correct swat based on coordinates and target sound
-              increaseIndividualTargetAccuracy();
-              correctAnswer = true;
-              incorrectAnswer = false;
-              correctAnswers++;
-              hits++;
-              calculateOverallAccuracy();
-              killFly(i);//at the top of this page, replaces image with yellowgreensplat, stops motion, clears fly from collision detection, and plays correct answer sound
-              temporaryArrayOfQuestions.splice(0,1);
-              checkForLevelResetOrAdvancement(temporarySubset);//in adaptivedifficulty.js
-              assignTargetAudio();//in targets.js
-              assignTargetFlies(i);//in targets.js
-              playTargetAudio();//in targets.js
-        }/*end of correct answers*/ else if (evt.changedTouches[0].pageX >= arrayOfFlies[i].leftEdge + 30 && evt.changedTouches[0].pageX <= arrayOfFlies[i].rightEdge - 30 &&
-            evt.changedTouches[0].pageY >= arrayOfFlies[i].topEdge + 30 &&
-            evt.changedTouches[0].pageY <= arrayOfFlies[i].bottomEdge - 30 && !arrayOfFlies[i].target) {
-              calculateOverallAccuracy();
-              screenShake(7);
-              correctAnswer = false;
-              incorrectAnswer = true;
-              let randomIncorrectSoundIndex = getRandomInt(0,arrayOfIncorrectSounds.length - 1);
-              let incorrectSound = document.getElementById("incorrectSound");
-              incorrectSound.src = arrayOfIncorrectSounds[randomIncorrectSoundIndex];
-              if (!tutorial) {
-                incorrectSound.play();
-              }
-        }//end of incorrect answers
-      }//end of looping through flies
-
-      if (hits === 0 && !correctAnswer && !incorrectAnswer) {
-          decreaseIndividualTargetAccuracy();
-          let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
-          let missedSound = document.getElementById("missedSound");
-          missedSound.src = arrayOfMissedSounds[randomMissedSoundIndex];
-          if (!tutorial) {
-            missedSound.play();
-        }
-      /*if ( (evt.changedTouches[0].pageX > canvas.width - 100 && evt.changedTouches[0].pageX < canvas.width &&
-            evt.changedTouches[0].pageY > 0 && evt.changedTouches[0].pageY < 50) ) {
-        canvasContext.drawImage(Images.getImage("gui_button_down"), canvas.width - 100, 0);
-        colorText(language.information, canvas.width - 90, canvas.height - 20, "white", "18px papyrus");
-        fanflap.play();
-        //goToSettingsMenu();
-        stopTargetAudio();
-      }*/
-    }//end of else which checks for touch event */
-
-  //canvas.width - 100,0
-
-}//end of touch events
 }
 }
-fingerX = 0;
-fingerY = 0;
-}
+
 
 function setupKeyboardDateHackInput() {
     document.addEventListener("keydown", keyPressed);

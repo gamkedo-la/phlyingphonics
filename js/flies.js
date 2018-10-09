@@ -6,7 +6,6 @@ let targetFly;
 let assignTargetFlies = () => {
 
   for (let i = 0; i < arrayOfFlies.length; i++) {
-    console.log("rawTargetData[i]", arrayOfFlies[i].rawTargetData,"targetAudio", targetAudio);
     if (arrayOfFlies[i].rawTargetData === targetAudio) {
       arrayOfFlies[i].target = true;
     } else {
@@ -49,8 +48,6 @@ drawSwattedFlies = () => {
 
 drawFlies = () => {
   for (let flyDrawingIteration = 0; flyDrawingIteration < arrayOfFlies.length; flyDrawingIteration++) {
-    //  canvasContext.drawImage(fly, arrayOfFlies[flyDrawingIteration].x, arrayOfFlies[flyDrawingIteration].y,
-    //                          arrayOfFlies[flyDrawingIteration].width, arrayOfFlies[flyDrawingIteration].height);
     if (arrayOfFlies[flyDrawingIteration].target && showGlow) {
 
       colorCircleWithTransparency(arrayOfFlies[flyDrawingIteration].x + 100, arrayOfFlies[flyDrawingIteration].y + 100,
