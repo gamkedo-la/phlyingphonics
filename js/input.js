@@ -118,9 +118,13 @@ function handleCanvasClick(evt, inputX,inputY) {//inputX,inputY,
         assignTargetAudio();//in targets.js
         assignTargetFlies(i);//in targets.js
         playTargetAudio();//in targets.js
-        return;
+        break;
         /*end of correct answers*/
-      } else if (evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX <= arrayOfFlies[i].rightEdge - 30 &&
+      }
+    }
+
+    for (let i = 0; i<arrayOfFlies.length; i++) {
+       if (!correctAnswer && evt.pageX >= arrayOfFlies[i].leftEdge + 30 && evt.pageX <= arrayOfFlies[i].rightEdge - 30 &&
                  evt.pageY >= arrayOfFlies[i].topEdge + 30 && evt.pageY <= arrayOfFlies[i].bottomEdge - 30 && !arrayOfFlies[i].target) {
         calculateOverallAccuracy();
         screenShake(7);
@@ -136,6 +140,7 @@ function handleCanvasClick(evt, inputX,inputY) {//inputX,inputY,
 
       }//end of incorrect answers
     }//end of looping through flies
+
     if (hits === 0 && !correctAnswer && !incorrectAnswer) {
       decreaseIndividualTargetAccuracy();
       let randomMissedSoundIndex = getRandomInt(0,arrayOfMissedSounds.length - 1);
