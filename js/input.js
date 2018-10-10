@@ -75,7 +75,7 @@ function handleCanvasClick(evt, inputX,inputY) {//inputX,inputY,
     handleIntroInput(evt.pageX,evt.pageY);//inputX,inputY,
     return;
   } else if (isOpeningLanguageSelector) {
-    handleOpeningLanguageSelectorInput(inputX,inputY);//inputX,inputY,
+    handleOpeningLanguageSelectorInput(evt.pageX,evt.pageY);//inputX,inputY,
     return;
   } else if (isProfileMenu) {
     handleProfileMenuInput(evt.pageX,evt.pageY);//inputX,inputY,

@@ -10,6 +10,7 @@ let mouseDown = false;
 let mouseUp = true;
 
 function goToMainMenu(i) {
+  console.log("hello goToMainMenu");
   isOpeningLanguageSelector = false;
   language = languageSelectorButtonList[i].language;
   localStorage.setItem("language", JSON.stringify(language));
@@ -54,7 +55,7 @@ function drawOpeningLanguageSelector() {
   canvasContext.textAlign = "center";
   for (let i = 0; i<languageSelectorButtonList.length; i++) {
 
-    if (inputX >= languageSelectorButtonList[i].x && inputX <= languageSelectorButtonList[i].x + buttonWidth &&
+    if (inputPressed && inputX >= languageSelectorButtonList[i].x && inputX <= languageSelectorButtonList[i].x + buttonWidth &&
       inputY >= languageSelectorButtonList[i].y && inputY <= languageSelectorButtonList[i].y + buttonHeight) {
         canvasContext.drawImage(Images.getImage("menu_button_down"), languageSelectorButtonList[i].x, languageSelectorButtonList[i].y)
       } else {
@@ -66,7 +67,7 @@ function drawOpeningLanguageSelector() {
 }
 
 function handleOpeningLanguageSelectorInput(inputX,inputY) {
-
+  console.log("inputX/Y", inputX,inputY);
   for (let i = 0; i<languageSelectorButtonList.length; i++) {
     if (inputX >= languageSelectorButtonList[i].x && inputX <= languageSelectorButtonList[i].x + buttonWidth &&
       inputY >= languageSelectorButtonList[i].y && inputY <= languageSelectorButtonList[i].y + buttonHeight) {
